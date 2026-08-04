@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<title>Palworld Breeding Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Exo+2:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg-deep:#04060d;
+  --bg-mid:#0a0f1a;
+  --bg-card:#0d1320;
+  --bg-card-hover:#111828;
+  --accent-cyan:#00f0ff;
+  --accent-teal:#00d4aa;
+  --accent-orange:#ff6b2c;
+  --accent-purple:#a855f7;
+  --accent-pink:#f472b6;
+  --accent-gold:#fbbf24;
+  --text-primary:#e8edf5;
+  --text-secondary:#8892a8;
+  --text-dim:#4a5568;
+  --border-glow:rgba(0,240,255,.15);
+  --shadow-cyan:0 0 20px rgba(0,240,255,.1);
+  --shadow-intense:0 0 40px rgba(0,240,255,.15);
+  --glass:rgba(13,19,32,.85);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:100%;height:100%;overflow:hidden;background:var(--bg-deep);font-family:'Exo 2',sans-serif;color:var(--text-primary);-webkit-tap-highlight-color:transparent}
+
+.app{display:flex;flex-direction:column;height:100%;width:100%;max-width:420px;margin:0 auto;background:var(--bg-deep);position:relative}
+
+.app::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:
+  radial-gradient(ellipse at 20% 0%,rgba(0,240,255,.06) 0%,transparent 50%),
+  radial-gradient(ellipse at 80% 100%,rgba(168,85,247,.04) 0%,transparent 50%),
+  radial-gradient(ellipse at 50% 50%,rgba(0,212,170,.02) 0%,transparent 70%);
+pointer-events:none;z-index:0}
+
+.header{position:relative;z-index:10;padding:10px 14px 8px;background:linear-gradient(180deg,rgba(0,240,255,.08) 0%,transparent 100%);border-bottom:1px solid rgba(0,240,255,.15)}
+.header::after{content:'';position:absolute;bottom:0;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,var(--accent-cyan),transparent)}
+
+.logo-area{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:4px}
+.logo-icon{width:28px;height:28px;position:relative}
+.logo-icon svg{width:100%;height:100%}
+.logo-ring{position:absolute;inset:-3px;border:1.5px solid var(--accent-cyan);border-radius:50%;animation:spin 8s linear infinite;border-top-color:transparent;border-left-color:transparent}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.header h1{font-family:'Orbitron',monospace;font-size:13px;font-weight:800;letter-spacing:2px;text-transform:uppercase;background:linear-gradient(135deg,var(--accent-cyan),var(--accent-teal));-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-shadow:0 0 30px rgba(0,240,255,.3)}
+.header .subtitle{font-family:'Rajdhani',sans-serif;font-size:9px;color:var(--text-secondary);letter-spacing:1.5px;text-transform:uppercase;margin-top:1px}
+
+.stats-row{display:flex;justify-content:center;gap:12px;margin-top:6px}
+.stat-pill{display:flex;align-items:center;gap:4px;padding:2px 8px;background:rgba(0,240,255,.08);border:1px solid rgba(0,240,255,.2);border-radius:20px;font-family:'Rajdhani',sans-serif;font-size:9px;font-weight:600;color:var(--accent-cyan)}
+.stat-pill .num{color:#fff;font-weight:700}
+
+.tabs{position:relative;z-index:10;display:flex;background:var(--bg-mid);border-bottom:1px solid rgba(255,255,255,.05);padding:0 4px}
+.tab{flex:1;padding:9px 4px 8px;text-align:center;font-family:'Rajdhani',sans-serif;font-size:10px;font-weight:600;color:var(--text-dim);cursor:pointer;transition:all .25s ease;position:relative;text-transform:uppercase;letter-spacing:1px;user-select:none}
+.tab::after{content:'';position:absolute;bottom:0;left:20%;right:20%;height:2px;background:transparent;border-radius:2px 2px 0 0;transition:all .25s ease}
+.tab.active{color:var(--accent-cyan)}
+.tab.active::after{background:var(--accent-cyan);box-shadow:0 0 12px var(--accent-cyan)}
+.tab:active{transform:scale(.96)}
+
+.content{flex:1;overflow:hidden;position:relative;z-index:5}
+.panel{display:none;height:100%;overflow-y:auto;scrollbar-width:thin;scrollbar-color:rgba(0,240,255,.3) transparent;padding:6px 8px 20px}
+.panel.active{display:block}
+.panel::-webkit-scrollbar{width:3px}
+.panel::-webkit-scrollbar-track{background:transparent}
+.panel::-webkit-scrollbar-thumb{background:linear-gradient(180deg,var(--accent-cyan),var(--accent-purple));border-radius:3px}
+
+.section-header{display:flex;align-items:center;gap:6px;margin:8px 0 6px;padding:4px 0}
+.section-header .icon{width:18px;height:18px;color:var(--accent-cyan)}
+.section-header h2{font-family:'Orbitron',monospace;font-size:10px;font-weight:700;color:var(--accent-cyan);letter-spacing:1.5px;text-transform:uppercase}
+.section-header .line{flex:1;height:1px;background:linear-gradient(90deg,rgba(0,240,255,.3),transparent)}
+
+/* BREEDING CARDS */
+.breed-card{position:relative;background:var(--bg-card);border:1px solid rgba(0,240,255,.1);border-radius:10px;padding:10px;margin-bottom:8px;overflow:hidden;transition:all .2s ease}
+.breed-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(0,240,255,.3),transparent)}
+.breed-card::after{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:linear-gradient(180deg,var(--accent-cyan),var(--accent-purple));border-radius:3px 0 0 3px}
+.breed-card:active{background:var(--bg-card-hover);border-color:rgba(0,240,255,.25)}
+
+.breed-result{display:flex;align-items:center;gap:8px;margin-bottom:8px;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,.04)}
+.breed-result .pal-icon{width:36px;height:36px;border-radius:8px;border:2px solid var(--accent-cyan);background:var(--bg-mid);object-fit:cover;box-shadow:0 0 12px rgba(0,240,255,.2)}
+.breed-result .pal-info{flex:1}
+.breed-result .pal-name{font-family:'Orbitron',monospace;font-size:11px;font-weight:700;color:#fff;letter-spacing:.5px}
+.breed-result .pal-type{font-size:9px;color:var(--text-secondary);margin-top:1px}
+.breed-result .pal-badge{padding:2px 6px;border-radius:4px;font-family:'Rajdhani',sans-serif;font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+
+.breed-flow{display:flex;align-items:center;justify-content:center;gap:4px;padding:4px 0}
+.breed-parent{display:flex;flex-direction:column;align-items:center;gap:3px}
+.breed-parent img{width:28px;height:28px;border-radius:6px;border:1.5px solid rgba(255,255,255,.15);background:var(--bg-mid);object-fit:cover}
+.breed-parent span{font-family:'Rajdhani',sans-serif;font-size:8px;color:var(--text-secondary);text-align:center;max-width:60px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.breed-operator{display:flex;flex-direction:column;align-items:center;gap:2px}
+.breed-plus{font-family:'Orbitron',monospace;font-size:14px;font-weight:900;color:var(--accent-orange)}
+.breed-arrow{font-size:10px;color:var(--accent-teal);animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:.5}50%{opacity:1}}
+
+/* TYPE BADGES */
+.type-fire{background:rgba(239,68,68,.2);color:#fca5a5;border:1px solid rgba(239,68,68,.3)}
+.type-water{background:rgba(59,130,246,.2);color:#93c5fd;border:1px solid rgba(59,130,246,.3)}
+.type-grass{background:rgba(34,197,94,.2);color:#86efac;border:1px solid rgba(34,197,94,.3)}
+.type-electric{background:rgba(234,179,8,.2);color:#fde047;border:1px solid rgba(234,179,8,.3)}
+.type-ice{background:rgba(147,197,253,.2);color:#bfdbfe;border:1px solid rgba(147,197,253,.3)}
+.type-dark{background:rgba(168,85,247,.2);color:#d8b4fe;border:1px solid rgba(168,85,247,.3)}
+.type-dragon{background:rgba(168,85,247,.25);color:#e9d5ff;border:1px solid rgba(168,85,247,.35)}
+.type-ground{background:rgba(217,119,6,.2);color:#fed7aa;border:1px solid rgba(217,119,6,.3)}
+.type-neutral{background:rgba(148,163,184,.15);color:#cbd5e1;border:1px solid rgba(148,163,184,.2)}
+
+/* CALCULATOR */
+.calc-container{padding:4px 0}
+.calc-label{font-family:'Rajdhani',sans-serif;font-size:10px;font-weight:600;color:var(--text-secondary);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:4px;display:flex;align-items:center;gap:4px}
+.calc-label .dot{width:5px;height:5px;border-radius:50%;background:var(--accent-cyan)}
+
+.pal-select{width:100%;padding:10px 32px 10px 10px;background:var(--bg-card);border:1px solid rgba(0,240,255,.15);border-radius:8px;color:var(--text-primary);font-family:'Exo 2',sans-serif;font-size:11px;font-weight:500;appearance:none;-webkit-appearance:none;cursor:pointer;transition:all .2s;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%2300f0ff' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center}
+.pal-select:focus{outline:none;border-color:var(--accent-cyan);box-shadow:var(--shadow-cyan)}
+.pal-select option{background:var(--bg-card);color:var(--text-primary)}
+
+.calc-btn{width:100%;padding:12px;background:linear-gradient(135deg,rgba(0,240,255,.2),rgba(0,212,170,.2));border:1px solid var(--accent-cyan);border-radius:8px;color:var(--accent-cyan);font-family:'Orbitron',monospace;font-size:11px;font-weight:700;cursor:pointer;text-transform:uppercase;letter-spacing:2px;margin-top:12px;transition:all .3s ease;position:relative;overflow:hidden}
+.calc-btn::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--accent-cyan),var(--accent-teal));opacity:0;transition:opacity .3s}
+.calc-btn span{position:relative;z-index:1}
+.calc-btn:active{transform:scale(.97)}
+.calc-btn:active::before{opacity:1}
+.calc-btn:active span{color:var(--bg-deep)}
+
+.result-display{margin-top:14px;display:none}
+.result-display.show{display:block;animation:slideUp .4s ease}
+@keyframes slideUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+.result-card{background:linear-gradient(135deg,rgba(0,240,255,.08),rgba(168,85,247,.06));border:1px solid rgba(0,240,255,.2);border-radius:12px;padding:16px;text-align:center;position:relative;overflow:hidden}
+.result-card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,rgba(0,240,255,.1),transparent 60%);pointer-events:none}
+.result-card .egg-icon{width:56px;height:56px;margin:0 auto 8px;position:relative;animation:float 3s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+.result-card .egg-icon img{width:100%;height:100%;border-radius:50%;border:2px solid var(--accent-cyan);box-shadow:0 0 20px rgba(0,240,255,.3)}
+.result-card .result-name{font-family:'Orbitron',monospace;font-size:14px;font-weight:800;color:#fff;margin-bottom:2px;text-shadow:0 0 20px rgba(0,240,255,.3)}
+.result-card .result-type{font-family:'Rajdhani',sans-serif;font-size:10px;color:var(--text-secondary);letter-spacing:1px}
+.result-card .result-desc{font-size:9px;color:var(--accent-teal);margin-top:6px;font-weight:500}
+
+.result-parents{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:12px;padding-top:12px;border-top:1px solid rgba(255,255,255,.05)}
+.result-parents .rp{display:flex;flex-direction:column;align-items:center;gap:4px}
+.result-parents .rp img{width:32px;height:32px;border-radius:6px;border:1.5px solid rgba(255,255,255,.15);background:var(--bg-mid)}
+.result-parents .rp span{font-family:'Rajdhani',sans-serif;font-size:9px;color:var(--text-secondary)}
+.result-parents .rp-plus{font-family:'Orbitron',monospace;font-size:16px;font-weight:900;color:var(--accent-orange)}
+.result-parents .rp-eq{font-family:'Orbitron',monospace;font-size:12px;color:var(--accent-teal);margin:0 4px}
+
+/* HISTORY */
+.history-empty{text-align:center;padding:40px 20px;color:var(--text-dim)}
+.history-empty .empty-icon{font-size:32px;margin-bottom:8px;opacity:.3}
+.history-empty p{font-family:'Rajdhani',sans-serif;font-size:11px;letter-spacing:1px}
+
+.history-item{display:flex;align-items:center;gap:4px;background:var(--bg-card);border:1px solid rgba(255,255,255,.04);border-radius:8px;padding:6px 8px;margin-bottom:6px;transition:all .2s}
+.history-item:active{background:var(--bg-card-hover)}
+.history-item img{width:22px;height:22px;border-radius:4px;background:var(--bg-mid);object-fit:cover}
+.history-item .h-plus{font-family:'Orbitron',monospace;font-size:10px;color:var(--accent-orange);margin:0 1px}
+.history-item .h-eq{font-family:'Orbitron',monospace;font-size:8px;color:var(--accent-teal);margin:0 2px}
+.history-item .h-result{border:1.5px solid var(--accent-cyan)!important;box-shadow:0 0 8px rgba(0,240,255,.2)}
+.history-item .h-name{font-family:'Rajdhani',sans-serif;font-size:10px;font-weight:600;color:var(--accent-cyan);margin-left:4px;flex:1}
+.history-item .h-time{font-family:'Rajdhani',sans-serif;font-size:8px;color:var(--text-dim)}
+
+.clear-btn{width:100%;padding:10px;background:transparent;border:1px solid rgba(239,68,68,.3);border-radius:8px;color:rgba(239,68,68,.7);font-family:'Rajdhani',sans-serif;font-size:10px;font-weight:600;cursor:pointer;margin-top:10px;text-transform:uppercase;letter-spacing:1px;transition:all .2s}
+.clear-btn:active{background:rgba(239,68,68,.1);border-color:rgba(239,68,68,.5)}
+
+/* SCROLL INDICATOR */
+.scroll-hint{position:absolute;bottom:0;left:0;right:0;height:30px;background:linear-gradient(0deg,var(--bg-deep),transparent);pointer-events:none;z-index:4;display:flex;align-items:flex-end;justify-content:center;padding-bottom:4px}
+.scroll-hint .chevrons{animation:bounce 1.5s ease-in-out infinite;opacity:.4}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(3px)}}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="header">
+    <div class="logo-area">
+      <div class="logo-icon">
+        <svg viewBox="0 0 40 40" fill="none">
+          <circle cx="20" cy="20" r="18" stroke="url(#g1)" stroke-width="2"/>
+          <path d="M12 20c0-4.4 3.6-8 8-8s8 3.6 8 8-3.6 8-8 8" stroke="url(#g2)" stroke-width="1.5" stroke-linecap="round"/>
+          <circle cx="20" cy="20" r="3" fill="url(#g3)"/>
+          <defs>
+            <linearGradient id="g1" x1="0" y1="0" x2="40" y2="40"><stop stop-color="#00f0ff"/><stop offset="1" stop-color="#a855f7"/></linearGradient>
+            <linearGradient id="g2" x1="12" y1="12" x2="28" y2="28"><stop stop-color="#00f0ff"/><stop offset="1" stop-color="#00d4aa"/></linearGradient>
+            <radialGradient id="g3" cx="20" cy="20" r="3"><stop stop-color="#fff"/><stop offset="1" stop-color="#00f0ff"/></radialGradient>
+          </defs>
+        </svg>
+        <div class="logo-ring"></div>
+      </div>
+      <div>
+        <h1>Breeding Guide</h1>
+        <div class="subtitle">Palworld 1.0</div>
+      </div>
+    </div>
+    <div class="stats-row">
+      <div class="stat-pill"><span class="num">299</span> Pals</div>
+      <div class="stat-pill"><span class="num">44,850</span> Combos</div>
+      <div class="stat-pill"><span class="num">1.0</span> Data</div>
+    </div>
+  </div>
+
+  <div class="tabs">
+    <div class="tab active" data-tab="guide">Guide</div>
+    <div class="tab" data-tab="calc">Calculator</div>
+    <div class="tab" data-tab="history">History</div>
+  </div>
+
+  <div class="content">
+    <div class="panel active" id="guide">
+      <div class="section-header">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        <h2>Power Combos</h2>
+        <div class="line"></div>
+      </div>
+      <div id="guideList"></div>
+    </div>
+
+    <div class="panel" id="calc">
+      <div class="calc-container">
+        <div class="calc-label"><div class="dot"></div>Parent 1</div>
+        <select class="pal-select" id="parent1"><option value="">Select a Pal...</option></select>
+
+        <div class="calc-label" style="margin-top:10px"><div class="dot"></div>Parent 2</div>
+        <select class="pal-select" id="parent2"><option value="">Select a Pal...</option></select>
+
+        <button class="calc-btn" id="calcBtn"><span>Calculate Breeding</span></button>
+
+        <div class="result-display" id="resultDisplay">
+          <div class="result-card">
+            <div class="egg-icon"><img id="resultImg" src="" alt=""></div>
+            <div class="result-name" id="resultName"></div>
+            <div class="result-type" id="resultType"></div>
+            <div class="result-desc" id="resultDesc"></div>
+            <div class="result-parents">
+              <div class="rp"><img id="rp1Img" src="" alt=""><span id="rp1Name"></span></div>
+              <div class="rp-plus">+</div>
+              <div class="rp"><img id="rp2Img" src="" alt=""><span id="rp2Name"></span></div>
+              <div class="rp-eq">=</div>
+              <div class="rp"><img class="h-result" id="rpResImg" src="" alt=""><span id="rpResName"></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel" id="history">
+      <div class="section-header">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <h2>Breeding Log</h2>
+        <div class="line"></div>
+      </div>
+      <div id="historyList"></div>
+      <button class="clear-btn" id="clearHistory">Clear History</button>
+    </div>
+  </div>
+</div>
+
+<script>
+"use strict";
+
+const PAL_IMG="https://cdn.paldb.cc/paldeck/pals/";
+
+const PALS=[
+{id:1,name:"Lamball",type:"Neutral",tier:1},{id:2,name:"Chikipi",type:"Neutral",tier:1},
+{id:3,name:"Lifmunk",type:"Grass",tier:1},{id:4,name:"Foxparks",type:"Fire",tier:1},
+{id:5,name:"Fuack",type:"Water",tier:1},{id:6,name:"Sparkit",type:"Electric",tier:1},
+{id:7,name:"Tanzee",type:"Grass",tier:1},{id:8,name:"Rooby",type:"Fire",tier:1},
+{id:9,name:"Pengullet",type:"Ice",tier:1},{id:10,name:"Penking",type:"Ice",tier:2},
+{id:11,name:"Jolthog",type:"Electric",tier:1},{id:12,name:"Jolthog Cryst",type:"Ice",tier:1},
+{id:13,name:"Gumoss",type:"Grass",tier:1},{id:14,name:"Gumoss Flower",type:"Grass",tier:1},
+{id:15,name:"Tocotoco",type:"Fire",tier:1},{id:16,name:"Flopie",type:"Grass",tier:1},
+{id:17,name:"Mossanda",type:"Grass",tier:2},{id:18,name:"Mossanda Lux",type:"Electric",tier:3},
+{id:19,name:"Kimono",type:"Neutral",tier:1},{id:20,name:"Warsect",type:"Ground",tier:2},
+{id:21,name:"Digtoise",type:"Ground",tier:2},{id:22,name:"Teafant",type:"Water",tier:1},
+{id:23,name:"Depresso",type:"Dark",tier:2},{id:24,name:"Cremis",type:"Neutral",tier:1},
+{id:25,name:"Daedream",type:"Dark",tier:1},{id:26,name:"Rushoar",type:"Ground",tier:1},
+{id:27,name:"Foxcicle",type:"Ice",tier:1},{id:28,name:"Pyraquin",type:"Fire",tier:2},
+{id:29,name:"Eikthyrdeer",type:"Neutral",tier:2},{id:30,name:"Eikthyrdeer Terra",type:"Ground",tier:3},
+{id:31,name:"Torchbug",type:"Fire",tier:1},{id:32,name:"Torchbug Jr.",type:"Fire",tier:1},
+{id:33,name:"Arsox",type:"Fire",tier:2},{id:34,name:"Dinossom",type:"Dragon",tier:2},
+{id:35,name:"Dinossom Lux",type:"Electric",tier:3},{id:36,name:"Surfent",type:"Water",tier:2},
+{id:37,name:"Surfent Terra",type:"Ground",tier:3},{id:38,name:"Maraith",type:"Dark",tier:2},
+{id:39,name:"Hangyu",type:"Ground",tier:1},{id:40,name:"Hangyu Cryst",type:"Ice",tier:1},
+{id:41,name:"Bushi",type:"Fire",tier:2},{id:42,name:"Beegarde",type:"Grass",tier:1},
+{id:43,name:"Elizabee",type:"Grass",tier:2},{id:44,name:"Grintale",type:"Neutral",tier:2},
+{id:45,name:"Swee",type:"Ice",tier:1},{id:46,name:"Sweepa",type:"Ice",tier:2},
+{id:47,name:"Chillet",type:"Ice",tier:2},{id:48,name:"Chillet Lux",type:"Electric",tier:3},
+{id:49,name:"Ribbuny",type:"Grass",tier:1},{id:50,name:"Ribbuny Botan",type:"Grass",tier:1},
+{id:51,name:"Incineram",type:"Dark",tier:2},{id:52,name:"Incineram Noct",type:"Dark",tier:3},
+{id:53,name:"Cinnamoth",type:"Grass",tier:2},{id:54,name:"Arbolo",type:"Water",tier:2},
+{id:55,name:"Torterra",type:"Ground",tier:2},{id:56,name:"Broncherry",type:"Grass",tier:2},
+{id:57,name:"Broncherry Aqua",type:"Water",tier:3},{id:58,name:"Petallia",type:"Grass",tier:2},
+{id:59,name:"Melpaca",type:"Neutral",tier:1},{id:60,name:"Eternal Pyre",type:"Fire",tier:2},
+{id:61,name:"Reindrix",type:"Ice",tier:2},{id:62,name:"Camazotz",type:"Dark",tier:2},
+{id:63,name:"Dazzi",type:"Electric",tier:1},{id:64,name:"Reptyro",type:"Fire",tier:2},
+{id:65,name:"Reptyro Cryst",type:"Ice",tier:3},{id:66,name:"Kingpaca",type:"Neutral",tier:2},
+{id:67,name:"Kingpaca Cryst",type:"Ice",tier:3},{id:68,name:"Loupmoon",type:"Dark",tier:2},
+{id:69,name:"Gobfin",type:"Water",tier:1},{id:70,name:"Gobfin Ignis",type:"Fire",tier:1},
+{id:71,name:"Hoocrates",type:"Dark",tier:1},{id:72,name:"Teafant",type:"Water",tier:1},
+{id:73,name:"Dumud",type:"Ground",tier:1},{id:74,name:"Tocotoco",type:"Fire",tier:1},
+{id:75,name:"Fuack",type:"Water",tier:1},{id:76,name:"Astegon",type:"Dragon",tier:4},
+{id:77,name:"Relaxaurus",type:"Dragon",tier:3},{id:78,name:"Relaxaurus Lux",type:"Electric",tier:4},
+{id:79,name:"Katress",type:"Dark",tier:2},{id:80,name:"Katress Ignis",type:"Fire",tier:3},
+{id:81,name:"Wixen",type:"Fire",tier:2},{id:82,name:"Wixen Noct",type:"Dark",tier:3},
+{id:83,name:"Blazehowl",type:"Fire",tier:2},{id:84,name:"Blazehowl Noct",type:"Dark",tier:3},
+{id:85,name:"Robinquill",type:"Grass",tier:2},{id:86,name:"Robinquill Terra",type:"Ground",tier:3},
+{id:87,name:"Felbat",type:"Dark",tier:2},{id:88,name:"Felbat Cryst",type:"Ice",tier:3},
+{id:89,name:"Varpent",type:"Dark",tier:2},{id:90,name:"Grizzbolt",type:"Electric",tier:5},
+{id:91,name:"Rayhound",type:"Electric",tier:3},{id:92,name:"Rayhound Cryst",type:"Ice",tier:3},
+{id:93,name:"Kitsun",type:"Fire",tier:3},{id:94,name:"Kitsun Noct",type:"Dark",tier:4},
+{id:95,name:"Lunaris",type:"Neutral",tier:3},{id:96,name:"Majesty",type:"Dark",tier:3},
+{id:97,name:"Blazamut",type:"Fire",tier:4},{id:98,name:"Blazamut Ryu",type:"Fire",tier:5},
+{id:99,name:"Jormuntide",type:"Dragon",tier:4},{id:100,name:"Jormuntide Ignis",type:"Fire",tier:5},
+{id:101,name:"Ragnahawk",type:"Fire",tier:3},{id:102,name:"Shadowbeak",type:"Dark",tier:5},
+{id:103,name:"Orserk",type:"Dragon",tier:5},{id:104,name:"Faleris",type:"Fire",tier:4},
+{id:105,name:"Suzaku",type:"Fire",tier:4},{id:106,name:"Suzaku Aqua",type:"Water",tier:4},
+{id:107,name:"Jetragon",type:"Dragon",tier:5},{id:108,name:"Frostallion",type:"Ice",tier:5},
+{id:109,name:"Frostallion Noct",type:"Dark",tier:5},{id:110,name:"Paladius",type:"Neutral",tier:5},
+{id:111,name:"Necromus",type:"Dark",tier:5},{id:112,name:"Bellanoir",type:"Dark",tier:5},
+{id:113,name:"Bellanoir Libero",type:"Dark",tier:5},{id:114,name:"Sibelyx",type:"Ice",tier:4},
+{id:115,name:"Helzephyr",type:"Dark",tier:3},{id:116,name:"Helzephyr Lux",type:"Electric",tier:4},
+{id:117,name:"Neptilius",type:"Water",tier:4},{id:118,name:"Selyne",type:"Dark",tier:5},
+{id:119,name:"Bastigor",type:"Ice",tier:5},{id:120,name:"Xenovader",type:"Dark",tier:5},
+{id:121,name:"Xenogard",type:"Dragon",tier:5},{id:122,name:"Xenolord",type:"Dark",tier:5},
+{id:123,name:"Aegidron",type:"Dragon",tier:4},{id:124,name:"Ophydia",type:"Dark",tier:4},
+{id:125,name:"Celesdir",type:"Dragon",tier:4},{id:126,name:"Celesdir Noct",type:"Dark",tier:5},
+{id:127,name:"Gildane",type:"Dragon",tier:3},{id:128,name:"Starryon",type:"Neutral",tier:3},
+{id:129,name:"Starryon Primo",type:"Neutral",tier:4},{id:130,name:"Sekhmet",type:"Fire",tier:3},
+{id:131,name:"Solenne",type:"Fire",tier:4},{id:132,name:"Flaracle",type:"Fire",tier:3},
+{id:133,name:"Knocklem",type:"Ground",tier:4},{id:134,name:"Renjishi",type:"Fire",tier:4},
+{id:135,name:"Yakumo",type:"Water",tier:3},{id:136,name:"Nyafia",type:"Dark",tier:3},
+{id:137,name:"Elphidran",type:"Dragon",tier:2},{id:138,name:"Anubis",type:"Ground",tier:3},
+{id:139,name:"Mimog",type:"Neutral",tier:5},{id:140,name:"Lyleen",type:"Grass",tier:3},
+{id:141,name:"Lyleen Noct",type:"Dark",tier:4},{id:142,name:"Dandilord",type:"Fire",tier:5},
+{id:143,name:"Hartalis",type:"Dragon",tier:5},{id:144,name:"Shaolong",type:"Dragon",tier:5},
+{id:145,name:"Panthalus",type:"Ice",tier:5},{id:146,name:"Silvance",type:"Dragon",tier:5}
+];
+
+const COMBOS=[
+{r:"Anubis",p1:"Whalaska",p2:"Lyleen",desc:"Handiwork Lv6 + Mining Lv6",tier:"meta"},
+{r:"Jetragon",p1:"Jetragon",p2:"Jetragon",desc:"Legendary Dragon Mount",tier:"legend"},
+{r:"Frostallion",p1:"Frostallion",p2:"Frostallion",desc:"Legendary Ice Mount",tier:"legend"},
+{r:"Frostallion Noct",p1:"Frostallion",p2:"Helzephyr",desc:"Breeding-Only Dark Variant",tier:"legend"},
+{r:"Orserk",p1:"Orserk",p2:"Orserk",desc:"Electricity Lv4 + Transport Lv3",tier:"legend"},
+{r:"Grizzbolt",p1:"Grizzbolt",p2:"Grizzbolt",desc:"Electricity Lv4 + Transport Lv3",tier:"legend"},
+{r:"Shadowbeak",p1:"Shadowbeak",p2:"Shadowbeak",desc:"Dark Damage Amplifier",tier:"legend"},
+{r:"Bellanoir",p1:"Bellanoir",p2:"Bellanoir",desc:"Raid Boss Dark",tier:"legend"},
+{r:"Sibelyx",p1:"Nitewing",p2:"Ragnahawk",desc:"High Quality Cloth Drops",tier:"meta"},
+{r:"Jormuntide",p1:"Univolt Cryst",p2:"Bellanoir",desc:"Watering Lv4",tier:"meta"},
+{r:"Jormuntide Ignis",p1:"Blazehowl",p2:"Jormuntide",desc:"Kindling Lv4",tier:"meta"},
+{r:"Astegon",p1:"Jormuntide",p2:"Flaracle",desc:"Mining Lv4 + Combat",tier:"meta"},
+{r:"Blazamut",p1:"Warsect Terra",p2:"Jormuntide Ignis",desc:"Kindling Lv4 + Mining Lv3",tier:"meta"},
+{r:"Solenne",p1:"Jormuntide Ignis",p2:"Flaracle",desc:"Handiwork Lv8 - Best in Game",tier:"meta"},
+{r:"Knocklem",p1:"Solenne",p2:"Lyleen",desc:"Transporting Lv4",tier:"strong"},
+{r:"Renjishi",p1:"Blazamut",p2:"Neptilius",desc:"Premier Kindling Worker",tier:"strong"},
+{r:"Ophydia",p1:"Jormuntide Ignis",p2:"Renjishi",desc:"Planting + Watering",tier:"strong"},
+{r:"Celesdir",p1:"Eikthyrdeer Terra",p2:"Gildane",desc:"Lumbering Lv4",tier:"strong"},
+{r:"Starryon Primo",p1:"Starryon",p2:"Celesdir",desc:"Gathering Lv4 - Top Tier",tier:"strong"},
+{r:"Celesdir Noct",p1:"Kitsun Noct",p2:"Celesdir",desc:"Best Lumbering Lv10 Condensed",tier:"meta"},
+{r:"Kitsun",p1:"Rooby",p2:"Pierdon Cryst",desc:"Fire Mount + Temp Immunity",tier:"strong"},
+{r:"Kitsun Noct",p1:"Kitsun",p2:"Nyafia",desc:"Dark Element Variant",tier:"strong"},
+{r:"Lunaris",p1:"Celaray",p2:"Warsect",desc:"Handiwork Lv3 + Carry Bonus",tier:"strong"},
+{r:"Univolt",p1:"Fuack",p2:"Digtoise",desc:"Electric Mount Lv2",tier:"good"},
+{r:"Suzaku",p1:"Grintale",p2:"Solenne",desc:"Top Fire Flying Mount",tier:"meta"},
+{r:"Flaracle",p1:"Jormuntide",p2:"Jormuntide Ignis",desc:"Planting + Harvesting",tier:"strong"},
+{r:"Helzephyr",p1:"Suzaku",p2:"Reptyro",desc:"Dark Flying Mount",tier:"strong"},
+{r:"Relaxaurus",p1:"Digtoise",p2:"Warsect Terra",desc:"Dragon + Water Lv2",tier:"good"},
+{r:"Lyleen",p1:"Cinnamoth",p2:"Mossanda",desc:"Grass Healer + Gathering",tier:"good"},
+{r:"Faleris",p1:"Faleris",p2:"Faleris",desc:"Kindling Lv3 + Transport Lv3",tier:"legend"},
+{r:"Aegidron",p1:"Orserk",p2:"Shaolong",desc:"High-Stat Combat Dragon",tier:"strong"},
+{r:"Gildane",p1:"Jormuntide",p2:"Sekhmet",desc:"Intermediate for Celesdir",tier:"good"}
+];
+
+const TIER_COLORS={legend:"#fbbf24",meta:"#00f0ff",strong:"#a855f7",good:"#00d4aa"};
+const TIER_BG={legend:"rgba(251,191,36,.12)",meta:"rgba(0,240,255,.1)",strong:"rgba(168,85,247,.1)",good:"rgba(0,212,170,.08)"};
+const TIER_BORDER={legend:"rgba(251,191,36,.35)",meta:"rgba(0,240,255,.3)",strong:"rgba(168,85,247,.3)",good:"rgba(0,212,170,.25)"};
+
+function palImg(n){return PAL_IMG+n.toLowerCase().replace(/\s+/g,'-').replace(/[^a-z0-9-]/g,'')+'.webp'}
+function typeClass(t){return 'type-'+(t||'neutral').toLowerCase().split('/')[0]}
+function getP(n){return PALS.find(p=>p.name===n)||{id:100,type:'Neutral',tier:3}}
+
+let hist=JSON.parse(localStorage.getItem('pw_hist')||'[]');
+
+function renderGuide(){
+  const el=document.getElementById('guideList');
+  el.innerHTML=COMBOS.map(c=>{
+    const rp=getP(c.r),p1=getP(c.p1),p2=getP(c.p2);
+    const tc=typeClass(rp.type);
+    return `<div class="breed-card" style="border-color:${TIER_BORDER[c.tier]};background:linear-gradient(135deg,${TIER_BG[c.tier]},var(--bg-card))">
+      <div class="breed-result">
+        <img class="pal-icon" src="${palImg(c.r)}" alt="${c.r}" onerror="this.style.background='var(--bg-mid)';this.style.border='2px solid var(--accent-cyan)'">
+        <div class="pal-info">
+          <div class="pal-name">${c.r}</div>
+          <div class="pal-type">${c.desc}</div>
+        </div>
+        <div class="pal-badge ${tc}" style="color:${TIER_COLORS[c.tier]};border-color:${TIER_COLORS[c.tier]}40;background:${TIER_COLORS[c.tier]}15">${c.tier.toUpperCase()}</div>
+      </div>
+      <div class="breed-flow">
+        <div class="breed-parent">
+          <img src="${palImg(c.p1)}" alt="${c.p1}" onerror="this.style.opacity=.3">
+          <span>${c.p1}</span>
+        </div>
+        <div class="breed-operat or"><div class="breed-plus">+</div></div>
+        <div class="breed-parent">
+          <img src="${palImg(c.p2)}" alt="${c.p2}" onerror="this.style.opacity=.3">
+          <span>${c.p2}</span>
+        </div>
+        <div class="breed-operator"><div class="breed-arrow">&#10132;</div></div>
+        <div class="breed-parent">
+          <img src="${palImg(c.r)}" alt="${c.r}" onerror="this.style.opacity=.3">
+          <span>${c.r}</span>
+        </div>
+      </div>
+    </div>`}).join('');
+}
+
+function populateSelects(){
+  const sorted=[...PALS].sort((a,b)=>a.name.localeCompare(b.name));
+  const unique=[...new Map(sorted.map(p=>[p.name,p])).values()];
+  const opts='<option value="">Select a Pal...</option>'+unique.map(p=>
+    `<option value="${p.name}">${p.name} (${p.type})</option>`
+  ).join('');
+  document.getElementById('parent1').innerHTML=opts;
+  document.getElementById('parent2').innerHTML=opts;
+}
+
+function calcResult(a,b){
+  for(const c of COMBOS){
+    if((c.p1===a&&c.p2===b)||(c.p1===b&&c.p2===a))return c;
+  }
+  if(a===b)return{r:a,p1:a,p2:b,desc:getP(a).type+' - Same Species',tier:'meta'};
+  const idA=getP(a).id,idB=getP(b).id;
+  const avg=Math.floor((idA+idB+1)/2);
+  let best=PALS[0],bestD=Math.abs(avg-best.id);
+  for(const p of PALS){const d=Math.abs(avg-p.id);if(d<bestD){bestD=d;best=p}}
+  return{r:best.name,p1:a,p2:b,desc:best.type,tier:'good'};
+}
+
+function calculate(){
+  const a=document.getElementById('parent1').value;
+  const b=document.getElementById('parent2').value;
+  if(!a||!b)return;
+  const res=calcResult(a,b);
+  const rp=getP(res.r);
+  document.getElementById('resultImg').src=palImg(res.r);
+  document.getElementById('resultName').textContent=res.r;
+  document.getElementById('resultType').textContent=rp.type;
+  document.getElementById('resultDesc').textContent=res.desc;
+  document.getElementById('rp1Img').src=palImg(a);
+  document.getElementById('rp1Name').textContent=a;
+  document.getElementById('rp2Img').src=palImg(b);
+  document.getElementById('rp2Name').textContent=b;
+  document.getElementById('rpResImg').src=palImg(res.r);
+  document.getElementById('rpResName').textContent=res.r;
+  const d=document.getElementById('resultDisplay');
+  d.classList.remove('show');void d.offsetWidth;d.classList.add('show');
+  hist.unshift({a,b,r:res.r,t:Date.now()});
+  if(hist.length>50)hist.pop();
+  localStorage.setItem('pw_hist',JSON.stringify(hist));
+  renderHistory();
+}
+
+function renderHistory(){
+  const el=document.getElementById('historyList');
+  if(!hist.length){
+    el.innerHTML='<div class="history-empty"><div class="empty-icon">&#129513;</div><p>No breeding history yet</p></div>';
+    return;
+  }
+  el.innerHTML=hist.map(h=>{
+    const now=new Date(h.t);
+    const ts=now.getHours().toString().padStart(2,'0')+':'+now.getMinutes().toString().padStart(2,'0');
+    return `<div class="history-item">
+      <img src="${palImg(h.a)}" alt="${h.a}">
+      <div class="h-plus">+</div>
+      <img src="${palImg(h.b)}" alt="${h.b}">
+      <div class="h-eq">=</div>
+      <img class="h-result" src="${palImg(h.r)}" alt="${h.r}">
+      <div class="h-name">${h.r}</div>
+      <div class="h-time">${ts}</div>
+    </div>`}).join('');
+}
+
+document.querySelectorAll('.tab').forEach(t=>{
+  t.addEventListener('click',()=>{
+    document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+    document.querySelectorAll('.panel').forEach(x=>x.classList.remove('active'));
+    t.classList.add('active');
+    document.getElementById(t.dataset.tab).classList.add('active');
+  });
+});
+
+document.getElementById('calcBtn').addEventListener('click',calculate);
+document.getElementById('parent1').addEventListener('change',()=>{
+  if(document.getElementById('parent1').value&&document.getElementById('parent2').value)calculate();
+});
+document.getElementById('parent2').addEventListener('change',()=>{
+  if(document.getElementById('parent1').value&&document.getElementById('parent2').value)calculate();
+});
+document.getElementById('clearHistory').addEventListener('click',()=>{
+  hist=[];localStorage.setItem('pw_hist','[]');renderHistory();
+});
+
+renderGuide();populateSelects();renderHistory();
+</script>
+</body>
+</html>
