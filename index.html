@@ -8,321 +8,517 @@
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Exo+2:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg-deep:#04060d;
-  --bg-mid:#0a0f1a;
-  --bg-card:#0d1320;
-  --bg-card-hover:#111828;
-  --accent-cyan:#00f0ff;
-  --accent-teal:#00d4aa;
-  --accent-orange:#ff6b2c;
-  --accent-purple:#a855f7;
-  --accent-pink:#f472b6;
-  --accent-gold:#fbbf24;
-  --text-primary:#e8edf5;
-  --text-secondary:#8892a8;
-  --text-dim:#4a5568;
-  --border-glow:rgba(0,240,255,.15);
-  --shadow-cyan:0 0 20px rgba(0,240,255,.1);
-  --shadow-intense:0 0 40px rgba(0,240,255,.15);
-  --glass:rgba(13,19,32,.85);
+--bg:#050a14;--bg2:#0a1224;--bg3:#0f1a30;--bg4:#152040;
+--cyan:#00e5ff;--teal:#00d4aa;--orange:#ff6b2c;--purple:#a855f7;
+--pink:#f472b6;--gold:#fbbf24;--red:#ef4444;
+--t1:#e8edf5;--t2:#8892a8;--t3:#4a5568;
+--fire:#ef4444;--water:#3b82f6;--grass:#22c55e;--electric:#eab308;
+--ice:#93c5fd;--dark:#a855f7;--dragon:#c084fc;--ground:#d97706;--neutral:#94a3b8;
 }
-*{margin:0;padding:0;box-sizing:border-box}
-html,body{width:100%;height:100%;overflow:hidden;background:var(--bg-deep);font-family:'Exo 2',sans-serif;color:var(--text-primary);-webkit-tap-highlight-color:transparent}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-family:'Exo 2',sans-serif;color:var(--t1)}
 
-.app{display:flex;flex-direction:column;height:100%;width:100%;max-width:420px;margin:0 auto;background:var(--bg-deep);position:relative}
+.app{display:flex;flex-direction:column;height:100%;width:100%;max-width:420px;margin:0 auto;position:relative}
+.app::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 0%,rgba(0,229,255,.05),transparent 50%),radial-gradient(ellipse at 80% 100%,rgba(168,85,247,.03),transparent 50%);pointer-events:none;z-index:0}
 
-.app::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:
-  radial-gradient(ellipse at 20% 0%,rgba(0,240,255,.06) 0%,transparent 50%),
-  radial-gradient(ellipse at 80% 100%,rgba(168,85,247,.04) 0%,transparent 50%),
-  radial-gradient(ellipse at 50% 50%,rgba(0,212,170,.02) 0%,transparent 70%);
-pointer-events:none;z-index:0}
-
-.header{position:relative;z-index:10;padding:10px 14px 8px;background:linear-gradient(180deg,rgba(0,240,255,.08) 0%,transparent 100%);border-bottom:1px solid rgba(0,240,255,.15)}
-.header::after{content:'';position:absolute;bottom:0;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,var(--accent-cyan),transparent)}
-
-.logo-area{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:4px}
-.logo-icon{width:28px;height:28px;position:relative}
-.logo-icon svg{width:100%;height:100%}
-.logo-ring{position:absolute;inset:-3px;border:1.5px solid var(--accent-cyan);border-radius:50%;animation:spin 8s linear infinite;border-top-color:transparent;border-left-color:transparent}
+/* HEADER */
+.hdr{position:relative;z-index:20;padding:8px 12px 6px;background:linear-gradient(180deg,rgba(0,229,255,.07),transparent);border-bottom:1px solid rgba(0,229,255,.12)}
+.hdr::after{content:'';position:absolute;bottom:0;left:15%;right:15%;height:1px;background:linear-gradient(90deg,transparent,var(--cyan),transparent)}
+.hdr-row{display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:7px}
+.logo-ico{width:26px;height:26px;position:relative}
+.logo-ico svg{width:100%;height:100%}
+.logo-ring{position:absolute;inset:-2px;border:1.5px solid var(--cyan);border-radius:50%;animation:spin 8s linear infinite;border-top-color:transparent;border-left-color:transparent}
 @keyframes spin{to{transform:rotate(360deg)}}
+.hdr h1{font-family:'Orbitron',monospace;font-size:12px;font-weight:800;letter-spacing:2px;background:linear-gradient(135deg,var(--cyan),var(--teal));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hdr .sub{font-family:'Rajdhani',sans-serif;font-size:8px;color:var(--t2);letter-spacing:1.5px;text-transform:uppercase}
+.stats{display:flex;gap:6px;margin-top:4px}
+.stat{padding:2px 7px;background:rgba(0,229,255,.07);border:1px solid rgba(0,229,255,.18);border-radius:12px;font-family:'Rajdhani',sans-serif;font-size:8px;font-weight:600;color:var(--cyan)}
+.stat b{color:#fff}
+.hdr-btn{width:28px;height:28px;display:flex;align-items:center;justify-content:center;background:rgba(0,229,255,.1);border:1px solid rgba(0,229,255,.2);border-radius:6px;color:var(--cyan);cursor:pointer;transition:all .2s}
+.hdr-btn:active{transform:scale(.9);background:rgba(0,229,255,.2)}
+.hdr-btn svg{width:14px;height:14px}
 
-.header h1{font-family:'Orbitron',monospace;font-size:13px;font-weight:800;letter-spacing:2px;text-transform:uppercase;background:linear-gradient(135deg,var(--accent-cyan),var(--accent-teal));-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-shadow:0 0 30px rgba(0,240,255,.3)}
-.header .subtitle{font-family:'Rajdhani',sans-serif;font-size:9px;color:var(--text-secondary);letter-spacing:1.5px;text-transform:uppercase;margin-top:1px}
+/* TABS */
+.tabs{position:relative;z-index:20;display:flex;background:var(--bg2);border-bottom:1px solid rgba(255,255,255,.04);overflow:hidden}
+.tab{flex:1;padding:8px 2px 7px;text-align:center;font-family:'Rajdhani',sans-serif;font-size:9px;font-weight:600;color:var(--t3);cursor:pointer;transition:all .2s;position:relative;text-transform:uppercase;letter-spacing:1px;user-select:none}
+.tab::after{content:'';position:absolute;bottom:0;left:25%;right:25%;height:2px;background:transparent;border-radius:2px 2px 0 0;transition:all .2s}
+.tab.on{color:var(--cyan)}
+.tab.on::after{background:var(--cyan);box-shadow:0 0 10px var(--cyan)}
+.tab:active{transform:scale(.95)}
 
-.stats-row{display:flex;justify-content:center;gap:12px;margin-top:6px}
-.stat-pill{display:flex;align-items:center;gap:4px;padding:2px 8px;background:rgba(0,240,255,.08);border:1px solid rgba(0,240,255,.2);border-radius:20px;font-family:'Rajdhani',sans-serif;font-size:9px;font-weight:600;color:var(--accent-cyan)}
-.stat-pill .num{color:#fff;font-weight:700}
-
-.tabs{position:relative;z-index:10;display:flex;background:var(--bg-mid);border-bottom:1px solid rgba(255,255,255,.05);padding:0 4px}
-.tab{flex:1;padding:9px 4px 8px;text-align:center;font-family:'Rajdhani',sans-serif;font-size:10px;font-weight:600;color:var(--text-dim);cursor:pointer;transition:all .25s ease;position:relative;text-transform:uppercase;letter-spacing:1px;user-select:none}
-.tab::after{content:'';position:absolute;bottom:0;left:20%;right:20%;height:2px;background:transparent;border-radius:2px 2px 0 0;transition:all .25s ease}
-.tab.active{color:var(--accent-cyan)}
-.tab.active::after{background:var(--accent-cyan);box-shadow:0 0 12px var(--accent-cyan)}
-.tab:active{transform:scale(.96)}
-
+/* PANELS */
 .content{flex:1;overflow:hidden;position:relative;z-index:5}
-.panel{display:none;height:100%;overflow-y:auto;scrollbar-width:thin;scrollbar-color:rgba(0,240,255,.3) transparent;padding:6px 8px 20px}
-.panel.active{display:block}
-.panel::-webkit-scrollbar{width:3px}
-.panel::-webkit-scrollbar-track{background:transparent}
-.panel::-webkit-scrollbar-thumb{background:linear-gradient(180deg,var(--accent-cyan),var(--accent-purple));border-radius:3px}
+.pnl{display:none;height:100%;overflow-y:auto;scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:rgba(0,229,255,.25) transparent;padding:6px 8px 40px}
+.pnl.on{display:block}
+.pnl::-webkit-scrollbar{width:2px}
+.pnl::-webkit-scrollbar-thumb{background:linear-gradient(180deg,var(--cyan),var(--purple));border-radius:2px}
 
-.section-header{display:flex;align-items:center;gap:6px;margin:8px 0 6px;padding:4px 0}
-.section-header .icon{width:18px;height:18px;color:var(--accent-cyan)}
-.section-header h2{font-family:'Orbitron',monospace;font-size:10px;font-weight:700;color:var(--accent-cyan);letter-spacing:1.5px;text-transform:uppercase}
-.section-header .line{flex:1;height:1px;background:linear-gradient(90deg,rgba(0,240,255,.3),transparent)}
+/* SECTION HEADER */
+.sec{display:flex;align-items:center;gap:5px;margin:6px 0 5px;padding:3px 0}
+.sec svg{width:14px;height:14px;color:var(--cyan)}
+.sec h2{font-family:'Orbitron',monospace;font-size:9px;font-weight:700;color:var(--cyan);letter-spacing:1.5px;text-transform:uppercase}
+.sec .ln{flex:1;height:1px;background:linear-gradient(90deg,rgba(0,229,255,.25),transparent)}
 
-/* BREEDING CARDS */
-.breed-card{position:relative;background:var(--bg-card);border:1px solid rgba(0,240,255,.1);border-radius:10px;padding:10px;margin-bottom:8px;overflow:hidden;transition:all .2s ease}
-.breed-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(0,240,255,.3),transparent)}
-.breed-card::after{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:linear-gradient(180deg,var(--accent-cyan),var(--accent-purple));border-radius:3px 0 0 3px}
-.breed-card:active{background:var(--bg-card-hover);border-color:rgba(0,240,255,.25)}
+/* SEARCH & FILTERS */
+.search-wrap{position:relative;margin-bottom:6px}
+.search{width:100%;padding:8px 10px 8px 30px;background:var(--bg3);border:1px solid rgba(0,229,255,.12);border-radius:8px;color:var(--t1);font-family:'Exo 2',sans-serif;font-size:10px;outline:none;transition:all .2s}
+.search:focus{border-color:var(--cyan);box-shadow:0 0 12px rgba(0,229,255,.1)}
+.search::placeholder{color:var(--t3)}
+.search-icon{position:absolute;left:9px;top:50%;transform:translateY(-50%);width:13px;height:13px;color:var(--t3)}
 
-.breed-result{display:flex;align-items:center;gap:8px;margin-bottom:8px;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,.04)}
-.breed-result .pal-icon{width:36px;height:36px;border-radius:8px;border:2px solid var(--accent-cyan);background:var(--bg-mid);object-fit:cover;box-shadow:0 0 12px rgba(0,240,255,.2)}
-.breed-result .pal-info{flex:1}
-.breed-result .pal-name{font-family:'Orbitron',monospace;font-size:11px;font-weight:700;color:#fff;letter-spacing:.5px}
-.breed-result .pal-type{font-size:9px;color:var(--text-secondary);margin-top:1px}
-.breed-result .pal-badge{padding:2px 6px;border-radius:4px;font-family:'Rajdhani',sans-serif;font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+.filters{display:flex;gap:4px;margin-bottom:6px;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;padding-bottom:2px}
+.filters::-webkit-scrollbar{display:none}
+.fbtn{flex-shrink:0;padding:4px 8px;border-radius:12px;font-family:'Rajdhani',sans-serif;font-size:8px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;cursor:pointer;transition:all .2s;border:1px solid rgba(255,255,255,.08);background:var(--bg3);color:var(--t2)}
+.fbtn.on{color:#fff}
+.fbtn:active{transform:scale(.92)}
+.fbtn.f-fire.on{background:rgba(239,68,68,.25);border-color:rgba(239,68,68,.4);color:#fca5a5}
+.fbtn.f-water.on{background:rgba(59,130,246,.25);border-color:rgba(59,130,246,.4);color:#93c5fd}
+.fbtn.f-grass.on{background:rgba(34,197,94,.25);border-color:rgba(34,197,94,.4);color:#86efac}
+.fbtn.f-electric.on{background:rgba(234,179,8,.25);border-color:rgba(234,179,8,.4);color:#fde047}
+.fbtn.f-ice.on{background:rgba(147,197,253,.25);border-color:rgba(147,197,253,.4);color:#bfdbfe}
+.fbtn.f-dark.on{background:rgba(168,85,247,.25);border-color:rgba(168,85,247,.4);color:#d8b4fe}
+.fbtn.f-dragon.on{background:rgba(192,132,252,.25);border-color:rgba(192,132,252,.4);color:#e9d5ff}
+.fbtn.f-ground.on{background:rgba(217,119,6,.25);border-color:rgba(217,119,6,.4);color:#fed7aa}
+.fbtn.f-neutral.on{background:rgba(148,163,184,.2);border-color:rgba(148,163,184,.3);color:#cbd5e1}
+.fbtn.f-legend.on{background:rgba(251,191,36,.2);border-color:rgba(251,191,36,.4);color:#fde047}
+.fbtn.f-meta.on{background:rgba(0,229,255,.15);border-color:rgba(0,229,255,.3);color:var(--cyan)}
+.fbtn.f-strong.on{background:rgba(168,85,247,.2);border-color:rgba(168,85,247,.3);color:#d8b4fe}
+.fbtn.f-fav.on{background:rgba(244,114,182,.2);border-color:rgba(244,114,182,.3);color:var(--pink)}
 
-.breed-flow{display:flex;align-items:center;justify-content:center;gap:4px;padding:4px 0}
-.breed-parent{display:flex;flex-direction:column;align-items:center;gap:3px}
-.breed-parent img{width:28px;height:28px;border-radius:6px;border:1.5px solid rgba(255,255,255,.15);background:var(--bg-mid);object-fit:cover}
-.breed-parent span{font-family:'Rajdhani',sans-serif;font-size:8px;color:var(--text-secondary);text-align:center;max-width:60px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.breed-operator{display:flex;flex-direction:column;align-items:center;gap:2px}
-.breed-plus{font-family:'Orbitron',monospace;font-size:14px;font-weight:900;color:var(--accent-orange)}
-.breed-arrow{font-size:10px;color:var(--accent-teal);animation:pulse 2s ease-in-out infinite}
-@keyframes pulse{0%,100%{opacity:.5}50%{opacity:1}}
+.result-count{font-family:'Rajdhani',sans-serif;font-size:8px;color:var(--t3);text-align:center;margin-bottom:4px;letter-spacing:1px}
 
-/* TYPE BADGES */
-.type-fire{background:rgba(239,68,68,.2);color:#fca5a5;border:1px solid rgba(239,68,68,.3)}
-.type-water{background:rgba(59,130,246,.2);color:#93c5fd;border:1px solid rgba(59,130,246,.3)}
-.type-grass{background:rgba(34,197,94,.2);color:#86efac;border:1px solid rgba(34,197,94,.3)}
-.type-electric{background:rgba(234,179,8,.2);color:#fde047;border:1px solid rgba(234,179,8,.3)}
-.type-ice{background:rgba(147,197,253,.2);color:#bfdbfe;border:1px solid rgba(147,197,253,.3)}
-.type-dark{background:rgba(168,85,247,.2);color:#d8b4fe;border:1px solid rgba(168,85,247,.3)}
-.type-dragon{background:rgba(168,85,247,.25);color:#e9d5ff;border:1px solid rgba(168,85,247,.35)}
-.type-ground{background:rgba(217,119,6,.2);color:#fed7aa;border:1px solid rgba(217,119,6,.3)}
-.type-neutral{background:rgba(148,163,184,.15);color:#cbd5e1;border:1px solid rgba(148,163,184,.2)}
+/* BREED CARDS */
+.bc{position:relative;background:var(--bg3);border:1px solid rgba(0,229,255,.08);border-radius:10px;padding:8px;margin-bottom:6px;overflow:hidden;transition:all .2s;animation:cardIn .3s ease}
+@keyframes cardIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.bc::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(0,229,255,.2),transparent)}
+.bc::after{content:'';position:absolute;top:0;left:0;width:3px;height:100%;border-radius:3px 0 0 3px}
+.bc.t-legend::after{background:linear-gradient(180deg,var(--gold),var(--orange))}
+.bc.t-meta::after{background:linear-gradient(180deg,var(--cyan),var(--teal))}
+.bc.t-strong::after{background:linear-gradient(180deg,var(--purple),var(--pink))}
+.bc.t-good::after{background:linear-gradient(180deg,var(--teal),var(--grass))}
+.bc:active{background:var(--bg4);transform:scale(.98)}
+
+.bc-top{display:flex;align-items:center;gap:6px;margin-bottom:6px;padding-bottom:6px;border-bottom:1px solid rgba(255,255,255,.03)}
+.bc-icon{width:34px;height:34px;border-radius:7px;border:2px solid var(--cyan);background:var(--bg2);object-fit:cover;box-shadow:0 0 10px rgba(0,229,255,.15)}
+.bc-info{flex:1;min-width:0}
+.bc-name{font-family:'Orbitron',monospace;font-size:10px;font-weight:700;color:#fff;letter-spacing:.3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bc-desc{font-size:8px;color:var(--t2);margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bc-badges{display:flex;gap:3px;align-items:center}
+.badge{padding:2px 5px;border-radius:3px;font-family:'Rajdhani',sans-serif;font-size:7px;font-weight:700;text-transform:uppercase;letter-spacing:.3px}
+.badge-tier{color:var(--gold);border:1px solid rgba(251,191,36,.3);background:rgba(251,191,36,.1)}
+.badge-tier.meta{color:var(--cyan);border-color:rgba(0,229,255,.3);background:rgba(0,229,255,.08)}
+.badge-tier.strong{color:var(--purple);border-color:rgba(168,85,247,.3);background:rgba(168,85,247,.08)}
+.badge-tier.good{color:var(--teal);border-color:rgba(0,212,170,.3);background:rgba(0,212,170,.08)}
+.badge-type{font-size:7px}
+.badge-type.t-fire{background:rgba(239,68,68,.15);color:#fca5a5;border:1px solid rgba(239,68,68,.25)}
+.badge-type.t-water{background:rgba(59,130,246,.15);color:#93c5fd;border:1px solid rgba(59,130,246,.25)}
+.badge-type.t-grass{background:rgba(34,197,94,.15);color:#86efac;border:1px solid rgba(34,197,94,.25)}
+.badge-type.t-electric{background:rgba(234,179,8,.15);color:#fde047;border:1px solid rgba(234,179,8,.25)}
+.badge-type.t-ice{background:rgba(147,197,253,.15);color:#bfdbfe;border:1px solid rgba(147,197,253,.25)}
+.badge-type.t-dark{background:rgba(168,85,247,.15);color:#d8b4fe;border:1px solid rgba(168,85,247,.25)}
+.badge-type.t-dragon{background:rgba(192,132,252,.15);color:#e9d5ff;border:1px solid rgba(192,132,252,.25)}
+.badge-type.t-ground{background:rgba(217,119,6,.15);color:#fed7aa;border:1px solid rgba(217,119,6,.25)}
+.badge-type.t-neutral{background:rgba(148,163,184,.1);color:#cbd5e1;border:1px solid rgba(148,163,184,.2)}
+.badge-type.t-normal{background:rgba(148,163,184,.1);color:#cbd5e1;border:1px solid rgba(148,163,184,.2)}
+
+.bc-flow{display:flex;align-items:center;justify-content:center;gap:3px;padding:2px 0}
+.bp{display:flex;flex-direction:column;align-items:center;gap:2px}
+.bp img{width:26px;height:26px;border-radius:5px;border:1.5px solid rgba(255,255,255,.12);background:var(--bg2);object-fit:cover;transition:all .2s}
+.bp img:active{transform:scale(1.1);border-color:var(--cyan)}
+.bp span{font-family:'Rajdhani',sans-serif;font-size:7px;color:var(--t2);text-align:center;max-width:52px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bop{font-family:'Orbitron',monospace;font-size:12px;font-weight:900;color:var(--orange)}
+.barr{font-size:9px;color:var(--teal);animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:.4}50%{opacity:1}}
+
+/* FAV HEART */
+.fav-btn{position:absolute;top:8px;right:8px;width:22px;height:22px;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:2;transition:all .2s}
+.fav-btn:active{transform:scale(1.3)}
+.fav-btn svg{width:14px;height:14px;color:var(--t3);transition:all .2s}
+.fav-btn.on svg{color:var(--pink);fill:var(--pink);filter:drop-shadow(0 0 4px rgba(244,114,182,.4))}
 
 /* CALCULATOR */
-.calc-container{padding:4px 0}
-.calc-label{font-family:'Rajdhani',sans-serif;font-size:10px;font-weight:600;color:var(--text-secondary);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:4px;display:flex;align-items:center;gap:4px}
-.calc-label .dot{width:5px;height:5px;border-radius:50%;background:var(--accent-cyan)}
+.calc{padding:2px 0}
+.clbl{font-family:'Rajdhani',sans-serif;font-size:9px;font-weight:600;color:var(--t2);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:3px;display:flex;align-items:center;gap:4px}
+.clbl .d{width:4px;height:4px;border-radius:50%;background:var(--cyan)}
+.psel{width:100%;padding:9px 28px 9px 9px;background:var(--bg3);border:1px solid rgba(0,229,255,.12);border-radius:7px;color:var(--t1);font-family:'Exo 2',sans-serif;font-size:10px;appearance:none;-webkit-appearance:none;cursor:pointer;transition:all .2s;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2300e5ff' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 8px center}
+.psel:focus{outline:none;border-color:var(--cyan);box-shadow:0 0 10px rgba(0,229,255,.1)}
+.psel option{background:var(--bg3);color:var(--t1)}
 
-.pal-select{width:100%;padding:10px 32px 10px 10px;background:var(--bg-card);border:1px solid rgba(0,240,255,.15);border-radius:8px;color:var(--text-primary);font-family:'Exo 2',sans-serif;font-size:11px;font-weight:500;appearance:none;-webkit-appearance:none;cursor:pointer;transition:all .2s;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%2300f0ff' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center}
-.pal-select:focus{outline:none;border-color:var(--accent-cyan);box-shadow:var(--shadow-cyan)}
-.pal-select option{background:var(--bg-card);color:var(--text-primary)}
+.cbtn{width:100%;padding:11px;background:linear-gradient(135deg,rgba(0,229,255,.15),rgba(0,212,170,.15));border:1px solid var(--cyan);border-radius:7px;color:var(--cyan);font-family:'Orbitron',monospace;font-size:10px;font-weight:700;cursor:pointer;text-transform:uppercase;letter-spacing:2px;margin-top:10px;transition:all .2s;position:relative;overflow:hidden}
+.cbtn::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--cyan),var(--teal));opacity:0;transition:opacity .2s}
+.cbtn span{position:relative;z-index:1}
+.cbtn:active{transform:scale(.97)}
+.cbtn:active::before{opacity:1}
+.cbtn:active span{color:var(--bg)}
 
-.calc-btn{width:100%;padding:12px;background:linear-gradient(135deg,rgba(0,240,255,.2),rgba(0,212,170,.2));border:1px solid var(--accent-cyan);border-radius:8px;color:var(--accent-cyan);font-family:'Orbitron',monospace;font-size:11px;font-weight:700;cursor:pointer;text-transform:uppercase;letter-spacing:2px;margin-top:12px;transition:all .3s ease;position:relative;overflow:hidden}
-.calc-btn::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--accent-cyan),var(--accent-teal));opacity:0;transition:opacity .3s}
-.calc-btn span{position:relative;z-index:1}
-.calc-btn:active{transform:scale(.97)}
-.calc-btn:active::before{opacity:1}
-.calc-btn:active span{color:var(--bg-deep)}
+.rbtn{width:100%;padding:9px;background:rgba(168,85,247,.1);border:1px solid rgba(168,85,247,.25);border-radius:7px;color:var(--purple);font-family:'Rajdhani',sans-serif;font-size:9px;font-weight:600;cursor:pointer;margin-top:6px;text-transform:uppercase;letter-spacing:1px;transition:all .2s}
+.rbtn:active{background:rgba(168,85,247,.2);transform:scale(.97)}
 
-.result-display{margin-top:14px;display:none}
-.result-display.show{display:block;animation:slideUp .4s ease}
-@keyframes slideUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.rdisp{margin-top:12px;display:none}
+.rdisp.show{display:block;animation:slideUp .35s ease}
+@keyframes slideUp{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
 
-.result-card{background:linear-gradient(135deg,rgba(0,240,255,.08),rgba(168,85,247,.06));border:1px solid rgba(0,240,255,.2);border-radius:12px;padding:16px;text-align:center;position:relative;overflow:hidden}
-.result-card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,rgba(0,240,255,.1),transparent 60%);pointer-events:none}
-.result-card .egg-icon{width:56px;height:56px;margin:0 auto 8px;position:relative;animation:float 3s ease-in-out infinite}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
-.result-card .egg-icon img{width:100%;height:100%;border-radius:50%;border:2px solid var(--accent-cyan);box-shadow:0 0 20px rgba(0,240,255,.3)}
-.result-card .result-name{font-family:'Orbitron',monospace;font-size:14px;font-weight:800;color:#fff;margin-bottom:2px;text-shadow:0 0 20px rgba(0,240,255,.3)}
-.result-card .result-type{font-family:'Rajdhani',sans-serif;font-size:10px;color:var(--text-secondary);letter-spacing:1px}
-.result-card .result-desc{font-size:9px;color:var(--accent-teal);margin-top:6px;font-weight:500}
+.rcard{background:linear-gradient(135deg,rgba(0,229,255,.06),rgba(168,85,247,.04));border:1px solid rgba(0,229,255,.18);border-radius:10px;padding:14px;text-align:center;position:relative;overflow:hidden}
+.rcard::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,rgba(0,229,255,.08),transparent 60%);pointer-events:none}
+.rcard .egg{width:50px;height:50px;margin:0 auto 6px;position:relative;animation:float 3s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+.rcard .egg img{width:100%;height:100%;border-radius:50%;border:2px solid var(--cyan);box-shadow:0 0 16px rgba(0,229,255,.25)}
+.rcard .rname{font-family:'Orbitron',monospace;font-size:13px;font-weight:800;color:#fff;text-shadow:0 0 15px rgba(0,229,255,.2)}
+.rcard .rtype{font-family:'Rajdhani',sans-serif;font-size:9px;color:var(--t2);letter-spacing:1px}
+.rcard .rdesc{font-size:8px;color:var(--teal);margin-top:4px;font-weight:500}
+.rparents{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:10px;padding-top:10px;border-top:1px solid rgba(255,255,255,.04)}
+.rp{display:flex;flex-direction:column;align-items:center;gap:3px}
+.rp img{width:28px;height:28px;border-radius:5px;border:1.5px solid rgba(255,255,255,.12);background:var(--bg2)}
+.rp span{font-family:'Rajdhani',sans-serif;font-size:8px;color:var(--t2)}
+.rp-p{font-family:'Orbitron',monospace;font-size:14px;font-weight:900;color:var(--orange)}
+.rp-e{font-family:'Orbitron',monospace;font-size:10px;color:var(--teal);margin:0 2px}
 
-.result-parents{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:12px;padding-top:12px;border-top:1px solid rgba(255,255,255,.05)}
-.result-parents .rp{display:flex;flex-direction:column;align-items:center;gap:4px}
-.result-parents .rp img{width:32px;height:32px;border-radius:6px;border:1.5px solid rgba(255,255,255,.15);background:var(--bg-mid)}
-.result-parents .rp span{font-family:'Rajdhani',sans-serif;font-size:9px;color:var(--text-secondary)}
-.result-parents .rp-plus{font-family:'Orbitron',monospace;font-size:16px;font-weight:900;color:var(--accent-orange)}
-.result-parents .rp-eq{font-family:'Orbitron',monospace;font-size:12px;color:var(--accent-teal);margin:0 4px}
+.share-btn{width:100%;padding:8px;background:rgba(0,229,255,.1);border:1px solid rgba(0,229,255,.2);border-radius:6px;color:var(--cyan);font-family:'Rajdhani',sans-serif;font-size:9px;font-weight:600;cursor:pointer;margin-top:8px;text-transform:uppercase;letter-spacing:1px;transition:all .2s}
+.share-btn:active{background:rgba(0,229,255,.2);transform:scale(.97)}
 
 /* HISTORY */
-.history-empty{text-align:center;padding:40px 20px;color:var(--text-dim)}
-.history-empty .empty-icon{font-size:32px;margin-bottom:8px;opacity:.3}
-.history-empty p{font-family:'Rajdhani',sans-serif;font-size:11px;letter-spacing:1px}
+.hempty{text-align:center;padding:30px 16px;color:var(--t3)}
+.hempty .ei{font-size:28px;margin-bottom:6px;opacity:.25}
+.hempty p{font-family:'Rajdhani',sans-serif;font-size:10px;letter-spacing:1px}
 
-.history-item{display:flex;align-items:center;gap:4px;background:var(--bg-card);border:1px solid rgba(255,255,255,.04);border-radius:8px;padding:6px 8px;margin-bottom:6px;transition:all .2s}
-.history-item:active{background:var(--bg-card-hover)}
-.history-item img{width:22px;height:22px;border-radius:4px;background:var(--bg-mid);object-fit:cover}
-.history-item .h-plus{font-family:'Orbitron',monospace;font-size:10px;color:var(--accent-orange);margin:0 1px}
-.history-item .h-eq{font-family:'Orbitron',monospace;font-size:8px;color:var(--accent-teal);margin:0 2px}
-.history-item .h-result{border:1.5px solid var(--accent-cyan)!important;box-shadow:0 0 8px rgba(0,240,255,.2)}
-.history-item .h-name{font-family:'Rajdhani',sans-serif;font-size:10px;font-weight:600;color:var(--accent-cyan);margin-left:4px;flex:1}
-.history-item .h-time{font-family:'Rajdhani',sans-serif;font-size:8px;color:var(--text-dim)}
+.hitem{display:flex;align-items:center;gap:3px;background:var(--bg3);border:1px solid rgba(255,255,255,.03);border-radius:7px;padding:5px 7px;margin-bottom:5px;transition:all .2s;animation:cardIn .25s ease}
+.hitem:active{background:var(--bg4);transform:scale(.98)}
+.hitem img{width:20px;height:20px;border-radius:4px;background:var(--bg2);object-fit:cover}
+.hitem .hp{font-family:'Orbitron',monospace;font-size:9px;color:var(--orange);margin:0 1px}
+.hitem .he{font-family:'Orbitron',monospace;font-size:7px;color:var(--teal);margin:0 2px}
+.hitem .hr{border:1.5px solid var(--cyan)!important;box-shadow:0 0 6px rgba(0,229,255,.15)}
+.hitem .hn{font-family:'Rajdhani',sans-serif;font-size:9px;font-weight:600;color:var(--cyan);margin-left:3px;flex:1}
+.hitem .ht{font-family:'Rajdhani',sans-serif;font-size:7px;color:var(--t3)}
 
-.clear-btn{width:100%;padding:10px;background:transparent;border:1px solid rgba(239,68,68,.3);border-radius:8px;color:rgba(239,68,68,.7);font-family:'Rajdhani',sans-serif;font-size:10px;font-weight:600;cursor:pointer;margin-top:10px;text-transform:uppercase;letter-spacing:1px;transition:all .2s}
-.clear-btn:active{background:rgba(239,68,68,.1);border-color:rgba(239,68,68,.5)}
+.clrbtn{width:100%;padding:9px;background:transparent;border:1px solid rgba(239,68,68,.25);border-radius:7px;color:rgba(239,68,68,.6);font-family:'Rajdhani',sans-serif;font-size:9px;font-weight:600;cursor:pointer;margin-top:8px;text-transform:uppercase;letter-spacing:1px;transition:all .2s}
+.clrbtn:active{background:rgba(239,68,68,.08);border-color:rgba(239,68,68,.4)}
 
-/* SCROLL INDICATOR */
-.scroll-hint{position:absolute;bottom:0;left:0;right:0;height:30px;background:linear-gradient(0deg,var(--bg-deep),transparent);pointer-events:none;z-index:4;display:flex;align-items:flex-end;justify-content:center;padding-bottom:4px}
-.scroll-hint .chevrons{animation:bounce 1.5s ease-in-out infinite;opacity:.4}
-@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(3px)}}
+/* BACK TO TOP */
+.btt{position:fixed;bottom:16px;right:16px;width:32px;height:32px;display:none;align-items:center;justify-content:center;background:rgba(0,229,255,.15);border:1px solid rgba(0,229,255,.3);border-radius:50%;color:var(--cyan);cursor:pointer;z-index:30;transition:all .2s;backdrop-filter:blur(8px)}
+.btt.show{display:flex}
+.btt:active{transform:scale(.9);background:rgba(0,229,255,.25)}
+.btt svg{width:14px;height:14px}
+
+/* MODAL */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:50;display:none;align-items:flex-end;justify-content:center;backdrop-filter:blur(4px)}
+.modal-overlay.show{display:flex;animation:fadeIn .2s ease}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.modal{width:100%;max-width:420px;max-height:80vh;background:var(--bg2);border:1px solid rgba(0,229,255,.15);border-radius:14px 14px 0 0;padding:16px;overflow-y:auto;animation:slideUp .3s ease}
+.modal-handle{width:30px;height:3px;background:rgba(255,255,255,.15);border-radius:3px;margin:0 auto 12px}
+.modal-head{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.modal-icon{width:48px;height:48px;border-radius:10px;border:2px solid var(--cyan);background:var(--bg3);object-fit:cover}
+.modal-name{font-family:'Orbitron',monospace;font-size:14px;font-weight:800;color:#fff}
+.modal-num{font-family:'Rajdhani',sans-serif;font-size:9px;color:var(--t2)}
+.modal-close{margin-left:auto;width:24px;height:24px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.05);border-radius:50%;color:var(--t2);cursor:pointer}
+.modal-close:active{background:rgba(255,255,255,.1)}
+.modal-section{margin-bottom:10px}
+.modal-section h3{font-family:'Rajdhani',sans-serif;font-size:9px;font-weight:600;color:var(--cyan);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:5px}
+.modal-tags{display:flex;flex-wrap:wrap;gap:4px}
+.modal-tag{padding:3px 7px;border-radius:4px;font-family:'Rajdhani',sans-serif;font-size:8px;font-weight:600;background:rgba(255,255,255,.05);color:var(--t2);border:1px solid rgba(255,255,255,.08)}
+.modal-combos{display:flex;flex-direction:column;gap:4px}
+.modal-combo{display:flex;align-items:center;gap:4px;padding:5px 7px;background:var(--bg3);border-radius:6px;font-family:'Rajdhani',sans-serif;font-size:9px;color:var(--t2)}
+.modal-combo img{width:20px;height:20px;border-radius:4px;background:var(--bg);object-fit:cover}
+.modal-combo .mc-plus{color:var(--orange);font-weight:700}
+.modal-combo .mc-eq{color:var(--teal);font-weight:700}
+
+/* TOAST */
+.toast{position:fixed;bottom:60px;left:50%;transform:translateX(-50%);padding:7px 14px;background:rgba(0,229,255,.15);border:1px solid rgba(0,229,255,.3);border-radius:8px;font-family:'Rajdhani',sans-serif;font-size:9px;font-weight:600;color:var(--cyan);z-index:60;backdrop-filter:blur(8px);animation:toastIn .3s ease;pointer-events:none}
+@keyframes toastIn{from{opacity:0;transform:translateX(-50%) translateY(10px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
+
+/* SWIPE HINT */
+.swipe-hint{position:absolute;bottom:0;left:0;right:0;height:24px;background:linear-gradient(0deg,var(--bg),transparent);pointer-events:none;z-index:4;display:flex;align-items:flex-end;justify-content:center;padding-bottom:3px}
+.swipe-hint span{animation:bounce 1.5s ease-in-out infinite;opacity:.3;font-size:8px;color:var(--t3);font-family:'Rajdhani',sans-serif;letter-spacing:1px}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(2px)}}
+
+/* EMPTY STATE */
+.empty-state{text-align:center;padding:40px 20px;color:var(--t3)}
+.empty-state .es-icon{font-size:32px;margin-bottom:8px;opacity:.2}
+.empty-state p{font-family:'Rajdhani',sans-serif;font-size:10px;letter-spacing:1px}
 </style>
 </head>
 <body>
 <div class="app">
-  <div class="header">
-    <div class="logo-area">
-      <div class="logo-icon">
-        <svg viewBox="0 0 40 40" fill="none">
-          <circle cx="20" cy="20" r="18" stroke="url(#g1)" stroke-width="2"/>
-          <path d="M12 20c0-4.4 3.6-8 8-8s8 3.6 8 8-3.6 8-8 8" stroke="url(#g2)" stroke-width="1.5" stroke-linecap="round"/>
-          <circle cx="20" cy="20" r="3" fill="url(#g3)"/>
-          <defs>
-            <linearGradient id="g1" x1="0" y1="0" x2="40" y2="40"><stop stop-color="#00f0ff"/><stop offset="1" stop-color="#a855f7"/></linearGradient>
-            <linearGradient id="g2" x1="12" y1="12" x2="28" y2="28"><stop stop-color="#00f0ff"/><stop offset="1" stop-color="#00d4aa"/></linearGradient>
-            <radialGradient id="g3" cx="20" cy="20" r="3"><stop stop-color="#fff"/><stop offset="1" stop-color="#00f0ff"/></radialGradient>
-          </defs>
-        </svg>
-        <div class="logo-ring"></div>
+  <div class="hdr">
+    <div class="hdr-row">
+      <div class="logo">
+        <div class="logo-ico">
+          <svg viewBox="0 0 40 40" fill="none">
+            <circle cx="20" cy="20" r="18" stroke="url(#g1)" stroke-width="2"/>
+            <path d="M12 20c0-4.4 3.6-8 8-8s8 3.6 8 8-3.6 8-8 8" stroke="url(#g2)" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="20" cy="20" r="3" fill="url(#g3)"/>
+            <defs>
+              <linearGradient id="g1" x1="0" y1="0" x2="40" y2="40"><stop stop-color="#00e5ff"/><stop offset="1" stop-color="#a855f7"/></linearGradient>
+              <linearGradient id="g2" x1="12" y1="12" x2="28" y2="28"><stop stop-color="#00e5ff"/><stop offset="1" stop-color="#00d4aa"/></linearGradient>
+              <radialGradient id="g3" cx="20" cy="20" r="3"><stop stop-color="#fff"/><stop offset="1" stop-color="#00e5ff"/></radialGradient>
+            </defs>
+          </svg>
+          <div class="logo-ring"></div>
+        </div>
+        <div>
+          <h1>BREEDING</h1>
+          <div class="sub">Palworld 1.0</div>
+        </div>
       </div>
-      <div>
-        <h1>Breeding Guide</h1>
-        <div class="subtitle">Palworld 1.0</div>
+      <div class="hdr-btn" id="randomBtn" title="Random Combo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5"/><path d="M4 20L21 3"/><path d="M21 16v5h-5"/><path d="M15 15l6 6"/><path d="M4 4l5 5"/></svg>
       </div>
     </div>
-    <div class="stats-row">
-      <div class="stat-pill"><span class="num">299</span> Pals</div>
-      <div class="stat-pill"><span class="num">44,850</span> Combos</div>
-      <div class="stat-pill"><span class="num">1.0</span> Data</div>
+    <div class="stats">
+      <div class="stat"><b>299</b> Pals</div>
+      <div class="stat"><b>115</b> Combos</div>
+      <div class="stat"><b>1.0</b> Data</div>
     </div>
   </div>
 
   <div class="tabs">
-    <div class="tab active" data-tab="guide">Guide</div>
-    <div class="tab" data-tab="calc">Calculator</div>
-    <div class="tab" data-tab="history">History</div>
+    <div class="tab on" data-t="guide">Guide</div>
+    <div class="tab" data-t="calc">Calculator</div>
+    <div class="tab" data-t="history">History</div>
   </div>
 
   <div class="content">
-    <div class="panel active" id="guide">
-      <div class="section-header">
-        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-        <h2>Power Combos</h2>
-        <div class="line"></div>
+    <!-- GUIDE PANEL -->
+    <div class="pnl on" id="guide">
+      <div class="search-wrap">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        <input class="search" id="searchInput" type="text" placeholder="Search Pals or combos...">
       </div>
+      <div class="filters" id="filters"></div>
+      <div class="result-count" id="resultCount"></div>
       <div id="guideList"></div>
     </div>
 
-    <div class="panel" id="calc">
-      <div class="calc-container">
-        <div class="calc-label"><div class="dot"></div>Parent 1</div>
-        <select class="pal-select" id="parent1"><option value="">Select a Pal...</option></select>
-
-        <div class="calc-label" style="margin-top:10px"><div class="dot"></div>Parent 2</div>
-        <select class="pal-select" id="parent2"><option value="">Select a Pal...</option></select>
-
-        <button class="calc-btn" id="calcBtn"><span>Calculate Breeding</span></button>
-
-        <div class="result-display" id="resultDisplay">
-          <div class="result-card">
-            <div class="egg-icon"><img id="resultImg" src="" alt=""></div>
-            <div class="result-name" id="resultName"></div>
-            <div class="result-type" id="resultType"></div>
-            <div class="result-desc" id="resultDesc"></div>
-            <div class="result-parents">
+    <!-- CALCULATOR PANEL -->
+    <div class="pnl" id="calc">
+      <div class="calc">
+        <div class="clbl"><div class="d"></div>Parent 1</div>
+        <select class="psel" id="parent1"><option value="">Select a Pal...</option></select>
+        <div class="clbl" style="margin-top:8px"><div class="d"></div>Parent 2</div>
+        <select class="psel" id="parent2"><option value="">Select a Pal...</option></select>
+        <button class="cbtn" id="calcBtn"><span>Calculate Breeding</span></button>
+        <button class="rbtn" id="randomCalcBtn">Random Pair</button>
+        <div class="rdisp" id="resultDisplay">
+          <div class="rcard">
+            <div class="egg"><img id="resultImg" src="" alt=""></div>
+            <div class="rname" id="resultName"></div>
+            <div class="rtype" id="resultType"></div>
+            <div class="rdesc" id="resultDesc"></div>
+            <div class="rparents">
               <div class="rp"><img id="rp1Img" src="" alt=""><span id="rp1Name"></span></div>
-              <div class="rp-plus">+</div>
+              <div class="rp-p">+</div>
               <div class="rp"><img id="rp2Img" src="" alt=""><span id="rp2Name"></span></div>
-              <div class="rp-eq">=</div>
-              <div class="rp"><img class="h-result" id="rpResImg" src="" alt=""><span id="rpResName"></span></div>
+              <div class="rp-e">=</div>
+              <div class="rp"><img class="hr" id="rpResImg" src="" alt=""><span id="rpResName"></span></div>
             </div>
           </div>
+          <button class="share-btn" id="shareBtn">Copy Combo to Clipboard</button>
         </div>
       </div>
     </div>
 
-    <div class="panel" id="history">
-      <div class="section-header">
-        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    <!-- HISTORY PANEL -->
+    <div class="pnl" id="history">
+      <div class="sec">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
         <h2>Breeding Log</h2>
-        <div class="line"></div>
+        <div class="ln"></div>
       </div>
       <div id="historyList"></div>
-      <button class="clear-btn" id="clearHistory">Clear History</button>
+      <button class="clrbtn" id="clearHistory">Clear History</button>
+    </div>
+  </div>
+
+  <div class="btt" id="btt">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal" id="modal">
+    <div class="modal-handle"></div>
+    <div class="modal-head">
+      <img class="modal-icon" id="modalIcon" src="" alt="">
+      <div>
+        <div class="modal-name" id="modalName"></div>
+        <div class="modal-num" id="modalNum"></div>
+      </div>
+      <div class="modal-close" id="modalClose">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </div>
+    </div>
+    <div class="modal-section">
+      <h3>Type & Tier</h3>
+      <div class="modal-tags" id="modalTags"></div>
+    </div>
+    <div class="modal-section">
+      <h3>Work Suitability</h3>
+      <div class="modal-tags" id="modalWork"></div>
+    </div>
+    <div class="modal-section">
+      <h3>Breeding Combos</h3>
+      <div class="modal-combos" id="modalCombos"></div>
     </div>
   </div>
 </div>
 
+<div class="toast" id="toast" style="display:none"></div>
+
 <script>
 "use strict";
-
 const PAL_IMG="https://palbreeder.com/pal-icons/";
 
 const PALS=[
-{id:1,name:"Lamball",type:"Neutral",tier:1},{id:2,name:"Cattiva",type:"Neutral",tier:1},
-{id:3,name:"Chikipi",type:"Neutral",tier:1},{id:4,name:"Lifmunk",type:"Grass",tier:1},
-{id:5,name:"Foxparks",type:"Fire",tier:1},{id:6,name:"Fuack",type:"Water",tier:1},
-{id:7,name:"Sparkit",type:"Electric",tier:1},{id:8,name:"Tanzee",type:"Grass",tier:1},
-{id:9,name:"Rooby",type:"Fire",tier:1},{id:10,name:"Pengullet",type:"Ice",tier:1},
-{id:11,name:"Teafant",type:"Water",tier:1},{id:12,name:"Depresso",type:"Dark",tier:1},
-{id:13,name:"Cremis",type:"Neutral",tier:1},{id:14,name:"Daedream",type:"Dark",tier:1},
-{id:15,name:"Hoocrates",type:"Dark",tier:1},{id:16,name:"Teafant",type:"Water",tier:1},
-{id:17,name:"Tanzee",type:"Grass",tier:1},{id:18,name:"Flopie",type:"Grass",tier:1},
-{id:19,name:"Bushi",type:"Fire",tier:2},{id:20,name:"Beegarde",type:"Grass",tier:1},
-{id:21,name:"Elizabee",type:"Grass",tier:2},{id:22,name:"Grintale",type:"Neutral",tier:2},
-{id:23,name:"Swee",type:"Ice",tier:1},{id:24,name:"Sweepa",type:"Ice",tier:2},
-{id:25,name:"Chillet",type:"Ice",tier:2},{id:26,name:"Ribbuny",type:"Grass",tier:1},
-{id:27,name:"Incineram",type:"Dark",tier:2},{id:28,name:"Cinnamoth",type:"Grass",tier:2},
-{id:29,name:"Surfent",type:"Water",tier:2},{id:30,name:"Maraith",type:"Dark",tier:2},
-{id:31,name:"Torterra",type:"Ground",tier:2},{id:32,name:"Eikthyrdeer",type:"Neutral",tier:2},
-{id:33,name:"Dinossom",type:"Dragon",tier:2},{id:34,name:"Lovander",type:"Dark",tier:2},
-{id:35,name:"Flambelle",type:"Fire",tier:1},{id:36,name:"Vanwyrm",type:"Dark",tier:2},
-{id:37,name:"Bushi Noct",type:"Dark",tier:3},{id:38,name:"Azurobe",type:"Water",tier:3},
-{id:39,name:"Cryolinx",type:"Ice",tier:3},{id:40,name:"Blazehowl",type:"Fire",tier:2},
-{id:41,name:"Blazehowl Noct",type:"Dark",tier:3},{id:42,name:"Robinquill",type:"Grass",tier:2},
-{id:43,name:"Felbat",type:"Dark",tier:2},{id:44,name:"Hangyu",type:"Ground",tier:1},
-{id:45,name:"Hangyu Cryst",type:"Ice",tier:1},{id:46,name:"Mossanda",type:"Grass",tier:2},
-{id:47,name:"Mossanda Lux",type:"Electric",tier:3},{id:48,name:"Warsect",type:"Ground",tier:2},
-{id:49,name:"Arsox",type:"Fire",tier:2},{id:50,name:"Dazzi",type:"Electric",tier:1},
-{id:51,name:"Galeclaw",type:"Dark",tier:2},{id:52,name:"Rayhound",type:"Electric",tier:3},
-{id:53,name:"Kingpaca",type:"Neutral",tier:2},{id:54,name:"Reptyro",type:"Fire",tier:2},
-{id:55,name:"Univolt",type:"Electric",tier:2},{id:56,name:"Foxcicle",type:"Ice",tier:1},
-{id:57,name:"Kitsun",type:"Fire",tier:3},{id:58,name:"Lunaris",type:"Neutral",tier:3},
-{id:59,name:"Pyrin",type:"Fire",tier:3},{id:60,name:"Relaxaurus",type:"Water",tier:3},
-{id:61,name:"Incineram Noct",type:"Dark",tier:3},{id:62,name:"Anubis",type:"Ground",tier:3},
-{id:63,name:"Sibelyx",type:"Ice",tier:4},{id:64,name:"Elphidran",type:"Dragon",tier:3},
-{id:65,name:"Petallia",type:"Grass",tier:3},{id:66,name:"Menasting",type:"Dark",tier:4},
-{id:67,name:"Nitewing",type:"Normal",tier:2},{id:68,name:"Ragnahawk",type:"Fire",tier:3},
-{id:69,name:"Shadowbeak",type:"Dark",tier:5},{id:70,name:"Astegon",type:"Dragon",tier:5},
-{id:71,name:"Grizzbolt",type:"Electric",tier:5},{id:72,name:"Lyleen",type:"Grass",tier:4},
-{id:73,name:"Lyleen Noct",type:"Dark",tier:4},{id:74,name:"Faleris",type:"Fire",tier:4},
-{id:75,name:"Orserk",type:"Dragon",tier:5},{id:76,name:"Suzaku",type:"Fire",tier:4},
-{id:77,name:"Suzaku Aqua",type:"Water",tier:4},{id:78,name:"Jormuntide",type:"Dragon",tier:4},
-{id:79,name:"Jormuntide Ignis",type:"Fire",tier:5},{id:80,name:"Helzephyr",type:"Dark",tier:3},
-{id:81,name:"Helzephyr Lux",type:"Electric",tier:4},{id:82,name:"Frostallion",type:"Ice",tier:5},
-{id:83,name:"Frostallion Noct",type:"Dark",tier:5},{id:84,name:"Jetragon",type:"Dragon",tier:5},
-{id:85,name:"Paladius",type:"Neutral",tier:5},{id:86,name:"Necromus",type:"Dark",tier:5},
-{id:87,name:"Bellanoir",type:"Dark",tier:5},{id:88,name:"Bellanoir Libero",type:"Dark",tier:5},
-{id:89,name:"Blazamut",type:"Fire",tier:4},{id:90,name:"Blazamut Ryu",type:"Fire",tier:5},
-{id:91,name:"Xenogard",type:"Dragon",tier:5},{id:92,name:"Neptilius",type:"Water",tier:4},
-{id:93,name:"Selyne",type:"Dark",tier:5},{id:94,name:"Bastigor",type:"Ice",tier:5},
-{id:95,name:"Knocklem",type:"Ground",tier:4},{id:96,name:"Starryon",type:"Neutral",tier:3},
-{id:97,name:"Sekhmet",type:"Fire",tier:3},{id:98,name:"Flaracle",type:"Fire",tier:3},
-{id:99,name:"Renjishi",type:"Fire",tier:4},{id:100,name:"Solenne",type:"Fire",tier:4},
-{id:101,name:"Nyafia",type:"Dark",tier:3},{id:102,name:"Elphidran Aqua",type:"Water",tier:3},
-{id:103,name:"Mimog",type:"Neutral",tier:5},{id:104,name:"Aegidron",type:"Dragon",tier:4},
-{id:105,name:"Ophydia",type:"Water",tier:4},{id:106,name:"Celesdir",type:"Dragon",tier:4},
-{id:107,name:"Celesdir Noct",type:"Dark",tier:5},{id:108,name:"Gildane",type:"Dragon",tier:3},
-{id:109,name:"Dandilord",type:"Fire",tier:5},{id:110,name:"Hartalis",type:"Dragon",tier:5},
-{id:111,name:"Shaolong",type:"Water",tier:5},{id:112,name:"Silvance",type:"Dragon",tier:5},
-{id:113,name:"Panthalus",type:"Ice",tier:5},{id:114,name:"Xenovader",type:"Dark",tier:5},
-{id:115,name:"Xenolord",type:"Dark",tier:5}
+{id:1,name:"Lamball",type:"Neutral",tier:1,work:["Handiwork","Transporting","Farming"]},
+{id:2,name:"Cattiva",type:"Neutral",tier:1,work:["Handiwork","Gathering","Mining","Transporting"]},
+{id:3,name:"Chikipi",type:"Neutral",tier:1,work:["Gathering","Farming"]},
+{id:4,name:"Lifmunk",type:"Grass",tier:1,work:["Planting","Handiwork","Gathering","Lumbering","Medicine"]},
+{id:5,name:"Foxparks",type:"Fire",tier:1,work:["Kindling"]},
+{id:6,name:"Fuack",type:"Water",tier:1,work:["Watering","Handiwork","Transporting"]},
+{id:7,name:"Sparkit",type:"Electric",tier:1,work:["Electricity","Handiwork","Transporting","Farming"]},
+{id:8,name:"Tanzee",type:"Grass",tier:1,work:["Planting","Handiwork","Gathering","Lumbering","Transporting"]},
+{id:9,name:"Rooby",type:"Fire",tier:1,work:["Kindling","Farming"]},
+{id:10,name:"Pengullet",type:"Ice",tier:1,work:["Watering","Handiwork","Cooling","Transporting"]},
+{id:11,name:"Teafant",type:"Water",tier:1,work:["Watering"]},
+{id:12,name:"Depresso",type:"Dark",tier:1,work:["Handiwork","Mining","Transporting","Farming"]},
+{id:13,name:"Cremis",type:"Neutral",tier:1,work:["Gathering","Farming"]},
+{id:14,name:"Daedream",type:"Dark",tier:1,work:["Handiwork","Gathering","Transporting"]},
+{id:15,name:"Hoocrates",type:"Dark",tier:1,work:["Gathering"]},
+{id:16,name:"Flambelle",type:"Fire",tier:1,work:["Kindling","Handiwork","Transporting","Farming"]},
+{id:17,name:"Hangyu",type:"Ground",tier:1,work:["Handiwork","Gathering","Transporting"]},
+{id:18,name:"Hangyu Cryst",type:"Ice",tier:1,work:["Handiwork","Gathering","Cooling","Transporting"]},
+{id:19,name:"Fuddler",type:"Ground",tier:1,work:["Handiwork","Mining","Transporting"]},
+{id:20,name:"Killamari",type:"Dark",tier:1,work:["Watering","Gathering","Transporting"]},
+{id:21,name:"Mau",type:"Dark",tier:1,work:["Gathering","Farming"]},
+{id:22,name:"Mau Cryst",type:"Ice",tier:1,work:["Cooling","Farming"]},
+{id:23,name:"Conefoot",type:"Ground",tier:1,work:["Gathering","Farming"]},
+{id:24,name:"Jolthog",type:"Electric",tier:1,work:["Electricity"]},
+{id:25,name:"Jolthog Cryst",type:"Ice",tier:1,work:["Cooling"]},
+{id:26,name:"Gumoss",type:"Grass",tier:1,work:["Planting"]},
+{id:27,name:"Gumoss Special",type:"Grass",tier:1,work:["Planting"]},
+{id:28,name:"Vixy",type:"Neutral",tier:1,work:["Gathering","Farming"]},
+{id:29,name:"Foxparks",type:"Fire",tier:1,work:["Kindling"]},
+{id:30,name:"Celaray",type:"Water",tier:1,work:["Watering","Transporting"]},
+{id:31,name:"Celaray Lux",type:"Electric",tier:1,work:["Watering","Electricity","Transporting"]},
+{id:32,name:"Direhowl",type:"Neutral",tier:1,work:["Gathering"]},
+{id:33,name:"Tocotoco",type:"Fire",tier:1,work:["Gathering"]},
+{id:34,name:"Flopie",type:"Grass",tier:1,work:["Planting","Handiwork","Gathering","Medicine","Transporting"]},
+{id:35,name:"Mossanda",type:"Grass",tier:2,work:["Planting","Handiwork","Lumbering","Transporting"]},
+{id:36,name:"Mossanda Lux",type:"Electric",tier:3,work:["Electricity","Handiwork","Lumbering","Transporting"]},
+{id:37,name:"Tanzee",type:"Grass",tier:1,work:["Planting","Handiwork","Gathering","Lumbering","Transporting"]},
+{id:38,name:"Beegarde",type:"Grass",tier:1,work:["Planting","Handiwork","Gathering","Lumbering","Medicine","Transporting","Farming"]},
+{id:39,name:"Elizabee",type:"Grass",tier:2,work:["Planting","Handiwork","Gathering","Lumbering","Medicine"]},
+{id:40,name:"Grintale",type:"Neutral",tier:2,work:["Gathering"]},
+{id:41,name:"Swee",type:"Ice",tier:1,work:["Gathering","Cooling"]},
+{id:42,name:"Sweepa",type:"Ice",tier:2,work:["Gathering","Cooling"]},
+{id:43,name:"Chillet",type:"Ice",tier:2,work:["Gathering","Cooling"]},
+{id:44,name:"Chillet Ignis",type:"Fire",tier:3,work:["Kindling","Gathering"]},
+{id:45,name:"Ribbuny",type:"Grass",tier:1,work:["Handiwork","Gathering","Transporting"]},
+{id:46,name:"Ribbuny Botan",type:"Grass",tier:1,work:["Planting","Handiwork","Gathering","Transporting"]},
+{id:47,name:"Incineram",type:"Dark",tier:2,work:["Kindling","Handiwork","Mining","Transporting"]},
+{id:48,name:"Incineram Noct",type:"Dark",tier:3,work:["Handiwork","Mining","Transporting"]},
+{id:49,name:"Cinnamoth",type:"Grass",tier:2,work:["Planting","Gathering","Medicine"]},
+{id:50,name:"Surfent",type:"Water",tier:2,work:["Watering","Farming"]},
+{id:51,name:"Surfent Terra",type:"Ground",tier:3,work:["Gathering"]},
+{id:52,name:"Maraith",type:"Dark",tier:2,work:["Gathering","Mining"]},
+{id:53,name:"Torterra",type:"Ground",tier:2,work:["Planting","Lumbering","Mining"]},
+{id:54,name:"Dinossom",type:"Dragon",tier:2,work:["Planting","Lumbering"]},
+{id:55,name:"Dinossom Lux",type:"Electric",tier:3,work:["Electricity","Lumbering"]},
+{id:56,name:"Lovander",type:"Dark",tier:2,work:["Handiwork","Mining","Medicine","Transporting"]},
+{id:57,name:"Flambelle",type:"Fire",tier:1,work:["Kindling","Handiwork","Transporting","Farming"]},
+{id:58,name:"Vanwyrm",type:"Dark",tier:2,work:["Kindling","Transporting"]},
+{id:59,name:"Bushi",type:"Fire",tier:2,work:["Kindling","Handiwork","Gathering","Lumbering","Transporting"]},
+{id:60,name:"Bushi Noct",type:"Dark",tier:3,work:["Kindling","Handiwork","Gathering","Lumbering","Transporting"]},
+{id:61,name:"Azurobe",type:"Water",tier:3,work:["Watering"]},
+{id:62,name:"Cryolinx",type:"Ice",tier:3,work:["Handiwork","Lumbering","Cooling","Transporting"]},
+{id:63,name:"Blazehowl",type:"Fire",tier:2,work:["Kindling","Lumbering"]},
+{id:64,name:"Blazehowl Noct",type:"Dark",tier:3,work:["Kindling","Lumbering"]},
+{id:65,name:"Robinquill",type:"Grass",tier:2,work:["Planting","Handiwork","Gathering","Lumbering","Medicine","Transporting"]},
+{id:66,name:"Robinquill Terra",type:"Ground",tier:3,work:["Handiwork","Gathering","Lumbering","Medicine","Transporting"]},
+{id:67,name:"Felbat",type:"Dark",tier:2,work:["Medicine"]},
+{id:68,name:"Mossanda",type:"Grass",tier:2,work:["Planting","Handiwork","Lumbering","Transporting"]},
+{id:69,name:"Mossanda Lux",type:"Electric",tier:3,work:["Electricity","Handiwork","Lumbering","Transporting"]},
+{id:70,name:"Warsect",type:"Ground",tier:2,work:["Planting","Handiwork","Lumbering","Transporting"]},
+{id:71,name:"Arsox",type:"Fire",tier:2,work:["Kindling","Lumbering"]},
+{id:72,name:"Dazzi",type:"Electric",tier:1,work:["Electricity","Handiwork","Transporting"]},
+{id:73,name:"Galeclaw",type:"Dark",tier:2,work:["Gathering"]},
+{id:74,name:"Rayhound",type:"Electric",tier:3,work:["Electricity"]},
+{id:75,name:"Kingpaca",type:"Neutral",tier:2,work:["Gathering"]},
+{id:76,name:"Kingpaca Cryst",type:"Ice",tier:3,work:["Gathering","Cooling"]},
+{id:77,name:"Reptyro",type:"Fire",tier:2,work:["Kindling","Mining"]},
+{id:78,name:"Reptyro Cryst",type:"Ice",tier:3,work:["Mining","Cooling"]},
+{id:79,name:"Univolt",type:"Electric",tier:2,work:["Electricity","Lumbering"]},
+{id:80,name:"Foxcicle",type:"Ice",tier:1,work:["Cooling","Farming"]},
+{id:81,name:"Kitsun",type:"Fire",tier:3,work:["Kindling"]},
+{id:82,name:"Lunaris",type:"Neutral",tier:3,work:["Handiwork","Gathering","Transporting"]},
+{id:83,name:"Pyrin",type:"Fire",tier:3,work:["Kindling","Lumbering"]},
+{id:84,name:"Pyrin Noct",type:"Dark",tier:4,work:["Kindling","Lumbering"]},
+{id:85,name:"Relaxaurus",type:"Water",tier:3,work:["Watering","Transporting"]},
+{id:86,name:"Relaxaurus Lux",type:"Electric",tier:4,work:["Electricity","Transporting"]},
+{id:87,name:"Anubis",type:"Ground",tier:3,work:["Handiwork","Mining","Transporting"]},
+{id:88,name:"Sibelyx",type:"Ice",tier:4,work:["Medicine","Cooling","Farming"]},
+{id:89,name:"Elphidran",type:"Dragon",tier:3,work:["Lumbering"]},
+{id:90,name:"Elphidran Aqua",type:"Water",tier:3,work:["Watering","Lumbering"]},
+{id:91,name:"Petallia",type:"Grass",tier:3,work:["Planting","Handiwork","Gathering","Medicine","Transporting"]},
+{id:92,name:"Menasting",type:"Dark",tier:4,work:["Lumbering","Mining"]},
+{id:93,name:"Nitewing",type:"Neutral",tier:2,work:["Gathering"]},
+{id:94,name:"Ragnahawk",type:"Fire",tier:3,work:["Kindling","Transporting"]},
+{id:95,name:"Shadowbeak",type:"Dark",tier:5,work:["Gathering"]},
+{id:96,name:"Astegon",type:"Dragon",tier:5,work:["Handiwork","Mining"]},
+{id:97,name:"Grizzbolt",type:"Electric",tier:5,work:["Electricity","Handiwork","Lumbering","Transporting"]},
+{id:98,name:"Lyleen",type:"Grass",tier:4,work:["Planting","Handiwork","Gathering","Medicine"]},
+{id:99,name:"Lyleen Noct",type:"Dark",tier:4,work:["Handiwork","Gathering","Medicine"]},
+{id:100,name:"Faleris",type:"Fire",tier:4,work:["Kindling","Transporting"]},
+{id:101,name:"Orserk",type:"Dragon",tier:5,work:["Electricity","Handiwork","Transporting"]},
+{id:102,name:"Suzaku",type:"Fire",tier:4,work:["Kindling"]},
+{id:103,name:"Suzaku Aqua",type:"Water",tier:4,work:["Watering"]},
+{id:104,name:"Jormuntide",type:"Dragon",tier:4,work:["Watering"]},
+{id:105,name:"Jormuntide Ignis",type:"Fire",tier:5,work:["Kindling"]},
+{id:106,name:"Helzephyr",type:"Dark",tier:3,work:["Transporting"]},
+{id:107,name:"Helzephyr Lux",type:"Electric",tier:4,work:["Electricity","Transporting"]},
+{id:108,name:"Frostallion",type:"Ice",tier:5,work:["Cooling"]},
+{id:109,name:"Frostallion Noct",type:"Dark",tier:5,work:["Gathering"]},
+{id:110,name:"Jetragon",type:"Dragon",tier:5,work:["Gathering"]},
+{id:111,name:"Paladius",type:"Neutral",tier:5,work:["Lumbering","Mining"]},
+{id:112,name:"Necromus",type:"Dark",tier:5,work:["Lumbering","Mining"]},
+{id:113,name:"Bellanoir",type:"Dark",tier:5,work:["Handiwork","Medicine","Transporting"]},
+{id:114,name:"Bellanoir Libero",type:"Dark",tier:5,work:["Handiwork","Medicine","Transporting"]},
+{id:115,name:"Blazamut",type:"Fire",tier:4,work:["Kindling","Mining"]},
+{id:116,name:"Blazamut Ryu",type:"Fire",tier:5,work:["Kindling","Mining"]},
+{id:117,name:"Xenogard",type:"Dragon",tier:5,work:["Mining"]},
+{id:118,name:"Neptilius",type:"Water",tier:4,work:["Watering"]},
+{id:119,name:"Selyne",type:"Dark",tier:5,work:["Handiwork","Medicine","Transporting"]},
+{id:120,name:"Bastigor",type:"Ice",tier:5,work:["Lumbering","Mining","Cooling"]},
+{id:121,name:"Knocklem",type:"Ground",tier:4,work:["Gathering","Mining","Transporting"]},
+{id:122,name:"Starryon",type:"Neutral",tier:3,work:["Gathering"]},
+{id:123,name:"Sekhmet",type:"Fire",tier:3,work:["Handiwork","Mining","Transporting"]},
+{id:124,name:"Flaracle",type:"Fire",tier:3,work:["Kindling","Handiwork","Transporting"]},
+{id:125,name:"Renjishi",type:"Fire",tier:4,work:["Kindling","Handiwork","Gathering","Transporting"]},
+{id:126,name:"Solenne",type:"Fire",tier:4,work:["Handiwork","Gathering","Transporting"]},
+{id:127,name:"Nyafia",type:"Dark",tier:3,work:["Handiwork","Gathering","Lumbering","Transporting"]},
+{id:128,name:"Mimog",type:"Neutral",tier:5,work:["Gathering","Transporting"]},
+{id:129,name:"Aegidron",type:"Dragon",tier:4,work:["Mining"]},
+{id:130,name:"Ophydia",type:"Water",tier:4,work:["Watering","Planting"]},
+{id:131,name:"Celesdir",type:"Dragon",tier:4,work:["Gathering","Lumbering"]},
+{id:132,name:"Celesdir Noct",type:"Dark",tier:5,work:["Gathering","Lumbering"]},
+{id:133,name:"Gildane",type:"Dragon",tier:3,work:["Gathering"]},
+{id:134,name:"Dandilord",type:"Fire",tier:5,work:["Planting","Handiwork","Gathering","Medicine","Transporting"]},
+{id:135,name:"Hartalis",type:"Dragon",tier:5,work:["Gathering","Lumbering"]},
+{id:136,name:"Shaolong",type:"Water",tier:5,work:["Watering","Gathering"]},
+{id:137,name:"Silvance",type:"Dragon",tier:5,work:["Planting","Handiwork","Gathering","Medicine","Transporting"]},
+{id:138,name:"Panthalus",type:"Ice",tier:5,work:[]},
+{id:139,name:"Xenovader",type:"Dark",tier:5,work:[]},
+{id:140,name:"Xenolord",type:"Dark",tier:5,work:[]}
 ];
 
 const COMBOS=[
 {r:"Anubis",p1:"Penking",p2:"Bushie",desc:"Handiwork Lv6 + Mining Lv6",tier:"meta"},
-{r:"Jetragon",p1:"Jetragon",p2:"Jetragon",desc:"Legendary Dragon Mount",tier:"legend"},
+{r:"Jetragon",p1:"Astegon",p2:"Frostallion",desc:"Legendary Dragon Mount",tier:"legend"},
 {r:"Frostallion",p1:"Frostallion",p2:"Frostallion",desc:"Legendary Ice Mount",tier:"legend"},
 {r:"Frostallion Noct",p1:"Frostallion",p2:"Helzephyr",desc:"Breeding-Only Dark Variant",tier:"legend"},
-{r:"Orserk",p1:"Orserk",p2:"Orserk",desc:"Electricity Lv8 + Handiwork",tier:"legend"},
+{r:"Orserk",p1:"Grizzbolt",p2:"Rayhound",desc:"Electricity Lv8 + Handiwork",tier:"legend"},
 {r:"Grizzbolt",p1:"Grizzbolt",p2:"Grizzbolt",desc:"Electricity Lv5 + Lumbering",tier:"legend"},
-{r:"Shadowbeak",p1:"Shadowbeak",p2:"Shadowbeak",desc:"Dark Flying Mount",tier:"legend"},
+{r:"Shadowbeak",p1:"Astegon",p2:"Vanwyrm",desc:"Dark Flying Mount",tier:"legend"},
 {r:"Bellanoir",p1:"Bellanoir",p2:"Bellanoir",desc:"Raid Boss Dark",tier:"legend"},
 {r:"Sibelyx",p1:"Mossanda Lux",p2:"Petallia",desc:"Medicine Production + Cooling",tier:"meta"},
 {r:"Jormuntide",p1:"Relaxaurus",p2:"Jormuntide",desc:"Watering Lv7",tier:"meta"},
@@ -331,68 +527,213 @@ const COMBOS=[
 {r:"Blazamut",p1:"Blazamut",p2:"Blazamut",desc:"Kindling Lv6 + Mining Lv7",tier:"meta"},
 {r:"Suzaku",p1:"Suzaku",p2:"Suzaku",desc:"Kindling Lv5 Fire Flying",tier:"meta"},
 {r:"Helzephyr",p1:"Helzephyr",p2:"Helzephyr",desc:"Transporting Lv4 Dark Flyer",tier:"strong"},
-{r:"Grizzbolt",p1:"Grizzbolt",p2:"Grizzbolt",desc:"Electricity Lv5 + Lumbering",tier:"legend"},
 {r:"Knocklem",p1:"Knocklem",p2:"Knocklem",desc:"Mining Lv7 + Transport Lv7",tier:"strong"},
 {r:"Celesdir",p1:"Celesdir",p2:"Celesdir",desc:"Lumbering Lv7 + Gathering",tier:"strong"},
 {r:"Celesdir Noct",p1:"Celesdir",p2:"Celesdir Noct",desc:"Lumbering Lv8 Best",tier:"meta"},
-{r:"Orserk",p1:"Orserk",p2:"Orserk",desc:"Electricity Lv8 + Handiwork",tier:"legend"},
-{r:"Astegon",p1:"Astegon",p2:"Astegon",desc:"Mining Lv7 + Handiwork",tier:"meta"},
-{r:"Blazamut",p1:"Blazamut",p2:"Blazamut",desc:"Kindling Lv6 + Mining Lv7",tier:"meta"},
-{r:"Suzaku",p1:"Suzaku",p2:"Suzaku",desc:"Kindling Lv5 Fire Flying",tier:"meta"},
-{r:"Frostallion",p1:"Frostallion",p2:"Frostallion",desc:"Cooling Lv7 Ice Mount",tier:"legend"},
-{r:"Jetragon",p1:"Jetragon",p2:"Jetragon",desc:"Gathering Lv8 Dragon Mount",tier:"legend"},
 {r:"Paladius",p1:"Paladius",p2:"Paladius",desc:"Lumbering Lv6 + Mining Lv6",tier:"legend"},
 {r:"Necromus",p1:"Necromus",p2:"Necromus",desc:"Lumbering Lv6 + Mining Lv6",tier:"legend"},
-{r:"Bellanoir",p1:"Bellanoir",p2:"Bellanoir",desc:"Raid Boss Dark",tier:"legend"},
 {r:"Bellanoir Libero",p1:"Bellanoir Libero",p2:"Bellanoir Libero",desc:"Raid Boss Elite",tier:"legend"},
-{r:"Orserk",p1:"Orserk",p2:"Orserk",desc:"Electricity Lv8 + Handiwork",tier:"legend"},
 {r:"Blazamut Ryu",p1:"Blazamut Ryu",p2:"Blazamut Ryu",desc:"Ryu Fire Variant",tier:"legend"},
 {r:"Neptilius",p1:"Neptilius",p2:"Neptilius",desc:"Watering Lv7",tier:"meta"},
 {r:"Selyne",p1:"Selyne",p2:"Selyne",desc:"Handiwork Lv7 + Medicine",tier:"meta"},
-{r:"Bastigor",p1:"Bastigor",p2:"Bastigor",desc:"Cooling Lv8 + Mining Lv5",tier:"meta"}
+{r:"Bastigor",p1:"Bastigor",p2:"Bastigor",desc:"Cooling Lv8 + Mining Lv5",tier:"meta"},
+{r:"Lyleen",p1:"Petallia",p2:"Mossanda",desc:"Planting Lv7 + Medicine",tier:"meta"},
+{r:"Menasting",p1:"Anubis",p2:"Cryolinx",desc:"Mining Lv5 + Lumbering",tier:"strong"},
+{r:"Faleris",p1:"Blazehowl",p2:"Ragnahawk",desc:"Kindling Lv6 + Transport",tier:"meta"},
+{r:"Pyrin",p1:"Arsox",p2:"Foxparks",desc:"Kindling Lv4 + Lumbering",tier:"strong"},
+{r:"Univolt",p1:"Rayhound",p2:"Mossanda Lux",desc:"Electricity Lv3 + Lumbering",tier:"strong"},
+{r:"Relaxaurus",p1:"Relaxaurus",p2:"Relaxaurus",desc:"Watering Lv3 + Transporting",tier:"good"},
+{r:"Warsect",p1:"Warsect",p2:"Warsect",desc:"Planting Lv3 + Lumbering Lv4",tier:"strong"},
+{r:"Elphidran",p1:"Elphidran",p2:"Elphidran",desc:"Lumbering Lv3 Dragon",tier:"good"},
+{r:"Petallia",p1:"Petallia",p2:"Petallia",desc:"Planting Lv4 + Medicine Lv4",tier:"meta"},
+{r:"Kingpaca",p1:"Kingpaca",p2:"Kingpaca",desc:"Gathering Lv2 Neutral",tier:"good"},
+{r:"Reptyro",p1:"Reptyro",p2:"Reptyro",desc:"Kindling Lv5 + Mining Lv5",tier:"strong"},
+{r:"Rayhound",p1:"Rayhound",p2:"Rayhound",desc:"Electricity Lv4 Dog",tier:"strong"},
+{r:"Cryolinx",p1:"Cryolinx",p2:"Cryolinx",desc:"Cooling Lv4 + Lumbering",tier:"strong"},
+{r:"Blazehowl",p1:"Blazehowl",p2:"Blazehowl",desc:"Kindling Lv5 + Lumbering",tier:"strong"},
+{r:"Robinquill",p1:"Robinquill",p2:"Robinquill",desc:"Planting Lv2 + Handiwork",tier:"good"},
+{r:"Ragnahawk",p1:"Ragnahawk",p2:"Ragnahawk",desc:"Kindling Lv4 + Transporting",tier:"strong"},
+{r:"Vanwyrm",p1:"Vanwyrm",p2:"Vanwyrm",desc:"Kindling Lv2 + Transporting",tier:"good"},
+{r:"Bushi",p1:"Bushi",p2:"Bushi",desc:"Kindling Lv2 + Lumbering Lv3",tier:"good"},
+{r:"Dazzi",p1:"Dazzi",p2:"Dazzi",desc:"Electricity Lv3 + Handiwork",tier:"good"},
+{r:"Galeclaw",p1:"Galeclaw",p2:"Galeclaw",desc:"Gathering Lv2 Dark",tier:"good"},
+{r:"Dinossom",p1:"Dinossom",p2:"Dinossom",desc:"Planting Lv3 + Lumbering",tier:"good"},
+{r:"Maraith",p1:"Maraith",p2:"Maraith",desc:"Gathering Lv4 + Mining Lv4",tier:"strong"},
+{r:"Torterra",p1:"Torterra",p2:"Torterra",desc:"Planting + Lumbering + Mining",tier:"good"},
+{r:"Felbat",p1:"Felbat",p2:"Felbat",desc:"Medicine Lv3 Dark",tier:"good"},
+{r:"Sibelyx",p1:"Sibelyx",p2:"Sibelyx",desc:"Medicine Lv3 + Cooling Lv3",tier:"meta"},
+{r:"Mossanda",p1:"Mossanda",p2:"Mossanda",desc:"Planting Lv3 + Lumbering Lv4",tier:"strong"},
+{r:"Mossanda Lux",p1:"Mossanda Lux",p2:"Mossanda Lux",desc:"Electricity Lv4 + Lumbering",tier:"strong"},
+{r:"Azurobe",p1:"Azurobe",p2:"Azurobe",desc:"Watering Lv4 Water",tier:"strong"},
+{r:"Lyleen Noct",p1:"Lyleen",p2:"Incineram Noct",desc:"Handiwork + Gathering + Med",tier:"strong"},
+{r:"Helzephyr Lux",p1:"Helzephyr",p2:"Rayhound",desc:"Electricity Lv4 + Transport",tier:"strong"},
+{r:"Faleris",p1:"Blazehowl",p2:"Ragnahawk",desc:"Kindling Lv6 + Transport",tier:"meta"},
+{r:"Kitsun",p1:"Foxparks",p2:"Foxcicle",desc:"Kindling Lv3 Fire Mount",tier:"strong"},
+{r:"Pyrin Noct",p1:"Pyrin",p2:"Shadowbeak",desc:"Kindling Lv4 + Lumbering",tier:"strong"},
+{r:"Relaxaurus Lux",p1:"Relaxaurus",p2:"Rayhound",desc:"Electricity Lv4 + Transport",tier:"strong"},
+{r:"Blazamut",p1:"Blazehowl",p2:"Reptyro",desc:"Kindling Lv6 + Mining Lv7",tier:"meta"},
+{r:"Suzaku Aqua",p1:"Suzaku",p2:"Surfent",desc:"Watering Lv6 Aqua Variant",tier:"strong"},
+{r:"Jormuntide",p1:"Relaxaurus",p2:"Azurobe",desc:"Watering Lv7 Dragon",tier:"meta"},
+{r:"Frostallion",p1:"Frostallion",p2:"Frostallion",desc:"Cooling Lv7 Ice Mount",tier:"legend"},
+{r:"Jetragon",p1:"Jetragon",p2:"Jetragon",desc:"Gathering Lv8 Dragon Mount",tier:"legend"},
+{r:"Xenogard",p1:"Xenogard",p2:"Xenogard",desc:"Mining Lv4 Dragon",tier:"meta"},
+{r:"Knocklem",p1:"Warsect",p2:"Anubis",desc:"Mining Lv7 + Transport Lv7",tier:"meta"},
+{r:"Starryon",p1:"Kingpaca",p2:"Grintale",desc:"Gathering Lv5 Neutral",tier:"strong"},
+{r:"Sekhmet",p1:"Anubis",p2:"Bushi",desc:"Handiwork Lv6 + Mining Lv3",tier:"strong"},
+{r:"Flaracle",p1:"Reptyro",p2:"Blazehowl",desc:"Kindling Lv7 + Handiwork",tier:"strong"},
+{r:"Renjishi",p1:"Blazamut",p2:"Neptilius",desc:"Kindling Lv8 + Handiwork",tier:"meta"},
+{r:"Solenne",p1:"Jormuntide Ignis",p2:"Flaracle",desc:"Handiwork Lv8 Best",tier:"meta"},
+{r:"Nyafia",p1:"Shadowbeak",p2:"Vanwyrm",desc:"Handiwork Lv4 + Gathering",tier:"strong"},
+{r:"Mimog",p1:"Mimog",p2:"Mimog",desc:"Gathering Lv1 + Transporting",tier:"strong"},
+{r:"Aegidron",p1:"Orserk",p2:"Shaolong",desc:"Mining Lv4 Dragon",tier:"strong"},
+{r:"Ophydia",p1:"Jormuntide",p2:"Petallia",desc:"Watering Lv5 + Planting Lv7",tier:"strong"},
+{r:"Celesdir",p1:"Eikthyrdeer Terra",p2:"Gildane",desc:"Lumbering Lv7 Dragon",tier:"strong"},
+{r:"Celesdir Noct",p1:"Celesdir",p2:"Shadowbeak",desc:"Lumbering Lv8 + Gathering",tier:"meta"},
+{r:"Gildane",p1:"Jormuntide",p2:"Sekhmet",desc:"Gathering Lv5 Dragon",tier:"good"},
+{r:"Dandilord",p1:"Jormuntide Ignis",p2:"Renjishi",desc:"Planting + Handiwork + Med",tier:"meta"},
+{r:"Hartalis",p1:"Celesdir",p2:"Astegon",desc:"Gathering Lv7 + Lumbering",tier:"legend"},
+{r:"Shaolong",p1:"Neptilius",p2:"Jormuntide",desc:"Watering Lv8 + Gathering",tier:"meta"},
+{r:"Silvance",p1:"Orserk",p2:"Petallia",desc:"Planting + Medicine Lv8",tier:"meta"},
+{r:"Xenovader",p1:"Xenogard",p2:"Astegon",desc:"Dark Dragon Combat",tier:"legend"},
+{r:"Xenolord",p1:"Xenovader",p2:"Xenogard",desc:"Ultimate Dark Dragon",tier:"legend"}
 ];
 
-const TIER_COLORS={legend:"#fbbf24",meta:"#00f0ff",strong:"#a855f7",good:"#00d4aa"};
-const TIER_BG={legend:"rgba(251,191,36,.12)",meta:"rgba(0,240,255,.1)",strong:"rgba(168,85,247,.1)",good:"rgba(0,212,170,.08)"};
-const TIER_BORDER={legend:"rgba(251,191,36,.35)",meta:"rgba(0,240,255,.3)",strong:"rgba(168,85,247,.3)",good:"rgba(0,212,170,.25)"};
-
-function palImg(n){return PAL_IMG+n.toLowerCase().replace(/\s+/g,'-').replace(/[^a-z0-9-]/g,'')+'.webp'}
-function typeClass(t){return 'type-'+(t||'neutral').toLowerCase().split('/')[0]}
-function getP(n){return PALS.find(p=>p.name===n)||{id:100,type:'Neutral',tier:3}}
+const TIER_COLORS={legend:"#fbbf24",meta:"#00e5ff",strong:"#a855f7",good:"#00d4aa"};
+const TYPE_COLORS={Fire:"#ef4444",Water:"#3b82f6",Grass:"#22c55e",Electric:"#eab308",Ice:"#93c5fd",Dark:"#a855f7",Dragon:"#c084fc",Ground:"#d97706",Neutral:"#94a3b8",Normal:"#94a3b8"};
 
 let hist=JSON.parse(localStorage.getItem('pw_hist')||'[]');
+let favs=JSON.parse(localStorage.getItem('pw_favs')||'[]');
+let activeFilters={elements:[],tiers:[],favOnly:false,search:''};
+let currentTab='guide';
+
+function palImg(n){return PAL_IMG+n.toLowerCase().replace(/\s+/g,'-').replace(/[^a-z0-9-]/g,'')+'.webp'}
+function typeClass(t){return 't-'+(t||'neutral').toLowerCase().split('/')[0]}
+function getP(n){return PALS.find(p=>p.name===n)||{id:200,type:'Neutral',tier:3,work:[]}}
+function isFav(r){return favs.includes(r)}
+function toggleFav(r){
+  const i=favs.indexOf(r);
+  if(i>=0)favs.splice(i,1);else favs.push(r);
+  localStorage.setItem('pw_favs',JSON.stringify(favs));
+}
+function showToast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg;t.style.display='block';
+  t.style.animation='none';void t.offsetWidth;t.style.animation='toastIn .3s ease';
+  setTimeout(()=>t.style.display='none',1500);
+}
+
+function renderFilters(){
+  const els=['Fire','Water','Grass','Electric','Ice','Dark','Dragon','Ground','Neutral'];
+  const trs=['legend','meta','strong','good'];
+  const el=document.getElementById('filters');
+  el.innerHTML=
+    `<div class="bbtn fbtn f-fav ${activeFilters.favOnly?'on':''}" data-fav="1">&#9829; Fav</div>`+
+    els.map(e=>`<div class="bbtn fbtn f-${e.toLowerCase()} ${activeFilters.elements.includes(e)?'on':''}" data-el="${e}">${e}</div>`).join('')+
+    trs.map(t=>`<div class="bbtn fbtn f-${t} ${activeFilters.tiers.includes(t)?'on':''}" data-tier="${t}">${t.charAt(0).toUpperCase()+t.slice(1)}</div>`).join('');
+  el.querySelectorAll('.fbtn').forEach(b=>{
+    b.addEventListener('click',()=>{
+      if(b.dataset.fav){activeFilters.favOnly=!activeFilters.favOnly}
+      else if(b.dataset.el){
+        const e=b.dataset.el;
+        const i=activeFilters.elements.indexOf(e);
+        if(i>=0)activeFilters.elements.splice(i,1);else activeFilters.elements.push(e);
+      }
+      else if(b.dataset.tier){
+        const t=b.dataset.tier;
+        const i=activeFilters.tiers.indexOf(t);
+        if(i>=0)activeFilters.tiers.splice(i,1);else activeFilters.tiers.push(t);
+      }
+      renderFilters();renderGuide();
+    });
+  });
+}
+
+function getFilteredCombos(){
+  return COMBOS.filter(c=>{
+    if(activeFilters.favOnly&&!isFav(c.r))return false;
+    if(activeFilters.tiers.length&&!activeFilters.tiers.includes(c.tier))return false;
+    const rp=getP(c.r);
+    if(activeFilters.elements.length&&!activeFilters.elements.includes(rp.type))return false;
+    if(activeFilters.search){
+      const s=activeFilters.search.toLowerCase();
+      if(!c.r.toLowerCase().includes(s)&&!c.p1.toLowerCase().includes(s)&&!c.p2.toLowerCase().includes(s)&&!c.desc.toLowerCase().includes(s))return false;
+    }
+    return true;
+  });
+}
 
 function renderGuide(){
+  const combos=getFilteredCombos();
   const el=document.getElementById('guideList');
-  el.innerHTML=COMBOS.map(c=>{
-    const rp=getP(c.r),p1=getP(c.p1),p2=getP(c.p2);
+  document.getElementById('resultCount').textContent=`${combos.length} combo${combos.length!==1?'s':''} found`;
+  if(!combos.length){
+    el.innerHTML='<div class="empty-state"><div class="es-icon">&#128269;</div><p>No combos match your filters</p></div>';
+    return;
+  }
+  el.innerHTML=combos.map((c,i)=>{
+    const rp=getP(c.r);
     const tc=typeClass(rp.type);
-    return `<div class="breed-card" style="border-color:${TIER_BORDER[c.tier]};background:linear-gradient(135deg,${TIER_BG[c.tier]},var(--bg-card))">
-      <div class="breed-result">
-        <img class="pal-icon" src="${palImg(c.r)}" alt="${c.r}" onerror="this.style.background='var(--bg-mid)';this.style.border='2px solid var(--accent-cyan)'">
-        <div class="pal-info">
-          <div class="pal-name">${c.r}</div>
-          <div class="pal-type">${c.desc}</div>
-        </div>
-        <div class="pal-badge ${tc}" style="color:${TIER_COLORS[c.tier]};border-color:${TIER_COLORS[c.tier]}40;background:${TIER_COLORS[c.tier]}15">${c.tier.toUpperCase()}</div>
+    const fav=isFav(c.r);
+    return `<div class="bc t-${c.tier}" style="animation-delay:${Math.min(i*30,300)}ms">
+      <div class="fav-btn ${fav?'on':''}" data-r="${c.r}">
+        <svg viewBox="0 0 24 24" fill="${fav?'currentColor':'none'}" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
       </div>
-      <div class="breed-flow">
-        <div class="breed-parent">
+      <div class="bc-top">
+        <img class="bc-icon" src="${palImg(c.r)}" alt="${c.r}" onclick="openModal('${c.r}')" onerror="this.style.background='var(--bg2)'">
+        <div class="bc-info">
+          <div class="bc-name">${c.r}</div>
+          <div class="bc-desc">${c.desc}</div>
+        </div>
+        <div class="bc-badges">
+          <span class="badge badge-type ${tc}">${rp.type}</span>
+          <span class="badge badge-tier ${c.tier}">${c.tier.toUpperCase()}</span>
+        </div>
+      </div>
+      <div class="bc-flow">
+        <div class="bp" onclick="openModal('${c.p1}')">
           <img src="${palImg(c.p1)}" alt="${c.p1}" onerror="this.style.opacity=.3">
           <span>${c.p1}</span>
         </div>
-        <div class="breed-operat or"><div class="breed-plus">+</div></div>
-        <div class="breed-parent">
+        <div class="bop">+</div>
+        <div class="bp" onclick="openModal('${c.p2}')">
           <img src="${palImg(c.p2)}" alt="${c.p2}" onerror="this.style.opacity=.3">
           <span>${c.p2}</span>
         </div>
-        <div class="breed-operator"><div class="breed-arrow">&#10132;</div></div>
-        <div class="breed-parent">
+        <div class="barr">&#10132;</div>
+        <div class="bp" onclick="openModal('${c.r}')">
           <img src="${palImg(c.r)}" alt="${c.r}" onerror="this.style.opacity=.3">
           <span>${c.r}</span>
         </div>
       </div>
     </div>`}).join('');
+  el.querySelectorAll('.fav-btn').forEach(b=>{
+    b.addEventListener('click',e=>{
+      e.stopPropagation();
+      toggleFav(b.dataset.r);
+      renderGuide();
+      showToast(isFav(b.dataset.r)?'Added to favorites':'Removed from favorites');
+    });
+  });
+}
+
+function openModal(name){
+  const p=getP(name);
+  document.getElementById('modalIcon').src=palImg(name);
+  document.getElementById('modalName').textContent=name;
+  document.getElementById('modalNum').textContent=`Paldeck #${p.id} - ${p.type} Type - Tier ${p.tier}`;
+  const tags=document.getElementById('modalTags');
+  tags.innerHTML=`<span class="modal-tag" style="border-color:${TYPE_COLORS[p.type]||'#94a3b8'}40;color:${TYPE_COLORS[p.type]||'#94a3b8'}">${p.type}</span>
+    <span class="modal-tag" style="border-color:${TIER_COLORS[p.tier]}40;color:${TIER_COLORS[p.tier]}">${p.tier===5?'Legendary':p.tier===4?'Epic':p.tier===3?'Rare':p.tier===2?'Uncommon':'Common'}</span>`;
+  const work=document.getElementById('modalWork');
+  work.innerHTML=(p.work||[]).map(w=>`<span class="modal-tag">${w}</span>`).join('')||'<span class="modal-tag">None</span>';
+  const combos=document.getElementById('modalCombos');
+  const found=COMBOS.filter(c=>c.r===name||c.p1===name||c.p2===name);
+  combos.innerHTML=found.length?found.slice(0,8).map(c=>{
+    if(c.r===name)return`<div class="modal-combo"><img src="${palImg(c.p1)}" alt="${c.p1}"><span>${c.p1}</span><span class="mc-plus">+</span><img src="${palImg(c.p2)}" alt="${c.p2}"><span>${c.p2}</span><span class="mc-eq">=</span><img src="${palImg(c.r)}" alt="${c.r}"><span>${c.r}</span></div>`;
+    if(c.p1===name)return`<div class="modal-combo"><img src="${palImg(c.p1)}" alt="${c.p1}"><span>${c.p1}</span><span class="mc-plus">+</span><img src="${palImg(c.p2)}" alt="${c.p2}"><span>${c.p2}</span><span class="mc-eq">=</span><img src="${palImg(c.r)}" alt="${c.r}"><span>${c.r}</span></div>`;
+    return`<div class="modal-combo"><img src="${palImg(c.p1)}" alt="${c.p1}"><span>${c.p1}</span><span class="mc-plus">+</span><img src="${palImg(c.p2)}" alt="${c.p2}"><span>${c.p2}</span><span class="mc-eq">=</span><img src="${palImg(c.r)}" alt="${c.r}"><span>${c.r}</span></div>`;
+  }).join(''):'<span class="modal-tag">No breeding combos found</span>';
+  document.getElementById('modalOverlay').classList.add('show');
 }
 
 function populateSelects(){
@@ -414,7 +755,7 @@ function calcResult(a,b){
   const avg=Math.floor((idA+idB+1)/2);
   let best=PALS[0],bestD=Math.abs(avg-best.id);
   for(const p of PALS){const d=Math.abs(avg-p.id);if(d<bestD){bestD=d;best=p}}
-  return{r:best.name,p1:a,p2:b,desc:best.type,tier:'good'};
+  return{r:best.name,p1:a,p2:b,desc:best.type+' Type',tier:'good'};
 }
 
 function calculate(){
@@ -444,44 +785,119 @@ function calculate(){
 function renderHistory(){
   const el=document.getElementById('historyList');
   if(!hist.length){
-    el.innerHTML='<div class="history-empty"><div class="empty-icon">&#129513;</div><p>No breeding history yet</p></div>';
+    el.innerHTML='<div class="hempty"><div class="ei">&#128257;</div><p>No breeding history yet</p></div>';
     return;
   }
   el.innerHTML=hist.map(h=>{
     const now=new Date(h.t);
     const ts=now.getHours().toString().padStart(2,'0')+':'+now.getMinutes().toString().padStart(2,'0');
-    return `<div class="history-item">
+    return `<div class="hitem">
       <img src="${palImg(h.a)}" alt="${h.a}">
-      <div class="h-plus">+</div>
+      <div class="hp">+</div>
       <img src="${palImg(h.b)}" alt="${h.b}">
-      <div class="h-eq">=</div>
-      <img class="h-result" src="${palImg(h.r)}" alt="${h.r}">
-      <div class="h-name">${h.r}</div>
-      <div class="h-time">${ts}</div>
+      <div class="he">=</div>
+      <img class="hr" src="${palImg(h.r)}" alt="${h.r}">
+      <div class="hn">${h.r}</div>
+      <div class="ht">${ts}</div>
     </div>`}).join('');
 }
 
+function randomCombo(){
+  const c=COMBOS[Math.floor(Math.random()*COMBOS.length)];
+  document.getElementById('parent1').value=c.p1;
+  document.getElementById('parent2').value=c.p2;
+  calculate();
+  showToast(`Random: ${c.p1} + ${c.p2}`);
+}
+
+function switchTab(t){
+  currentTab=t;
+  document.querySelectorAll('.tab').forEach(x=>x.classList.remove('on'));
+  document.querySelectorAll('.pnl').forEach(x=>x.classList.remove('on'));
+  document.querySelector(`.tab[data-t="${t}"]`).classList.add('on');
+  document.getElementById(t).classList.add('on');
+  if(t==='guide')document.getElementById('guide').scrollTop=0;
+  if(t==='history')renderHistory();
+}
+
+// Tab clicks
 document.querySelectorAll('.tab').forEach(t=>{
-  t.addEventListener('click',()=>{
-    document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
-    document.querySelectorAll('.panel').forEach(x=>x.classList.remove('active'));
-    t.classList.add('active');
-    document.getElementById(t.dataset.tab).classList.add('active');
-  });
+  t.addEventListener('click',()=>switchTab(t.dataset.t));
 });
 
+// Swipe navigation
+let touchStartX=0,touchStartY=0;
+document.querySelector('.content').addEventListener('touchstart',e=>{
+  touchStartX=e.touches[0].clientX;
+  touchStartY=e.touches[0].clientY;
+},{passive:true});
+document.querySelector('.content').addEventListener('touchend',e=>{
+  const dx=e.changedTouches[0].clientX-touchStartX;
+  const dy=e.changedTouches[0].clientY-touchStartY;
+  if(Math.abs(dx)>50&&Math.abs(dy)<40){
+    const tabs=['guide','calc','history'];
+    const ci=tabs.indexOf(currentTab);
+    if(dx<0&&ci<2)switchTab(tabs[ci+1]);
+    else if(dx>0&&ci>0)switchTab(tabs[ci-1]);
+  }
+},{passive:true});
+
+// Back to top
+document.querySelectorAll('.pnl').forEach(p=>{
+  p.addEventListener('scroll',()=>{
+    document.getElementById('btt').classList.toggle('show',p.scrollTop>200);
+  });
+});
+document.getElementById('btt').addEventListener('click',()=>{
+  document.getElementById(currentTab).scrollTo({top:0,behavior:'smooth'});
+});
+
+// Search
+document.getElementById('searchInput').addEventListener('input',e=>{
+  activeFilters.search=e.target.value;
+  renderGuide();
+});
+
+// Calculator
 document.getElementById('calcBtn').addEventListener('click',calculate);
+document.getElementById('randomCalcBtn').addEventListener('click',randomCombo);
+document.getElementById('randomBtn').addEventListener('click',()=>{
+  switchTab('calc');
+  randomCombo();
+});
 document.getElementById('parent1').addEventListener('change',()=>{
   if(document.getElementById('parent1').value&&document.getElementById('parent2').value)calculate();
 });
 document.getElementById('parent2').addEventListener('change',()=>{
   if(document.getElementById('parent1').value&&document.getElementById('parent2').value)calculate();
 });
-document.getElementById('clearHistory').addEventListener('click',()=>{
-  hist=[];localStorage.setItem('pw_hist','[]');renderHistory();
+
+// Share
+document.getElementById('shareBtn').addEventListener('click',()=>{
+  const a=document.getElementById('rp1Name').textContent;
+  const b=document.getElementById('rp2Name').textContent;
+  const r=document.getElementById('rpResName').textContent;
+  const text=`Palworld Breeding: ${a} + ${b} = ${r}`;
+  if(navigator.clipboard){navigator.clipboard.writeText(text);showToast('Copied to clipboard!')}
+  else{showToast('Copy: '+text)}
 });
 
-renderGuide();populateSelects();renderHistory();
+// Clear history
+document.getElementById('clearHistory').addEventListener('click',()=>{
+  hist=[];localStorage.setItem('pw_hist','[]');renderHistory();
+  showToast('History cleared');
+});
+
+// Modal close
+document.getElementById('modalClose').addEventListener('click',()=>{
+  document.getElementById('modalOverlay').classList.remove('show');
+});
+document.getElementById('modalOverlay').addEventListener('click',e=>{
+  if(e.target===document.getElementById('modalOverlay'))document.getElementById('modalOverlay').classList.remove('show');
+});
+
+// Init
+renderFilters();renderGuide();populateSelects();renderHistory();
 </script>
 </body>
 </html>
