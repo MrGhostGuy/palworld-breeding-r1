@@ -348,7 +348,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
     </div>
     <div class="stats">
       <div class="stat"><b>140</b> Pals</div>
-      <div class="stat"><b>160+</b> Combos</div>
+      <div class="stat"><b>200+</b> Combos</div>
       <div class="stat"><b>1.0</b> Data</div>
     </div>
   </div>
@@ -1024,287 +1024,547 @@ const PALS=[
 ];
 
 const COMBOS=[
-{r:"Anubis",p1:"Penking",p2:"Bushie",desc:"Handiwork Lv6 + Mining Lv6",tier:"meta"},
-{r:"Jetragon",p1:"Astegon",p2:"Frostallion",desc:"Legendary Dragon Mount",tier:"legend"},
-{r:"Frostallion",p1:"Frostallion",p2:"Frostallion",desc:"Legendary Ice Mount",tier:"legend"},
-{r:"Frostallion Noct",p1:"Frostallion",p2:"Helzephyr",desc:"Breeding-Only Dark Variant",tier:"legend"},
-{r:"Orserk",p1:"Grizzbolt",p2:"Rayhound",desc:"Electricity Lv8 + Handiwork",tier:"legend"},
-{r:"Grizzbolt",p1:"Grizzbolt",p2:"Grizzbolt",desc:"Electricity Lv5 + Lumbering",tier:"legend"},
-{r:"Shadowbeak",p1:"Astegon",p2:"Vanwyrm",desc:"Dark Flying Mount",tier:"legend"},
-{r:"Bellanoir",p1:"Bellanoir",p2:"Bellanoir",desc:"Raid Boss Dark",tier:"legend"},
-{r:"Sibelyx",p1:"Mossanda Lux",p2:"Petallia",desc:"Medicine Production + Cooling",tier:"meta"},
-{r:"Jormuntide",p1:"Relaxaurus",p2:"Jormuntide",desc:"Watering Lv7",tier:"meta"},
-{r:"Jormuntide Ignis",p1:"Relaxaurus Lux",p2:"Jormuntide",desc:"Kindling Lv7",tier:"meta"},
-{r:"Astegon",p1:"Astegon",p2:"Astegon",desc:"Mining Lv7 + Handiwork",tier:"meta"},
-{r:"Blazamut",p1:"Blazamut",p2:"Blazamut",desc:"Kindling Lv6 + Mining Lv7",tier:"meta"},
-{r:"Suzaku",p1:"Suzaku",p2:"Suzaku",desc:"Kindling Lv5 Fire Flying",tier:"meta"},
-{r:"Helzephyr",p1:"Helzephyr",p2:"Helzephyr",desc:"Transporting Lv4 Dark Flyer",tier:"strong"},
-{r:"Knocklem",p1:"Knocklem",p2:"Knocklem",desc:"Mining Lv7 + Transport Lv7",tier:"strong"},
-{r:"Celesdir",p1:"Celesdir",p2:"Celesdir",desc:"Lumbering Lv7 + Gathering",tier:"strong"},
-{r:"Celesdir Noct",p1:"Celesdir",p2:"Celesdir Noct",desc:"Lumbering Lv8 Best",tier:"meta"},
-{r:"Paladius",p1:"Paladius",p2:"Paladius",desc:"Lumbering Lv6 + Mining Lv6",tier:"legend"},
-{r:"Necromus",p1:"Necromus",p2:"Necromus",desc:"Lumbering Lv6 + Mining Lv6",tier:"legend"},
-{r:"Bellanoir Libero",p1:"Bellanoir Libero",p2:"Bellanoir Libero",desc:"Raid Boss Elite",tier:"legend"},
-{r:"Blazamut Ryu",p1:"Blazamut Ryu",p2:"Blazamut Ryu",desc:"Ryu Fire Variant",tier:"legend"},
-{r:"Neptilius",p1:"Neptilius",p2:"Neptilius",desc:"Watering Lv7",tier:"meta"},
-{r:"Selyne",p1:"Selyne",p2:"Selyne",desc:"Handiwork Lv7 + Medicine",tier:"meta"},
-{r:"Bastigor",p1:"Bastigor",p2:"Bastigor",desc:"Cooling Lv8 + Mining Lv5",tier:"meta"},
+// ═══════════════════════════════════════════════════════════════════════════════
+// PALWORLD 1.0 BREEDING COMBINATIONS (Deduplicated - All combos per result Pal)
+// ═══════════════════════════════════════════════════════════════════════════════
+
+// ─── ANUBIS (Handiwork Lv6 + Mining Lv6) ───
+{r:"Anubis",p1:"Univolt Cryst",p2:"Moldron Cryst",desc:"Best Combo - Both common",tier:"meta"},
+{r:"Anubis",p1:"Blazamut",p2:"Univolt Cryst",desc:"Alternative",tier:"meta"},
+{r:"Anubis",p1:"Jormuntide Ignis",p2:"Moldron",desc:"Alternative",tier:"meta"},
+{r:"Anubis",p1:"Astegon",p2:"Blazamut",desc:"Alternative",tier:"meta"},
+{r:"Anubis",p1:"Anubis",p2:"Anubis",desc:"Same Species",tier:"meta"},
+
+// ─── JORMUNTIDE (Watering Lv7 + Dragon) ───
+{r:"Jormuntide",p1:"Relaxaurus",p2:"Suzaku",desc:"Watering Lv7 Dragon",tier:"meta"},
+{r:"Jormuntide",p1:"Relaxaurus",p2:"Jormuntide",desc:"Same Species",tier:"meta"},
+{r:"Jormuntide",p1:"Relaxaurus",p2:"Azurobe",desc:"Alternative",tier:"meta"},
+
+// ─── JORMUNTIDE IGNIS (Kindling Lv7 + Dragon) ───
+{r:"Jormuntide Ignis",p1:"Relaxaurus Lux",p2:"Jormuntide",desc:"Kindling Lv7 Dragon",tier:"meta"},
+
+// ─── SIBELYX (Medicine Lv3 + Cooling Lv3) ───
+{r:"Sibelyx",p1:"Penking",p2:"Bushi",desc:"Classic Recipe",tier:"meta"},
+{r:"Sibelyx",p1:"Mossanda Lux",p2:"Petallia",desc:"Alternative",tier:"meta"},
+{r:"Sibelyx",p1:"Sibelyx",p2:"Sibelyx",desc:"Same Species",tier:"meta"},
+
+// ─── LYLEEN (Planting Lv7 + Medicine) ───
 {r:"Lyleen",p1:"Petallia",p2:"Mossanda",desc:"Planting Lv7 + Medicine",tier:"meta"},
-{r:"Menasting",p1:"Anubis",p2:"Cryolinx",desc:"Mining Lv5 + Lumbering",tier:"strong"},
-{r:"Faleris",p1:"Blazehowl",p2:"Ragnahawk",desc:"Kindling Lv6 + Transport",tier:"meta"},
-{r:"Pyrin",p1:"Arsox",p2:"Foxparks",desc:"Kindling Lv4 + Lumbering",tier:"strong"},
-{r:"Univolt",p1:"Rayhound",p2:"Mossanda Lux",desc:"Electricity Lv3 + Lumbering",tier:"strong"},
-{r:"Relaxaurus",p1:"Relaxaurus",p2:"Relaxaurus",desc:"Watering Lv3 + Transporting",tier:"good"},
-{r:"Warsect",p1:"Warsect",p2:"Warsect",desc:"Planting Lv3 + Lumbering Lv4",tier:"strong"},
-{r:"Elphidran",p1:"Elphidran",p2:"Elphidran",desc:"Lumbering Lv3 Dragon",tier:"good"},
-{r:"Petallia",p1:"Petallia",p2:"Petallia",desc:"Planting Lv4 + Medicine Lv4",tier:"meta"},
-{r:"Kingpaca",p1:"Kingpaca",p2:"Kingpaca",desc:"Gathering Lv2 Neutral",tier:"good"},
-{r:"Reptyro",p1:"Reptyro",p2:"Reptyro",desc:"Kindling Lv5 + Mining Lv5",tier:"strong"},
-{r:"Rayhound",p1:"Rayhound",p2:"Rayhound",desc:"Electricity Lv4 Dog",tier:"strong"},
-{r:"Cryolinx",p1:"Cryolinx",p2:"Cryolinx",desc:"Cooling Lv4 + Lumbering",tier:"strong"},
-{r:"Blazehowl",p1:"Blazehowl",p2:"Blazehowl",desc:"Kindling Lv5 + Lumbering",tier:"strong"},
-{r:"Robinquill",p1:"Robinquill",p2:"Robinquill",desc:"Planting Lv2 + Handiwork",tier:"good"},
-{r:"Ragnahawk",p1:"Ragnahawk",p2:"Ragnahawk",desc:"Kindling Lv4 + Transporting",tier:"strong"},
-{r:"Vanwyrm",p1:"Vanwyrm",p2:"Vanwyrm",desc:"Kindling Lv2 + Transporting",tier:"good"},
-{r:"Bushi",p1:"Bushi",p2:"Bushi",desc:"Kindling Lv2 + Lumbering Lv3",tier:"good"},
-{r:"Dazzi",p1:"Dazzi",p2:"Dazzi",desc:"Electricity Lv3 + Handiwork",tier:"good"},
-{r:"Galeclaw",p1:"Galeclaw",p2:"Galeclaw",desc:"Gathering Lv2 Dark",tier:"good"},
-{r:"Dinossom",p1:"Dinossom",p2:"Dinossom",desc:"Planting Lv3 + Lumbering",tier:"good"},
-{r:"Maraith",p1:"Maraith",p2:"Maraith",desc:"Gathering Lv4 + Mining Lv4",tier:"strong"},
-{r:"Torterra",p1:"Torterra",p2:"Torterra",desc:"Planting + Lumbering + Mining",tier:"good"},
-{r:"Felbat",p1:"Felbat",p2:"Felbat",desc:"Medicine Lv3 Dark",tier:"good"},
-{r:"Sibelyx",p1:"Sibelyx",p2:"Sibelyx",desc:"Medicine Lv3 + Cooling Lv3",tier:"meta"},
-{r:"Mossanda",p1:"Mossanda",p2:"Mossanda",desc:"Planting Lv3 + Lumbering Lv4",tier:"strong"},
-{r:"Mossanda Lux",p1:"Mossanda Lux",p2:"Mossanda Lux",desc:"Electricity Lv4 + Lumbering",tier:"strong"},
-{r:"Azurobe",p1:"Azurobe",p2:"Azurobe",desc:"Watering Lv4 Water",tier:"strong"},
-{r:"Lyleen Noct",p1:"Lyleen",p2:"Incineram Noct",desc:"Handiwork + Gathering + Med",tier:"strong"},
-{r:"Helzephyr Lux",p1:"Helzephyr",p2:"Rayhound",desc:"Electricity Lv4 + Transport",tier:"strong"},
-{r:"Faleris",p1:"Blazehowl",p2:"Ragnahawk",desc:"Kindling Lv6 + Transport",tier:"meta"},
-{r:"Kitsun",p1:"Foxparks",p2:"Foxcicle",desc:"Kindling Lv3 Fire Mount",tier:"strong"},
-{r:"Pyrin Noct",p1:"Pyrin",p2:"Shadowbeak",desc:"Kindling Lv4 + Lumbering",tier:"strong"},
-{r:"Relaxaurus Lux",p1:"Relaxaurus",p2:"Rayhound",desc:"Electricity Lv4 + Transport",tier:"strong"},
+{r:"Lyleen",p1:"Lyleen",p2:"Lyleen",desc:"Same Species / Tower Boss",tier:"legend"},
+
+// ─── ASTEGON (Mining Lv7 + Handiwork) ───
+{r:"Astegon",p1:"Astegon",p2:"Astegon",desc:"Same Species",tier:"meta"},
+
+// ─── BLAZAMUT (Kindling Lv6 + Mining Lv7) ───
 {r:"Blazamut",p1:"Blazehowl",p2:"Reptyro",desc:"Kindling Lv6 + Mining Lv7",tier:"meta"},
+{r:"Blazamut",p1:"Blazamut",p2:"Blazamut",desc:"Same Species",tier:"meta"},
+
+// ─── SUZAKU (Kindling Lv5 Fire Flying) ───
+{r:"Suzaku",p1:"Suzaku",p2:"Suzaku",desc:"Same Species",tier:"meta"},
+
+// ─── SUZAKU AQUA (Watering Lv6 Aqua Variant) ───
 {r:"Suzaku Aqua",p1:"Suzaku",p2:"Surfent",desc:"Watering Lv6 Aqua Variant",tier:"strong"},
-{r:"Jormuntide",p1:"Relaxaurus",p2:"Azurobe",desc:"Watering Lv7 Dragon",tier:"meta"},
-{r:"Frostallion",p1:"Frostallion",p2:"Frostallion",desc:"Cooling Lv7 Ice Mount",tier:"legend"},
-{r:"Jetragon",p1:"Jetragon",p2:"Jetragon",desc:"Gathering Lv8 Dragon Mount",tier:"legend"},
-{r:"Xenogard",p1:"Xenogard",p2:"Xenogard",desc:"Mining Lv4 Dragon",tier:"meta"},
+
+// ─── PETALLIA (Planting Lv4 + Medicine Lv4) ───
+{r:"Petallia",p1:"Petallia",p2:"Petallia",desc:"Same Species",tier:"meta"},
+
+// ─── MOSSANDA (Planting Lv3 + Lumbering Lv4) ───
+{r:"Mossanda",p1:"Mossanda",p2:"Mossanda",desc:"Same Species",tier:"strong"},
+
+// ─── MOSSANDA LUX (Electricity Lv4 + Lumbering) ───
+{r:"Mossanda Lux",p1:"Mossanda",p2:"Grizzbolt",desc:"Electricity Lv4 + Lumbering",tier:"meta"},
+{r:"Mossanda Lux",p1:"Mossanda Lux",p2:"Mossanda Lux",desc:"Same Species",tier:"strong"},
+
+// ─── KNOCKLEM (Mining Lv7 + Transport Lv7) ───
 {r:"Knocklem",p1:"Warsect",p2:"Anubis",desc:"Mining Lv7 + Transport Lv7",tier:"meta"},
-{r:"Starryon",p1:"Kingpaca",p2:"Grintale",desc:"Gathering Lv5 Neutral",tier:"strong"},
-{r:"Sekhmet",p1:"Anubis",p2:"Bushi",desc:"Handiwork Lv6 + Mining Lv3",tier:"strong"},
-{r:"Flaracle",p1:"Reptyro",p2:"Blazehowl",desc:"Kindling Lv7 + Handiwork",tier:"strong"},
-{r:"Renjishi",p1:"Blazamut",p2:"Neptilius",desc:"Kindling Lv8 + Handiwork",tier:"meta"},
-{r:"Solenne",p1:"Jormuntide Ignis",p2:"Flaracle",desc:"Handiwork Lv8 Best",tier:"meta"},
-{r:"Nyafia",p1:"Shadowbeak",p2:"Vanwyrm",desc:"Handiwork Lv4 + Gathering",tier:"strong"},
-{r:"Mimog",p1:"Mimog",p2:"Mimog",desc:"Gathering Lv1 + Transporting",tier:"strong"},
-{r:"Aegidron",p1:"Orserk",p2:"Shaolong",desc:"Mining Lv4 Dragon",tier:"strong"},
-{r:"Ophydia",p1:"Jormuntide",p2:"Petallia",desc:"Watering Lv5 + Planting Lv7",tier:"strong"},
+{r:"Knocklem",p1:"Knocklem",p2:"Knocklem",desc:"Same Species",tier:"strong"},
+
+// ─── CELESDIR (Lumbering Lv7 + Gathering) ───
 {r:"Celesdir",p1:"Eikthyrdeer Terra",p2:"Gildane",desc:"Lumbering Lv7 Dragon",tier:"strong"},
-{r:"Celesdir Noct",p1:"Celesdir",p2:"Shadowbeak",desc:"Lumbering Lv8 + Gathering",tier:"meta"},
+{r:"Celesdir",p1:"Celesdir",p2:"Celesdir",desc:"Same Species",tier:"strong"},
+
+// ─── CELESDIR NOCT (Lumbering Lv8 + Gathering) ───
+{r:"Celesdir Noct",p1:"Celesdir",p2:"Helzephyr",desc:"Lumbering Lv8 + Gathering",tier:"meta"},
+{r:"Celesdir Noct",p1:"Celesdir",p2:"Shadowbeak",desc:"Alternative",tier:"meta"},
+
+// ─── MENASTING (Mining Lv5 + Lumbering) ───
+{r:"Menasting",p1:"Anubis",p2:"Cryolinx",desc:"Mining Lv5 + Lumbering",tier:"strong"},
+{r:"Menasting",p1:"Menasting",p2:"Menasting",desc:"Same Species",tier:"strong"},
+
+// ─── FALERIS (Kindling Lv6 + Transporting) ───
+{r:"Faleris",p1:"Blazehowl",p2:"Ragnahawk",desc:"Kindling Lv6 + Transport",tier:"meta"},
+{r:"Faleris",p1:"Faleris",p2:"Faleris",desc:"Same Species / Tower Boss",tier:"legend"},
+
+// ─── PYRIN (Kindling Lv4 + Lumbering) ───
+{r:"Pyrin",p1:"Arsox",p2:"Foxparks",desc:"Kindling Lv4 + Lumbering",tier:"strong"},
+
+// ─── PYRIN NOCT (Kindling Lv4 + Lumbering) ───
+{r:"Pyrin Noct",p1:"Pyrin",p2:"Katress",desc:"Kindling Lv4 + Lumbering",tier:"strong"},
+
+// ─── UNIVOLT (Electricity Lv3 + Lumbering) ───
+{r:"Univolt",p1:"Rayhound",p2:"Mossanda Lux",desc:"Electricity Lv3 + Lumbering",tier:"strong"},
+{r:"Univolt",p1:"Univolt",p2:"Univolt",desc:"Same Species",tier:"strong"},
+
+// ─── WARSECT (Planting Lv3 + Lumbering Lv4) ───
+{r:"Warsect",p1:"Warsect",p2:"Warsect",desc:"Same Species",tier:"strong"},
+
+// ─── ELPHIDRAN (Lumbering Lv3 Dragon) ───
+{r:"Elphidran",p1:"Elphidran",p2:"Elphidran",desc:"Same Species",tier:"good"},
+
+// ─── KINGPACA (Gathering Lv2 Neutral) ───
+{r:"Kingpaca",p1:"Kingpaca",p2:"Kingpaca",desc:"Same Species",tier:"good"},
+
+// ─── KINGPACA CRYST (Ice + Neutral) ───
+{r:"Kingpaca Cryst",p1:"Kingpaca",p2:"Hangyu Cryst",desc:"Ice + Neutral Egg",tier:"strong"},
+
+// ─── ICE KINGPACA (Ice + Neutral) ───
+{r:"Ice Kingpaca",p1:"Kingpaca",p2:"Reptyro Cryst",desc:"Ice + Neutral Egg",tier:"strong"},
+
+// ─── REPTYRO (Kindling Lv5 + Mining Lv5) ───
+{r:"Reptyro",p1:"Reptyro",p2:"Reptyro",desc:"Same Species",tier:"strong"},
+
+// ─── ICE REPTYRO (Ice + Fire) ───
+{r:"Ice Reptyro",p1:"Reptyro",p2:"Foxcicle",desc:"Ice + Fire Egg",tier:"strong"},
+
+// ─── RAYHOUND (Electricity Lv4 Dog) ───
+{r:"Rayhound",p1:"Rayhound",p2:"Rayhound",desc:"Same Species",tier:"strong"},
+
+// ─── CRYOLINX (Cooling Lv4 + Lumbering) ───
+{r:"Cryolinx",p1:"Cryolinx",p2:"Cryolinx",desc:"Same Species",tier:"strong"},
+
+// ─── BLAZEHOWL (Kindling Lv5 + Lumbering) ───
+{r:"Blazehowl",p1:"Blazehowl",p2:"Blazehowl",desc:"Same Species",tier:"strong"},
+
+// ─── BLAZEHOWL NOCT (Kindling Lv5 + Lumbering) ───
+{r:"Blazehowl Noct",p1:"Blazehowl",p2:"Maraith",desc:"Kindling Lv5 + Lumbering",tier:"strong"},
+
+// ─── ROBINQUILL (Planting Lv2 + Handiwork) ───
+{r:"Robinquill",p1:"Robinquill",p2:"Robinquill",desc:"Same Species",tier:"good"},
+
+// ─── ROBINQUILL TERRA (Ground + Grass) ───
+{r:"Robinquill Terra",p1:"Robinquill",p2:"Rushoar",desc:"Ground + Grass Egg",tier:"good"},
+
+// ─── RAGNAHAWK (Kindling Lv4 + Transporting) ───
+{r:"Ragnahawk",p1:"Ragnahawk",p2:"Ragnahawk",desc:"Same Species",tier:"strong"},
+
+// ─── VANWYRM (Kindling Lv2 + Transporting) ───
+{r:"Vanwyrm",p1:"Vanwyrm",p2:"Vanwyrm",desc:"Same Species",tier:"good"},
+
+// ─── VANWYRM CRYST (Ice + Fire) ───
+{r:"Vanwyrm Cryst",p1:"Vanwyrm",p2:"Foxcicle",desc:"Ice + Fire Egg",tier:"meta"},
+
+// ─── BUSHI (Kindling Lv2 + Lumbering Lv3) ───
+{r:"Bushi",p1:"Bushi",p2:"Bushi",desc:"Same Species",tier:"good"},
+
+// ─── BUSHI NOCT (Dark + Fire) ───
+{r:"Bushi Noct",p1:"Bushi",p2:"Leezpunk",desc:"Dark + Fire Egg",tier:"strong"},
+{r:"Bushi Noct",p1:"Bushi",p2:"Galeclaw",desc:"Alternative",tier:"strong"},
+
+// ─── DAZZI (Electricity Lv3 + Handiwork) ───
+{r:"Dazzi",p1:"Dazzi",p2:"Dazzi",desc:"Same Species",tier:"good"},
+
+// ─── GALECLAW (Gathering Lv2 Dark) ───
+{r:"Galeclaw",p1:"Galeclaw",p2:"Galeclaw",desc:"Same Species",tier:"good"},
+
+// ─── DINOSSOM (Planting Lv3 + Lumbering) ───
+{r:"Dinossom",p1:"Dinossom",p2:"Dinossom",desc:"Same Species",tier:"good"},
+
+// ─── DINOSSOM LUX (Electric + Grass) ───
+{r:"Dinossom Lux",p1:"Dinossom",p2:"Mossanda Lux",desc:"Electric + Grass Egg",tier:"strong"},
+
+// ─── MARAITH (Gathering Lv4 + Mining Lv4) ───
+{r:"Maraith",p1:"Maraith",p2:"Maraith",desc:"Same Species",tier:"strong"},
+
+// ─── FELBAT (Medicine Lv3 Dark) ───
+{r:"Felbat",p1:"Felbat",p2:"Felbat",desc:"Same Species",tier:"good"},
+
+// ─── AZUROBE (Watering Lv4 Water) ───
+{r:"Azurobe",p1:"Azurobe",p2:"Azurobe",desc:"Same Species",tier:"strong"},
+
+// ─── LYLEEN NOCT (Handiwork + Gathering + Med) ───
+{r:"Lyleen Noct",p1:"Lyleen",p2:"Incineram Noct",desc:"Dark + Grass Egg",tier:"strong"},
+{r:"Lyleen Noct",p1:"Lyleen",p2:"Loupmoon",desc:"Alternative",tier:"strong"},
+
+// ─── KITSUN (Kindling Lv3 Fire Mount) ───
+{r:"Kitsun",p1:"Foxparks",p2:"Foxcicle",desc:"Kindling Lv3 Fire Mount",tier:"strong"},
+{r:"Kitsun",p1:"Kitsun",p2:"Kitsun",desc:"Same Species",tier:"strong"},
+
+// ─── RELAXAURUS (Watering Lv3 + Transporting) ───
+{r:"Relaxaurus",p1:"Relaxaurus",p2:"Relaxaurus",desc:"Same Species",tier:"good"},
+
+// ─── RELAXAURUS LUX (Electricity + Water) ───
+{r:"Relaxaurus Lux",p1:"Relaxaurus",p2:"Sparkit",desc:"Electricity + Water Egg",tier:"meta"},
+{r:"Relaxaurus Lux",p1:"Relaxaurus",p2:"Rayhound",desc:"Alternative",tier:"strong"},
+
+// ─── BRONCHERRY (Planting Lv3 Grass) ───
+{r:"Broncherry",p1:"Broncherry",p2:"Broncherry",desc:"Same Species",tier:"strong"},
+
+// ─── BRONCHERRY AQUA (Water + Grass) ───
+{r:"Broncherry Aqua",p1:"Broncherry",p2:"Fuack",desc:"Water + Grass Egg",tier:"good"},
+
+// ─── EIKTHYRDEER (Gathering Lv2 Neutral) ───
+{r:"Eikthyrdeer",p1:"Eikthyrdeer",p2:"Eikthyrdeer",desc:"Same Species",tier:"good"},
+
+// ─── EIKTHYRDEER TERRA (Ground + Neutral) ───
+{r:"Eikthyrdeer Terra",p1:"Eikthyrdeer",p2:"Gobfin",desc:"Ground + Neutral Egg",tier:"good"},
+{r:"Eikthyrdeer Terra",p1:"Eikthyrdeer",p2:"Dumud",desc:"Alternative",tier:"good"},
+
+// ─── HANGYU (Handiwork Lv2 Ground) ───
+{r:"Hangyu",p1:"Hangyu",p2:"Hangyu",desc:"Same Species",tier:"good"},
+
+// ─── HANGYU CRYST (Ice + Ground) ───
+{r:"Hangyu Cryst",p1:"Hangyu",p2:"Bristla",desc:"Ice + Ground Egg",tier:"good"},
+
+// ─── MAU (Gathering Lv1 Dark) ───
+{r:"Mau",p1:"Mau",p2:"Mau",desc:"Same Species",tier:"good"},
+
+// ─── MAU CRYST (Ice + Dark) ───
+{r:"Mau Cryst",p1:"Mau",p2:"Pengullet Lux",desc:"Ice + Dark Egg",tier:"good"},
+{r:"Mau Cryst",p1:"Mau",p2:"Hangyu Cryst",desc:"Alternative",tier:"good"},
+
+// ─── JOLTHOG (Electricity Lv1) ───
+{r:"Jolthog",p1:"Jolthog",p2:"Jolthog",desc:"Same Species",tier:"good"},
+
+// ─── JOLTHOG CRYST (Ice + Electric) ───
+{r:"Jolthog Cryst",p1:"Jolthog",p2:"Pengullet",desc:"Ice + Electric Egg",tier:"good"},
+
+// ─── FOXPARKS (Kindling Lv1 Fire) ───
+{r:"Foxparks",p1:"Foxparks",p2:"Foxparks",desc:"Same Species",tier:"good"},
+
+// ─── FOXPARKS CRYST (Ice + Fire) ───
+{r:"Foxparks Cryst",p1:"Foxparks",p2:"Jolthog Cryst",desc:"Ice + Fire Egg",tier:"good"},
+{r:"Foxparks Cryst",p1:"Foxparks",p2:"Bristla",desc:"Alternative",tier:"good"},
+
+// ─── PENGULLET (Watering Lv1 Ice) ───
+{r:"Pengullet",p1:"Pengullet",p2:"Pengullet",desc:"Same Species",tier:"good"},
+
+// ─── PENGULLET LUX (Electric + Ice) ───
+{r:"Pengullet Lux",p1:"Pengullet",p2:"Jolthog",desc:"Electric + Ice Egg",tier:"good"},
+{r:"Pengullet Lux",p1:"Pengullet",p2:"Kelpsea",desc:"Alternative",tier:"good"},
+
+// ─── GOBFIN (Handiwork Lv1 Water) ───
+{r:"Gobfin",p1:"Gobfin",p2:"Gobfin",desc:"Same Species",tier:"good"},
+
+// ─── GOBFIN IGNIS (Fire + Water) ───
+{r:"Gobfin Ignis",p1:"Gobfin",p2:"Rushoar",desc:"Fire + Water Egg",tier:"good"},
+{r:"Gobfin Ignis",p1:"Gobfin",p2:"Fuddler",desc:"Alternative",tier:"good"},
+
+// ─── LEEZPUNK (Gathering Lv1 Dark) ───
+{r:"Leezpunk",p1:"Leezpunk",p2:"Leezpunk",desc:"Same Species",tier:"good"},
+
+// ─── LEEZPUNK IGNIS (Fire + Dark) ───
+{r:"Leezpunk Ignis",p1:"Leezpunk",p2:"Flambelle",desc:"Fire + Dark Egg",tier:"good"},
+{r:"Leezpunk Ignis",p1:"Leezpunk",p2:"Depresso",desc:"Alternative",tier:"good"},
+
+// ─── LOUPMOON (Gathering Lv1 Dark) ───
+{r:"Loupmoon",p1:"Loupmoon",p2:"Loupmoon",desc:"Same Species",tier:"good"},
+
+// ─── LOUPMOON CRYST (Ice + Dark) ───
+{r:"Loupmoon Cryst",p1:"Loupmoon",p2:"Jolthog Cryst",desc:"Ice + Dark Egg",tier:"strong"},
+
+// ─── CAPRITY (Planting Lv1 Grass) ───
+{r:"Caprity",p1:"Caprity",p2:"Caprity",desc:"Same Species",tier:"good"},
+
+// ─── CAPRITY NOCT (Dark + Grass) ───
+{r:"Caprity Noct",p1:"Caprity",p2:"Loupmoon",desc:"Dark + Grass Egg",tier:"strong"},
+{r:"Caprity Noct",p1:"Caprity",p2:"Depresso",desc:"Alternative",tier:"strong"},
+
+// ─── WOOLIPOP (Gathering Lv1 Neutral) ───
+{r:"Woolipop",p1:"Woolipop",p2:"Woolipop",desc:"Same Species",tier:"good"},
+
+// ─── WOOLIPOP TERRA (Ground + Neutral) ───
+{r:"Woolipop Terra",p1:"Woolipop",p2:"Eikthyrdeer Terra",desc:"Ground + Neutral Egg",tier:"strong"},
+
+// ─── RIBBUNY (Handiwork Lv1 Grass) ───
+{r:"Ribbuny",p1:"Ribbuny",p2:"Ribbuny",desc:"Same Species",tier:"good"},
+
+// ─── RIBBUNY BOTAN (Grass + Neutral) ───
+{r:"Ribbuny Botan",p1:"Ribbuny",p2:"Tanzee",desc:"Grass + Neutral Egg",tier:"good"},
+
+// ─── FLAMBELLE (Kindling Lv1 Fire) ───
+{r:"Flambelle",p1:"Foxparks",p2:"Fuack",desc:"Fire + Water Egg",tier:"good"},
+{r:"Flambelle",p1:"Flambelle",p2:"Flambelle",desc:"Same Species",tier:"good"},
+
+// ─── FUACK (Watering Lv1 Water) ───
+{r:"Fuack",p1:"Fuack",p2:"Fuack",desc:"Same Species",tier:"good"},
+
+// ─── FUACK IGNIS (Fire + Water) ───
+{r:"Fuack Ignis",p1:"Fuack",p2:"Tanzee",desc:"Fire + Water Egg",tier:"good"},
+
+// ─── KELPSEA (Watering Lv1 Water) ───
+{r:"Kelpsea",p1:"Kelpsea",p2:"Kelpsea",desc:"Same Species",tier:"good"},
+
+// ─── KELPSEA IGNIS (Fire + Water) ───
+{r:"Kelpsea Ignis",p1:"Kelpsea",p2:"Tanzee",desc:"Fire + Water Egg",tier:"good"},
+
+// ─── TANZEE (Planting Lv1 Grass) ───
+{r:"Tanzee",p1:"Tanzee",p2:"Tanzee",desc:"Same Species",tier:"good"},
+
+// ─── TANZEE IGNIS (Fire + Grass) ───
+{r:"Tanzee Ignis",p1:"Tanzee",p2:"Foxparks",desc:"Fire + Grass Egg",tier:"good"},
+
+// ─── CROAJIRO (Watering Lv1 Water) ───
+{r:"Croajiro",p1:"Croajiro",p2:"Croajiro",desc:"Same Species",tier:"good"},
+
+// ─── CROAJIRO NOCT (Dark + Neutral) ───
+{r:"Croajiro Noct",p1:"Croajiro",p2:"Hoocrates",desc:"Dark + Neutral Egg",tier:"good"},
+
+// ─── HELZEPHYR (Transporting Lv4 Dark Flyer) ───
+{r:"Helzephyr",p1:"Helzephyr",p2:"Helzephyr",desc:"Same Species",tier:"strong"},
+
+// ─── HELZEPHYR LUX (Electricity Lv4 + Transport) ───
+{r:"Helzephyr Lux",p1:"Helzephyr",p2:"Rayhound",desc:"Electricity Lv4 + Transport",tier:"strong"},
+
+// ─── FROSTALLION NOCT (Special fixed recipe) ───
+{r:"Frostallion Noct",p1:"Frostallion",p2:"Helzephyr",desc:"Breeding-Only Dark Variant",tier:"legend"},
+
+// ─── KATRESS IGNIS (Gender-specific) ───
+{r:"Katress Ignis",p1:"Katress",p2:"Wixen",desc:"Female Katress + Male Wixen",tier:"meta"},
+
+// ─── WIXEN NOCT (Gender-specific) ───
+{r:"Wixen Noct",p1:"Katress",p2:"Wixen",desc:"Male Katress + Female Wixen",tier:"meta"},
+
+// ─── STARRYON (Gathering Lv5 Neutral) ───
+{r:"Starryon",p1:"Kingpaca",p2:"Grintale",desc:"Gathering Lv5 Neutral",tier:"strong"},
+{r:"Starryon",p1:"Starryon",p2:"Starryon",desc:"Same Species",tier:"strong"},
+
+// ─── SEKHMET (Handiwork Lv6 + Mining Lv3) ───
+{r:"Sekhmet",p1:"Anubis",p2:"Bushi",desc:"Handiwork Lv6 + Mining Lv3",tier:"strong"},
+{r:"Sekhmet",p1:"Sekhmet",p2:"Sekhmet",desc:"Same Species",tier:"strong"},
+
+// ─── FLARACLE (Kindling Lv7 + Handiwork) ───
+{r:"Flaracle",p1:"Reptyro",p2:"Blazehowl",desc:"Kindling Lv7 + Handiwork",tier:"strong"},
+{r:"Flaracle",p1:"Flaracle",p2:"Flaracle",desc:"Same Species",tier:"strong"},
+
+// ─── RENJISHI (Kindling Lv8 + Handiwork) ───
+{r:"Renjishi",p1:"Blazamut",p2:"Neptilius",desc:"Kindling Lv8 + Handiwork",tier:"meta"},
+{r:"Renjishi",p1:"Renjishi",p2:"Renjishi",desc:"Same Species",tier:"strong"},
+
+// ─── SOLENNE (Handiwork Lv8 Best) ───
+{r:"Solenne",p1:"Jormuntide Ignis",p2:"Flaracle",desc:"Handiwork Lv8 Best",tier:"meta"},
+{r:"Solenne",p1:"Solenne",p2:"Solenne",desc:"Same Species",tier:"strong"},
+
+// ─── NYAFIA (Handiwork Lv4 + Gathering) ───
+{r:"Nyafia",p1:"Shadowbeak",p2:"Vanwyrm",desc:"Handiwork Lv4 + Gathering",tier:"strong"},
+{r:"Nyafia",p1:"Nyafia",p2:"Nyafia",desc:"Same Species",tier:"strong"},
+
+// ─── AEGIDRON (Mining Lv4 Dragon) ───
+{r:"Aegidron",p1:"Orserk",p2:"Shaolong",desc:"Mining Lv4 Dragon",tier:"strong"},
+{r:"Aegidron",p1:"Aegidron",p2:"Aegidron",desc:"Same Species",tier:"strong"},
+
+// ─── OPHYDIA (Watering Lv5 + Planting Lv7) ───
+{r:"Ophydia",p1:"Jormuntide",p2:"Petallia",desc:"Watering Lv5 + Planting Lv7",tier:"strong"},
+{r:"Ophydia",p1:"Ophydia",p2:"Ophydia",desc:"Same Species",tier:"strong"},
+
+// ─── GILDANE (Gathering Lv5 Dragon) ───
 {r:"Gildane",p1:"Jormuntide",p2:"Sekhmet",desc:"Gathering Lv5 Dragon",tier:"good"},
-{r:"Dandilord",p1:"Jormuntide Ignis",p2:"Renjishi",desc:"Planting + Handiwork + Med",tier:"meta"},
-{r:"Hartalis",p1:"Celesdir",p2:"Astegon",desc:"Gathering Lv7 + Lumbering",tier:"legend"},
-{r:"Shaolong",p1:"Neptilius",p2:"Jormuntide",desc:"Watering Lv8 + Gathering",tier:"meta"},
-{r:"Silvance",p1:"Orserk",p2:"Petallia",desc:"Planting + Medicine Lv8",tier:"meta"},
-{r:"Xenovader",p1:"Xenogard",p2:"Astegon",desc:"Dark Dragon Combat",tier:"legend"},
-{r:"Xenolord",p1:"Xenovader",p2:"Xenogard",desc:"Ultimate Dark Dragon",tier:"legend"}
+{r:"Gildane",p1:"Gildane",p2:"Gildane",desc:"Same Species",tier:"strong"},
+
+// ─── BASTIGOR (Cooling Lv8 + Mining Lv5) ───
+{r:"Bastigor",p1:"Bastigor",p2:"Bastigor",desc:"Same Species",tier:"meta"},
+
+// ─── SELYNE (Handiwork Lv7 + Medicine) ───
+{r:"Selyne",p1:"Selyne",p2:"Selyne",desc:"Same Species",tier:"meta"},
+
+// ─── DIGTOISE (Mining Lv2 Ground) ───
+{r:"Digtoise",p1:"Digtoise",p2:"Digtoise",desc:"Same Species",tier:"good"},
+
+// ─── SURFENT (Watering Lv2 Water) ───
+{r:"Surfent",p1:"Surfent",p2:"Surfent",desc:"Same Species",tier:"good"},
+
+// ─── SURFENT TERRA (Ground + Water) ───
+{r:"Surfent Terra",p1:"Surfent",p2:"Maraith",desc:"Ground + Water Egg",tier:"strong"},
+
+// ─── TOMBAT (Gathering Lv1 Dark) ───
+{r:"Tombat",p1:"Tombat",p2:"Tombat",desc:"Same Species",tier:"good"},
+
+// ─── LOVANDER (Handiwork Lv1 Dark) ───
+{r:"Lovander",p1:"Lovander",p2:"Lovander",desc:"Same Species",tier:"good"},
+
+// ─── CINNAMOTH (Planting Lv2 Grass) ───
+{r:"Cinnamoth",p1:"Cinnamoth",p2:"Cinnamoth",desc:"Same Species",tier:"good"},
+
+// ─── ARSOX (Kindling Lv2 Fire) ───
+{r:"Arsox",p1:"Arsox",p2:"Arsox",desc:"Same Species",tier:"good"},
+
+// ─── DUMUD (Gathering Lv1 Ground) ───
+{r:"Dumud",p1:"Dumud",p2:"Dumud",desc:"Same Species",tier:"good"},
+
+// ─── CAWGNITO (Gathering Lv1 Dark) ───
+{r:"Cawgnito",p1:"Cawgnito",p2:"Cawgnito",desc:"Same Species",tier:"good"},
+
+// ─── GORIRAT (Lumbering Lv2 Neutral) ───
+{r:"Gorirat",p1:"Gorirat",p2:"Gorirat",desc:"Same Species",tier:"good"},
+
+// ─── BEEGARDE (Gathering Lv1 Grass) ───
+{r:"Beegarde",p1:"Beegarde",p2:"Beegarde",desc:"Same Species",tier:"good"},
+
+// ─── ELIZABEE (Planting Lv2 Grass) ───
+{r:"Elizabee",p1:"Elizabee",p2:"Elizabee",desc:"Same Species",tier:"good"},
+
+// ─── GRINTALE (Gathering Lv1 Neutral) ───
+{r:"Grintale",p1:"Grintale",p2:"Grintale",desc:"Same Species",tier:"good"},
+
+// ─── SWEE (Gathering Lv1 Ice) ───
+{r:"Swee",p1:"Swee",p2:"Swee",desc:"Same Species",tier:"good"},
+
+// ─── SWEEPA (Gathering Lv2 Ice) ───
+{r:"Sweepa",p1:"Sweepa",p2:"Sweepa",desc:"Same Species",tier:"good"},
+
+// ─── CHILLET (Gathering Lv1 Ice) ───
+{r:"Chillet",p1:"Chillet",p2:"Chillet",desc:"Same Species",tier:"good"},
+
+// ─── FOXCICLE (Cooling Lv1 Ice) ───
+{r:"Foxcicle",p1:"Foxcicle",p2:"Foxcicle",desc:"Same Species",tier:"good"},
+
+// ─── REINDRIX (Lumbering Lv1 Ice) ───
+{r:"Reindrix",p1:"Reindrix",p2:"Reindrix",desc:"Same Species",tier:"good"},
+
+// ─── LUNARIS (Handiwork Lv2 Neutral) ───
+{r:"Lunaris",p1:"Lunaris",p2:"Lunaris",desc:"Same Species",tier:"good"},
+
+// ─── NOX (Gathering Lv1 Dark) ───
+{r:"Nox",p1:"Nox",p2:"Nox",desc:"Same Species",tier:"good"},
+
+// ─── HOOCRATES (Gathering Lv1 Dark) ───
+{r:"Hoocrates",p1:"Hoocrates",p2:"Hoocrates",desc:"Same Species",tier:"good"},
+
+// ─── DAEDREAM (Handiwork Lv1 Dark) ───
+{r:"Daedream",p1:"Daedream",p2:"Daedream",desc:"Same Species",tier:"good"},
+
+// ─── DEPRESSO (Handiwork Lv1 Dark) ───
+{r:"Depresso",p1:"Depresso",p2:"Depresso",desc:"Same Species",tier:"good"},
+
+// ─── CREMIS (Gathering Lv1 Neutral) ───
+{r:"Cremis",p1:"Cremis",p2:"Cremis",desc:"Same Species",tier:"good"},
+
+// ─── VIXY (Gathering Lv1 Neutral) ───
+{r:"Vixy",p1:"Vixy",p2:"Vixy",desc:"Same Species",tier:"good"},
+
+// ─── TEAFANT (Watering Lv1 Water) ───
+{r:"Teafant",p1:"Teafant",p2:"Teafant",desc:"Same Species",tier:"good"},
+
+// ─── LAMBALL (Handiwork Lv1 Neutral) ───
+{r:"Lamball",p1:"Lamball",p2:"Lamball",desc:"Same Species",tier:"good"},
+
+// ─── CATTIVA (Handiwork Lv1 Neutral) ───
+{r:"Cattiva",p1:"Cattiva",p2:"Cattiva",desc:"Same Species",tier:"good"},
+
+// ─── CHIKIPI (Farming Lv1 Neutral) ───
+{r:"Chikipi",p1:"Chikipi",p2:"Chikipi",desc:"Same Species",tier:"good"},
+
+// ─── LIFMUNK (Planting Lv1 Grass) ───
+{r:"Lifmunk",p1:"Lifmunk",p2:"Lifmunk",desc:"Same Species",tier:"good"},
+
+// ─── SPARKIT (Electricity Lv1 Electric) ───
+{r:"Sparkit",p1:"Sparkit",p2:"Sparkit",desc:"Same Species",tier:"good"},
+
+// ─── GUMOSS (Planting Lv1 Grass) ───
+{r:"Gumoss",p1:"Gumoss",p2:"Gumoss",desc:"Same Species",tier:"good"},
+
+// ─── FUDDLER (Handiwork Lv1 Ground) ───
+{r:"Fuddler",p1:"Fuddler",p2:"Fuddler",desc:"Same Species",tier:"good"},
+
+// ─── KILLAMARI (Watering Lv1 Dark) ───
+{r:"Killamari",p1:"Killamari",p2:"Killamari",desc:"Same Species",tier:"good"},
+
+// ─── CELARAY (Watering Lv1 Water) ───
+{r:"Celaray",p1:"Celaray",p2:"Celaray",desc:"Same Species",tier:"good"},
+
+// ─── DIREHOWL (Gathering Lv1 Neutral) ───
+{r:"Direhowl",p1:"Direhowl",p2:"Direhowl",desc:"Same Species",tier:"good"},
+
+// ─── TOCOTOCO (Gathering Lv1 Fire) ───
+{r:"Tocotoco",p1:"Tocotoco",p2:"Tocotoco",desc:"Same Species",tier:"good"},
+
+// ─── FLOPIE (Planting Lv1 Grass) ───
+{r:"Flopie",p1:"Flopie",p2:"Flopie",desc:"Same Species",tier:"good"},
+
+// ─── MOZZARINA (Farming Lv1 Neutral) ───
+{r:"Mozzarina",p1:"Mozzarina",p2:"Mozzarina",desc:"Same Species",tier:"good"},
+
+// ─── BRISTLA (Watering Lv1 Ice) ───
+{r:"Bristla",p1:"Bristla",p2:"Bristla",desc:"Same Species",tier:"good"},
+
+// ─── MELPACA (Transporting Lv1 Neutral) ───
+{r:"Melpaca",p1:"Melpaca",p2:"Melpaca",desc:"Same Species",tier:"good"},
+
+// ─── NITEWING (Gathering Lv1 Neutral) ───
+{r:"Nitewing",p1:"Nitewing",p2:"Nitewing",desc:"Same Species",tier:"good"},
+
+// ─── RUSHOAR (Mining Lv1 Neutral) ───
+{r:"Rushoar",p1:"Rushoar",p2:"Rushoar",desc:"Same Species",tier:"good"},
+
+// ─── WUMPO (Gathering Lv2 Ice) ───
+{r:"Wumpo",p1:"Wumpo",p2:"Wumpo",desc:"Same Species",tier:"strong"},
+
+// ─── WUMPO BOTAN (Planting Lv3 Grass) ───
+{r:"Wumpo Botan",p1:"Wumpo",p2:"Petallia",desc:"Planting Lv3 Grass",tier:"strong"},
+
+// ─── QUIVERN (Gathering Lv2 Dragon) ───
+{r:"Quivern",p1:"Quivern",p2:"Quivern",desc:"Same Species",tier:"strong"},
+
+// ─── FENGLOPE (Transporting Lv2 Neutral) ───
+{r:"Fenglope",p1:"Fenglope",p2:"Fenglope",desc:"Same Species",tier:"strong"},
+
+// ─── MAMMOREST (Lumbering Lv2 Neutral) ───
+{r:"Mammorest",p1:"Mammorest",p2:"Mammorest",desc:"Same Species",tier:"strong"},
+
+// ─── MAMMOREST CRYST (Ice + Neutral) ───
+{r:"Mammorest Cryst",p1:"Mammorest",p2:"Swee",desc:"Ice + Neutral Egg",tier:"strong"},
+
+// ─── ROOBY (Kindling Lv1 Fire) ───
+{r:"Rooby",p1:"Rooby",p2:"Rooby",desc:"Same Species",tier:"good"},
+
+// ─── PENKING (Watering Lv2 Ice) ───
+{r:"Penking",p1:"Penking",p2:"Penking",desc:"Same Species",tier:"good"},
+
+// ─── INCINERAM (Kindling Lv2 Dark) ───
+{r:"Incineram",p1:"Incineram",p2:"Incineram",desc:"Same Species",tier:"good"},
+
+// ─── BEAKON (Electricity Lv4 Electric) ───
+{r:"Beakon",p1:"Beakon",p2:"Beakon",desc:"Same Species",tier:"strong"},
+
+// ─── KATRESS (Gathering Lv2 Dark) ───
+{r:"Katress",p1:"Katress",p2:"Katress",desc:"Same Species",tier:"strong"},
+
+// ─── WIXEN (Kindling Lv2 Fire) ───
+{r:"Wixen",p1:"Wixen",p2:"Wixen",desc:"Same Species",tier:"strong"},
+
+// ─── VERDASH (Transporting Lv2 Grass) ───
+{r:"Verdash",p1:"Verdash",p2:"Verdash",desc:"Same Species",tier:"strong"},
+
+// ─── VAELET (Gathering Lv2 Neutral) ───
+{r:"Vaelet",p1:"Vaelet",p2:"Vaelet",desc:"Same Species",tier:"strong"},
+
+// ─── MIMOG (Gathering Lv1 + Transporting) ───
+{r:"Mimog",p1:"Mimog",p2:"Mimog",desc:"Same Species",tier:"strong"},
+
+// ─── LEGENDARY / SAME-SPECIES-ONLY (1.0) ───
+{r:"Jetragon",p1:"Jetragon",p2:"Jetragon",desc:"Legendary Dragon Mount - Same species only",tier:"legend"},
+{r:"Frostallion",p1:"Frostallion",p2:"Frostallion",desc:"Legendary Ice Mount - Same species only",tier:"legend"},
+{r:"Paladius",p1:"Paladius",p2:"Paladius",desc:"Legendary Neutral Knight - Same species only",tier:"legend"},
+{r:"Necromus",p1:"Necromus",p2:"Necromus",desc:"Legendary Dark Knight - Same species only",tier:"legend"},
+{r:"Neptilius",p1:"Neptilius",p2:"Neptilius",desc:"Legendary Water - Same species only",tier:"legend"},
+{r:"Bellanoir",p1:"Bellanoir",p2:"Bellanoir",desc:"Raid Boss Dark - Same species only",tier:"legend"},
+{r:"Bellanoir Libero",p1:"Bellanoir Libero",p2:"Bellanoir Libero",desc:"Raid Boss Elite - Same species only",tier:"legend"},
+{r:"Blazamut Ryu",p1:"Blazamut Ryu",p2:"Blazamut Ryu",desc:"Ryu Fire Variant - Same species only",tier:"legend"},
+{r:"Xenogard",p1:"Xenogard",p2:"Xenogard",desc:"Dragon Mining - Same species only",tier:"legend"},
+{r:"Xenovader",p1:"Xenovader",p2:"Xenovader",desc:"Dark Type - Same species only",tier:"legend"},
+{r:"Xenolord",p1:"Xenolord",p2:"Xenolord",desc:"Ultimate Dark Dragon - Same species only",tier:"legend"},
+{r:"Hartalis",p1:"Hartalis",p2:"Hartalis",desc:"Dragon Gathering - Same species only",tier:"legend"},
+{r:"Panthalus",p1:"Panthalus",p2:"Panthalus",desc:"Ice Type - Same species only",tier:"legend"},
+{r:"Silvance",p1:"Silvance",p2:"Silvance",desc:"Dragon Type - Same species only",tier:"legend"},
+{r:"Shaolong",p1:"Shaolong",p2:"Shaolong",desc:"Water Dragon - Same species only",tier:"legend"},
+{r:"Dandilord",p1:"Dandilord",p2:"Dandilord",desc:"Fire Type - Same species only",tier:"legend"},
+
+// ─── TOWER BOSSES (Same-species-only in 1.0) ───
+{r:"Shadowbeak",p1:"Shadowbeak",p2:"Shadowbeak",desc:"Dark Flying Mount - Tower boss",tier:"legend"},
+{r:"Grizzbolt",p1:"Grizzbolt",p2:"Grizzbolt",desc:"Electricity Lv5 + Lumbering - Tower boss",tier:"legend"},
+{r:"Orserk",p1:"Orserk",p2:"Orserk",desc:"Electricity Lv8 + Handiwork - Tower boss",tier:"legend"}
 ];
 
-// Merge extra combos into main COMBOS array
-const EXTRA_COMBOS=[
-{r:"Chikipi",p1:"Chikipi",p2:"Chikipi",desc:"Starter Egg",tier:"good"},
-{r:"Lamball",p1:"Lamball",p2:"Lamball",desc:"Fluffy Shield Egg",tier:"good"},
-{r:"Cattiva",p1:"Cattiva",p2:"Cattiva",desc:"Cat Helper Egg",tier:"good"},
-{r:"Lifmunk",p1:"Lifmunk",p2:"Lifmunk",desc:"Lifmunk Recoil Egg",tier:"good"},
-{r:"Foxparks",p1:"Foxparks",p2:"Foxparks",desc:"Huggy Fire Egg",tier:"good"},
-{r:"Fuack",p1:"Fuack",p2:"Fuack",desc:"Surfing Slam Egg",tier:"good"},
-{r:"Sparkit",p1:"Sparkit",p2:"Sparkit",desc:"Static Electricity Egg",tier:"good"},
-{r:"Tanzee",p1:"Tanzee",p2:"Tanzee",desc:"Cheery Rifle Egg",tier:"good"},
-{r:"Rooby",p1:"Rooby",p2:"Rooby",desc:"Tiny Spark Egg",tier:"good"},
-{r:"Pengullet",p1:"Pengullet",p2:"Pengullet",desc:"Pengullet Cannon Egg",tier:"good"},
-{r:"Penking",p1:"Penking",p2:"Penking",desc:"Brave Sailor Egg",tier:"good"},
-{r:"Jolthog",p1:"Jolthog",p2:"Jolthog",desc:"Jolt Bomb Egg",tier:"good"},
-{r:"Gumoss",p1:"Gumoss",p2:"Gumoss",desc:"Logging Assistance Egg",tier:"good"},
-{r:"Vixy",p1:"Vixy",p2:"Vixy",desc:"Dig Here! Egg",tier:"good"},
-{r:"Hoocrates",p1:"Hoocrates",p2:"Hoocrates",desc:"Dark Knowledge Egg",tier:"good"},
-{r:"Teafant",p1:"Teafant",p2:"Teafant",desc:"Soothing Shower Egg",tier:"good"},
-{r:"Depresso",p1:"Depresso",p2:"Depresso",desc:"Caffeine Inoculation Egg",tier:"good"},
-{r:"Cremis",p1:"Cremis",p2:"Cremis",desc:"Fluffy Wool Egg",tier:"good"},
-{r:"Daedream",p1:"Daedream",p2:"Daedream",desc:"Dream Chaser Egg",tier:"good"},
-{r:"Rushoar",p1:"Rushoar",p2:"Rushoar",desc:"Hard Head Egg",tier:"good"},
-{r:"Nox",p1:"Nox",p2:"Nox",desc:"Kuudere Egg",tier:"good"},
-{r:"Fuddler",p1:"Fuddler",p2:"Fuddler",desc:"Ore Detector Egg",tier:"good"},
-{r:"Killamari",p1:"Killamari",p2:"Killamari",desc:"Fried Squid Egg",tier:"good"},
-{r:"Mau",p1:"Mau",p2:"Mau",desc:"Gold Digger Egg",tier:"good"},
-{r:"Celaray",p1:"Celaray",p2:"Celaray",desc:"Zephyr Glider Egg",tier:"good"},
-{r:"Direhowl",p1:"Direhowl",p2:"Direhowl",desc:"Direhowl Rider Egg",tier:"good"},
-{r:"Tocotoco",p1:"Tocotoco",p2:"Tocotoco",desc:"Eggbomb Launcher Egg",tier:"good"},
-{r:"Flopie",p1:"Flopie",p2:"Flopie",desc:"Helper Bunny Egg",tier:"good"},
-{r:"Mozzarina",p1:"Mozzarina",p2:"Mozzarina",desc:"Milk Maker Egg",tier:"good"},
-{r:"Bristla",p1:"Bristla",p2:"Bristla",desc:"Princess Gaze Egg",tier:"good"},
-{r:"Gobfin",p1:"Gobfin",p2:"Gobfin",desc:"Angry Shark Egg",tier:"good"},
-{r:"Hangyu",p1:"Hangyu",p2:"Hangyu",desc:"Flying Trapeze Egg",tier:"good"},
-{r:"Mossanda",p1:"Mossanda",p2:"Mossanda",desc:"Grenadier Panda Egg",tier:"good"},
-{r:"Woolipop",p1:"Woolipop",p2:"Woolipop",desc:"Candy Pop Egg",tier:"good"},
-{r:"Caprity",p1:"Caprity",p2:"Caprity",desc:"Berry Picker Egg",tier:"good"},
-{r:"Melpaca",p1:"Melpaca",p2:"Melpaca",desc:"Pacapaca Wool Egg",tier:"good"},
-{r:"Eikthyrdeer",p1:"Eikthyrdeer",p2:"Eikthyrdeer",desc:"Guardian of Forest Egg",tier:"good"},
-{r:"Nitewing",p1:"Nitewing",p2:"Nitewing",desc:"Travel Companion Egg",tier:"good"},
-{r:"Ribbuny",p1:"Ribbuny",p2:"Ribbuny",desc:"Skilled Fingers Egg",tier:"good"},
-{r:"Incineram",p1:"Incineram",p2:"Incineram",desc:"Flameclaw Hunter Egg",tier:"good"},
-{r:"Cinnamoth",p1:"Cinnamoth",p2:"Cinnamoth",desc:"Mysterious Scales Egg",tier:"good"},
-{r:"Arsox",p1:"Arsox",p2:"Arsox",desc:"Warm Body Egg",tier:"good"},
-{r:"Dumud",p1:"Dumud",p2:"Dumud",desc:"Soil Improver Egg",tier:"good"},
-{r:"Cawgnito",p1:"Cawgnito",p2:"Cawgnito",desc:"Telepeck Egg",tier:"good"},
-{r:"Leezpunk",p1:"Leezpunk",p2:"Leezpunk",desc:"Sixth Sense Egg",tier:"good"},
-{r:"Loupmoon",p1:"Loupmoon",p2:"Loupmoon",desc:"Claws Glistening Egg",tier:"good"},
-{r:"Galeclaw",p1:"Galeclaw",p2:"Galeclaw",desc:"Galeclaw Rider Egg",tier:"good"},
-{r:"Robinquill",p1:"Robinquill",p2:"Robinquill",desc:"Hawk Eye Egg",tier:"good"},
-{r:"Gorirat",p1:"Gorirat",p2:"Gorirat",desc:"Full-power Gorilla Egg",tier:"good"},
-{r:"Beegarde",p1:"Beegarde",p2:"Beegarde",desc:"Worker Bee Egg",tier:"good"},
-{r:"Elizabee",p1:"Elizabee",p2:"Elizabee",desc:"Queen Bee Command Egg",tier:"good"},
-{r:"Grintale",p1:"Grintale",p2:"Grintale",desc:"Plump Body Egg",tier:"good"},
-{r:"Swee",p1:"Swee",p2:"Swee",desc:"Fluffy Egg",tier:"good"},
-{r:"Sweepa",p1:"Sweepa",p2:"Sweepa",desc:"Travel Companion Egg",tier:"good"},
-{r:"Chillet",p1:"Chillet",p2:"Chillet",desc:"Wriggling Weasel Egg",tier:"good"},
-{r:"Univolt",p1:"Univolt",p2:"Univolt",desc:"Predatory Shock Egg",tier:"good"},
-{r:"Foxcicle",p1:"Foxcicle",p2:"Foxcicle",desc:"Icy Wave Egg",tier:"good"},
-{r:"Reindrix",p1:"Reindrix",p2:"Reindrix",desc:"Cool Body Egg",tier:"good"},
-{r:"Rayhound",p1:"Rayhound",p2:"Rayhound",desc:"Jolt Runner Egg",tier:"good"},
-{r:"Kitsun",p1:"Kitsun",p2:"Kitsun",desc:"Clear Mind Egg",tier:"good"},
-{r:"Lunaris",p1:"Lunaris",p2:"Lunaris",desc:"Antigravity Egg",tier:"good"},
-{r:"Dinossom",p1:"Dinossom",p2:"Dinossom",desc:"Dragon Cannon Egg",tier:"good"},
-{r:"Surfent",p1:"Surfent",p2:"Surfent",desc:"Aqua Spout Egg",tier:"good"},
-{r:"Digtoise",p1:"Digtoise",p2:"Digtoise",desc:"Drill Crusher Egg",tier:"good"},
-{r:"Tombat",p1:"Tombat",p2:"Tombat",desc:"Ultrasonic Sensor Egg",tier:"good"},
-{r:"Lovander",p1:"Lovander",p2:"Lovander",desc:"Lucky Egg",tier:"good"},
-{r:"Flambelle",p1:"Flambelle",p2:"Flambelle",desc:"Magma Tears Egg",tier:"good"},
-{r:"Vanwyrm",p1:"Vanwyrm",p2:"Vanwyrm",desc:"Fanged Wing Egg",tier:"good"},
-{r:"Bushi",p1:"Bushi",p2:"Bushi",desc:"Brandish Blade Egg",tier:"good"},
-{r:"Beakon",p1:"Beakon",p2:"Beakon",desc:"Storm Lance Egg",tier:"strong"},
-{r:"Ragnahawk",p1:"Ragnahawk",p2:"Ragnahawk",desc:"Flame Wing Egg",tier:"strong"},
-{r:"Katress",p1:"Katress",p2:"Katress",desc:"Grimoire Collector Egg",tier:"strong"},
-{r:"Wixen",p1:"Wixen",p2:"Wixen",desc:"Lord Fox Egg",tier:"strong"},
-{r:"Verdash",p1:"Verdash",p2:"Verdash",desc:"Grassland Speedster Egg",tier:"strong"},
-{r:"Vaelet",p1:"Vaelet",p2:"Vaelet",desc:"Purification Egg",tier:"strong"},
-{r:"Sibelyx",p1:"Sibelyx",p2:"Sibelyx",desc:"Silk Maker Egg",tier:"strong"},
-{r:"Elphidran",p1:"Elphidran",p2:"Elphidran",desc:"Dragon Wing Egg",tier:"strong"},
-{r:"Kelpsea",p1:"Kelpsea",p2:"Kelpsea",desc:"Water Storage Egg",tier:"good"},
-{r:"Azurobe",p1:"Azurobe",p2:"Azurobe",desc:"Waterwing Egg",tier:"strong"},
-{r:"Cryolinx",p1:"Cryolinx",p2:"Cryolinx",desc:"Ice Dragon Egg",tier:"strong"},
-{r:"Blazehowl",p1:"Blazehowl",p2:"Blazehowl",desc:"Loping Flame Egg",tier:"strong"},
-{r:"Relaxaurus",p1:"Relaxaurus",p2:"Relaxaurus",desc:"Dream Chaser Egg",tier:"strong"},
-{r:"Broncherry",p1:"Broncherry",p2:"Broncherry",desc:"Overaffectionate Egg",tier:"strong"},
-{r:"Petallia",p1:"Petallia",p2:"Petallia",desc:"Flower Spirit Egg",tier:"strong"},
-{r:"Reptyro",p1:"Reptyro",p2:"Reptyro",desc:"Flame Stream Egg",tier:"strong"},
-{r:"Kingpaca",p1:"Kingpaca",p2:"Kingpaca",desc:"King of Eggs Egg",tier:"strong"},
-{r:"Mammorest",p1:"Mammorest",p2:"Mammorest",desc:"Terrestrial Giant Egg",tier:"strong"},
-{r:"Wumpo",p1:"Wumpo",p2:"Wumpo",desc:"Royal Penguin Egg",tier:"strong"},
-{r:"Warsect",p1:"Warsect",p2:"Warsect",desc:"Emperor Pterosaur Egg",tier:"meta"},
-{r:"Fenglope",p1:"Fenglope",p2:"Fenglope",desc:"Wind Whisper Egg",tier:"strong"},
-{r:"Felbat",p1:"Felbat",p2:"Felbat",desc:"Hexer Egg",tier:"strong"},
-{r:"Quivern",p1:"Quivern",p2:"Quivern",desc:"Dragon Glider Egg",tier:"strong"},
-{r:"Blazamut",p1:"Blazamut",p2:"Blazamut",desc:"Magna Inferno Egg",tier:"meta"},
-{r:"Helzephyr",p1:"Helzephyr",p2:"Helzephyr",desc:"Wings of Death Egg",tier:"strong"},
-{r:"Astegon",p1:"Astegon",p2:"Astegon",desc:"Black Ankylosaurus Egg",tier:"meta"},
-{r:"Menasting",p1:"Menasting",p2:"Menasting",desc:"Dark King Egg",tier:"strong"},
-{r:"Anubis",p1:"Anubis",p2:"Anubis",desc:"Pharaoh Egg",tier:"meta"},
-{r:"Jormuntide",p1:"Jormuntide",p2:"Jormuntide",desc:"Sea Dragon Egg",tier:"meta"},
-{r:"Suzaku",p1:"Suzaku",p2:"Suzaku",desc:"Divine Phoenix Egg",tier:"meta"},
-{r:"Grizzbolt",p1:"Grizzbolt",p2:"Grizzbolt",desc:"Yellow Tank Egg",tier:"legend"},
-{r:"Lyleen",p1:"Lyleen",p2:"Lyleen",desc:"Harvest Goddess Egg",tier:"legend"},
-{r:"Faleris",p1:"Faleris",p2:"Faleris",desc:"Hawk of Gold Egg",tier:"legend"},
-{r:"Orserk",p1:"Orserk",p2:"Orserk",desc:"Thunder Dragon Egg",tier:"legend"},
-{r:"Shadowbeak",p1:"Shadowbeak",p2:"Shadowbeak",desc:"Nightmare Egg",tier:"legend"},
-{r:"Paladius",p1:"Paladius",p2:"Paladius",desc:"Saint Beast Egg",tier:"legend"},
-{r:"Necromus",p1:"Necromus",p2:"Necromus",desc:"Black Knight Egg",tier:"legend"},
-{r:"Frostallion",p1:"Frostallion",p2:"Frostallion",desc:"Ice Steed Egg",tier:"legend"},
-{r:"Jetragon",p1:"Jetragon",p2:"Jetragon",desc:"Sky Dragon Egg",tier:"legend"},
-{r:"Relaxaurus Lux",p1:"Relaxaurus",p2:"Sparkit",desc:"Electricity + Water Egg",tier:"meta"},
-{r:"Mossanda Lux",p1:"Mossanda",p2:"Grizzbolt",desc:"Electricity + Grass Egg",tier:"meta"},
-{r:"Vanwyrm Cryst",p1:"Vanwyrm",p2:"Foxcicle",desc:"Ice + Fire Egg",tier:"meta"},
-{r:"Incineram Noct",p1:"Incineram",p2:"Maraith",desc:"Dark + Fire Egg",tier:"meta"},
-{r:"Pyrin Noct",p1:"Pyrin",p2:"Katress",desc:"Dark + Fire Egg",tier:"meta"},
-{r:"Frostallion Noct",p1:"Frostallion",p2:"Helzephyr",desc:"Dark + Ice Egg",tier:"legend"},
-{r:"Katress Ignis",p1:"Katress",p2:"Wixen",desc:"Female Katress + Male Wixen",tier:"meta"},
-{r:"Wixen Noct",p1:"Male Katress",p2:"Female Wixen",desc:"Male Katress + Female Wixen",tier:"meta"},
-{r:"Jormuntide Ignis",p1:"Relaxaurus Lux",p2:"Jormuntide",desc:"Kindling Lv7 Dragon",tier:"meta"},
-{r:"Lyleen Noct",p1:"Lyleen",p2:"Incineram Noct",desc:"Handiwork + Gathering + Med",tier:"strong"},
-{r:"Helzephyr Lux",p1:"Helzephyr",p2:"Rayhound",desc:"Electricity Lv4 + Transport",tier:"strong"},
-{r:"Surfent Terra",p1:"Surfent",p2:"Maraith",desc:"Ground + Water Egg",tier:"strong"},
-{r:"Mau Cryst",p1:"Mau",p2:"Pengullet Lux",desc:"Ice + Dark Egg",tier:"good"},
-{r:"Pengullet Lux",p1:"Pengullet",p2:"Jolthog",desc:"Electric + Ice Egg",tier:"good"},
-{r:"Foxparks Cryst",p1:"Foxparks",p2:"Jolthog Cryst",desc:"Ice + Fire Egg",tier:"good"},
-{r:"Hangyu Cryst",p1:"Hangyu",p2:"Bristla",desc:"Ice + Ground Egg",tier:"good"},
-{r:"Croajiro Noct",p1:"Croajiro",p2:"Hoocrates",desc:"Dark + Neutral Egg",tier:"good"},
-{r:"Gobfin Ignis",p1:"Gobfin",p2:"Rushoar",desc:"Fire + Water Egg",tier:"good"},
-{r:"Leezpunk Ignis",p1:"Leezpunk",p2:"Flambelle",desc:"Fire + Dark Egg",tier:"good"},
-{r:"Robinquill Terra",p1:"Robinquill",p2:"Rushoar",desc:"Ground + Grass Egg",tier:"good"},
-{r:"Ribbuny Botan",p1:"Ribbuny",p2:"Tanzee",desc:"Grass + Neutral Egg",tier:"good"},
-{r:"Broncherry Aqua",p1:"Broncherry",p2:"Fuack",desc:"Water + Grass Egg",tier:"good"},
-{r:"Ice Reptyro",p1:"Reptyro",p2:"Foxcicle",desc:"Ice + Fire Egg",tier:"strong"},
-{r:"Kingpaca Cryst",p1:"Kingpaca",p2:"Hangyu Cryst",desc:"Ice + Neutral Egg",tier:"strong"},
-{r:"Petallia Ignis",p1:"Petallia",p2:"Kitsun",desc:"Fire + Grass Egg",tier:"strong"},
-{r:"Eikthyrdeer Terra",p1:"Eikthyrdeer",p2:"Gobfin",desc:"Ground + Neutral Egg",tier:"good"},
-{r:"Eikthyrdeer Terra",p1:"Eikthyrdeer",p2:"Dumud",desc:"Ground + Neutral Egg",tier:"good"},
-{r:"Dinossom Lux",p1:"Dinossom",p2:"Mossanda Lux",desc:"Electric + Grass Egg",tier:"strong"},
-{r:"Bushi Noct",p1:"Bushi",p2:"Leezpunk",desc:"Dark + Fire Egg",tier:"strong"},
-{r:"Caprity Noct",p1:"Caprity",p2:"Loupmoon",desc:"Dark + Grass Egg",tier:"strong"},
-{r:"Loupmoon Cryst",p1:"Loupmoon",p2:"Jolthog Cryst",desc:"Ice + Dark Egg",tier:"strong"},
-{r:"Woolipop Terra",p1:"Woolipop",p2:"Eikthyrdeer Terra",desc:"Ground + Neutral Egg",tier:"strong"},
-{r:"Beakon Cryst",p1:"Beakon",p2:"Vanwyrm Cryst",desc:"Ice + Electric Egg",tier:"strong"},
-{r:"Fenglope Lux",p1:"Fenglope",p2:"Rayhound",desc:"Electric + Neutral Egg",tier:"strong"},
-{r:"Faleris Aqua",p1:"Faleris",p2:"Suzaku Aqua",desc:"Water + Fire Egg",tier:"strong"},
-{r:"Suzaku Aqua",p1:"Suzaku",p2:"Surfent",desc:"Water + Fire Egg",tier:"strong"},
-{r:"Celesdir Noct",p1:"Celesdir",p2:"Helzephyr",desc:"Dark + Dragon Egg",tier:"strong"},
-{r:"Dualith Noct",p1:"Dualith",p2:"Nox",desc:"Dark + Neutral Egg",tier:"strong"},
-{r:"Bushi Noct",p1:"Bushi",p2:"Galeclaw",desc:"Dark + Fire Egg",tier:"strong"},
-{r:"Incineram Noct",p1:"Incineram",p2:"Bushi",desc:"Dark + Fire Egg",tier:"strong"},
-{r:"Caprity Noct",p1:"Caprity",p2:"Depresso",desc:"Dark + Grass Egg",tier:"strong"},
-{r:"Pyrin Noct",p1:"Pyrin",p2:"Leezpunk Ignis",desc:"Dark + Fire Egg",tier:"strong"},
-{r:"Wixen Noct",p1:"Wixen",p2:"Flambelle",desc:"Dark + Fire Egg",tier:"strong"},
-{r:"Lyleen Noct",p1:"Lyleen",p2:"Loupmoon",desc:"Dark + Grass Egg",tier:"strong"},
-{r:"Beakon Cryst",p1:"Beakon",p2:"Rayhound Cryst",desc:"Ice + Electric Egg",tier:"strong"},
-{r:"Ice Kingpaca",p1:"Kingpaca",p2:"Reptyro Cryst",desc:"Ice + Neutral Egg",tier:"strong"},
-{r:"Reptyro Cryst",p1:"Reptyro",p2:"Vanwyrm Cryst",desc:"Ice + Fire Egg",tier:"strong"},
-{r:"Foxparks Cryst",p1:"Foxparks",p2:"Bristla",desc:"Ice + Fire Egg",tier:"good"},
-{r:"Jolthog Cryst",p1:"Jolthog",p2:"Pengullet",desc:"Ice + Electric Egg",tier:"good"},
-{r:"Hangyu Cryst",p1:"Hangyu",p2:"Bristla",desc:"Ice + Ground Egg",tier:"good"},
-{r:"Mau Cryst",p1:"Mau",p2:"Hangyu Cryst",desc:"Ice + Dark Egg",tier:"good"},
-{r:"Mau Cryst",p1:"Mau",p2:"Pengullet Lux",desc:"Ice + Dark Egg",tier:"good"},
-{r:"Pengullet Lux",p1:"Pengullet",p2:"Kelpsea",desc:"Electric + Ice Egg",tier:"good"},
-{r:"Gobfin Ignis",p1:"Gobfin",p2:"Fuddler",desc:"Fire + Water Egg",tier:"good"},
-{r:"Flambelle",p1:"Foxparks",p2:"Fuack",desc:"Fire + Water Egg",tier:"good"},
-{r:"Fuack Ignis",p1:"Fuack",p2:"Tanzee",desc:"Fire + Water Egg",tier:"good"},
-{r:"Kelpsea Ignis",p1:"Kelpsea",p2:"Tanzee",desc:"Fire + Water Egg",tier:"good"},
-{r:"Leezpunk Ignis",p1:"Leezpunk",p2:"Depresso",desc:"Fire + Dark Egg",tier:"good"},
-{r:"Flambelle",p1:"Flambelle",p2:"Flambelle",desc:"Fire Egg",tier:"good"},
-{r:"Tanzee Ignis",p1:"Tanzee",p2:"Foxparks",desc:"Fire + Grass Egg",tier:"good"},
-{r:"Herbil",p1:"Herbil",p2:"Herbil",desc:"Grass Egg",tier:"good"},
-{r:"Clovee",p1:"Clovee",p2:"Clovee",desc:"Grass Egg",tier:"good"},
-{r:"Pupperai",p1:"Pupperai",p2:"Pupperai",desc:"Neutral Egg",tier:"good"},
-{r:"Dogen",p1:"Dogen",p2:"Dogen",desc:"Neutral Egg",tier:"good"},
-{r:"Nyafia",p1:"Nyafia",p2:"Nyafia",desc:"Dark Egg",tier:"good"},
-{r:"Knocklem",p1:"Knocklem",p2:"Knocklem",desc:"Ground Egg",tier:"strong"},
-{r:"Starryon",p1:"Starryon",p2:"Starryon",desc:"Neutral Egg",tier:"strong"},
-{r:"Sekhmet",p1:"Sekhmet",p2:"Sekhmet",desc:"Fire Egg",tier:"strong"},
-{r:"Flaracle",p1:"Flaracle",p2:"Flaracle",desc:"Fire Egg",tier:"strong"},
-{r:"Renjishi",p1:"Renjishi",p2:"Renjishi",desc:"Fire Egg",tier:"strong"},
-{r:"Solenne",p1:"Solenne",p2:"Solenne",desc:"Fire Egg",tier:"strong"},
-{r:"Mimog",p1:"Mimog",p2:"Mimog",desc:"Neutral Egg",tier:"legend"},
-{r:"Aegidron",p1:"Aegidron",p2:"Aegidron",desc:"Dragon Egg",tier:"strong"},
-{r:"Ophydia",p1:"Ophydia",p2:"Ophydia",desc:"Water Egg",tier:"strong"},
-{r:"Celesdir",p1:"Celesdir",p2:"Celesdir",desc:"Dragon Egg",tier:"strong"},
-{r:"Gildane",p1:"Gildane",p2:"Gildane",desc:"Dragon Egg",tier:"strong"},
-{r:"Dandilord",p1:"Dandilord",p2:"Dandilord",desc:"Fire Egg",tier:"strong"},
-{r:"Hartalis",p1:"Hartalis",p2:"Hartalis",desc:"Dragon Egg",tier:"legend"},
-{r:"Shaolong",p1:"Shaolong",p2:"Shaolong",desc:"Water Egg",tier:"legend"},
-{r:"Silvance",p1:"Silvance",p2:"Silvance",desc:"Dragon Egg",tier:"legend"},
-{r:"Panthalus",p1:"Panthalus",p2:"Panthalus",desc:"Ice Egg",tier:"legend"},
-{r:"Xenovader",p1:"Xenovader",p2:"Xenovader",desc:"Dark Egg",tier:"legend"},
-{r:"Xenolord",p1:"Xenolord",p2:"Xenolord",desc:"Dark Egg",tier:"legend"}
-];
-COMBOS.push(...EXTRA_COMBOS);
+// Duplicate combos removed - all data is in the main COMBOS array
 
 const TIER_COLORS={legend:"#fbbf24",meta:"#00e5ff",strong:"#a855f7",good:"#00d4aa"};
 const TYPE_COLORS={Fire:"#ef4444",Water:"#3b82f6",Grass:"#22c55e",Electric:"#eab308",Ice:"#93c5fd",Dark:"#a855f7",Dragon:"#c084fc",Ground:"#d97706",Neutral:"#94a3b8",Normal:"#94a3b8"};
@@ -1435,12 +1695,10 @@ function openModal(name){
   const work=document.getElementById('modalWork');
   work.innerHTML=(p.work||[]).map(w=>`<span class="modal-tag">${w}</span>`).join('')||'<span class="modal-tag">None</span>';
   const combos=document.getElementById('modalCombos');
-  const found=COMBOS.filter(c=>c.r===name||c.p1===name||c.p2===name);
-  combos.innerHTML=found.length?found.slice(0,8).map(c=>{
-    if(c.r===name)return`<div class="modal-combo"><img src="${palImg(c.p1)}" alt="${c.p1}"><span>${c.p1}</span><span class="mc-plus">+</span><img src="${palImg(c.p2)}" alt="${c.p2}"><span>${c.p2}</span><span class="mc-eq">=</span><img src="${palImg(c.r)}" alt="${c.r}"><span>${c.r}</span></div>`;
-    if(c.p1===name)return`<div class="modal-combo"><img src="${palImg(c.p1)}" alt="${c.p1}"><span>${c.p1}</span><span class="mc-plus">+</span><img src="${palImg(c.p2)}" alt="${c.p2}"><span>${c.p2}</span><span class="mc-eq">=</span><img src="${palImg(c.r)}" alt="${c.r}"><span>${c.r}</span></div>`;
+  const found=COMBOS.filter(c=>c.r===name);
+  combos.innerHTML=found.length?found.map(c=>{
     return`<div class="modal-combo"><img src="${palImg(c.p1)}" alt="${c.p1}"><span>${c.p1}</span><span class="mc-plus">+</span><img src="${palImg(c.p2)}" alt="${c.p2}"><span>${c.p2}</span><span class="mc-eq">=</span><img src="${palImg(c.r)}" alt="${c.r}"><span>${c.r}</span></div>`;
-  }).join(''):'<span class="modal-tag">No breeding combos found</span>';
+  }).join(''):'<span class="modal-tag">Same species only or no data</span>';
   document.getElementById('modalOverlay').classList.add('show');
 }
 
