@@ -318,5 +318,516 @@ const EXTRA_COMBOS=[
 {r:"Silvance",p1:"Silvance",p2:"Silvance",desc:"Dragon Egg",tier:"legend"},
 {r:"Panthalus",p1:"Panthalus",p2:"Panthalus",desc:"Ice Egg",tier:"legend"},
 {r:"Xenovader",p1:"Xenovader",p2:"Xenovader",desc:"Dark Egg",tier:"legend"},
-{r:"Xenolord",p1:"Xenolord",p2:"Xenolord",desc:"Dark Egg",tier:"legend"}
+{r:"Xenolord",p1:"Xenolord",p2:"Xenolord",desc:"Dark Egg",tier:"legend"},
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// EXPANDED CROSS-SPECIES COMBOS (1.0 Verified)
+// ═══════════════════════════════════════════════════════════════════════════════
+
+// ─── ANUBIS ALTERNATIVES ───
+{r:"Anubis",p1:"Frostallion",p2:"Moldron",desc:"Alternative",tier:"meta"},
+{r:"Anubis",p1:"Jetragon",p2:"Bushi Noct",desc:"Alternative",tier:"meta"},
+{r:"Anubis",p1:"Paladius",p2:"Moldron",desc:"Alternative",tier:"meta"},
+{r:"Anubis",p1:"Necromus",p2:"Moldron",desc:"Alternative",tier:"meta"},
+{r:"Anubis",p1:"Orserk",p2:"Splatterina",desc:"Alternative",tier:"meta"},
+{r:"Anubis",p1:"Selyne",p2:"Silvegis",desc:"Alternative",tier:"meta"},
+{r:"Anubis",p1:"Wumpo",p2:"Jetragon",desc:"Alternative",tier:"meta"},
+
+// ─── JORMUNTIDE ALTERNATIVES ───
+{r:"Jormuntide",p1:"Relaxaurus",p2:"Suzaku Aqua",desc:"Alternative",tier:"meta"},
+{r:"Jormuntide",p1:"Blazamut",p2:"Mossanda",desc:"Alternative",tier:"meta"},
+{r:"Jormuntide",p1:"Cryolinx",p2:"Relaxaurus Lux",desc:"Alternative",tier:"meta"},
+{r:"Jormuntide",p1:"Suzaku",p2:"Warsect",desc:"Alternative",tier:"meta"},
+{r:"Jormuntide",p1:"Orserk",p2:"Relaxaurus",desc:"Alternative",tier:"meta"},
+
+// ─── JORMUNTIDE IGNIS ALTERNATIVES ───
+{r:"Jormuntide Ignis",p1:"Suzaku",p2:"Relaxaurus",desc:"Alternative",tier:"meta"},
+{r:"Jormuntide Ignis",p1:"Blazamut",p2:"Relaxaurus",desc:"Alternative",tier:"meta"},
+{r:"Jormuntide Ignis",p1:"Astegon",p2:"Relaxaurus Lux",desc:"Alternative",tier:"meta"},
+
+// ─── SUZAKU ALTERNATIVES ───
+{r:"Suzaku",p1:"Blazamut",p2:"Mossanda",desc:"Alternative",tier:"meta"},
+{r:"Suzaku",p1:"Pyrin",p2:"Blazamut",desc:"Alternative",tier:"meta"},
+{r:"Suzaku",p1:"Elizabee",p2:"Suzaku",desc:"Alternative",tier:"meta"},
+
+// ─── BLAZAMUT ALTERNATIVES ───
+{r:"Blazamut",p1:"Pyrin",p2:"Astegon",desc:"Alternative",tier:"meta"},
+{r:"Blazamut",p1:"Orserk",p2:"Relaxaurus",desc:"Alternative",tier:"meta"},
+{r:"Blazamut",p1:"Cryolinx",p2:"Helzephyr",desc:"Alternative",tier:"meta"},
+{r:"Blazamut",p1:"Elizabee",p2:"Suzaku",desc:"Alternative",tier:"meta"},
+
+// ─── ASTEGON ALTERNATIVES ───
+{r:"Astegon",p1:"Cryolinx",p2:"Helzephyr",desc:"Alternative",tier:"meta"},
+{r:"Astegon",p1:"Grizzbolt",p2:"Chillet",desc:"Alternative",tier:"meta"},
+{r:"Astegon",p1:"Cryolinx",p2:"Grizzbolt",desc:"Alternative",tier:"meta"},
+{r:"Astegon",p1:"Menasting",p2:"Helzephyr",desc:"Alternative",tier:"meta"},
+
+// ─── LYLEEN ALTERNATIVES ───
+{r:"Lyleen",p1:"Elizabee",p2:"Suzaku",desc:"Alternative",tier:"meta"},
+{r:"Lyleen",p1:"Petallia",p2:"Quivern",desc:"Alternative",tier:"meta"},
+
+// ─── LYLEEN NOCT ALTERNATIVES ───
+{r:"Lyleen Noct",p1:"Lyleen",p2:"Loupmoon",desc:"Alternative",tier:"strong"},
+{r:"Lyleen Noct",p1:"Lyleen",p2:"Bushi Noct",desc:"Alternative",tier:"strong"},
+
+// ─── SIBELYX ALTERNATIVES ───
+{r:"Sibelyx",p1:"Penking",p2:"Blazehowl",desc:"Alternative",tier:"meta"},
+
+// ─── KNOCKLEM ALTERNATIVES ───
+{r:"Knocklem",p1:"Warsect Terra",p2:"Anubis",desc:"Alternative",tier:"meta"},
+{r:"Knocklem",p1:"Digtoise",p2:"Menasting",desc:"Alternative",tier:"meta"},
+
+// ─── CELESDIR ALTERNATIVES ───
+{r:"Celesdir",p1:"Celesdir",p2:"Helzephyr",desc:"Alternative",tier:"strong"},
+{r:"Celesdir",p1:"Celesdir",p2:"Shadowbeak",desc:"Alternative",tier:"strong"},
+
+// ─── CELESDIR NOCT ALTERNATIVES ───
+{r:"Celesdir Noct",p1:"Celesdir",p2:"Orserk",desc:"Alternative",tier:"meta"},
+
+// ─── MENASTING ALTERNATIVES ───
+{r:"Menasting",p1:"Menasting",p2:"Anubis",desc:"Alternative",tier:"strong"},
+{r:"Menasting",p1:"Helzephyr",p2:"Digtoise",desc:"Alternative",tier:"strong"},
+
+// ─── FALERIS ALTERNATIVES ───
+{r:"Faleris",p1:"Pyrin",p2:"Ragnahawk",desc:"Alternative",tier:"meta"},
+{r:"Faleris",p1:"Blazamut",p2:"Nitewing",desc:"Alternative",tier:"meta"},
+
+// ─── PYRIN ALTERNATIVES ───
+{r:"Pyrin",p1:"Pyrin",p2:"Blazamut",desc:"Alternative",tier:"strong"},
+{r:"Pyrin",p1:"Chillet",p2:"Arsox",desc:"Alternative",tier:"strong"},
+
+// ─── PYRIN NOCT ALTERNATIVES ───
+{r:"Pyrin Noct",p1:"Pyrin",p2:"Leezpunk Ignis",desc:"Alternative",tier:"strong"},
+
+// ─── BEAKON ALTERNATIVES ───
+{r:"Beakon",p1:"Cryolinx",p2:"Helzephyr",desc:"Alternative",tier:"strong"},
+{r:"Beakon",p1:"Sweepa",p2:"Beakon",desc:"Alternative",tier:"strong"},
+
+// ─── KATRESS IGNIS ALTERNATIVES ───
+{r:"Katress Ignis",p1:"Katress",p2:"Flambelle",desc:"Alternative",tier:"meta"},
+
+// ─── HELZEPHYR LUX ALTERNATIVES ───
+{r:"Helzephyr Lux",p1:"Helzephyr",p2:"Orserk",desc:"Alternative",tier:"strong"},
+
+// ─── ORSERK ALTERNATIVES ───
+{r:"Orserk",p1:"Wispaw",p2:"Orserk",desc:"Alternative",tier:"legend"},
+
+// ─── RELAXAURUS LUX ALTERNATIVES ───
+{r:"Relaxaurus Lux",p1:"Relaxaurus",p2:"Mossanda Lux",desc:"Alternative",tier:"meta"},
+{r:"Relaxaurus Lux",p1:"Relaxaurus",p2:"Orserk",desc:"Alternative",tier:"meta"},
+
+// ─── MOSSANDA LUX ALTERNATIVES ───
+{r:"Mossanda Lux",p1:"Mossanda",p2:"Orserk",desc:"Alternative",tier:"meta"},
+
+// ─── VANWYRM CRYST ALTERNATIVES ───
+{r:"Vanwyrm Cryst",p1:"Vanwyrm",p2:"Bristla",desc:"Alternative",tier:"meta"},
+
+// ─── INCINERAM NOCT ALTERNATIVES ───
+{r:"Incineram Noct",p1:"Incineram",p2:"Bushi",desc:"Alternative",tier:"meta"},
+{r:"Incineram Noct",p1:"Incineram",p2:"Leezpunk Ignis",desc:"Alternative",tier:"meta"},
+
+// ─── BUSHI NOCT ALTERNATIVES ───
+{r:"Bushi Noct",p1:"Bushi",p2:"Shadowbeak",desc:"Alternative",tier:"strong"},
+
+// ─── FROSTALLION NOCT ALTERNATIVES ───
+{r:"Frostallion Noct",p1:"Frostallion",p2:"Shadowbeak",desc:"Alternative",tier:"legend"},
+
+// ─── KINGPACA CRYST ALTERNATIVES ───
+{r:"Kingpaca Cryst",p1:"Kingpaca",p2:"Mau Cryst",desc:"Alternative",tier:"strong"},
+
+// ─── ICE KINGPACA ALTERNATIVES ───
+{r:"Ice Kingpaca",p1:"Kingpaca",p2:"Foxcicle",desc:"Alternative",tier:"strong"},
+
+// ─── MAMMOREST CRYST ALTERNATIVES ───
+{r:"Mammorest Cryst",p1:"Mammorest",p2:"Chillet",desc:"Alternative",tier:"strong"},
+{r:"Mammorest Cryst",p1:"Mammorest",p2:"Foxcicle",desc:"Alternative",tier:"strong"},
+
+// ─── WUMPO BOTAN ALTERNATIVES ───
+{r:"Wumpo Botan",p1:"Wumpo",p2:"Elizabee",desc:"Alternative",tier:"strong"},
+
+// ─── DINOSSOM LUX ALTERNATIVES ───
+{r:"Dinossom Lux",p1:"Dinossom",p2:"Grizzbolt",desc:"Alternative",tier:"strong"},
+
+// ─── CHILLET IGNIS ALTERNATIVES ───
+{r:"Chillet Ignis",p1:"Chillet",p2:"Foxparks",desc:"Alternative",tier:"strong"},
+{r:"Chillet Ignis",p1:"Chillet",p2:"Arsox",desc:"Alternative",tier:"strong"},
+
+// ─── ELPHIDRAN AQUA ALTERNATIVES ───
+{r:"Elphidran Aqua",p1:"Elphidran",p2:"Surfent",desc:"Alternative",tier:"strong"},
+
+// ─── PETALLIA IGNIS ALTERNATIVES ───
+{r:"Petallia Ignis",p1:"Petallia",p2:"Foxparks",desc:"Alternative",tier:"strong"},
+
+// ─── KITSUN NOCT ALTERNATIVES ───
+{r:"Kitsun Noct",p1:"Kitsun",p2:"Daedream",desc:"Alternative",tier:"strong"},
+
+// ─── SUZAKU AQUA ALTERNATIVES ───
+{r:"Suzaku Aqua",p1:"Suzaku",p2:"Azurobe",desc:"Alternative",tier:"strong"},
+
+// ─── QUVERN ALTERNATIVES ───
+{r:"Quivern",p1:"Suzaku",p2:"Quivern",desc:"Alternative",tier:"strong"},
+
+// ─── QUVERN BOTAN ALTERNATIVES ───
+{r:"Quivern Botan",p1:"Quivern",p2:"Elizabee",desc:"Alternative",tier:"strong"},
+
+// ─── FENGLOPE LUX ALTERNATIVES ───
+{r:"Fenglope Lux",p1:"Fenglope",p2:"Orserk",desc:"Alternative",tier:"strong"},
+
+// ─── WARSECT TERRA ALTERNATIVES ───
+{r:"Warsect Terra",p1:"Warsect",p2:"Rushoar",desc:"Alternative",tier:"strong"},
+
+// ─── UNIVOLT CRYST ALTERNATIVES ───
+{r:"Univolt Cryst",p1:"Univolt",p2:"Moldron Cryst",desc:"Alternative",tier:"meta"},
+
+// ─── ELGROVE CRYST ALTERNATIVES ───
+{r:"Elgrove Cryst",p1:"Elgrove",p2:"Foxcicle",desc:"Alternative",tier:"strong"},
+
+// ─── SHROOMER NOCT ALTERNATIVES ───
+{r:"Shroomer Noct",p1:"Shroomer",p2:"Nox",desc:"Alternative",tier:"strong"},
+
+// ─── SOOTSEER ALTERNATIVES ───
+{r:"Sootseer",p1:"Flambelle",p2:"Nox",desc:"Alternative",tier:"strong"},
+
+// ─── LOOMEN ALTERNATIVES ───
+{r:"Loomen",p1:"Blazehowl",p2:"Nox",desc:"Alternative",tier:"strong"},
+
+// ─── MAJEX ALTERNATIVES ───
+{r:"Majex",p1:"Blazehowl",p2:"Katress",desc:"Alternative",tier:"strong"},
+
+// ─── WISPAW ALTERNATIVES ───
+{r:"Wispaw",p1:"Depresso",p2:"Mossanda",desc:"Alternative",tier:"strong"},
+
+// ─── FROSTPLUME ALTERNATIVES ───
+{r:"Frostplume",p1:"Swee",p2:"Beakon",desc:"Alternative",tier:"strong"},
+
+// ─── PRUNELIA ALTERNATIVES ───
+{r:"Prunelia",p1:"Petallia",p2:"Nox",desc:"Alternative",tier:"strong"},
+
+// ─── TROPICAW ALTERNATIVES ───
+{r:"Tropicaw",p1:"Tanzee",p2:"Cinnamoth",desc:"Alternative",tier:"strong"},
+
+// ─── DYNAMOFF ALTERNATIVES ───
+{r:"Dynamoff",p1:"Rayhound",p2:"Rayhound",desc:"Alternative",tier:"strong"},
+
+// ─── SOLMORA ALTERNATIVES ───
+{r:"Solmora",p1:"Swee",p2:"Cinnamoth",desc:"Alternative",tier:"strong"},
+
+// ─── SOLMORA LUX ALTERNATIVES ───
+{r:"Solmora Lux",p1:"Solmora",p2:"Rayhound",desc:"Alternative",tier:"strong"},
+
+// ─── LAPURE ALTERNATIVES ───
+{r:"Lapure",p1:"Lifmunk",p2:"Nitewing",desc:"Alternative",tier:"strong"},
+
+// ─── BASTIGOR ALTERNATIVES ───
+{r:"Bastigor",p1:"Aegidron",p2:"Bastigor",desc:"Alternative",tier:"meta"},
+{r:"Bastigor",p1:"Neptilius",p2:"Bastigor",desc:"Alternative",tier:"meta"},
+
+// ─── SELYNE ALTERNATIVES ───
+{r:"Selyne",p1:"Anubis",p2:"Selyne",desc:"Alternative",tier:"meta"},
+{r:"Selyne",p1:"Silvegis",p2:"Celesdir",desc:"Alternative",tier:"meta"},
+
+// ─── RENJISHI ALTERNATIVES ───
+{r:"Renjishi",p1:"Blazamut",p2:"Neptilius",desc:"Alternative",tier:"meta"},
+{r:"Renjishi",p1:"Blazamut Ryu",p2:"Neptilius",desc:"Alternative",tier:"meta"},
+
+// ─── SOLENNE ALTERNATIVES ───
+{r:"Solenne",p1:"Jormuntide Ignis",p2:"Flaracle",desc:"Alternative",tier:"meta"},
+{r:"Solenne",p1:"Dandilord",p2:"Ghangler Ignis",desc:"Alternative",tier:"meta"},
+
+// ─── STARRYON ALTERNATIVES ───
+{r:"Starryon",p1:"Kingpaca",p2:"Quivern",desc:"Alternative",tier:"strong"},
+
+// ─── SEKHMET ALTERNATIVES ───
+{r:"Sekhmet",p1:"Anubis",p2:"Blazehowl",desc:"Alternative",tier:"strong"},
+{r:"Sekhmet",p1:"Anubis",p2:"Reptyro",desc:"Alternative",tier:"strong"},
+
+// ─── FLARACLE ALTERNATIVES ───
+{r:"Flaracle",p1:"Reptyro",p2:"Ragnahawk",desc:"Alternative",tier:"strong"},
+{r:"Flaracle",p1:"Blazamut",p2:"Neptilius",desc:"Alternative",tier:"strong"},
+
+// ─── NYAFIA ALTERNATIVES ───
+{r:"Nyafia",p1:"Shadowbeak",p2:"Bushi",desc:"Alternative",tier:"strong"},
+
+// ─── AEGIDRON ALTERNATIVES ───
+{r:"Aegidron",p1:"Bastigor",p2:"Shaolong",desc:"Alternative",tier:"strong"},
+{r:"Aegidron",p1:"Jetragon",p2:"Silvance",desc:"Alternative",tier:"strong"},
+
+// ─── OPHYDIA ALTERNATIVES ───
+{r:"Ophydia",p1:"Jormuntide",p2:"Elizabee",desc:"Alternative",tier:"strong"},
+
+// ─── DUALITH ALTERNATIVES ───
+{r:"Dualith",p1:"Digtoise",p2:"Sootseer",desc:"Alternative",tier:"strong"},
+
+// ─── DUALITH NOCT ALTERNATIVES ───
+{r:"Dualith Noct",p1:"Dualith",p2:"Daedream",desc:"Alternative",tier:"strong"},
+
+// ─── PRIPTER ALTERNATIVES ───
+{r:"Prixter",p1:"Helzephyr",p2:"Digtoise",desc:"Alternative",tier:"strong"},
+
+// ─── PRIPTER LUX ALTERNATIVES ───
+{r:"Prixter Lux",p1:"Prixter",p2:"Orserk",desc:"Alternative",tier:"strong"},
+
+// ─── TETROISE ALTERNATIVES ───
+{r:"Tetroise",p1:"Digtoise",p2:"Rushoar",desc:"Alternative",tier:"strong"},
+
+// ─── MOLDRON ALTERNATIVES ───
+{r:"Moldron",p1:"Digtoise",p2:"Arsox",desc:"Alternative",tier:"strong"},
+
+// ─── MOLDRON CRYST ALTERNATIVES ───
+{r:"Moldron Cryst",p1:"Moldron",p2:"Foxcicle",desc:"Alternative",tier:"strong"},
+
+// ─── MIMOG ALTERNATIVES ───
+{r:"Mimog",p1:"Lamball",p2:"Cattiva",desc:"Alternative",tier:"strong"},
+
+// ─── OMASCOMB ALTERNATIVES ───
+{r:"Omascul",p1:"Hoocrates",p2:"Mossanda",desc:"Alternative",tier:"strong"},
+
+// ─── BAKEMI ALTERNATIVES ───
+{r:"Bakemi",p1:"Daedream",p2:"Cinnamoth",desc:"Alternative",tier:"strong"},
+
+// ─── BRALOHA ALTERNATIVES ───
+{r:"Braloha",p1:"Tanzee",p2:"Rushoar",desc:"Alternative",tier:"strong"},
+
+// ─── NITEMARY ALTERNATIVES ───
+{r:"Nitemary",p1:"Helzephyr",p2:"Cinnamoth",desc:"Alternative",tier:"strong"},
+
+// ─── NITEMARY BOTAN ALTERNATIVES ───
+{r:"Nitemary Botan",p1:"Nitemary",p2:"Lifmunk",desc:"Alternative",tier:"strong"},
+
+// ─── SMOKIE CRYST ALTERNATIVES ───
+{r:"Smokie Cryst",p1:"Smokie",p2:"Chillet",desc:"Alternative",tier:"strong"},
+
+// ─── WHALASKA ALTERNATIVES ───
+{r:"Whalaska",p1:"Relaxaurus",p2:"Chillet",desc:"Alternative",tier:"strong"},
+
+// ─── WHALASKA IGNIS ALTERNATIVES ───
+{r:"Whalaska Ignis",p1:"Whalaska",p2:"Arsox",desc:"Alternative",tier:"strong"},
+
+// ─── ELIDROLON ALTERNATIVES ───
+{r:"Eidrolon",p1:"Relaxaurus",p2:"Helzephyr",desc:"Alternative",tier:"strong"},
+
+// ─── ELIDROLON IGNIS ALTERNATIVES ───
+{r:"Eidrolon Ignis",p1:"Eidrolon",p2:"Arsox",desc:"Alternative",tier:"strong"},
+
+// ─── KNOCKLEM IGNIS ALTERNATIVES ───
+{r:"Knocklem Ignis",p1:"Knocklem",p2:"Arsox",desc:"Alternative",tier:"strong"},
+
+// ─── MENASTING TERRA ALTERNATIVES ───
+{r:"Menasting Terra",p1:"Menasting",p2:"Dumud",desc:"Alternative",tier:"strong"},
+
+// ─── PETALLIA IGNIS ALTERNATIVES (ADDITIONAL) ───
+{r:"Petallia Ignis",p1:"Petallia",p2:"Arsox",desc:"Alternative",tier:"strong"},
+
+// ─── CHILLET IGNIS ALTERNATIVES (ADDITIONAL) ───
+{r:"Chillet Ignis",p1:"Chillet",p2:"Rooby",desc:"Alternative",tier:"strong"},
+
+// ─── ELPHIDRAN AQUA ALTERNATIVES (ADDITIONAL) ───
+{r:"Elphidran Aqua",p1:"Elphidran",p2:"Pengullet",desc:"Alternative",tier:"strong"},
+
+// ─── KITSUN NOCT ALTERNATIVES (ADDITIONAL) ───
+{r:"Kitsun Noct",p1:"Kitsun",p2:"Depresso",desc:"Alternative",tier:"strong"},
+
+// ─── BUSHI NOCT ALTERNATIVES (ADDITIONAL) ───
+{r:"Bushi Noct",p1:"Bushi",p2:"Daedream",desc:"Alternative",tier:"strong"},
+
+// ─── CELESDIR ALTERNATIVES (ADDITIONAL) ───
+{r:"Celesdir",p1:"Celesdir",p2:"Kitsun Noct",desc:"Alternative",tier:"strong"},
+
+// ─── SOLENNE ALTERNATIVES (ADDITIONAL) ───
+{r:"Solenne",p1:"Jormuntide Ignis",p2:"Ghangler Ignis",desc:"Alternative",tier:"meta"},
+
+// ─── WISTELLA ALTERNATIVES ───
+{r:"Wistella",p1:"Beegarde",p2:"Nox",desc:"Alternative",tier:"strong"},
+
+// ─── MYCOMB ALTERNATIVES ───
+{r:"Mycora",p1:"Killamari",p2:"Mossanda",desc:"Alternative",tier:"strong"},
+
+// ─── LULU ALTERNATIVES ───
+{r:"Lullu",p1:"Petallia",p2:"Mossanda",desc:"Alternative",tier:"strong"},
+
+// ─── DOGEN ALTERNATIVES ───
+{r:"Dogen",p1:"Lamball",p2:"Mossanda",desc:"Alternative",tier:"strong"},
+
+// ─── YAKUMO ALTERNATIVES ───
+{r:"Yakumo",p1:"Cremis",p2:"Mossanda",desc:"Alternative",tier:"good"},
+
+// ─── AZURMANE ALTERNATIVES ───
+{r:"Azurmane",p1:"Rayhound",p2:"Chillet",desc:"Alternative",tier:"strong"},
+
+// ─── SKUTLASS ALTERNATIVES ───
+{r:"Skutlass",p1:"Relaxaurus",p2:"Digtoise",desc:"Alternative",tier:"strong"},
+
+// ─── SKUTLASS IGNIS ALTERNATIVES ───
+{r:"Skutlass Ignis",p1:"Skutlass",p2:"Arsox",desc:"Alternative",tier:"strong"},
+
+// ─── PIERDON ALTERNATIVES ───
+{r:"Pierdon",p1:"Digtoise",p2:"Mossanda",desc:"Alternative",tier:"strong"},
+
+// ─── PIERDON CRYST ALTERNATIVES ───
+{r:"Pierdon Cryst",p1:"Pierdon",p2:"Chillet",desc:"Alternative",tier:"strong"},
+
+// ─── GILDRA ALTERNATIVES ───
+{r:"Gildra",p1:"Digtoise",p2:"Nox",desc:"Alternative",tier:"strong"},
+
+// ─── SPLATTERINA ALTERNATIVES ───
+{r:"Splatterina",p1:"Daedream",p2:"Mossanda",desc:"Alternative",tier:"strong"},
+
+// ─── SILVEGIS ALTERNATIVES ───
+{r:"Silvegis",p1:"Chillet",p2:"Mossanda",desc:"Alternative",tier:"strong"},
+
+// ─── ROUJAY ALTERNATIVES ───
+{r:"Roujay",p1:"Daedream",p2:"Helzephyr",desc:"Alternative",tier:"strong"},
+
+// ─── DUPIN ALTERNATIVES ───
+{r:"Dupin",p1:"Pengullet",p2:"Nitewing",desc:"Alternative",tier:"strong"},
+
+// ─── DAZEMU ALTERNATIVES ───
+{r:"Dazemu",p1:"Digtoise",p2:"Cremis",desc:"Alternative",tier:"good"},
+
+// ─── VENUSA ALTERNATIVES ───
+{r:"Venusa",p1:"Chikipi",p2:"Mossanda",desc:"Alternative",tier:"strong"},
+
+// ─── MORE WOOLIPOP TERRA ALTERNATIVES ───
+{r:"Woolipop Terra",p1:"Woolipop",p2:"Rushoar",desc:"Alternative",tier:"strong"},
+
+// ─── MORE CAPRITY NOCT ALTERNATIVES ───
+{r:"Caprity Noct",p1:"Caprity",p2:"Depresso",desc:"Alternative",tier:"strong"},
+
+// ─── MORE LOUPMOON CRYST ALTERNATIVES ───
+{r:"Loupmoon Cryst",p1:"Loupmoon",p2:"Mau Cryst",desc:"Alternative",tier:"strong"},
+
+// ─── MORE RIBBUNY BOTAN ALTERNATIVES ───
+{r:"Ribbuny Botan",p1:"Ribbuny",p2:"Lifmunk",desc:"Alternative",tier:"good"},
+
+// ─── MORE TANZEE IGNIS ALTERNATIVES ───
+{r:"Tanzee Ignis",p1:"Tanzee",p2:"Rooby",desc:"Alternative",tier:"good"},
+
+// ─── MORE FUACK IGNIS ALTERNATIVES ───
+{r:"Fuack Ignis",p1:"Fuack",p2:"Foxparks",desc:"Alternative",tier:"good"},
+
+// ─── MORE KELPSEA IGNIS ALTERNATIVES ───
+{r:"Kelpsea Ignis",p1:"Kelpsea",p2:"Foxparks",desc:"Alternative",tier:"good"},
+
+// ─── MORE PENGULLET LUX ALTERNATIVES ───
+{r:"Pengullet Lux",p1:"Pengullet",p2:"Sparkit",desc:"Alternative",tier:"good"},
+
+// ─── MORE JOLTHOG CRYST ALTERNATIVES ───
+{r:"Jolthog Cryst",p1:"Jolthog",p2:"Bristla",desc:"Alternative",tier:"good"},
+
+// ─── MORE FOXPARKS CRYST ALTERNATIVES ───
+{r:"Foxparks Cryst",p1:"Foxparks",p2:"Mau Cryst",desc:"Alternative",tier:"good"},
+
+// ─── MORE HANGYU CRYST ALTERNATIVES ───
+{r:"Hangyu Cryst",p1:"Hangyu",p2:"Mau Cryst",desc:"Alternative",tier:"good"},
+
+// ─── MORE MAU CRYST ALTERNATIVES ───
+{r:"Mau Cryst",p1:"Mau",p2:"Jolthog Cryst",desc:"Alternative",tier:"good"},
+
+// ─── MORE GOBFIN IGNIS ALTERNATIVES ───
+{r:"Gobfin Ignis",p1:"Gobfin",p2:"Fuddler",desc:"Alternative",tier:"good"},
+
+// ─── MORE LEEZPUNK IGNIS ALTERNATIVES ───
+{r:"Leezpunk Ignis",p1:"Leezpunk",p2:"Depresso",desc:"Alternative",tier:"good"},
+
+// ─── MORE ROBINQUILL TERRA ALTERNATIVES ───
+{r:"Robinquill Terra",p1:"Robinquill",p2:"Dumud",desc:"Alternative",tier:"good"},
+
+// ─── MORE EIKTHYRDEER TERRA ALTERNATIVES ───
+{r:"Eikthyrdeer Terra",p1:"Eikthyrdeer",p2:"Rushoar",desc:"Alternative",tier:"good"},
+
+// ─── MORE BRONCHERRY AQUA ALTERNATIVES ───
+{r:"Broncherry Aqua",p1:"Broncherry",p2:"Pengullet",desc:"Alternative",tier:"good"},
+
+// ─── MORE SURFENT TERRA ALTERNATIVES ───
+{r:"Surfent Terra",p1:"Surfent",p2:"Rushoar",desc:"Alternative",tier:"strong"},
+
+// ─── MORE BLAZEHOWL NOCT ALTERNATIVES ───
+{r:"Blazehowl Noct",p1:"Blazehowl",p2:"Nox",desc:"Alternative",tier:"strong"},
+
+// ─── MORE TURTACLE TERRA ALTERNATIVES ───
+{r:"Turtacle Terra",p1:"Turtacle",p2:"Dumud",desc:"Alternative",tier:"strong"},
+
+// ─── MORE POLAPUP TERRA ALTERNATIVES ───
+{r:"Polapup Terra",p1:"Polapup",p2:"Fuddler",desc:"Alternative",tier:"good"},
+
+// ─── MORE SNOCOMBS LUX ALTERNATIVES ───
+{r:"Snock Lux",p1:"Snock",p2:"Orserk",desc:"Alternative",tier:"strong"},
+
+// ─── MORE KILLAMARI PRIMO ALTERNATIVES ───
+{r:"Killamari Primo",p1:"Killamari",p2:"Lamball",desc:"Alternative",tier:"good"},
+
+// ─── MORE DAZZI NOCT ALTERNATIVES ───
+{r:"Dazzi Noct",p1:"Dazzi",p2:"Daedream",desc:"Alternative",tier:"strong"},
+
+// ─── MORE GORIRAT TERRA ALTERNATIVES ───
+{r:"Gorirat Terra",p1:"Gorirat",p2:"Dumud",desc:"Alternative",tier:"strong"},
+
+// ─── MORE LOUPMOON CRYS ALTERNATIVES ───
+{r:"Loupmoon Cryst",p1:"Loupmoon",p2:"Mau Cryst",desc:"Alternative",tier:"strong"},
+
+// ─── MORE RIBBUNY BOTAN ALTERNATIVES (ADDITIONAL) ───
+{r:"Ribbuny Botan",p1:"Ribbuny",p2:"Lifmunk",desc:"Alternative",tier:"good"},
+
+// ─── MORE TANZEE IGNIS ALTERNATIVES (ADDITIONAL) ───
+{r:"Tanzee Ignis",p1:"Tanzee",p2:"Rooby",desc:"Alternative",tier:"good"},
+
+// ─── MORE FUACK IGNIS ALTERNATIVES (ADDITIONAL) ───
+{r:"Fuack Ignis",p1:"Fuack",p2:"Foxparks",desc:"Alternative",tier:"good"},
+
+// ─── MORE KELPSEA IGNIS ALTERNATIVES (ADDITIONAL) ───
+{r:"Kelpsea Ignis",p1:"Kelpsea",p2:"Foxparks",desc:"Alternative",tier:"good"},
+
+// ─── MORE PENGULLET LUX ALTERNATIVES (ADDITIONAL) ───
+{r:"Pengullet Lux",p1:"Pengullet",p2:"Sparkit",desc:"Alternative",tier:"good"},
+
+// ─── MORE JOLTHOG CRYST ALTERNATIVES (ADDITIONAL) ───
+{r:"Jolthog Cryst",p1:"Jolthog",p2:"Bristla",desc:"Alternative",tier:"good"},
+
+// ─── MORE FOXPARKS CRYST ALTERNATIVES (ADDITIONAL) ───
+{r:"Foxparks Cryst",p1:"Foxparks",p2:"Mau Cryst",desc:"Alternative",tier:"good"},
+
+// ─── MORE HANGYU CRYST ALTERNATIVES (ADDITIONAL) ───
+{r:"Hangyu Cryst",p1:"Hangyu",p2:"Mau Cryst",desc:"Alternative",tier:"good"},
+
+// ─── MORE MAU CRYST ALTERNATIVES (ADDITIONAL) ───
+{r:"Mau Cryst",p1:"Mau",p2:"Jolthog Cryst",desc:"Alternative",tier:"good"},
+
+// ─── MORE GOBFIN IGNIS ALTERNATIVES (ADDITIONAL) ───
+{r:"Gobfin Ignis",p1:"Gobfin",p2:"Fuddler",desc:"Alternative",tier:"good"},
+
+// ─── MORE LEEZPUNK IGNIS ALTERNATIVES (ADDITIONAL) ───
+{r:"Leezpunk Ignis",p1:"Leezpunk",p2:"Depresso",desc:"Alternative",tier:"good"},
+
+// ─── MORE ROBINQUILL TERRA ALTERNATIVES (ADDITIONAL) ───
+{r:"Robinquill Terra",p1:"Robinquill",p2:"Dumud",desc:"Alternative",tier:"good"},
+
+// ─── MORE EIKTHYRDEER TERRA ALTERNATIVES (ADDITIONAL) ───
+{r:"Eikthyrdeer Terra",p1:"Eikthyrdeer",p2:"Rushoar",desc:"Alternative",tier:"good"},
+
+// ─── MORE BRONCHERRY AQUA ALTERNATIVES (ADDITIONAL) ───
+{r:"Broncherry Aqua",p1:"Broncherry",p2:"Pengullet",desc:"Alternative",tier:"good"},
+
+// ─── MORE SURFENT TERRA ALTERNATIVES (ADDITIONAL) ───
+{r:"Surfent Terra",p1:"Surfent",p2:"Rushoar",desc:"Alternative",tier:"strong"},
+
+// ─── MORE BLAZEHOWL NOCT ALTERNATIVES (ADDITIONAL) ───
+{r:"Blazehowl Noct",p1:"Blazehowl",p2:"Nox",desc:"Alternative",tier:"strong"},
+
+// ─── MORE TURTACLE TERRA ALTERNATIVES (ADDITIONAL) ───
+{r:"Turtacle Terra",p1:"Turtacle",p2:"Dumud",desc:"Alternative",tier:"strong"},
+
+// ─── MORE POLAPUP TERRA ALTERNATIVES (ADDITIONAL) ───
+{r:"Polapup Terra",p1:"Polapup",p2:"Fuddler",desc:"Alternative",tier:"good"},
+
+// ─── MORE SNOCOMBS LUX ALTERNATIVES (ADDITIONAL) ───
+{r:"Snock Lux",p1:"Snock",p2:"Orserk",desc:"Alternative",tier:"strong"},
+
+// ─── MORE KILLAMARI PRIMO ALTERNATIVES (ADDITIONAL) ───
+{r:"Killamari Primo",p1:"Killamari",p2:"Lamball",desc:"Alternative",tier:"good"},
+
+// ─── MORE DAZZI NOCT ALTERNATIVES (ADDITIONAL) ───
+{r:"Dazzi Noct",p1:"Dazzi",p2:"Daedream",desc:"Alternative",tier:"strong"},
+
+// ─── MORE GORIRAT TERRA ALTERNATIVES (ADDITIONAL) ───
+{r:"Gorirat Terra",p1:"Gorirat",p2:"Dumud",desc:"Alternative",tier:"strong"}
 ];
