@@ -16,19 +16,19 @@
 --ice:#93c5fd;--dark:#a855f7;--dragon:#c084fc;--ground:#d97706;--neutral:#94a3b8;
 }
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-family:'Exo 2',sans-serif;color:var(--t1)}
+html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-family:'Exo 2',sans-serif;color:var(--t1);will-change:transform}
 
-.app{display:flex;flex-direction:column;height:100%;width:100%;max-width:420px;margin:0 auto;position:relative}
-.app::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 0%,rgba(0,229,255,.05),transparent 50%),radial-gradient(ellipse at 80% 100%,rgba(168,85,247,.03),transparent 50%);pointer-events:none;z-index:0}
+.app{display:flex;flex-direction:column;height:100%;width:100%;max-width:420px;margin:0 auto;position:relative;contain:layout style}
+.app::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 0%,rgba(0,229,255,.08),transparent 50%),radial-gradient(ellipse at 80% 100%,rgba(168,85,247,.05),transparent 50%);pointer-events:none;z-index:0}
 
 /* HEADER */
-.hdr{position:relative;z-index:20;padding:10px 12px 8px;background:linear-gradient(180deg,rgba(0,229,255,.07),transparent);border-bottom:1px solid rgba(0,229,255,.12)}
+.hdr{position:relative;z-index:20;padding:10px 12px 8px;background:linear-gradient(180deg,rgba(0,229,255,.09),transparent);border-bottom:1px solid rgba(0,229,255,.15);will-change:transform}
 .hdr::after{content:'';position:absolute;bottom:0;left:15%;right:15%;height:1px;background:linear-gradient(90deg,transparent,var(--cyan),transparent)}
 .hdr-row{display:flex;align-items:center;justify-content:space-between}
 .logo{display:flex;align-items:center;gap:7px}
 .logo-ico{width:30px;height:30px;position:relative}
 .logo-ico svg{width:100%;height:100%}
-.logo-ring{position:absolute;inset:-3px;border:1.5px solid var(--cyan);border-radius:50%;animation:spin 8s linear infinite;border-top-color:transparent;border-left-color:transparent}
+.logo-ring{position:absolute;inset:-3px;border:1.5px solid var(--cyan);border-radius:50%;animation:spin 8s linear infinite;border-top-color:transparent;border-left-color:transparent;will-change:transform}
 @keyframes spin{to{transform:rotate(360deg)}}
 .title-wrap{text-align:center;flex:1}
 .hdr h1{font-family:'Baloo 2',cursive;font-size:20px;font-weight:800;letter-spacing:1px;background:linear-gradient(135deg,var(--cyan),#fff,var(--teal));-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-shadow:0 0 30px rgba(0,229,255,.3);line-height:1.1;filter:drop-shadow(0 0 8px rgba(0,229,255,.2))}
@@ -36,23 +36,23 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 .hdr .credit{font-family:'Rajdhani',sans-serif;font-size:7px;color:var(--t3);letter-spacing:1px;margin-top:2px;opacity:.7}
 .hdr .credit b{color:var(--cyan);font-weight:600}
 .stats{display:flex;gap:6px;margin-top:5px;justify-content:center}
-.stat{padding:2px 7px;background:rgba(0,229,255,.07);border:1px solid rgba(0,229,255,.18);border-radius:12px;font-family:'Rajdhani',sans-serif;font-size:8px;font-weight:600;color:var(--cyan)}
+.stat{padding:2px 7px;background:rgba(0,229,255,.08);border:1px solid rgba(0,229,255,.2);border-radius:12px;font-family:'Rajdhani',sans-serif;font-size:8px;font-weight:600;color:var(--cyan);contain:layout style}
 .stat b{color:#fff}
-.hdr-btn{width:28px;height:28px;display:flex;align-items:center;justify-content:center;background:rgba(0,229,255,.1);border:1px solid rgba(0,229,255,.2);border-radius:6px;color:var(--cyan);cursor:pointer;transition:all .2s}
-.hdr-btn:active{transform:scale(.9);background:rgba(0,229,255,.2)}
+.hdr-btn{width:28px;height:28px;display:flex;align-items:center;justify-content:center;background:rgba(0,229,255,.1);border:1px solid rgba(0,229,255,.25);border-radius:6px;color:var(--cyan);cursor:pointer;transition:all .15s ease;will-change:transform}
+.hdr-btn:active{transform:scale(.9);background:rgba(0,229,255,.25)}
 .hdr-btn svg{width:14px;height:14px}
 
 /* TABS */
-.tabs{position:relative;z-index:20;display:flex;background:var(--bg2);border-bottom:1px solid rgba(255,255,255,.04);overflow:hidden}
-.tab{flex:1;padding:8px 2px 7px;text-align:center;font-family:'Rajdhani',sans-serif;font-size:9px;font-weight:600;color:var(--t3);cursor:pointer;transition:all .2s;position:relative;text-transform:uppercase;letter-spacing:1px;user-select:none}
-.tab::after{content:'';position:absolute;bottom:0;left:25%;right:25%;height:2px;background:transparent;border-radius:2px 2px 0 0;transition:all .2s}
+.tabs{position:relative;z-index:20;display:flex;background:var(--bg2);border-bottom:1px solid rgba(255,255,255,.05);overflow:hidden;contain:layout style}
+.tab{flex:1;padding:8px 2px 7px;text-align:center;font-family:'Rajdhani',sans-serif;font-size:9px;font-weight:600;color:var(--t3);cursor:pointer;transition:all .15s ease;position:relative;text-transform:uppercase;letter-spacing:1px;user-select:none;will-change:transform}
+.tab::after{content:'';position:absolute;bottom:0;left:25%;right:25%;height:2px;background:transparent;border-radius:2px 2px 0 0;transition:all .15s ease}
 .tab.on{color:var(--cyan)}
 .tab.on::after{background:var(--cyan);box-shadow:0 0 10px var(--cyan)}
 .tab:active{transform:scale(.95)}
 
 /* PANELS */
 .content{flex:1;overflow:hidden;position:relative;z-index:5}
-.pnl{display:none;height:100%;overflow-y:auto;scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:rgba(0,229,255,.25) transparent;padding:6px 8px 40px}
+.pnl{display:none;height:100%;overflow-y:auto;scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:rgba(0,229,255,.25) transparent;padding:6px 8px 40px;will-change:scroll-position}
 .pnl.on{display:block}
 .pnl::-webkit-scrollbar{width:2px}
 .pnl::-webkit-scrollbar-thumb{background:linear-gradient(180deg,var(--cyan),var(--purple));border-radius:2px}
@@ -65,14 +65,14 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 
 /* SEARCH & FILTERS */
 .search-wrap{position:relative;margin-bottom:6px}
-.search{width:100%;padding:8px 10px 8px 30px;background:var(--bg3);border:1px solid rgba(0,229,255,.12);border-radius:8px;color:var(--t1);font-family:'Exo 2',sans-serif;font-size:10px;outline:none;transition:all .2s}
-.search:focus{border-color:var(--cyan);box-shadow:0 0 12px rgba(0,229,255,.1)}
+.search{width:100%;padding:8px 10px 8px 30px;background:var(--bg3);border:1px solid rgba(0,229,255,.12);border-radius:8px;color:var(--t1);font-family:'Exo 2',sans-serif;font-size:10px;outline:none;transition:all .15s ease;will-change:transform}
+.search:focus{border-color:var(--cyan);box-shadow:0 0 12px rgba(0,229,255,.12)}
 .search::placeholder{color:var(--t3)}
 .search-icon{position:absolute;left:9px;top:50%;transform:translateY(-50%);width:13px;height:13px;color:var(--t3)}
 
 .filters{display:flex;gap:4px;margin-bottom:6px;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;padding-bottom:2px}
 .filters::-webkit-scrollbar{display:none}
-.fbtn{flex-shrink:0;padding:4px 8px;border-radius:12px;font-family:'Rajdhani',sans-serif;font-size:8px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;cursor:pointer;transition:all .2s;border:1px solid rgba(255,255,255,.08);background:var(--bg3);color:var(--t2)}
+.fbtn{flex-shrink:0;padding:4px 8px;border-radius:12px;font-family:'Rajdhani',sans-serif;font-size:8px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;cursor:pointer;transition:all .15s ease;border:1px solid rgba(255,255,255,.08);background:var(--bg3);color:var(--t2);will-change:transform}
 .fbtn.on{color:#fff}
 .fbtn:active{transform:scale(.92)}
 .fbtn.f-fire.on{background:rgba(239,68,68,.25);border-color:rgba(239,68,68,.4);color:#fca5a5}
@@ -92,9 +92,9 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 .result-count{font-family:'Rajdhani',sans-serif;font-size:8px;color:var(--t3);text-align:center;margin-bottom:4px;letter-spacing:1px}
 
 /* BREED CARDS */
-.bc{position:relative;background:var(--bg3);border:1px solid rgba(0,229,255,.08);border-radius:10px;padding:8px;margin-bottom:6px;overflow:hidden;transition:all .2s;animation:cardIn .3s ease}
+.bc{position:relative;background:linear-gradient(135deg,var(--bg3),rgba(15,26,48,.9));border:1px solid rgba(0,229,255,.08);border-radius:10px;padding:8px;margin-bottom:6px;overflow:hidden;transition:all .15s ease;animation:cardIn .3s ease;contain:layout style paint;will-change:transform}
 @keyframes cardIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
-.bc::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(0,229,255,.2),transparent)}
+.bc::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(0,229,255,.25),transparent)}
 .bc::after{content:'';position:absolute;top:0;left:0;width:3px;height:100%;border-radius:3px 0 0 3px}
 .bc.t-legend::after{background:linear-gradient(180deg,var(--gold),var(--orange))}
 .bc.t-meta::after{background:linear-gradient(180deg,var(--cyan),var(--teal))}
@@ -102,8 +102,8 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 .bc.t-good::after{background:linear-gradient(180deg,var(--teal),var(--grass))}
 .bc:active{background:var(--bg4);transform:scale(.98)}
 
-.bc-top{display:flex;align-items:center;gap:6px;margin-bottom:6px;padding-bottom:6px;border-bottom:1px solid rgba(255,255,255,.03)}
-.bc-icon{width:34px;height:34px;border-radius:7px;border:2px solid var(--cyan);background:var(--bg2);object-fit:cover;box-shadow:0 0 10px rgba(0,229,255,.15)}
+.bc-top{display:flex;align-items:center;gap:6px;margin-bottom:6px;padding-bottom:6px;border-bottom:1px solid rgba(255,255,255,.04)}
+.bc-icon{width:34px;height:34px;border-radius:7px;border:2px solid var(--cyan);background:var(--bg2);object-fit:cover;box-shadow:0 0 10px rgba(0,229,255,.18);transition:all .15s ease}
 .bc-info{flex:1;min-width:0}
 .bc-name{font-family:'Orbitron',monospace;font-size:10px;font-weight:700;color:#fff;letter-spacing:.3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .bc-desc{font-size:8px;color:var(--t2);margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -126,8 +126,8 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 .badge-type.t-normal{background:rgba(148,163,184,.1);color:#cbd5e1;border:1px solid rgba(148,163,184,.2)}
 
 .bc-flow{display:flex;align-items:center;justify-content:center;gap:3px;padding:2px 0}
-.bp{display:flex;flex-direction:column;align-items:center;gap:2px}
-.bp img{width:26px;height:26px;border-radius:5px;border:1.5px solid rgba(255,255,255,.12);background:var(--bg2);object-fit:cover;transition:all .2s}
+.bp{display:flex;flex-direction:column;align-items:center;gap:2px;cursor:pointer}
+.bp img{width:26px;height:26px;border-radius:5px;border:1.5px solid rgba(255,255,255,.12);background:var(--bg2);object-fit:cover;transition:all .15s ease;will-change:transform}
 .bp img:active{transform:scale(1.1);border-color:var(--cyan)}
 .bp span{font-family:'Rajdhani',sans-serif;font-size:7px;color:var(--t2);text-align:center;max-width:52px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .bop{font-family:'Orbitron',monospace;font-size:12px;font-weight:900;color:var(--orange)}
@@ -135,27 +135,27 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 @keyframes pulse{0%,100%{opacity:.4}50%{opacity:1}}
 
 /* FAV HEART */
-.fav-btn{position:absolute;top:8px;right:8px;width:22px;height:22px;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:2;transition:all .2s}
+.fav-btn{position:absolute;top:8px;right:8px;width:22px;height:22px;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:2;transition:all .15s ease;will-change:transform}
 .fav-btn:active{transform:scale(1.3)}
-.fav-btn svg{width:14px;height:14px;color:var(--t3);transition:all .2s}
+.fav-btn svg{width:14px;height:14px;color:var(--t3);transition:all .15s ease}
 .fav-btn.on svg{color:var(--pink);fill:var(--pink);filter:drop-shadow(0 0 4px rgba(244,114,182,.4))}
 
 /* CALCULATOR */
 .calc{padding:2px 0}
 .clbl{font-family:'Rajdhani',sans-serif;font-size:9px;font-weight:600;color:var(--t2);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:3px;display:flex;align-items:center;gap:4px}
 .clbl .d{width:4px;height:4px;border-radius:50%;background:var(--cyan)}
-.psel{width:100%;padding:9px 28px 9px 9px;background:var(--bg3);border:1px solid rgba(0,229,255,.12);border-radius:7px;color:var(--t1);font-family:'Exo 2',sans-serif;font-size:10px;appearance:none;-webkit-appearance:none;cursor:pointer;transition:all .2s;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2300e5ff' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 8px center}
-.psel:focus{outline:none;border-color:var(--cyan);box-shadow:0 0 10px rgba(0,229,255,.1)}
+.psel{width:100%;padding:9px 28px 9px 9px;background:var(--bg3);border:1px solid rgba(0,229,255,.12);border-radius:7px;color:var(--t1);font-family:'Exo 2',sans-serif;font-size:10px;appearance:none;-webkit-appearance:none;cursor:pointer;transition:all .15s ease;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2300e5ff' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 8px center;will-change:transform}
+.psel:focus{outline:none;border-color:var(--cyan);box-shadow:0 0 10px rgba(0,229,255,.12)}
 .psel option{background:var(--bg3);color:var(--t1)}
 
-.cbtn{width:100%;padding:11px;background:linear-gradient(135deg,rgba(0,229,255,.15),rgba(0,212,170,.15));border:1px solid var(--cyan);border-radius:7px;color:var(--cyan);font-family:'Orbitron',monospace;font-size:10px;font-weight:700;cursor:pointer;text-transform:uppercase;letter-spacing:2px;margin-top:10px;transition:all .2s;position:relative;overflow:hidden}
-.cbtn::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--cyan),var(--teal));opacity:0;transition:opacity .2s}
+.cbtn{width:100%;padding:11px;background:linear-gradient(135deg,rgba(0,229,255,.15),rgba(0,212,170,.15));border:1px solid var(--cyan);border-radius:7px;color:var(--cyan);font-family:'Orbitron',monospace;font-size:10px;font-weight:700;cursor:pointer;text-transform:uppercase;letter-spacing:2px;margin-top:10px;transition:all .15s ease;position:relative;overflow:hidden;will-change:transform}
+.cbtn::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--cyan),var(--teal));opacity:0;transition:opacity .15s ease}
 .cbtn span{position:relative;z-index:1}
 .cbtn:active{transform:scale(.97)}
 .cbtn:active::before{opacity:1}
 .cbtn:active span{color:var(--bg)}
 
-.rbtn{width:100%;padding:9px;background:rgba(168,85,247,.1);border:1px solid rgba(168,85,247,.25);border-radius:7px;color:var(--purple);font-family:'Rajdhani',sans-serif;font-size:9px;font-weight:600;cursor:pointer;margin-top:6px;text-transform:uppercase;letter-spacing:1px;transition:all .2s}
+.rbtn{width:100%;padding:9px;background:rgba(168,85,247,.1);border:1px solid rgba(168,85,247,.25);border-radius:7px;color:var(--purple);font-family:'Rajdhani',sans-serif;font-size:9px;font-weight:600;cursor:pointer;margin-top:6px;text-transform:uppercase;letter-spacing:1px;transition:all .15s ease;will-change:transform}
 .rbtn:active{background:rgba(168,85,247,.2);transform:scale(.97)}
 
 .rdisp{margin-top:12px;display:none}
@@ -177,7 +177,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 .rp-p{font-family:'Orbitron',monospace;font-size:14px;font-weight:900;color:var(--orange)}
 .rp-e{font-family:'Orbitron',monospace;font-size:10px;color:var(--teal);margin:0 2px}
 
-.share-btn{width:100%;padding:8px;background:rgba(0,229,255,.1);border:1px solid rgba(0,229,255,.2);border-radius:6px;color:var(--cyan);font-family:'Rajdhani',sans-serif;font-size:9px;font-weight:600;cursor:pointer;margin-top:8px;text-transform:uppercase;letter-spacing:1px;transition:all .2s}
+.share-btn{width:100%;padding:8px;background:rgba(0,229,255,.1);border:1px solid rgba(0,229,255,.2);border-radius:6px;color:var(--cyan);font-family:'Rajdhani',sans-serif;font-size:9px;font-weight:600;cursor:pointer;margin-top:8px;text-transform:uppercase;letter-spacing:1px;transition:all .15s ease;will-change:transform}
 .share-btn:active{background:rgba(0,229,255,.2);transform:scale(.97)}
 
 /* HISTORY */
@@ -185,7 +185,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 .hempty .ei{font-size:28px;margin-bottom:6px;opacity:.25}
 .hempty p{font-family:'Rajdhani',sans-serif;font-size:10px;letter-spacing:1px}
 
-.hitem{display:flex;align-items:center;gap:3px;background:var(--bg3);border:1px solid rgba(255,255,255,.03);border-radius:7px;padding:5px 7px;margin-bottom:5px;transition:all .2s;animation:cardIn .25s ease}
+.hitem{display:flex;align-items:center;gap:3px;background:var(--bg3);border:1px solid rgba(255,255,255,.03);border-radius:7px;padding:5px 7px;margin-bottom:5px;transition:all .15s ease;animation:cardIn .25s ease;contain:layout style paint}
 .hitem:active{background:var(--bg4);transform:scale(.98)}
 .hitem img{width:20px;height:20px;border-radius:4px;background:var(--bg2);object-fit:cover}
 .hitem .hp{font-family:'Orbitron',monospace;font-size:9px;color:var(--orange);margin:0 1px}
@@ -194,26 +194,26 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 .hitem .hn{font-family:'Rajdhani',sans-serif;font-size:9px;font-weight:600;color:var(--cyan);margin-left:3px;flex:1}
 .hitem .ht{font-family:'Rajdhani',sans-serif;font-size:7px;color:var(--t3)}
 
-.clrbtn{width:100%;padding:9px;background:transparent;border:1px solid rgba(239,68,68,.25);border-radius:7px;color:rgba(239,68,68,.6);font-family:'Rajdhani',sans-serif;font-size:9px;font-weight:600;cursor:pointer;margin-top:8px;text-transform:uppercase;letter-spacing:1px;transition:all .2s}
+.clrbtn{width:100%;padding:9px;background:transparent;border:1px solid rgba(239,68,68,.25);border-radius:7px;color:rgba(239,68,68,.6);font-family:'Rajdhani',sans-serif;font-size:9px;font-weight:600;cursor:pointer;margin-top:8px;text-transform:uppercase;letter-spacing:1px;transition:all .15s ease;will-change:transform}
 .clrbtn:active{background:rgba(239,68,68,.08);border-color:rgba(239,68,68,.4)}
 
 /* BACK TO TOP */
-.btt{position:fixed;bottom:16px;right:16px;width:32px;height:32px;display:none;align-items:center;justify-content:center;background:rgba(0,229,255,.15);border:1px solid rgba(0,229,255,.3);border-radius:50%;color:var(--cyan);cursor:pointer;z-index:30;transition:all .2s;backdrop-filter:blur(8px)}
+.btt{position:fixed;bottom:16px;right:16px;width:32px;height:32px;display:none;align-items:center;justify-content:center;background:rgba(0,229,255,.15);border:1px solid rgba(0,229,255,.3);border-radius:50%;color:var(--cyan);cursor:pointer;z-index:30;transition:all .15s ease;backdrop-filter:blur(8px);will-change:transform}
 .btt.show{display:flex}
 .btt:active{transform:scale(.9);background:rgba(0,229,255,.25)}
 .btt svg{width:14px;height:14px}
 
 /* MODAL */
-.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:50;display:none;align-items:flex-end;justify-content:center;backdrop-filter:blur(4px)}
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:50;display:none;align-items:flex-end;justify-content:center;backdrop-filter:blur(4px);will-change:opacity}
 .modal-overlay.show{display:flex;animation:fadeIn .2s ease}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
-.modal{width:100%;max-width:420px;max-height:80vh;background:var(--bg2);border:1px solid rgba(0,229,255,.15);border-radius:14px 14px 0 0;padding:16px;overflow-y:auto;animation:slideUp .3s ease}
+.modal{width:100%;max-width:420px;max-height:85vh;background:var(--bg2);border:1px solid rgba(0,229,255,.15);border-radius:14px 14px 0 0;padding:16px;overflow-y:auto;animation:slideUp .3s ease;will-change:transform}
 .modal-handle{width:30px;height:3px;background:rgba(255,255,255,.15);border-radius:3px;margin:0 auto 12px}
 .modal-head{display:flex;align-items:center;gap:10px;margin-bottom:12px}
 .modal-icon{width:48px;height:48px;border-radius:10px;border:2px solid var(--cyan);background:var(--bg3);object-fit:cover}
 .modal-name{font-family:'Orbitron',monospace;font-size:14px;font-weight:800;color:#fff}
 .modal-num{font-family:'Rajdhani',sans-serif;font-size:9px;color:var(--t2)}
-.modal-close{margin-left:auto;width:24px;height:24px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.05);border-radius:50%;color:var(--t2);cursor:pointer}
+.modal-close{margin-left:auto;width:24px;height:24px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.05);border-radius:50%;color:var(--t2);cursor:pointer;transition:all .15s ease}
 .modal-close:active{background:rgba(255,255,255,.1)}
 .modal-section{margin-bottom:10px}
 .modal-section h3{font-family:'Rajdhani',sans-serif;font-size:9px;font-weight:600;color:var(--cyan);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:5px}
@@ -242,7 +242,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 /* ─── LOCATOR ─── */
 .locator-filters{display:flex;gap:4px;margin-bottom:6px;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;padding-bottom:2px}
 .locator-filters::-webkit-scrollbar{display:none}
-.loc-btn{flex-shrink:0;padding:4px 8px;border-radius:12px;font-family:'Rajdhani',sans-serif;font-size:8px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;cursor:pointer;transition:all .2s;border:1px solid rgba(255,255,255,.08);background:var(--bg3);color:var(--t2)}
+.loc-btn{flex-shrink:0;padding:4px 8px;border-radius:12px;font-family:'Rajdhani',sans-serif;font-size:8px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;cursor:pointer;transition:all .15s ease;border:1px solid rgba(255,255,255,.08);background:var(--bg3);color:var(--t2);will-change:transform}
 .loc-btn.on{color:#fff}
 .loc-btn:active{transform:scale(.92)}
 .loc-btn.l-all.on{background:rgba(0,229,255,.15);border-color:rgba(0,229,255,.3);color:var(--cyan)}
@@ -257,7 +257,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 .loc-btn.l-neutral.on{background:rgba(148,163,184,.2);border-color:rgba(148,163,184,.3);color:#cbd5e1}
 
 .locator-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;padding:2px 0}
-.lc{position:relative;background:var(--bg3);border:1px solid rgba(0,229,255,.08);border-radius:8px;padding:6px 4px 4px;text-align:center;cursor:pointer;transition:all .2s;animation:cardIn .3s ease}
+.lc{position:relative;background:var(--bg3);border:1px solid rgba(0,229,255,.08);border-radius:8px;padding:6px 4px 4px;text-align:center;cursor:pointer;transition:all .15s ease;animation:cardIn .3s ease;contain:layout style paint;will-change:transform}
 .lc:active{background:var(--bg4);transform:scale(.95)}
 .lc-img{width:36px;height:36px;border-radius:6px;border:1.5px solid rgba(255,255,255,.1);background:var(--bg2);object-fit:cover;margin:0 auto 3px;display:block}
 .lc-name{font-family:'Rajdhani',sans-serif;font-size:7px;font-weight:600;color:var(--t1);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.2}
@@ -273,15 +273,16 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 .lc-type.t-neutral{color:#cbd5e1}
 
 /* ─── MAP OVERLAY ─── */
-.map-overlay{position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:55;display:none;align-items:center;justify-content:center;backdrop-filter:blur(6px)}
+.map-overlay{position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:55;display:none;align-items:center;justify-content:center;backdrop-filter:blur(6px);will-change:opacity}
 .map-overlay.show{display:flex;animation:fadeIn .2s ease}
 .map-container{width:100%;max-width:420px;max-height:90vh;background:var(--bg2);border:1px solid rgba(0,229,255,.15);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
 .map-header{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid rgba(0,229,255,.1)}
 .map-title{font-family:'Orbitron',monospace;font-size:11px;font-weight:700;color:var(--cyan);letter-spacing:1px}
-.map-close{width:24px;height:24px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.05);border-radius:50%;color:var(--t2);cursor:pointer}
+.map-close{width:24px;height:24px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.05);border-radius:50%;color:var(--t2);cursor:pointer;transition:all .15s ease}
+.map-close:active{background:rgba(255,255,255,.1)}
 .map-body{flex:1;overflow-y:auto;padding:10px;display:flex;flex-direction:column;gap:10px}
 .map-region-list{display:flex;flex-wrap:wrap;gap:4px}
-.map-region{padding:3px 8px;border-radius:10px;font-family:'Rajdhani',sans-serif;font-size:8px;font-weight:600;background:var(--bg3);color:var(--t2);border:1px solid rgba(255,255,255,.08)}
+.map-region{padding:3px 8px;border-radius:10px;font-family:'Rajdhani',sans-serif;font-size:8px;font-weight:600;background:var(--bg3);color:var(--t2);border:1px solid rgba(255,255,255,.08);transition:all .15s ease}
 .map-region.active{background:rgba(0,229,255,.15);color:var(--cyan);border-color:rgba(0,229,255,.3)}
 .map-visual{display:flex;justify-content:center}
 .map-visual svg{width:180px;height:auto;border-radius:8px;background:var(--bg3);border:1px solid rgba(0,229,255,.08)}
@@ -310,11 +311,10 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 .skill-row .sr-ct{font-family:'Rajdhani',sans-serif;font-size:7px;color:var(--t3)}
 .skill-row .sr-lv{font-family:'Orbitron',monospace;font-size:8px;font-weight:700;color:var(--cyan)}
 
-.locate-btn{width:100%;padding:10px;background:linear-gradient(135deg,rgba(0,229,255,.15),rgba(0,212,170,.15));border:1px solid var(--cyan);border-radius:7px;color:var(--cyan);font-family:'Orbitron',monospace;font-size:9px;font-weight:700;cursor:pointer;text-transform:uppercase;letter-spacing:1.5px;margin-top:10px;transition:all .2s;position:relative;overflow:hidden}
+.locate-btn{width:100%;padding:10px;background:linear-gradient(135deg,rgba(0,229,255,.15),rgba(0,212,170,.15));border:1px solid var(--cyan);border-radius:7px;color:var(--cyan);font-family:'Orbitron',monospace;font-size:9px;font-weight:700;cursor:pointer;text-transform:uppercase;letter-spacing:1.5px;margin-top:10px;transition:all .15s ease;position:relative;overflow:hidden;will-change:transform}
 .locate-btn:active{transform:scale(.97);background:rgba(0,229,255,.25)}
 .locate-btn svg{display:inline-block;vertical-align:middle;margin-right:4px;width:12px;height:12px}
 .drop-tag{background:rgba(251,191,36,.1)!important;color:var(--gold)!important;border-color:rgba(251,191,36,.25)!important}
-.modal{max-height:85vh}
 
 </style>
 </head>
@@ -348,7 +348,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
     </div>
     <div class="stats">
       <div class="stat"><b>299</b> Pals</div>
-      <div class="stat"><b>500+</b> Combos</div>
+      <div class="stat"><b>197</b> Combos</div>
       <div class="stat"><b>1.0</b> Data</div>
     </div>
   </div>
@@ -1169,1399 +1169,215 @@ const PALS=[
 
 const COMBOS=[
 // ═══════════════════════════════════════════════════════════════════════════════
-// PALWORLD 1.0 BREEDING COMBINATIONS (Deduplicated - All combos per result Pal)
+// PALWORLD 1.0 VERIFIED BREEDING COMBINATIONS
+// Source: Datamined from PalCalc & paldb.cc (July 2026)
 // ═══════════════════════════════════════════════════════════════════════════════
 
-// ─── ANUBIS (Handiwork Lv6 + Mining Lv6) ───
-{r:"Anubis",p1:"Univolt Cryst",p2:"Moldron Cryst",desc:"Best Combo - Both common",tier:"meta"},
-{r:"Anubis",p1:"Blazamut",p2:"Univolt Cryst",desc:"Alternative",tier:"meta"},
-{r:"Anubis",p1:"Jormuntide Ignis",p2:"Moldron",desc:"Alternative",tier:"meta"},
-{r:"Anubis",p1:"Astegon",p2:"Blazamut",desc:"Alternative",tier:"meta"},
-{r:"Anubis",p1:"Anubis",p2:"Anubis",desc:"Same Species",tier:"meta"},
-
-// ─── JORMUNTIDE (Watering Lv7 + Dragon) ───
-{r:"Jormuntide",p1:"Relaxaurus",p2:"Suzaku",desc:"Watering Lv7 Dragon",tier:"meta"},
-{r:"Jormuntide",p1:"Relaxaurus",p2:"Jormuntide",desc:"Same Species",tier:"meta"},
-{r:"Jormuntide",p1:"Relaxaurus",p2:"Azurobe",desc:"Alternative",tier:"meta"},
-
-// ─── JORMUNTIDE IGNIS (Kindling Lv7 + Dragon) ───
-{r:"Jormuntide Ignis",p1:"Relaxaurus Lux",p2:"Jormuntide",desc:"Kindling Lv7 Dragon",tier:"meta"},
-
-// ─── SIBELYX (Medicine Lv3 + Cooling Lv3) ───
-{r:"Sibelyx",p1:"Penking",p2:"Bushi",desc:"Classic Recipe",tier:"meta"},
-{r:"Sibelyx",p1:"Mossanda Lux",p2:"Petallia",desc:"Alternative",tier:"meta"},
-{r:"Sibelyx",p1:"Sibelyx",p2:"Sibelyx",desc:"Same Species",tier:"meta"},
-
-// ─── LYLEEN (Planting Lv7 + Medicine) ───
-{r:"Lyleen",p1:"Petallia",p2:"Mossanda",desc:"Planting Lv7 + Medicine",tier:"meta"},
-{r:"Lyleen",p1:"Lyleen",p2:"Lyleen",desc:"Same Species / Tower Boss",tier:"legend"},
-
-// ─── ASTEGON (Mining Lv7 + Handiwork) ───
-{r:"Astegon",p1:"Astegon",p2:"Astegon",desc:"Same Species",tier:"meta"},
-
-// ─── BLAZAMUT (Kindling Lv6 + Mining Lv7) ───
-{r:"Blazamut",p1:"Blazehowl",p2:"Reptyro",desc:"Kindling Lv6 + Mining Lv7",tier:"meta"},
-{r:"Blazamut",p1:"Blazamut",p2:"Blazamut",desc:"Same Species",tier:"meta"},
-
-// ─── SUZAKU (Kindling Lv5 Fire Flying) ───
-{r:"Suzaku",p1:"Suzaku",p2:"Suzaku",desc:"Same Species",tier:"meta"},
-
-// ─── SUZAKU AQUA (Watering Lv6 Aqua Variant) ───
-{r:"Suzaku Aqua",p1:"Suzaku",p2:"Surfent",desc:"Watering Lv6 Aqua Variant",tier:"strong"},
-
-// ─── PETALLIA (Planting Lv4 + Medicine Lv4) ───
-{r:"Petallia",p1:"Petallia",p2:"Petallia",desc:"Same Species",tier:"meta"},
-
-// ─── MOSSANDA (Planting Lv3 + Lumbering Lv4) ───
-{r:"Mossanda",p1:"Mossanda",p2:"Mossanda",desc:"Same Species",tier:"strong"},
-
-// ─── MOSSANDA LUX (Electricity Lv4 + Lumbering) ───
-{r:"Mossanda Lux",p1:"Mossanda",p2:"Grizzbolt",desc:"Electricity Lv4 + Lumbering",tier:"meta"},
-{r:"Mossanda Lux",p1:"Mossanda Lux",p2:"Mossanda Lux",desc:"Same Species",tier:"strong"},
-
-// ─── KNOCKLEM (Mining Lv7 + Transport Lv7) ───
-{r:"Knocklem",p1:"Warsect",p2:"Anubis",desc:"Mining Lv7 + Transport Lv7",tier:"meta"},
-{r:"Knocklem",p1:"Knocklem",p2:"Knocklem",desc:"Same Species",tier:"strong"},
-
-// ─── CELESDIR (Lumbering Lv7 + Gathering) ───
-{r:"Celesdir",p1:"Eikthyrdeer Terra",p2:"Gildane",desc:"Lumbering Lv7 Dragon",tier:"strong"},
-{r:"Celesdir",p1:"Celesdir",p2:"Celesdir",desc:"Same Species",tier:"strong"},
-
-// ─── CELESDIR NOCT (Lumbering Lv8 + Gathering) ───
-{r:"Celesdir Noct",p1:"Celesdir",p2:"Helzephyr",desc:"Lumbering Lv8 + Gathering",tier:"meta"},
-{r:"Celesdir Noct",p1:"Celesdir",p2:"Shadowbeak",desc:"Alternative",tier:"meta"},
-
-// ─── MENASTING (Mining Lv5 + Lumbering) ───
-{r:"Menasting",p1:"Anubis",p2:"Cryolinx",desc:"Mining Lv5 + Lumbering",tier:"strong"},
-{r:"Menasting",p1:"Menasting",p2:"Menasting",desc:"Same Species",tier:"strong"},
-
-// ─── FALERIS (Kindling Lv6 + Transporting) ───
-{r:"Faleris",p1:"Blazehowl",p2:"Ragnahawk",desc:"Kindling Lv6 + Transport",tier:"meta"},
-{r:"Faleris",p1:"Faleris",p2:"Faleris",desc:"Same Species / Tower Boss",tier:"legend"},
-
-// ─── PYRIN (Kindling Lv4 + Lumbering) ───
-{r:"Pyrin",p1:"Arsox",p2:"Foxparks",desc:"Kindling Lv4 + Lumbering",tier:"strong"},
-
-// ─── PYRIN NOCT (Kindling Lv4 + Lumbering) ───
-{r:"Pyrin Noct",p1:"Pyrin",p2:"Katress",desc:"Kindling Lv4 + Lumbering",tier:"strong"},
-
-// ─── UNIVOLT (Electricity Lv3 + Lumbering) ───
-{r:"Univolt",p1:"Rayhound",p2:"Mossanda Lux",desc:"Electricity Lv3 + Lumbering",tier:"strong"},
-{r:"Univolt",p1:"Univolt",p2:"Univolt",desc:"Same Species",tier:"strong"},
-
-// ─── WARSECT (Planting Lv3 + Lumbering Lv4) ───
-{r:"Warsect",p1:"Warsect",p2:"Warsect",desc:"Same Species",tier:"strong"},
-
-// ─── ELPHIDRAN (Lumbering Lv3 Dragon) ───
-{r:"Elphidran",p1:"Elphidran",p2:"Elphidran",desc:"Same Species",tier:"good"},
-
-// ─── KINGPACA (Gathering Lv2 Neutral) ───
-{r:"Kingpaca",p1:"Kingpaca",p2:"Kingpaca",desc:"Same Species",tier:"good"},
-
-// ─── KINGPACA CRYST (Ice + Neutral) ───
-{r:"Kingpaca Cryst",p1:"Kingpaca",p2:"Hangyu Cryst",desc:"Ice + Neutral Egg",tier:"strong"},
-
-// ─── ICE KINGPACA (Ice + Neutral) ───
-{r:"Ice Kingpaca",p1:"Kingpaca",p2:"Reptyro Cryst",desc:"Ice + Neutral Egg",tier:"strong"},
-
-// ─── REPTYRO (Kindling Lv5 + Mining Lv5) ───
-{r:"Reptyro",p1:"Reptyro",p2:"Reptyro",desc:"Same Species",tier:"strong"},
-
-// ─── ICE REPTYRO (Ice + Fire) ───
-{r:"Ice Reptyro",p1:"Reptyro",p2:"Foxcicle",desc:"Ice + Fire Egg",tier:"strong"},
-
-// ─── RAYHOUND (Electricity Lv4 Dog) ───
-{r:"Rayhound",p1:"Rayhound",p2:"Rayhound",desc:"Same Species",tier:"strong"},
-
-// ─── CRYOLINX (Cooling Lv4 + Lumbering) ───
-{r:"Cryolinx",p1:"Cryolinx",p2:"Cryolinx",desc:"Same Species",tier:"strong"},
-
-// ─── BLAZEHOWL (Kindling Lv5 + Lumbering) ───
-{r:"Blazehowl",p1:"Blazehowl",p2:"Blazehowl",desc:"Same Species",tier:"strong"},
-
-// ─── BLAZEHOWL NOCT (Kindling Lv5 + Lumbering) ───
-{r:"Blazehowl Noct",p1:"Blazehowl",p2:"Maraith",desc:"Kindling Lv5 + Lumbering",tier:"strong"},
-
-// ─── ROBINQUILL (Planting Lv2 + Handiwork) ───
-{r:"Robinquill",p1:"Robinquill",p2:"Robinquill",desc:"Same Species",tier:"good"},
-
-// ─── ROBINQUILL TERRA (Ground + Grass) ───
-{r:"Robinquill Terra",p1:"Robinquill",p2:"Rushoar",desc:"Ground + Grass Egg",tier:"good"},
-
-// ─── RAGNAHAWK (Kindling Lv4 + Transporting) ───
-{r:"Ragnahawk",p1:"Ragnahawk",p2:"Ragnahawk",desc:"Same Species",tier:"strong"},
-
-// ─── VANWYRM (Kindling Lv2 + Transporting) ───
-{r:"Vanwyrm",p1:"Vanwyrm",p2:"Vanwyrm",desc:"Same Species",tier:"good"},
-
-// ─── VANWYRM CRYST (Ice + Fire) ───
-{r:"Vanwyrm Cryst",p1:"Vanwyrm",p2:"Foxcicle",desc:"Ice + Fire Egg",tier:"meta"},
-
-// ─── BUSHI (Kindling Lv2 + Lumbering Lv3) ───
-{r:"Bushi",p1:"Bushi",p2:"Bushi",desc:"Same Species",tier:"good"},
-
-// ─── BUSHI NOCT (Dark + Fire) ───
-{r:"Bushi Noct",p1:"Bushi",p2:"Leezpunk",desc:"Dark + Fire Egg",tier:"strong"},
-{r:"Bushi Noct",p1:"Bushi",p2:"Galeclaw",desc:"Alternative",tier:"strong"},
-
-// ─── DAZZI (Electricity Lv3 + Handiwork) ───
-{r:"Dazzi",p1:"Dazzi",p2:"Dazzi",desc:"Same Species",tier:"good"},
-
-// ─── GALECLAW (Gathering Lv2 Dark) ───
-{r:"Galeclaw",p1:"Galeclaw",p2:"Galeclaw",desc:"Same Species",tier:"good"},
-
-// ─── DINOSSOM (Planting Lv3 + Lumbering) ───
-{r:"Dinossom",p1:"Dinossom",p2:"Dinossom",desc:"Same Species",tier:"good"},
-
-// ─── DINOSSOM LUX (Electric + Grass) ───
-{r:"Dinossom Lux",p1:"Dinossom",p2:"Mossanda Lux",desc:"Electric + Grass Egg",tier:"strong"},
-
-// ─── MARAITH (Gathering Lv4 + Mining Lv4) ───
-{r:"Maraith",p1:"Maraith",p2:"Maraith",desc:"Same Species",tier:"strong"},
-
-// ─── FELBAT (Medicine Lv3 Dark) ───
-{r:"Felbat",p1:"Felbat",p2:"Felbat",desc:"Same Species",tier:"good"},
-
-// ─── AZUROBE (Watering Lv4 Water) ───
-{r:"Azurobe",p1:"Azurobe",p2:"Azurobe",desc:"Same Species",tier:"strong"},
-
-// ─── LYLEEN NOCT (Handiwork + Gathering + Med) ───
-{r:"Lyleen Noct",p1:"Lyleen",p2:"Incineram Noct",desc:"Dark + Grass Egg",tier:"strong"},
-{r:"Lyleen Noct",p1:"Lyleen",p2:"Loupmoon",desc:"Alternative",tier:"strong"},
-
-// ─── KITSUN (Kindling Lv3 Fire Mount) ───
-{r:"Kitsun",p1:"Foxparks",p2:"Foxcicle",desc:"Kindling Lv3 Fire Mount",tier:"strong"},
-{r:"Kitsun",p1:"Kitsun",p2:"Kitsun",desc:"Same Species",tier:"strong"},
-
-// ─── RELAXAURUS (Watering Lv3 + Transporting) ───
-{r:"Relaxaurus",p1:"Relaxaurus",p2:"Relaxaurus",desc:"Same Species",tier:"good"},
-
-// ─── RELAXAURUS LUX (Electricity + Water) ───
-{r:"Relaxaurus Lux",p1:"Relaxaurus",p2:"Sparkit",desc:"Electricity + Water Egg",tier:"meta"},
-{r:"Relaxaurus Lux",p1:"Relaxaurus",p2:"Rayhound",desc:"Alternative",tier:"strong"},
-
-// ─── BRONCHERRY (Planting Lv3 Grass) ───
-{r:"Broncherry",p1:"Broncherry",p2:"Broncherry",desc:"Same Species",tier:"strong"},
-
-// ─── BRONCHERRY AQUA (Water + Grass) ───
-{r:"Broncherry Aqua",p1:"Broncherry",p2:"Fuack",desc:"Water + Grass Egg",tier:"good"},
-
-// ─── EIKTHYRDEER (Gathering Lv2 Neutral) ───
-{r:"Eikthyrdeer",p1:"Eikthyrdeer",p2:"Eikthyrdeer",desc:"Same Species",tier:"good"},
-
-// ─── EIKTHYRDEER TERRA (Ground + Neutral) ───
-{r:"Eikthyrdeer Terra",p1:"Eikthyrdeer",p2:"Gobfin",desc:"Ground + Neutral Egg",tier:"good"},
-{r:"Eikthyrdeer Terra",p1:"Eikthyrdeer",p2:"Dumud",desc:"Alternative",tier:"good"},
-
-// ─── HANGYU (Handiwork Lv2 Ground) ───
-{r:"Hangyu",p1:"Hangyu",p2:"Hangyu",desc:"Same Species",tier:"good"},
-
-// ─── HANGYU CRYST (Ice + Ground) ───
-{r:"Hangyu Cryst",p1:"Hangyu",p2:"Bristla",desc:"Ice + Ground Egg",tier:"good"},
-
-// ─── MAU (Gathering Lv1 Dark) ───
-{r:"Mau",p1:"Mau",p2:"Mau",desc:"Same Species",tier:"good"},
-
-// ─── MAU CRYST (Ice + Dark) ───
-{r:"Mau Cryst",p1:"Mau",p2:"Pengullet Lux",desc:"Ice + Dark Egg",tier:"good"},
-{r:"Mau Cryst",p1:"Mau",p2:"Hangyu Cryst",desc:"Alternative",tier:"good"},
-
-// ─── JOLTHOG (Electricity Lv1) ───
-{r:"Jolthog",p1:"Jolthog",p2:"Jolthog",desc:"Same Species",tier:"good"},
-
-// ─── JOLTHOG CRYST (Ice + Electric) ───
-{r:"Jolthog Cryst",p1:"Jolthog",p2:"Pengullet",desc:"Ice + Electric Egg",tier:"good"},
-
-// ─── FOXPARKS (Kindling Lv1 Fire) ───
-{r:"Foxparks",p1:"Foxparks",p2:"Foxparks",desc:"Same Species",tier:"good"},
-
-// ─── FOXPARKS CRYST (Ice + Fire) ───
-{r:"Foxparks Cryst",p1:"Foxparks",p2:"Jolthog Cryst",desc:"Ice + Fire Egg",tier:"good"},
-{r:"Foxparks Cryst",p1:"Foxparks",p2:"Bristla",desc:"Alternative",tier:"good"},
-
-// ─── PENGULLET (Watering Lv1 Ice) ───
-{r:"Pengullet",p1:"Pengullet",p2:"Pengullet",desc:"Same Species",tier:"good"},
-
-// ─── PENGULLET LUX (Electric + Ice) ───
-{r:"Pengullet Lux",p1:"Pengullet",p2:"Jolthog",desc:"Electric + Ice Egg",tier:"good"},
-{r:"Pengullet Lux",p1:"Pengullet",p2:"Kelpsea",desc:"Alternative",tier:"good"},
-
-// ─── GOBFIN (Handiwork Lv1 Water) ───
-{r:"Gobfin",p1:"Gobfin",p2:"Gobfin",desc:"Same Species",tier:"good"},
-
-// ─── GOBFIN IGNIS (Fire + Water) ───
-{r:"Gobfin Ignis",p1:"Gobfin",p2:"Rushoar",desc:"Fire + Water Egg",tier:"good"},
-{r:"Gobfin Ignis",p1:"Gobfin",p2:"Fuddler",desc:"Alternative",tier:"good"},
-
-// ─── LEEZPUNK (Gathering Lv1 Dark) ───
-{r:"Leezpunk",p1:"Leezpunk",p2:"Leezpunk",desc:"Same Species",tier:"good"},
-
-// ─── LEEZPUNK IGNIS (Fire + Dark) ───
-{r:"Leezpunk Ignis",p1:"Leezpunk",p2:"Flambelle",desc:"Fire + Dark Egg",tier:"good"},
-{r:"Leezpunk Ignis",p1:"Leezpunk",p2:"Depresso",desc:"Alternative",tier:"good"},
-
-// ─── LOUPMOON (Gathering Lv1 Dark) ───
-{r:"Loupmoon",p1:"Loupmoon",p2:"Loupmoon",desc:"Same Species",tier:"good"},
-
-// ─── LOUPMOON CRYST (Ice + Dark) ───
-{r:"Loupmoon Cryst",p1:"Loupmoon",p2:"Jolthog Cryst",desc:"Ice + Dark Egg",tier:"strong"},
-
-// ─── CAPRITY (Planting Lv1 Grass) ───
-{r:"Caprity",p1:"Caprity",p2:"Caprity",desc:"Same Species",tier:"good"},
-
-// ─── CAPRITY NOCT (Dark + Grass) ───
-{r:"Caprity Noct",p1:"Caprity",p2:"Loupmoon",desc:"Dark + Grass Egg",tier:"strong"},
-{r:"Caprity Noct",p1:"Caprity",p2:"Depresso",desc:"Alternative",tier:"strong"},
-
-// ─── WOOLIPOP (Gathering Lv1 Neutral) ───
-{r:"Woolipop",p1:"Woolipop",p2:"Woolipop",desc:"Same Species",tier:"good"},
-
-// ─── WOOLIPOP TERRA (Ground + Neutral) ───
-{r:"Woolipop Terra",p1:"Woolipop",p2:"Eikthyrdeer Terra",desc:"Ground + Neutral Egg",tier:"strong"},
-
-// ─── RIBBUNY (Handiwork Lv1 Grass) ───
-{r:"Ribbuny",p1:"Ribbuny",p2:"Ribbuny",desc:"Same Species",tier:"good"},
-
-// ─── RIBBUNY BOTAN (Grass + Neutral) ───
-{r:"Ribbuny Botan",p1:"Ribbuny",p2:"Tanzee",desc:"Grass + Neutral Egg",tier:"good"},
-
-// ─── FLAMBELLE (Kindling Lv1 Fire) ───
-{r:"Flambelle",p1:"Foxparks",p2:"Fuack",desc:"Fire + Water Egg",tier:"good"},
-{r:"Flambelle",p1:"Flambelle",p2:"Flambelle",desc:"Same Species",tier:"good"},
-
-// ─── FUACK (Watering Lv1 Water) ───
-{r:"Fuack",p1:"Fuack",p2:"Fuack",desc:"Same Species",tier:"good"},
-
-// ─── FUACK IGNIS (Fire + Water) ───
-{r:"Fuack Ignis",p1:"Fuack",p2:"Tanzee",desc:"Fire + Water Egg",tier:"good"},
-
-// ─── KELPSEA (Watering Lv1 Water) ───
-{r:"Kelpsea",p1:"Kelpsea",p2:"Kelpsea",desc:"Same Species",tier:"good"},
-
-// ─── KELPSEA IGNIS (Fire + Water) ───
-{r:"Kelpsea Ignis",p1:"Kelpsea",p2:"Tanzee",desc:"Fire + Water Egg",tier:"good"},
-
-// ─── TANZEE (Planting Lv1 Grass) ───
-{r:"Tanzee",p1:"Tanzee",p2:"Tanzee",desc:"Same Species",tier:"good"},
-
-// ─── TANZEE IGNIS (Fire + Grass) ───
-{r:"Tanzee Ignis",p1:"Tanzee",p2:"Foxparks",desc:"Fire + Grass Egg",tier:"good"},
-
-// ─── CROAJIRO (Watering Lv1 Water) ───
-{r:"Croajiro",p1:"Croajiro",p2:"Croajiro",desc:"Same Species",tier:"good"},
-
-// ─── CROAJIRO NOCT (Dark + Neutral) ───
-{r:"Croajiro Noct",p1:"Croajiro",p2:"Hoocrates",desc:"Dark + Neutral Egg",tier:"good"},
-
-// ─── HELZEPHYR (Transporting Lv4 Dark Flyer) ───
-{r:"Helzephyr",p1:"Helzephyr",p2:"Helzephyr",desc:"Same Species",tier:"strong"},
-
-// ─── HELZEPHYR LUX (Electricity Lv4 + Transport) ───
-{r:"Helzephyr Lux",p1:"Helzephyr",p2:"Rayhound",desc:"Electricity Lv4 + Transport",tier:"strong"},
-
-// ─── FROSTALLION NOCT (Special fixed recipe) ───
-{r:"Frostallion Noct",p1:"Frostallion",p2:"Helzephyr",desc:"Breeding-Only Dark Variant",tier:"legend"},
-
-// ─── KATRESS IGNIS (Gender-specific) ───
-{r:"Katress Ignis",p1:"Katress",p2:"Wixen",desc:"Female Katress + Male Wixen",tier:"meta"},
-
-// ─── WIXEN NOCT (Gender-specific) ───
-{r:"Wixen Noct",p1:"Katress",p2:"Wixen",desc:"Male Katress + Female Wixen",tier:"meta"},
-
-// ─── STARRYON (Gathering Lv5 Neutral) ───
-{r:"Starryon",p1:"Kingpaca",p2:"Grintale",desc:"Gathering Lv5 Neutral",tier:"strong"},
-{r:"Starryon",p1:"Starryon",p2:"Starryon",desc:"Same Species",tier:"strong"},
-
-// ─── SEKHMET (Handiwork Lv6 + Mining Lv3) ───
-{r:"Sekhmet",p1:"Anubis",p2:"Bushi",desc:"Handiwork Lv6 + Mining Lv3",tier:"strong"},
-{r:"Sekhmet",p1:"Sekhmet",p2:"Sekhmet",desc:"Same Species",tier:"strong"},
-
-// ─── FLARACLE (Kindling Lv7 + Handiwork) ───
-{r:"Flaracle",p1:"Reptyro",p2:"Blazehowl",desc:"Kindling Lv7 + Handiwork",tier:"strong"},
-{r:"Flaracle",p1:"Flaracle",p2:"Flaracle",desc:"Same Species",tier:"strong"},
-
-// ─── RENJISHI (Kindling Lv8 + Handiwork) ───
-{r:"Renjishi",p1:"Blazamut",p2:"Neptilius",desc:"Kindling Lv8 + Handiwork",tier:"meta"},
-{r:"Renjishi",p1:"Renjishi",p2:"Renjishi",desc:"Same Species",tier:"strong"},
-
-// ─── SOLENNE (Handiwork Lv8 Best) ───
-{r:"Solenne",p1:"Jormuntide Ignis",p2:"Flaracle",desc:"Handiwork Lv8 Best",tier:"meta"},
-{r:"Solenne",p1:"Solenne",p2:"Solenne",desc:"Same Species",tier:"strong"},
-
-// ─── NYAFIA (Handiwork Lv4 + Gathering) ───
-{r:"Nyafia",p1:"Shadowbeak",p2:"Vanwyrm",desc:"Handiwork Lv4 + Gathering",tier:"strong"},
-{r:"Nyafia",p1:"Nyafia",p2:"Nyafia",desc:"Same Species",tier:"strong"},
-
-// ─── AEGIDRON (Mining Lv4 Dragon) ───
-{r:"Aegidron",p1:"Orserk",p2:"Shaolong",desc:"Mining Lv4 Dragon",tier:"strong"},
-{r:"Aegidron",p1:"Aegidron",p2:"Aegidron",desc:"Same Species",tier:"strong"},
-
-// ─── OPHYDIA (Watering Lv5 + Planting Lv7) ───
-{r:"Ophydia",p1:"Jormuntide",p2:"Petallia",desc:"Watering Lv5 + Planting Lv7",tier:"strong"},
-{r:"Ophydia",p1:"Ophydia",p2:"Ophydia",desc:"Same Species",tier:"strong"},
-
-// ─── GILDANE (Gathering Lv5 Dragon) ───
-{r:"Gildane",p1:"Jormuntide",p2:"Sekhmet",desc:"Gathering Lv5 Dragon",tier:"good"},
-{r:"Gildane",p1:"Gildane",p2:"Gildane",desc:"Same Species",tier:"strong"},
-
-// ─── BASTIGOR (Cooling Lv8 + Mining Lv5) ───
-{r:"Bastigor",p1:"Bastigor",p2:"Bastigor",desc:"Same Species",tier:"meta"},
-
-// ─── SELYNE (Handiwork Lv7 + Medicine) ───
-{r:"Selyne",p1:"Selyne",p2:"Selyne",desc:"Same Species",tier:"meta"},
-
-// ─── DIGTOISE (Mining Lv2 Ground) ───
-{r:"Digtoise",p1:"Digtoise",p2:"Digtoise",desc:"Same Species",tier:"good"},
-
-// ─── SURFENT (Watering Lv2 Water) ───
-{r:"Surfent",p1:"Surfent",p2:"Surfent",desc:"Same Species",tier:"good"},
-
-// ─── SURFENT TERRA (Ground + Water) ───
-{r:"Surfent Terra",p1:"Surfent",p2:"Maraith",desc:"Ground + Water Egg",tier:"strong"},
-
-// ─── TOMBAT (Gathering Lv1 Dark) ───
-{r:"Tombat",p1:"Tombat",p2:"Tombat",desc:"Same Species",tier:"good"},
-
-// ─── LOVANDER (Handiwork Lv1 Dark) ───
-{r:"Lovander",p1:"Lovander",p2:"Lovander",desc:"Same Species",tier:"good"},
-
-// ─── CINNAMOTH (Planting Lv2 Grass) ───
-{r:"Cinnamoth",p1:"Cinnamoth",p2:"Cinnamoth",desc:"Same Species",tier:"good"},
-
-// ─── ARSOX (Kindling Lv2 Fire) ───
-{r:"Arsox",p1:"Arsox",p2:"Arsox",desc:"Same Species",tier:"good"},
-
-// ─── DUMUD (Gathering Lv1 Ground) ───
-{r:"Dumud",p1:"Dumud",p2:"Dumud",desc:"Same Species",tier:"good"},
-
-// ─── CAWGNITO (Gathering Lv1 Dark) ───
-{r:"Cawgnito",p1:"Cawgnito",p2:"Cawgnito",desc:"Same Species",tier:"good"},
-
-// ─── GORIRAT (Lumbering Lv2 Neutral) ───
-{r:"Gorirat",p1:"Gorirat",p2:"Gorirat",desc:"Same Species",tier:"good"},
-
-// ─── BEEGARDE (Gathering Lv1 Grass) ───
-{r:"Beegarde",p1:"Beegarde",p2:"Beegarde",desc:"Same Species",tier:"good"},
-
-// ─── ELIZABEE (Planting Lv2 Grass) ───
-{r:"Elizabee",p1:"Elizabee",p2:"Elizabee",desc:"Same Species",tier:"good"},
-
-// ─── GRINTALE (Gathering Lv1 Neutral) ───
-{r:"Grintale",p1:"Grintale",p2:"Grintale",desc:"Same Species",tier:"good"},
-
-// ─── SWEE (Gathering Lv1 Ice) ───
-{r:"Swee",p1:"Swee",p2:"Swee",desc:"Same Species",tier:"good"},
-
-// ─── SWEEPA (Gathering Lv2 Ice) ───
-{r:"Sweepa",p1:"Sweepa",p2:"Sweepa",desc:"Same Species",tier:"good"},
-
-// ─── CHILLET (Gathering Lv1 Ice) ───
-{r:"Chillet",p1:"Chillet",p2:"Chillet",desc:"Same Species",tier:"good"},
-
-// ─── FOXCICLE (Cooling Lv1 Ice) ───
-{r:"Foxcicle",p1:"Foxcicle",p2:"Foxcicle",desc:"Same Species",tier:"good"},
-
-// ─── REINDRIX (Lumbering Lv1 Ice) ───
-{r:"Reindrix",p1:"Reindrix",p2:"Reindrix",desc:"Same Species",tier:"good"},
-
-// ─── LUNARIS (Handiwork Lv2 Neutral) ───
-{r:"Lunaris",p1:"Lunaris",p2:"Lunaris",desc:"Same Species",tier:"good"},
-
-// ─── NOX (Gathering Lv1 Dark) ───
-{r:"Nox",p1:"Nox",p2:"Nox",desc:"Same Species",tier:"good"},
-
-// ─── HOOCRATES (Gathering Lv1 Dark) ───
-{r:"Hoocrates",p1:"Hoocrates",p2:"Hoocrates",desc:"Same Species",tier:"good"},
-
-// ─── DAEDREAM (Handiwork Lv1 Dark) ───
-{r:"Daedream",p1:"Daedream",p2:"Daedream",desc:"Same Species",tier:"good"},
-
-// ─── DEPRESSO (Handiwork Lv1 Dark) ───
-{r:"Depresso",p1:"Depresso",p2:"Depresso",desc:"Same Species",tier:"good"},
-
-// ─── CREMIS (Gathering Lv1 Neutral) ───
-{r:"Cremis",p1:"Cremis",p2:"Cremis",desc:"Same Species",tier:"good"},
-
-// ─── VIXY (Gathering Lv1 Neutral) ───
-{r:"Vixy",p1:"Vixy",p2:"Vixy",desc:"Same Species",tier:"good"},
-
-// ─── TEAFANT (Watering Lv1 Water) ───
-{r:"Teafant",p1:"Teafant",p2:"Teafant",desc:"Same Species",tier:"good"},
-
-// ─── LAMBALL (Handiwork Lv1 Neutral) ───
-{r:"Lamball",p1:"Lamball",p2:"Lamball",desc:"Same Species",tier:"good"},
-
-// ─── CATTIVA (Handiwork Lv1 Neutral) ───
-{r:"Cattiva",p1:"Cattiva",p2:"Cattiva",desc:"Same Species",tier:"good"},
-
-// ─── CHIKIPI (Farming Lv1 Neutral) ───
-{r:"Chikipi",p1:"Chikipi",p2:"Chikipi",desc:"Same Species",tier:"good"},
-
-// ─── LIFMUNK (Planting Lv1 Grass) ───
-{r:"Lifmunk",p1:"Lifmunk",p2:"Lifmunk",desc:"Same Species",tier:"good"},
-
-// ─── SPARKIT (Electricity Lv1 Electric) ───
-{r:"Sparkit",p1:"Sparkit",p2:"Sparkit",desc:"Same Species",tier:"good"},
-
-// ─── GUMOSS (Planting Lv1 Grass) ───
-{r:"Gumoss",p1:"Gumoss",p2:"Gumoss",desc:"Same Species",tier:"good"},
-
-// ─── FUDDLER (Handiwork Lv1 Ground) ───
-{r:"Fuddler",p1:"Fuddler",p2:"Fuddler",desc:"Same Species",tier:"good"},
-
-// ─── KILLAMARI (Watering Lv1 Dark) ───
-{r:"Killamari",p1:"Killamari",p2:"Killamari",desc:"Same Species",tier:"good"},
-
-// ─── CELARAY (Watering Lv1 Water) ───
-{r:"Celaray",p1:"Celaray",p2:"Celaray",desc:"Same Species",tier:"good"},
-
-// ─── DIREHOWL (Gathering Lv1 Neutral) ───
-{r:"Direhowl",p1:"Direhowl",p2:"Direhowl",desc:"Same Species",tier:"good"},
-
-// ─── TOCOTOCO (Gathering Lv1 Fire) ───
-{r:"Tocotoco",p1:"Tocotoco",p2:"Tocotoco",desc:"Same Species",tier:"good"},
-
-// ─── FLOPIE (Planting Lv1 Grass) ───
-{r:"Flopie",p1:"Flopie",p2:"Flopie",desc:"Same Species",tier:"good"},
-
-// ─── MOZZARINA (Farming Lv1 Neutral) ───
-{r:"Mozzarina",p1:"Mozzarina",p2:"Mozzarina",desc:"Same Species",tier:"good"},
-
-// ─── BRISTLA (Watering Lv1 Ice) ───
-{r:"Bristla",p1:"Bristla",p2:"Bristla",desc:"Same Species",tier:"good"},
-
-// ─── MELPACA (Transporting Lv1 Neutral) ───
-{r:"Melpaca",p1:"Melpaca",p2:"Melpaca",desc:"Same Species",tier:"good"},
-
-// ─── NITEWING (Gathering Lv1 Neutral) ───
-{r:"Nitewing",p1:"Nitewing",p2:"Nitewing",desc:"Same Species",tier:"good"},
-
-// ─── RUSHOAR (Mining Lv1 Neutral) ───
-{r:"Rushoar",p1:"Rushoar",p2:"Rushoar",desc:"Same Species",tier:"good"},
-
-// ─── WUMPO (Gathering Lv2 Ice) ───
-{r:"Wumpo",p1:"Wumpo",p2:"Wumpo",desc:"Same Species",tier:"strong"},
-
-// ─── WUMPO BOTAN (Planting Lv3 Grass) ───
-{r:"Wumpo Botan",p1:"Wumpo",p2:"Petallia",desc:"Planting Lv3 Grass",tier:"strong"},
-
-// ─── QUIVERN (Gathering Lv2 Dragon) ───
-{r:"Quivern",p1:"Quivern",p2:"Quivern",desc:"Same Species",tier:"strong"},
-
-// ─── FENGLOPE (Transporting Lv2 Neutral) ───
-{r:"Fenglope",p1:"Fenglope",p2:"Fenglope",desc:"Same Species",tier:"strong"},
-
-// ─── MAMMOREST (Lumbering Lv2 Neutral) ───
-{r:"Mammorest",p1:"Mammorest",p2:"Mammorest",desc:"Same Species",tier:"strong"},
-
-// ─── MAMMOREST CRYST (Ice + Neutral) ───
-{r:"Mammorest Cryst",p1:"Mammorest",p2:"Swee",desc:"Ice + Neutral Egg",tier:"strong"},
-
-// ─── ROOBY (Kindling Lv1 Fire) ───
-{r:"Rooby",p1:"Rooby",p2:"Rooby",desc:"Same Species",tier:"good"},
-
-// ─── PENKING (Watering Lv2 Ice) ───
-{r:"Penking",p1:"Penking",p2:"Penking",desc:"Same Species",tier:"good"},
-
-// ─── INCINERAM (Kindling Lv2 Dark) ───
-{r:"Incineram",p1:"Incineram",p2:"Incineram",desc:"Same Species",tier:"good"},
-
-// ─── BEAKON (Electricity Lv4 Electric) ───
-{r:"Beakon",p1:"Beakon",p2:"Beakon",desc:"Same Species",tier:"strong"},
-
-// ─── KATRESS (Gathering Lv2 Dark) ───
-{r:"Katress",p1:"Katress",p2:"Katress",desc:"Same Species",tier:"strong"},
-
-// ─── WIXEN (Kindling Lv2 Fire) ───
-{r:"Wixen",p1:"Wixen",p2:"Wixen",desc:"Same Species",tier:"strong"},
-
-// ─── VERDASH (Transporting Lv2 Grass) ───
-{r:"Verdash",p1:"Verdash",p2:"Verdash",desc:"Same Species",tier:"strong"},
-
-// ─── VAELET (Gathering Lv2 Neutral) ───
-{r:"Vaelet",p1:"Vaelet",p2:"Vaelet",desc:"Same Species",tier:"strong"},
-
-// ─── MIMOG (Gathering Lv1 + Transporting) ───
-{r:"Mimog",p1:"Mimog",p2:"Mimog",desc:"Same Species",tier:"strong"},
-
-// ─── LEGENDARY / SAME-SPECIES-ONLY (1.0) ───
+// ─── VERIFIED SPECIAL COMBOS (17 total - Override the formula) ───
+{r:"Frostallion Noct",p1:"Frostallion",p2:"Helzephyr",desc:"Verified Special Combo",tier:"legend"},
+{r:"Jormuntide Ignis",p1:"Jormuntide",p2:"Blazehowl",desc:"Verified Special Combo",tier:"meta"},
+{r:"Relaxaurus Lux",p1:"Relaxaurus",p2:"Sparkit",desc:"Verified Special Combo",tier:"meta"},
+{r:"Mossanda Lux",p1:"Mossanda",p2:"Grizzbolt",desc:"Verified Special Combo",tier:"meta"},
+{r:"Elphidran Aqua",p1:"Elphidran",p2:"Surfent",desc:"Verified Special Combo",tier:"strong"},
+{r:"Incineram Noct",p1:"Incineram",p2:"Maraith",desc:"Verified Special Combo",tier:"meta"},
+{r:"Eikthyrdeer Terra",p1:"Eikthyrdeer",p2:"Hangyu",desc:"Verified Special Combo",tier:"good"},
+{r:"Kingpaca Cryst",p1:"Kingpaca",p2:"Reindrix",desc:"Verified Special Combo",tier:"strong"},
+{r:"Broncherry Aqua",p1:"Broncherry",p2:"Fuack",desc:"Verified Special Combo",tier:"good"},
+{r:"Surfent Terra",p1:"Surfent",p2:"Dumud",desc:"Verified Special Combo",tier:"strong"},
+{r:"Ice Reptyro",p1:"Reptyro",p2:"Foxcicle",desc:"Verified Special Combo",tier:"strong"},
+{r:"Hangyu Cryst",p1:"Hangyu",p2:"Swee",desc:"Verified Special Combo",tier:"good"},
+{r:"Dinossom Lux",p1:"Dinossom",p2:"Rayhound",desc:"Verified Special Combo",tier:"strong"},
+{r:"Vanwyrm Cryst",p1:"Vanwyrm",p2:"Foxcicle",desc:"Verified Special Combo",tier:"meta"},
+{r:"Mau Cryst",p1:"Mau",p2:"Pengullet",desc:"Verified Special Combo",tier:"good"},
+{r:"Katress Ignis",p1:"Katress",p2:"Wixen",desc:"Gender-specific: Female Katress + Male Wixen",tier:"meta"},
+{r:"Wixen Noct",p1:"Wixen",p2:"Katress",desc:"Gender-specific: Female Wixen + Male Katress",tier:"meta"},
+{r:"Sibelyx",p1:"Penking",p2:"Bushi",desc:"1.0 Formula Result (not Anubis anymore)",tier:"meta"},
+
+// ─── SAME-SPECIES-ONLY PALS (24 total - Verified) ───
+{r:"Frostallion",p1:"Frostallion",p2:"Frostallion",desc:"Legendary - Same species only",tier:"legend"},
 {r:"Jetragon",p1:"Jetragon",p2:"Jetragon",desc:"Legendary Dragon Mount - Same species only",tier:"legend"},
-{r:"Frostallion",p1:"Frostallion",p2:"Frostallion",desc:"Legendary Ice Mount - Same species only",tier:"legend"},
 {r:"Paladius",p1:"Paladius",p2:"Paladius",desc:"Legendary Neutral Knight - Same species only",tier:"legend"},
 {r:"Necromus",p1:"Necromus",p2:"Necromus",desc:"Legendary Dark Knight - Same species only",tier:"legend"},
 {r:"Neptilius",p1:"Neptilius",p2:"Neptilius",desc:"Legendary Water - Same species only",tier:"legend"},
-{r:"Bellanoir",p1:"Bellanoir",p2:"Bellanoir",desc:"Raid Boss Dark - Same species only",tier:"legend"},
-{r:"Bellanoir Libero",p1:"Bellanoir Libero",p2:"Bellanoir Libero",desc:"Raid Boss Elite - Same species only",tier:"legend"},
-{r:"Blazamut Ryu",p1:"Blazamut Ryu",p2:"Blazamut Ryu",desc:"Ryu Fire Variant - Same species only",tier:"legend"},
-{r:"Xenogard",p1:"Xenogard",p2:"Xenogard",desc:"Dragon Mining - Same species only",tier:"legend"},
-{r:"Xenovader",p1:"Xenovader",p2:"Xenovader",desc:"Dark Type - Same species only",tier:"legend"},
-{r:"Xenolord",p1:"Xenolord",p2:"Xenolord",desc:"Ultimate Dark Dragon - Same species only",tier:"legend"},
-{r:"Hartalis",p1:"Hartalis",p2:"Hartalis",desc:"Dragon Gathering - Same species only",tier:"legend"},
-{r:"Panthalus",p1:"Panthalus",p2:"Panthalus",desc:"Ice Type - Same species only",tier:"legend"},
-{r:"Silvance",p1:"Silvance",p2:"Silvance",desc:"Dragon Type - Same species only",tier:"legend"},
-{r:"Shaolong",p1:"Shaolong",p2:"Shaolong",desc:"Water Dragon - Same species only",tier:"legend"},
-{r:"Dandilord",p1:"Dandilord",p2:"Dandilord",desc:"Fire Type - Same species only",tier:"legend"},
+{r:"Faleris",p1:"Faleris",p2:"Faleris",desc:"Tower Boss - Same species only",tier:"legend"},
+{r:"Shadowbeak",p1:"Shadowbeak",p2:"Shadowbeak",desc:"Tower Boss - Same species only",tier:"legend"},
+{r:"Grizzbolt",p1:"Grizzbolt",p2:"Grizzbolt",desc:"Tower Boss - Same species only",tier:"legend"},
+{r:"Orserk",p1:"Orserk",p2:"Orserk",desc:"Tower Boss - Same species only",tier:"legend"},
+{r:"Lyleen",p1:"Lyleen",p2:"Lyleen",desc:"Tower Boss - Same species only",tier:"legend"},
+{r:"Selyne",p1:"Selyne",p2:"Selyne",desc:"Tower Boss - Same species only",tier:"legend"},
+{r:"Bastigor",p1:"Bastigor",p2:"Bastigor",desc:"Tower Boss - Same species only",tier:"legend"},
+{r:"Bellanoir Libero",p1:"Bellanoir Libero",p2:"Bellanoir Libero",desc:"Raid Boss - Same species only",tier:"legend"},
+{r:"Blazamut Ryu",p1:"Blazamut Ryu",p2:"Blazamut Ryu",desc:"Ryu Variant - Same species only",tier:"legend"},
+{r:"Mimog",p1:"Mimog",p2:"Mimog",desc:"Unique - Same species only",tier:"legend"},
+{r:"Xenovader",p1:"Xenovader",p2:"Xenovader",desc:"Xeno Line - Same species only",tier:"legend"},
+{r:"Xenogard",p1:"Xenogard",p2:"Xenogard",desc:"Xeno Line - Same species only",tier:"legend"},
+{r:"Xenolord",p1:"Xenolord",p2:"Xenolord",desc:"Xeno Line - Same species only",tier:"legend"},
+{r:"Shaolong",p1:"Shaolong",p2:"Shaolong",desc:"New 1.0 - Same species only",tier:"legend"},
+{r:"Dandilord",p1:"Dandilord",p2:"Dandilord",desc:"New 1.0 - Same species only",tier:"legend"},
+{r:"Silvance",p1:"Silvance",p2:"Silvance",desc:"New 1.0 - Same species only",tier:"legend"},
+{r:"Hartalis",p1:"Hartalis",p2:"Hartalis",desc:"New 1.0 - Same species only",tier:"legend"},
+{r:"Chikipi",p1:"Chikipi",p2:"Chikipi",desc:"Formula can never average down to - Same species only",tier:"good"},
 
-// ─── TOWER BOSSES (Same-species-only in 1.0) ───
-{r:"Shadowbeak",p1:"Shadowbeak",p2:"Shadowbeak",desc:"Dark Flying Mount - Tower boss",tier:"legend"},
-{r:"Grizzbolt",p1:"Grizzbolt",p2:"Grizzbolt",desc:"Electricity Lv5 + Lumbering - Tower boss",tier:"legend"},
-{r:"Orserk",p1:"Orserk",p2:"Orserk",desc:"Electricity Lv8 + Handiwork - Tower boss",tier:"legend"},
-
-// ═══════════════════════════════════════════════════════════════════════════════
-// EXPANDED CROSS-SPECIES BREEDING COMBOS (1.0 Verified)
-// ═══════════════════════════════════════════════════════════════════════════════
-
-// ─── MORE ANUBIS COMBOS ───
-{r:"Anubis",p1:"Frostallion",p2:"Moldron",desc:"Alternative",tier:"meta"},
-{r:"Anubis",p1:"Frostallion Noct",p2:"Wumpo",desc:"Alternative",tier:"meta"},
-{r:"Anubis",p1:"Jetragon",p2:"Bushi Noct",desc:"Alternative",tier:"meta"},
-{r:"Anubis",p1:"Paladius",p2:"Moldron",desc:"Alternative",tier:"meta"},
-{r:"Anubis",p1:"Necromus",p2:"Moldron",desc:"Alternative",tier:"meta"},
-{r:"Anubis",p1:"Orserk",p2:"Splatterina",desc:"Alternative",tier:"meta"},
-{r:"Anubis",p1:"Bellanoir Libero",p2:"Kitsun Noct",desc:"Alternative",tier:"meta"},
-{r:"Anubis",p1:"Selyne",p1:"Silvegis",desc:"Alternative",tier:"meta"},
-{r:"Anubis",p1:"Astegon",p2:"Starryon Primo",desc:"Alternative",tier:"meta"},
-{r:"Anubis",p1:"Blazamut",p2:"Shadowbeak",desc:"Alternative",tier:"meta"},
-{r:"Anubis",p1:"Faleris",p2:"Xenolord",desc:"Alternative",tier:"meta"},
-{r:"Anubis",p1:"Wumpo",p2:"Jetragon",desc:"Alternative",tier:"meta"},
-{r:"Anubis",p1:"Menasting Terra",p2:"Knocklem",desc:"Alternative",tier:"meta"},
-
-// ─── MORE JORMUNTIDE COMBOS ───
-{r:"Jormuntide",p1:"Relaxaurus",p2:"Suzaku Aqua",desc:"Alternative",tier:"meta"},
-{r:"Jormuntide",p1:"Relaxaurus",p2:"Astegon",desc:"Alternative",tier:"meta"},
-{r:"Jormuntide",p1:"Blazamut",p2:"Mossanda",desc:"Alternative",tier:"meta"},
-{r:"Jormuntide",p1:"Cryolinx",p2:"Relaxaurus Lux",desc:"Alternative",tier:"meta"},
-{r:"Jormuntide",p1:"Suzaku",p2:"Mossanda",desc:"Alternative",tier:"meta"},
-{r:"Jormuntide",p1:"Suzaku",p2:"Warsect",desc:"Alternative",tier:"meta"},
-{r:"Jormuntide",p1:"Grizzbolt",p2:"Nitewing",desc:"Alternative",tier:"meta"},
-{r:"Jormuntide",p1:"Orserk",p2:"Relaxaurus",desc:"Alternative",tier:"meta"},
-
-// ─── MORE JORMUNTIDE IGNIS COMBOS ───
-{r:"Jormuntide Ignis",p1:"Suzaku",p2:"Relaxaurus",desc:"Alternative",tier:"meta"},
-{r:"Jormuntide Ignis",p1:"Blazamut",p2:"Relaxaurus",desc:"Alternative",tier:"meta"},
-{r:"Jormuntide Ignis",p1:"Astegon",p2:"Relaxaurus Lux",desc:"Alternative",tier:"meta"},
-
-// ─── MORE SUZAKU COMBOS ───
-{r:"Suzaku",p1:"Blazamut",p2:"Mossanda",desc:"Alternative",tier:"meta"},
-{r:"Suzaku",p1:"Nitewing",p2:"Suzaku",desc:"Alternative",tier:"meta"},
-{r:"Suzaku",p1:"Mossanda",p2:"Suzaku",desc:"Alternative",tier:"meta"},
-{r:"Suzaku",p1:"Elizabee",p2:"Suzaku",desc:"Alternative",tier:"meta"},
-{r:"Suzaku",p1:"Pyrin",p2:"Blazamut",desc:"Alternative",tier:"meta"},
-
-// ─── MORE BLAZAMUT COMBOS ───
-{r:"Blazamut",p1:"Blazehowl",p2:"Reptyro",desc:"Classic Recipe",tier:"meta"},
-{r:"Blazamut",p1:"Mossanda",p2:"Blazamut",desc:"Alternative",tier:"meta"},
-{r:"Blazamut",p1:"Pyrin",p2:"Astegon",desc:"Alternative",tier:"meta"},
-{r:"Blazamut",p1:"Orserk",p2:"Relaxaurus",desc:"Alternative",tier:"meta"},
-{r:"Blazamut",p1:"Cryolinx",p2:"Helzephyr",desc:"Alternative",tier:"meta"},
-{r:"Blazamut",p1:"Elizabee",p2:"Suzaku",desc:"Alternative",tier:"meta"},
-
-// ─── MORE ASTEGON COMBOS ───
-{r:"Astegon",p1:"Cryolinx",p2:"Helzephyr",desc:"Alternative",tier:"meta"},
-{r:"Astegon",p1:"Grizzbolt",p2:"Chillet",desc:"Alternative",tier:"meta"},
-{r:"Astegon",p1:"Cryolinx",p2:"Grizzbolt",desc:"Alternative",tier:"meta"},
-{r:"Astegon",p1:"Relaxaurus",p2:"Suzaku",desc:"Alternative",tier:"meta"},
-{r:"Astegon",p1:"Menasting",p2:"Helzephyr",desc:"Alternative",tier:"meta"},
-{r:"Astegon",p1:"Blazamut",p2:"Cryolinx",desc:"Alternative",tier:"meta"},
-
-// ─── MORE FROSTALLION COMBOS ───
-{r:"Frostallion",p1:"Frostallion",p2:"Frostallion",desc:"Legendary - Same species only",tier:"legend"},
-{r:"Frostallion",p1:"Anubis",p2:"Frostallion",desc:"Alternative",tier:"legend"},
-
-// ─── MORE JETRAGON COMBOS ───
-{r:"Jetragon",p1:"Jetragon",p2:"Jetragon",desc:"Legendary Dragon Mount - Same species only",tier:"legend"},
-{r:"Jetragon",p1:"Neptilius",p2:"Jetragon",desc:"Alternative",tier:"legend"},
-{r:"Jetragon",p1:"Panthalus",p2:"Jetragon",desc:"Alternative",tier:"legend"},
-
-// ─── MORE LYLEEN COMBOS ───
-{r:"Lyleen",p1:"Petallia",p2:"Mossanda",desc:"Classic Recipe",tier:"meta"},
-{r:"Lyleen",p1:"Elizabee",p2:"Suzaku",desc:"Alternative",tier:"meta"},
-{r:"Lyleen",p1:"Petallia",p2:"Lyleen",desc:"Alternative",tier:"meta"},
-{r:"Lyleen",p1:"Petallia",p2:"Quivern",desc:"Alternative",tier:"meta"},
-
-// ─── MORE LYLEEN NOCT COMBOS ───
-{r:"Lyleen Noct",p1:"Lyleen",p2:"Incineram Noct",desc:"Classic Recipe",tier:"strong"},
-{r:"Lyleen Noct",p1:"Lyleen",p2:"Loupmoon",desc:"Alternative",tier:"strong"},
-{r:"Lyleen Noct",p1:"Lyleen",p2:"Bushi Noct",desc:"Alternative",tier:"strong"},
-
-// ─── MORE SIBELYX COMBOS ───
-{r:"Sibelyx",p1:"Penking",p2:"Bushi",desc:"Classic Recipe",tier:"meta"},
-{r:"Sibelyx",p1:"Mossanda Lux",p2:"Petallia",desc:"Alternative",tier:"meta"},
-{r:"Sibelyx",p1:"Penking",p2:"Blazehowl",desc:"Alternative",tier:"meta"},
-
-// ─── MORE KNOCKLEM COMBOS ───
-{r:"Knocklem",p1:"Warsect",p2:"Anubis",desc:"Classic Recipe",tier:"meta"},
-{r:"Knocklem",p1:"Warsect Terra",p2:"Anubis",desc:"Alternative",tier:"meta"},
-{r:"Knocklem",p1:"Digtoise",p2:"Menasting",desc:"Alternative",tier:"meta"},
-
-// ─── MORE CELESDIR COMBOS ───
-{r:"Celesdir",p1:"Eikthyrdeer Terra",p2:"Gildane",desc:"Classic Recipe",tier:"strong"},
-{r:"Celesdir",p1:"Celesdir",p2:"Helzephyr",desc:"Alternative",tier:"strong"},
-{r:"Celesdir",p1:"Celesdir",p2:"Shadowbeak",desc:"Alternative",tier:"strong"},
-
-// ─── MORE CELESDIR NOCT COMBOS ───
-{r:"Celesdir Noct",p1:"Celesdir",p2:"Helzephyr",desc:"Classic Recipe",tier:"meta"},
-{r:"Celesdir Noct",p1:"Celesdir",p2:"Shadowbeak",desc:"Alternative",tier:"meta"},
-
-// ─── MORE MENASTING COMBOS ───
-{r:"Menasting",p1:"Anubis",p2:"Cryolinx",desc:"Classic Recipe",tier:"strong"},
-{r:"Menasting",p1:"Menasting",p2:"Anubis",desc:"Alternative",tier:"strong"},
-{r:"Menasting",p1:"Helzephyr",p2:"Digtoise",desc:"Alternative",tier:"strong"},
-
-// ─── MORE MENASTING TERRA COMBOS ───
-{r:"Menasting Terra",p1:"Menasting",p2:"Maraith",desc:"Alternative",tier:"strong"},
-
-// ─── MORE FALERIS COMBOS ───
-{r:"Faleris",p1:"Blazehowl",p2:"Ragnahawk",desc:"Classic Recipe",tier:"meta"},
-{r:"Faleris",p1:"Faleris",p2:"Faleris",desc:"Same Species",tier:"legend"},
-{r:"Faleris",p1:"Pyrin",p2:"Ragnahawk",desc:"Alternative",tier:"meta"},
-{r:"Faleris",p1:"Blazamut",p2:"Nitewing",desc:"Alternative",tier:"meta"},
-
-// ─── MORE FALERIS AQUA COMBOS ───
-{r:"Faleris Aqua",p1:"Faleris",p2:"Suzaku Aqua",desc:"Alternative",tier:"strong"},
-{r:"Faleris Aqua",p1:"Faleris",p2:"Surfent",desc:"Alternative",tier:"strong"},
-
-// ─── MORE PYRIN COMBOS ───
-{r:"Pyrin",p1:"Arsox",p2:"Foxparks",desc:"Classic Recipe",tier:"strong"},
-{r:"Pyrin",p1:"Pyrin",p2:"Blazamut",desc:"Alternative",tier:"strong"},
-{r:"Pyrin",p1:"Chillet",p2:"Arsox",desc:"Alternative",tier:"strong"},
-
-// ─── MORE PYRIN NOCT COMBOS ───
-{r:"Pyrin Noct",p1:"Pyrin",p2:"Katress",desc:"Classic Recipe",tier:"strong"},
-{r:"Pyrin Noct",p1:"Pyrin",p2:"Leezpunk Ignis",desc:"Alternative",tier:"strong"},
-
-// ─── MORE RAGNAHAWK COMBOS ───
-{r:"Ragnahawk",p1:"Ragnahawk",p2:"Ragnahawk",desc:"Same Species",tier:"strong"},
-{r:"Ragnahawk",p1:"Blazehowl",p2:"Nitewing",desc:"Alternative",tier:"strong"},
-
-// ─── MORE BEAKON COMBOS ───
-{r:"Beakon",p1:"Beakon",p2:"Beakon",desc:"Same Species",tier:"strong"},
-{r:"Beakon",p1:"Cryolinx",p2:"Helzephyr",desc:"Alternative",tier:"strong"},
-{r:"Beakon",p1:"Sweepa",p2:"Beakon",desc:"Alternative",tier:"strong"},
-{r:"Beakon",p1:"Helzephyr",p2:"Beakon",desc:"Alternative",tier:"strong"},
-
-// ─── MORE BEAKON CRYST COMBOS ───
-{r:"Beakon Cryst",p1:"Beakon",p2:"Vanwyrm Cryst",desc:"Alternative",tier:"strong"},
-{r:"Beakon Cryst",p1:"Beakon",p2:"Rayhound Cryst",desc:"Alternative",tier:"strong"},
-
-// ─── MORE KATRESS COMBOS ───
-{r:"Katress",p1:"Katress",p2:"Katress",desc:"Same Species",tier:"strong"},
-{r:"Katress",p1:"Mossanda",p2:"Katress",desc:"Alternative",tier:"strong"},
-
-// ─── MORE KATRESS IGNIS COMBOS ───
-{r:"Katress Ignis",p1:"Katress",p2:"Wixen",desc:"Classic Recipe",tier:"meta"},
-{r:"Katress Ignis",p1:"Katress",p2:"Flambelle",desc:"Alternative",tier:"meta"},
-
-// ─── MORE WIXEN COMBOS ───
-{r:"Wixen",p1:"Wixen",p2:"Wixen",desc:"Same Species",tier:"strong"},
-{r:"Wixen",p1:"Frostplume",p2:"Beakon",desc:"Alternative",tier:"strong"},
-
-// ─── MORE WIXEN NOCT COMBOS ───
-{r:"Wixen Noct",p1:"Wixen",p2:"Flambelle",desc:"Alternative",tier:"strong"},
-{r:"Wixen Noct",p1:"Katress",p2:"Wixen",desc:"Alternative",tier:"meta"},
-
-// ─── MORE HELZEPHYR COMBOS ───
-{r:"Helzephyr",p1:"Helzephyr",p2:"Helzephyr",desc:"Same Species",tier:"strong"},
-{r:"Helzephyr",p1:"Mossanda",p2:"Helzephyr",desc:"Alternative",tier:"strong"},
-{r:"Helzephyr",p1:"Cryolinx",p2:"Helzephyr",desc:"Alternative",tier:"strong"},
-
-// ─── MORE HELZEPHYR LUX COMBOS ───
-{r:"Helzephyr Lux",p1:"Helzephyr",p2:"Rayhound",desc:"Classic Recipe",tier:"strong"},
-{r:"Helzephyr Lux",p1:"Helzephyr",p2:"Orserk",desc:"Alternative",tier:"strong"},
-
-// ─── MORE ORSERK COMBOS ───
-{r:"Orserk",p1:"Orserk",p2:"Orserk",desc:"Same Species",tier:"legend"},
-{r:"Orserk",p1:"Wispaw",p2:"Orserk",desc:"Alternative",tier:"legend"},
-
-// ─── MORE SHADOWBEAK COMBOS ───
-{r:"Shadowbeak",p1:"Shadowbeak",p2:"Shadowbeak",desc:"Dark Flying Mount - Tower boss",tier:"legend"},
-{r:"Shadowbeak",p1:"Wispaw",p2:"Shadowbeak",desc:"Alternative",tier:"legend"},
-
-// ─── MORE GRIZZBOLT COMBOS ───
-{r:"Grizzbolt",p1:"Grizzbolt",p2:"Grizzbolt",desc:"Tower boss - Same species only",tier:"legend"},
-{r:"Grizzbolt",p1:"Nitewing",p2:"Grizzbolt",desc:"Alternative",tier:"legend"},
-{r:"Grizzbolt",p1:"Suzaku",p2:"Grizzbolt",desc:"Alternative",tier:"legend"},
-
-// ─── MORE PALADIUS COMBOS ───
-{r:"Paladius",p1:"Paladius",p2:"Paladius",desc:"Legendary Neutral Knight - Same species only",tier:"legend"},
-{r:"Paladius",p1:"Frostallion",p2:"Paladius",desc:"Alternative",tier:"legend"},
-{r:"Paladius",p1:"Necromus",p2:"Paladius",desc:"Alternative",tier:"legend"},
-
-// ─── MORE NECROMUS COMBOS ───
-{r:"Necromus",p1:"Necromus",p2:"Necromus",desc:"Legendary Dark Knight - Same species only",tier:"legend"},
-{r:"Necromus",p1:"Frostallion Noct",p2:"Necromus",desc:"Alternative",tier:"legend"},
-
-// ─── MORE RELAXAURUS LUX COMBOS ───
-{r:"Relaxaurus Lux",p1:"Relaxaurus",p2:"Sparkit",desc:"Classic Recipe",tier:"meta"},
-{r:"Relaxaurus Lux",p1:"Relaxaurus",p2:"Rayhound",desc:"Alternative",tier:"strong"},
-{r:"Relaxaurus Lux",p1:"Relaxaurus",p2:"Orserk",desc:"Alternative",tier:"meta"},
-
-// ─── MORE MOSSANDA LUX COMBOS ───
-{r:"Mossanda Lux",p1:"Mossanda",p2:"Grizzbolt",desc:"Classic Recipe",tier:"meta"},
-{r:"Mossanda Lux",p1:"Mossanda",p2:"Orserk",desc:"Alternative",tier:"meta"},
-
-// ─── MORE VANWYRM CRYST COMBOS ───
-{r:"Vanwyrm Cryst",p1:"Vanwyrm",p2:"Foxcicle",desc:"Classic Recipe",tier:"meta"},
-{r:"Vanwyrm Cryst",p1:"Vanwyrm",p2:"Bristla",desc:"Alternative",tier:"meta"},
-
-// ─── MORE INCINERAM NOCT COMBOS ───
-{r:"Incineram Noct",p1:"Incineram",p2:"Maraith",desc:"Classic Recipe",tier:"meta"},
-{r:"Incineram Noct",p1:"Incineram",p2:"Bushi",desc:"Alternative",tier:"meta"},
-
-// ─── MORE BUSHI NOCT COMBOS ───
-{r:"Bushi Noct",p1:"Bushi",p2:"Leezpunk",desc:"Classic Recipe",tier:"strong"},
-{r:"Bushi Noct",p1:"Bushi",p2:"Galeclaw",desc:"Alternative",tier:"strong"},
-{r:"Bushi Noct",p1:"Bushi",p2:"Shadowbeak",desc:"Alternative",tier:"strong"},
-
-// ─── MORE FROSTALLION NOCT COMBOS ───
-{r:"Frostallion Noct",p1:"Frostallion",p2:"Helzephyr",desc:"Classic Recipe",tier:"legend"},
-{r:"Frostallion Noct",p1:"Frostallion",p2:"Shadowbeak",desc:"Alternative",tier:"legend"},
-
-// ─── MORE KINGPACA CRYST COMBOS ───
-{r:"Kingpaca Cryst",p1:"Kingpaca",p2:"Hangyu Cryst",desc:"Classic Recipe",tier:"strong"},
-{r:"Kingpaca Cryst",p1:"Kingpaca",p2:"Mau Cryst",desc:"Alternative",tier:"strong"},
-
-// ─── MORE ICE KINGPACA COMBOS ───
-{r:"Ice Kingpaca",p1:"Kingpaca",p2:"Reptyro Cryst",desc:"Classic Recipe",tier:"strong"},
-{r:"Ice Kingpaca",p1:"Kingpaca",p2:"Foxcicle",desc:"Alternative",tier:"strong"},
-
-// ─── MORE MAMMOREST CRYST COMBOS ───
-{r:"Mammorest Cryst",p1:"Mammorest",p2:"Swee",desc:"Classic Recipe",tier:"strong"},
-{r:"Mammorest Cryst",p1:"Mammorest",p2:"Chillet",desc:"Alternative",tier:"strong"},
-{r:"Mammorest Cryst",p1:"Mammorest",p2:"Foxcicle",desc:"Alternative",tier:"strong"},
-
-// ─── MORE WUMPO BOTAN COMBOS ───
-{r:"Wumpo Botan",p1:"Wumpo",p2:"Petallia",desc:"Classic Recipe",tier:"strong"},
-{r:"Wumpo Botan",p1:"Wumpo",p2:"Elizabee",desc:"Alternative",tier:"strong"},
-
-// ─── MORE REPTYRO CRYST COMBOS ───
-{r:"Ice Reptyro",p1:"Reptyro",p2:"Foxcicle",desc:"Classic Recipe",tier:"strong"},
-{r:"Reptyro Cryst",p1:"Reptyro",p2:"Vanwyrm Cryst",desc:"Alternative",tier:"strong"},
-
-// ─── MORE DINOSSOM LUX COMBOS ───
-{r:"Dinossom Lux",p1:"Dinossom",p2:"Mossanda Lux",desc:"Classic Recipe",tier:"strong"},
-{r:"Dinossom Lux",p1:"Dinossom",p2:"Grizzbolt",desc:"Alternative",tier:"strong"},
-
-// ─── MORE CHILLET IGNIS COMBOS ───
-{r:"Chillet Ignis",p1:"Chillet",p2:"Foxparks",desc:"Alternative",tier:"strong"},
-{r:"Chillet Ignis",p1:"Chillet",p2:"Arsox",desc:"Alternative",tier:"strong"},
-
-// ─── MORE ELPHIDRAN AQUA COMBOS ───
-{r:"Elphidran Aqua",p1:"Elphidran",p2:"Surfent",desc:"Alternative",tier:"strong"},
-{r:"Elphidran Aqua",p1:"Elphidran",p2:"Depresso",desc:"Alternative",tier:"strong"},
-
-// ─── MORE PETALLIA IGNIS COMBOS ───
-{r:"Petallia Ignis",p1:"Petallia",p2:"Kitsun",desc:"Classic Recipe",tier:"strong"},
-{r:"Petallia Ignis",p1:"Petallia",p2:"Foxparks",desc:"Alternative",tier:"strong"},
-
-// ─── MORE KITSUN NOCT COMBOS ───
-{r:"Kitsun Noct",p1:"Kitsun",p2:"Nox",desc:"Alternative",tier:"strong"},
-{r:"Kitsun Noct",p1:"Kitsun",p2:"Daedream",desc:"Alternative",tier:"strong"},
-
-// ─── MORE SUZAKU AQUA COMBOS ───
-{r:"Suzaku Aqua",p1:"Suzaku",p2:"Surfent",desc:"Classic Recipe",tier:"strong"},
-{r:"Suzaku Aqua",p1:"Suzaku",p2:"Azurobe",desc:"Alternative",tier:"strong"},
-
-// ─── MORE RELAXAURUS COMBOS ───
-{r:"Relaxaurus",p1:"Relaxaurus",p2:"Relaxaurus",desc:"Same Species",tier:"good"},
-{r:"Relaxaurus",p1:"Relaxaurus",p2:"Mossanda",desc:"Alternative",tier:"good"},
-{r:"Relaxaurus",p1:"Relaxaurus",p2:"Grizzbolt",desc:"Alternative",tier:"good"},
-
-// ─── MORE QUVERN COMBOS ───
-{r:"Quivern",p1:"Quivern",p2:"Quivern",desc:"Same Species",tier:"strong"},
-{r:"Quivern",p1:"Suzaku",p2:"Quivern",desc:"Alternative",tier:"strong"},
-{r:"Quivern",p1:"Nitewing",p2:"Quivern",desc:"Alternative",tier:"strong"},
-
-// ─── MORE QUVERN BOTAN COMBOS ───
-{r:"Quivern Botan",p1:"Quivern",p2:"Petallia",desc:"Alternative",tier:"strong"},
-{r:"Quivern Botan",p1:"Quivern",p2:"Elizabee",desc:"Alternative",tier:"strong"},
-
-// ─── MORE FENGLOPE COMBOS ───
-{r:"Fenglope",p1:"Fenglope",p2:"Fenglope",desc:"Same Species",tier:"strong"},
-{r:"Fenglope",p1:"Fenglope",p2:"Chillet",desc:"Alternative",tier:"strong"},
-
-// ─── MORE FENGLOPE LUX COMBOS ───
-{r:"Fenglope Lux",p1:"Fenglope",p2:"Rayhound",desc:"Alternative",tier:"strong"},
-{r:"Fenglope Lux",p1:"Fenglope",p2:"Orserk",desc:"Alternative",tier:"strong"},
-
-// ─── MORE WARSECT COMBOS ───
+// ─── KEY FORMULA-BASED COMBOS (Verified from search data) ───
+{r:"Anubis",p1:"Univolt Cryst",p2:"Moldron Cryst",desc:"Best Combo - Both common",tier:"meta"},
+{r:"Anubis",p1:"Anubis",p2:"Anubis",desc:"Same Species",tier:"meta"},
+{r:"Jormuntide",p1:"Relaxaurus",p2:"Suzaku",desc:"Formula Result",tier:"meta"},
+{r:"Jormuntide",p1:"Jormuntide",p2:"Jormuntide",desc:"Same Species",tier:"meta"},
+{r:"Blazamut",p1:"Blazehowl",p2:"Reptyro",desc:"Formula Result",tier:"meta"},
+{r:"Blazamut",p1:"Blazamut",p2:"Blazamut",desc:"Same Species",tier:"meta"},
+{r:"Suzaku",p1:"Suzaku",p2:"Suzaku",desc:"Same Species",tier:"meta"},
+{r:"Suzaku Aqua",p1:"Suzaku",p2:"Surfent",desc:"Formula Result",tier:"strong"},
+{r:"Petallia",p1:"Petallia",p2:"Petallia",desc:"Same Species",tier:"meta"},
+{r:"Mossanda",p1:"Mossanda",p2:"Mossanda",desc:"Same Species",tier:"strong"},
+{r:"Knocklem",p1:"Warsect",p2:"Anubis",desc:"Formula Result",tier:"meta"},
+{r:"Knocklem",p1:"Knocklem",p2:"Knocklem",desc:"Same Species",tier:"strong"},
+{r:"Celesdir",p1:"Eikthyrdeer Terra",p2:"Gildane",desc:"Formula Result",tier:"strong"},
+{r:"Celesdir",p1:"Celesdir",p2:"Celesdir",desc:"Same Species",tier:"strong"},
+{r:"Celesdir Noct",p1:"Celesdir",p2:"Helzephyr",desc:"Formula Result",tier:"meta"},
+{r:"Menasting",p1:"Anubis",p2:"Cryolinx",desc:"Formula Result",tier:"strong"},
+{r:"Menasting",p1:"Menasting",p2:"Menasting",desc:"Same Species",tier:"strong"},
+{r:"Pyrin",p1:"Arsox",p2:"Foxparks",desc:"Formula Result",tier:"strong"},
+{r:"Pyrin Noct",p1:"Pyrin",p2:"Katress",desc:"Formula Result",tier:"strong"},
+{r:"Univolt",p1:"Rayhound",p2:"Mossanda Lux",desc:"Formula Result",tier:"strong"},
+{r:"Univolt",p1:"Univolt",p2:"Univolt",desc:"Same Species",tier:"strong"},
 {r:"Warsect",p1:"Warsect",p2:"Warsect",desc:"Same Species",tier:"strong"},
-{r:"Warsect",p1:"Warsect",p2:"Anubis",desc:"Alternative",tier:"strong"},
-
-// ─── MORE WARSECT TERRA COMBOS ───
-{r:"Warsect Terra",p1:"Warsect",p2:"Maraith",desc:"Alternative",tier:"strong"},
-{r:"Warsect Terra",p1:"Warsect",p2:"Anubis",desc:"Alternative",tier:"strong"},
-
-// ─── MORE UNIVOLT CRYST COMBOS ───
-{r:"Univolt Cryst",p1:"Univolt",p2:"Bristla",desc:"Alternative",tier:"meta"},
-{r:"Univolt Cryst",p1:"Univolt",p2:"Moldron Cryst",desc:"Alternative",tier:"meta"},
-
-// ─── MORE ELGROVE COMBOS ───
-{r:"Elgrove",p1:"Elgrove",p2:"Elgrove",desc:"Same Species",tier:"good"},
-{r:"Elgrove",p1:"Lifmunk",p2:"Mossanda",desc:"Alternative",tier:"good"},
-
-// ─── MORE ELGROVE CRYST COMBOS ───
-{r:"Elgrove Cryst",p1:"Elgrove",p2:"Chillet",desc:"Alternative",tier:"strong"},
-{r:"Elgrove Cryst",p1:"Elgrove",p2:"Foxcicle",desc:"Alternative",tier:"strong"},
-
-// ─── MORE SHROOMER COMBOS ───
-{r:"Shroomer",p1:"Shroomer",p2:"Shroomer",desc:"Same Species",tier:"good"},
-{r:"Shroomer",p1:"Tanzee",p2:"Mossanda",desc:"Alternative",tier:"good"},
-
-// ─── MORE SHROOMER NOCT COMBOS ───
-{r:"Shroomer Noct",p1:"Shroomer",p2:"Nox",desc:"Alternative",tier:"strong"},
-{r:"Shroomer Noct",p1:"Shroomer",p2:"Daedream",desc:"Alternative",tier:"strong"},
-
-// ─── MORE ICELYN COMBOS ───
-{r:"Icelyn",p1:"Icelyn",p2:"Icelyn",desc:"Same Species",tier:"strong"},
-{r:"Icelyn",p1:"Bristla",p2:"Mau Cryst",desc:"Alternative",tier:"strong"},
-
-// ─── MORE SOOTSEER COMBOS ───
-{r:"Sootseer",p1:"Sootseer",p2:"Sootseer",desc:"Same Species",tier:"strong"},
-{r:"Sootseer",p1:"Flambelle",p2:"Nox",desc:"Alternative",tier:"strong"},
-
-// ─── MORE LOOMEN COMBOS ───
-{r:"Loomen",p1:"Loomen",p2:"Loomen",desc:"Same Species",tier:"strong"},
-{r:"Loomen",p1:"Blazehowl",p2:"Nox",desc:"Alternative",tier:"strong"},
-
-// ─── MORE MAJEX COMBOS ───
-{r:"Majex",p1:"Majex",p2:"Majex",desc:"Same Species",tier:"strong"},
-{r:"Majex",p1:"Blazehowl",p2:"Katress",desc:"Alternative",tier:"strong"},
-
-// ─── MORE WISPAW COMBOS ───
-{r:"Wispaw",p1:"Wispaw",p2:"Wispaw",desc:"Same Species",tier:"strong"},
-{r:"Wispaw",p1:"Depresso",p2:"Mossanda",desc:"Alternative",tier:"strong"},
-
-// ─── MORE FROSTPLUME COMBOS ───
-{r:"Frostplume",p1:"Frostplume",p2:"Frostplume",desc:"Same Species",tier:"strong"},
-{r:"Frostplume",p1:"Swee",p2:"Beakon",desc:"Alternative",tier:"strong"},
-
-// ─── MORE PUFFOLT COMBOS ───
-{r:"Puffolt",p1:"Puffolt",p2:"Puffolt",desc:"Same Species",tier:"good"},
-{r:"Puffolt",p1:"Sparkit",p2:"Pengullet",desc:"Alternative",tier:"good"},
-
-// ─── MORE MUFFLY COMBOS ───
-{r:"Muffly",p1:"Muffly",p2:"Muffly",desc:"Same Species",tier:"good"},
-{r:"Muffly",p1:"Chillet",p2:"Mossanda",desc:"Alternative",tier:"good"},
-
-// ─── MORE PRUNELIA COMBOS ───
-{r:"Prunelia",p1:"Prunelia",p2:"Prunelia",desc:"Same Species",tier:"strong"},
-{r:"Prunelia",p1:"Petallia",p2:"Nox",desc:"Alternative",tier:"strong"},
-
-// ─── MORE TROPICAW COMBOS ───
-{r:"Tropicaw",p1:"Tropicaw",p2:"Tropicaw",desc:"Same Species",tier:"strong"},
-{r:"Tropicaw",p1:"Tanzee",p2:"Cinnamoth",desc:"Alternative",tier:"strong"},
-
-// ─── MORE SOUFFLINE COMBOS ───
-{r:"Souffline",p1:"Souffline",p2:"Souffline",desc:"Same Species",tier:"good"},
-{r:"Souffline",p1:"Lifmunk",p2:"Cremis",desc:"Alternative",tier:"good"},
-
-// ─── MORE VALTAIL COMBOS ───
-{r:"Valentail",p1:"Valentail",p2:"Valentail",desc:"Same Species",tier:"good"},
-{r:"Valentail",p1:"Caprity",p2:"Foxparks",desc:"Alternative",tier:"good"},
-
-// ─── MORE SNOCOMBS COMBOS ───
-{r:"Snock",p1:"Snock",p2:"Snock",desc:"Same Species",tier:"good"},
-{r:"Snock",p1:"Sparkit",p2:"Foxcicle",desc:"Alternative",tier:"good"},
-
-// ─── MORE SNOCOMBS LUX COMBOS ───
-{r:"Snock Lux",p1:"Snock",p2:"Rayhound",desc:"Alternative",tier:"strong"},
-{r:"Snock Lux",p1:"Snock",p2:"Orserk",desc:"Alternative",tier:"strong"},
-
-// ─── MORE HOODLE COMBOS ───
-{r:"Hoodle",p1:"Hoodle",p2:"Hoodle",desc:"Same Species",tier:"good"},
-{r:"Hoodle",p1:"Cremis",p2:"Mossanda",desc:"Alternative",tier:"good"},
-
-// ─── MORE SLOWATT COMBOS ───
-{r:"Slowatt",p1:"Slowatt",p2:"Slowatt",desc:"Same Species",tier:"good"},
-{r:"Slowatt",p1:"Sparkit",p2:"Jolthog",desc:"Alternative",tier:"good"},
-
-// ─── MORE DYNAMOFF COMBOS ───
-{r:"Dynamoff",p1:"Dynamoff",p2:"Dynamoff",desc:"Same Species",tier:"strong"},
-{r:"Dynamoff",p1:"Rayhound",p2:"Rayhound",desc:"Alternative",tier:"strong"},
-
-// ─── MORE SOLMORA COMBOS ───
-{r:"Solmora",p1:"Solmora",p2:"Solmora",desc:"Same Species",tier:"strong"},
-{r:"Solmora",p1:"Swee",p2:"Cinnamoth",desc:"Alternative",tier:"strong"},
-
-// ─── MORE SOLMORA LUX COMBOS ───
-{r:"Solmora Lux",p1:"Solmora",p2:"Sparkit",desc:"Alternative",tier:"strong"},
-{r:"Solmora Lux",p1:"Solmora",p2:"Rayhound",desc:"Alternative",tier:"strong"},
-
-// ─── MORE LAPURE COMBOS ───
-{r:"Lapure",p1:"Lapure",p2:"Lapure",desc:"Same Species",tier:"strong"},
-{r:"Lapure",p1:"Lifmunk",p2:"Nitewing",desc:"Alternative",tier:"strong"},
-
-// ─── MORE LAPIRON COMBOS ───
-{r:"Lapiron",p1:"Lapiron",p2:"Lapiron",desc:"Same Species",tier:"good"},
-{r:"Lapiron",p1:"Caprity",p2:"Mossanda",desc:"Alternative",tier:"good"},
-
-// ─── MORE CHELIKOMBS COMBOS ───
-{r:"Chillet Ignis",p1:"Chillet",p2:"Foxparks",desc:"Alternative",tier:"strong"},
-{r:"Chillet Ignis",p1:"Chillet",p2:"Arsox",desc:"Alternative",tier:"strong"},
-
-// ─── MORE FINSIDER COMBOS ───
-{r:"Finsider",p1:"Finsider",p2:"Finsider",desc:"Same Species",tier:"good"},
-{r:"Finsider",p1:"Fuack",p2:"Nitewing",desc:"Alternative",tier:"good"},
-
-// ─── MORE FINSIDER IGNIS COMBOS ───
-{r:"Finsider Ignis",p1:"Finsider",p2:"Foxparks",desc:"Alternative",tier:"good"},
-{r:"Finsider Ignis",p1:"Finsider",p2:"Arsox",desc:"Alternative",tier:"good"},
-
-// ─── MORE LEAFAN COMBOS ───
-{r:"Leafan",p1:"Leafan",p2:"Leafan",desc:"Same Species",tier:"good"},
-{r:"Leafan",p1:"Tanzee",p2:"Cinnamoth",desc:"Alternative",tier:"good"},
-
-// ─── MORE AMIONE COMBOS ───
-{r:"Amione",p1:"Amione",p2:"Amione",desc:"Same Species",tier:"good"},
-{r:"Amione",p1:"Fuack",p2:"Tanzee",desc:"Alternative",tier:"good"},
-
-// ─── MORE JELLIETTE COMBOS ───
-{r:"Jelliette",p1:"Jelliette",p2:"Jelliette",desc:"Same Species",tier:"good"},
-{r:"Jelliette",p1:"Teafant",p2:"Tanzee",desc:"Alternative",tier:"good"},
-
-// ─── MORE JELLROY COMBOS ───
-{r:"Jellroy",p1:"Jellroy",p2:"Jellroy",desc:"Same Species",tier:"good"},
-{r:"Jellroy",p1:"Teafant",p2:"Nox",desc:"Alternative",tier:"good"},
-
-// ─── MORE GLOOPIE COMBOS ───
-{r:"Gloopie",p1:"Gloopie",p2:"Gloopie",desc:"Same Species",tier:"good"},
-{r:"Gloopie",p1:"Fuack",p2:"Nox",desc:"Alternative",tier:"good"},
-
-// ─── MORE GLOOPIE PRIMO COMBOS ───
-{r:"Gloopie Primo",p1:"Gloopie",p2:"Lamball",desc:"Alternative",tier:"good"},
-{r:"Gloopie Primo",p1:"Gloopie",p2:"Cremis",desc:"Alternative",tier:"good"},
-
-// ─── MORE CROAJIRO COMBOS ───
-{r:"Croajiro",p1:"Croajiro",p2:"Croajiro",desc:"Same Species",tier:"good"},
-{r:"Croajiro",p1:"Fuack",p2:"Cremis",desc:"Alternative",tier:"good"},
-
-// ─── MORE CROAJIRO NOCT COMBOS ───
-{r:"Croajiro Noct",p1:"Croajiro",p2:"Hoocrates",desc:"Classic Recipe",tier:"good"},
-{r:"Croajiro Noct",p1:"Croajiro",p2:"Nox",desc:"Alternative",tier:"good"},
-
-// ─── MORE HERBIL COMBOS ───
-{r:"Herbil",p1:"Herbil",p2:"Herbil",desc:"Same Species",tier:"good"},
-{r:"Herbil",p1:"Lifmunk",p2:"Cawgnito",desc:"Alternative",tier:"good"},
-
-// ─── MORE CLOVEE COMBOS ───
-{r:"Clovee",p1:"Clovee",p2:"Clovee",desc:"Same Species",tier:"good"},
-{r:"Clovee",p1:"Tanzee",p2:"Pengullet",desc:"Alternative",tier:"good"},
-
-// ─── MORE PUPPERAI COMBOS ───
-{r:"Pupperai",p1:"Pupperai",p2:"Pupperai",desc:"Same Species",tier:"good"},
-{r:"Pupperai",p1:"Depresso",p2:"Sparkit",desc:"Alternative",tier:"good"},
-
-// ─── MORE TURTACLE COMBOS ───
-{r:"Turtacle",p1:"Turtacle",p2:"Turtacle",desc:"Same Species",tier:"good"},
-{r:"Turtacle",p1:"Pengullet",p2:"Rushoar",desc:"Alternative",tier:"good"},
-
-// ─── MORE TURTACLE TERRA COMBOS ───
-{r:"Turtacle Terra",p1:"Turtacle",p2:"Rushoar",desc:"Alternative",tier:"strong"},
-{r:"Turtacle Terra",p1:"Turtacle",p2:"Dumud",desc:"Alternative",tier:"strong"},
-
-// ─── MORE MUNCHILL COMBOS ───
-{r:"Munchill",p1:"Munchill",p2:"Munchill",desc:"Same Species",tier:"good"},
-{r:"Munchill",p1:"Chikipi",p2:"Pengullet",desc:"Alternative",tier:"good"},
-
-// ─── MORE POLAPUP COMBOS ───
-{r:"Polapup",p1:"Polapup",p2:"Polapup",desc:"Same Species",tier:"good"},
-{r:"Polapup",p1:"Pengullet",p2:"Jolthog",desc:"Alternative",tier:"good"},
-
-// ─── MORE POLAPUP TERRA COMBOS ───
-{r:"Polapup Terra",p1:"Polapup",p2:"Rushoar",desc:"Alternative",tier:"good"},
-{r:"Polapup Terra",p1:"Polapup",p2:"Fuddler",desc:"Alternative",tier:"good"},
-
-// ─── MORE KILLAMARI PRIMO COMBOS ───
-{r:"Killamari Primo",p1:"Killamari",p2:"Lamball",desc:"Alternative",tier:"good"},
-{r:"Killamari Primo",p1:"Killamari",p2:"Cremis",desc:"Alternative",tier:"good"},
-
-// ─── MORE DAZZI NOCT COMBOS ───
-{r:"Dazzi Noct",p1:"Dazzi",p2:"Nox",desc:"Alternative",tier:"strong"},
-{r:"Dazzi Noct",p1:"Dazzi",p2:"Daedream",desc:"Alternative",tier:"strong"},
-
-// ─── MORE GORIRAT TERRA COMBOS ───
-{r:"Gorirat Terra",p1:"Gorirat",p2:"Rushoar",desc:"Alternative",tier:"strong"},
-{r:"Gorirat Terra",p1:"Gorirat",p2:"Dumud",desc:"Alternative",tier:"strong"},
-
-// ─── MORE WOOLIPOP TERRA COMBOS ───
-{r:"Woolipop Terra",p1:"Woolipop",p2:"Eikthyrdeer Terra",desc:"Classic Recipe",tier:"strong"},
-{r:"Woolipop Terra",p1:"Woolipop",p2:"Rushoar",desc:"Alternative",tier:"strong"},
-
-// ─── MORE CAPRITY NOCT COMBOS ───
-{r:"Caprity Noct",p1:"Caprity",p2:"Loupmoon",desc:"Classic Recipe",tier:"strong"},
-{r:"Caprity Noct",p1:"Caprity",p2:"Depresso",desc:"Alternative",tier:"strong"},
-
-// ─── MORE LOUPMOON CRYST COMBOS ───
-{r:"Loupmoon Cryst",p1:"Loupmoon",p2:"Jolthog Cryst",desc:"Classic Recipe",tier:"strong"},
-{r:"Loupmoon Cryst",p1:"Loupmoon",p2:"Mau Cryst",desc:"Alternative",tier:"strong"},
-
-// ─── MORE RIBBUNY BOTAN COMBOS ───
-{r:"Ribbuny Botan",p1:"Ribbuny",p2:"Tanzee",desc:"Classic Recipe",tier:"good"},
-{r:"Ribbuny Botan",p1:"Ribbuny",p2:"Lifmunk",desc:"Alternative",tier:"good"},
-
-// ─── MORE TANZEE IGNIS COMBOS ───
-{r:"Tanzee Ignis",p1:"Tanzee",p2:"Foxparks",desc:"Classic Recipe",tier:"good"},
-{r:"Tanzee Ignis",p1:"Tanzee",p2:"Rooby",desc:"Alternative",tier:"good"},
-
-// ─── MORE FUACK IGNIS COMBOS ───
-{r:"Fuack Ignis",p1:"Fuack",p2:"Tanzee",desc:"Classic Recipe",tier:"good"},
-{r:"Fuack Ignis",p1:"Fuack",p2:"Foxparks",desc:"Alternative",tier:"good"},
-
-// ─── MORE KELPSEA IGNIS COMBOS ───
-{r:"Kelpsea Ignis",p1:"Kelpsea",p2:"Tanzee",desc:"Classic Recipe",tier:"good"},
-{r:"Kelpsea Ignis",p1:"Kelpsea",p2:"Foxparks",desc:"Alternative",tier:"good"},
-
-// ─── MORE PENGULLET LUX COMBOS ───
-{r:"Pengullet Lux",p1:"Pengullet",p2:"Jolthog",desc:"Classic Recipe",tier:"good"},
-{r:"Pengullet Lux",p1:"Pengullet",p2:"Sparkit",desc:"Alternative",tier:"good"},
-{r:"Pengullet Lux",p1:"Pengullet",p2:"Kelpsea",desc:"Alternative",tier:"good"},
-
-// ─── MORE JOLTHOG CRYST COMBOS ───
-{r:"Jolthog Cryst",p1:"Jolthog",p2:"Pengullet",desc:"Classic Recipe",tier:"good"},
-{r:"Jolthog Cryst",p1:"Jolthog",p2:"Bristla",desc:"Alternative",tier:"good"},
-
-// ─── MORE FOXPARKS CRYST COMBOS ───
-{r:"Foxparks Cryst",p1:"Foxparks",p2:"Jolthog Cryst",desc:"Classic Recipe",tier:"good"},
-{r:"Foxparks Cryst",p1:"Foxparks",p2:"Bristla",desc:"Alternative",tier:"good"},
-{r:"Foxparks Cryst",p1:"Foxparks",p2:"Mau Cryst",desc:"Alternative",tier:"good"},
-
-// ─── MORE HANGYU CRYST COMBOS ───
-{r:"Hangyu Cryst",p1:"Hangyu",p2:"Bristla",desc:"Classic Recipe",tier:"good"},
-{r:"Hangyu Cryst",p1:"Hangyu",p2:"Mau Cryst",desc:"Alternative",tier:"good"},
-
-// ─── MORE MAU CRYST COMBOS ───
-{r:"Mau Cryst",p1:"Mau",p2:"Pengullet Lux",desc:"Classic Recipe",tier:"good"},
-{r:"Mau Cryst",p1:"Mau",p2:"Hangyu Cryst",desc:"Alternative",tier:"good"},
-{r:"Mau Cryst",p1:"Mau",p2:"Jolthog Cryst",desc:"Alternative",tier:"good"},
-
-// ─── MORE GOBFIN IGNIS COMBOS ───
-{r:"Gobfin Ignis",p1:"Gobfin",p2:"Rushoar",desc:"Classic Recipe",tier:"good"},
-{r:"Gobfin Ignis",p1:"Gobfin",p2:"Fuddler",desc:"Alternative",tier:"good"},
-
-// ─── MORE LEEZPUNK IGNIS COMBOS ───
-{r:"Leezpunk Ignis",p1:"Leezpunk",p2:"Flambelle",desc:"Classic Recipe",tier:"good"},
-{r:"Leezpunk Ignis",p1:"Leezpunk",p2:"Depresso",desc:"Alternative",tier:"good"},
-
-// ─── MORE ROBINQUILL TERRA COMBOS ───
-{r:"Robinquill Terra",p1:"Robinquill",p2:"Rushoar",desc:"Classic Recipe",tier:"good"},
-{r:"Robinquill Terra",p1:"Robinquill",p2:"Dumud",desc:"Alternative",tier:"good"},
-
-// ─── MORE EIKTHYRDEER TERRA COMBOS ───
-{r:"Eikthyrdeer Terra",p1:"Eikthyrdeer",p2:"Gobfin",desc:"Classic Recipe",tier:"good"},
-{r:"Eikthyrdeer Terra",p1:"Eikthyrdeer",p2:"Dumud",desc:"Alternative",tier:"good"},
-{r:"Eikthyrdeer Terra",p1:"Eikthyrdeer",p2:"Rushoar",desc:"Alternative",tier:"good"},
-
-// ─── MORE BRONCHERRY AQUA COMBOS ───
-{r:"Broncherry Aqua",p1:"Broncherry",p2:"Fuack",desc:"Classic Recipe",tier:"good"},
-{r:"Broncherry Aqua",p1:"Broncherry",p2:"Pengullet",desc:"Alternative",tier:"good"},
-
-// ─── MORE SURFENT TERRA COMBOS ───
-{r:"Surfent Terra",p1:"Surfent",p2:"Maraith",desc:"Classic Recipe",tier:"strong"},
-{r:"Surfent Terra",p1:"Surfent",p2:"Rushoar",desc:"Alternative",tier:"strong"},
-
-// ─── MORE BLAZEHOWL NOCT COMBOS ───
-{r:"Blazehowl Noct",p1:"Blazehowl",p2:"Maraith",desc:"Classic Recipe",tier:"strong"},
-{r:"Blazehowl Noct",p1:"Blazehowl",p2:"Nox",desc:"Alternative",tier:"strong"},
-
-// ─── MORE LYLEEN NOCT COMBOS (ADDITIONAL) ───
-{r:"Lyleen Noct",p1:"Lyleen",p2:"Loupmoon",desc:"Alternative",tier:"strong"},
-{r:"Lyleen Noct",p1:"Lyleen",p2:"Katress Ignis",desc:"Alternative",tier:"strong"},
-
-// ─── MORE INCINERAM NOCT COMBOS (ADDITIONAL) ───
-{r:"Incineram Noct",p1:"Incineram",p2:"Bushi",desc:"Alternative",tier:"meta"},
-{r:"Incineram Noct",p1:"Incineram",p2:"Leezpunk Ignis",desc:"Alternative",tier:"meta"},
-
-// ─── MORE RELAXAURUS LUX COMBOS (ADDITIONAL) ───
-{r:"Relaxaurus Lux",p1:"Relaxaurus",p2:"Mossanda Lux",desc:"Alternative",tier:"meta"},
-
-// ─── MORE BASTIGOR COMBOS ───
-{r:"Bastigor",p1:"Bastigor",p2:"Bastigor",desc:"Same Species",tier:"meta"},
-{r:"Bastigor",p1:"Aegidron",p2:"Bastigor",desc:"Alternative",tier:"meta"},
-{r:"Bastigor",p1:"Neptilius",p2:"Bastigor",desc:"Alternative",tier:"meta"},
-
-// ─── MORE SELYNE COMBOS ───
-{r:"Selyne",p1:"Selyne",p2:"Selyne",desc:"Same Species",tier:"meta"},
-{r:"Selyne",p1:"Anubis",p2:"Selyne",desc:"Alternative",tier:"meta"},
-{r:"Selyne",p1:"Silvegis",p2:"Celesdir",desc:"Alternative",tier:"meta"},
-
-// ─── MORE RENJISHI COMBOS ───
-{r:"Renjishi",p1:"Renjishi",p2:"Renjishi",desc:"Same Species",tier:"strong"},
-{r:"Renjishi",p1:"Blazamut",p2:"Neptilius",desc:"Classic Recipe",tier:"meta"},
-{r:"Renjishi",p1:"Blazamut Ryu",p2:"Neptilius",desc:"Alternative",tier:"meta"},
-
-// ─── MORE SOLENNE COMBOS ───
-{r:"Solenne",p1:"Solenne",p2:"Solenne",desc:"Same Species",tier:"strong"},
-{r:"Solenne",p1:"Jormuntide Ignis",p2:"Flaracle",desc:"Classic Recipe",tier:"meta"},
-{r:"Solenne",p1:"Dandilord",p2:"Ghangler Ignis",desc:"Alternative",tier:"meta"},
-
-// ─── MORE STARRYON COMBOS ───
-{r:"Starryon",p1:"Kingpaca",p2:"Grintale",desc:"Classic Recipe",tier:"strong"},
-{r:"Starryon",p1:"Kingpaca",p2:"Quivern",desc:"Alternative",tier:"strong"},
-
-// ─── MORE STARRYON PRIMO COMBOS ───
-{r:"Starryon Primo",p1:"Starryon",p2:"Lamball",desc:"Alternative",tier:"strong"},
-{r:"Starryon Primo",p1:"Starryon",p2:"Cremis",desc:"Alternative",tier:"strong"},
-
-// ─── MORE SEKHMET COMBOS ───
-{r:"Sekhmet",p1:"Anubis",p2:"Bushi",desc:"Classic Recipe",tier:"strong"},
-{r:"Sekhmet",p1:"Anubis",p2:"Blazehowl",desc:"Alternative",tier:"strong"},
-{r:"Sekhmet",p1:"Anubis",p2:"Reptyro",desc:"Alternative",tier:"strong"},
-
-// ─── MORE FLARACLE COMBOS ───
-{r:"Flaracle",p1:"Reptyro",p2:"Blazehowl",desc:"Classic Recipe",tier:"strong"},
-{r:"Flaracle",p1:"Reptyro",p2:"Ragnahawk",desc:"Alternative",tier:"strong"},
-
-// ─── MORE NYAFIA COMBOS ───
-{r:"Nyafia",p1:"Shadowbeak",p2:"Vanwyrm",desc:"Classic Recipe",tier:"strong"},
-{r:"Nyafia",p1:"Shadowbeak",p2:"Bushi",desc:"Alternative",tier:"strong"},
-
-// ─── MORE AEGIDRON COMBOS ───
-{r:"Aegidron",p1:"Orserk",p2:"Shaolong",desc:"Classic Recipe",tier:"strong"},
-{r:"Aegidron",p1:"Bastigor",p2:"Shaolong",desc:"Alternative",tier:"strong"},
-{r:"Aegidron",p1:"Jetragon",p2:"Silvance",desc:"Alternative",tier:"strong"},
-
-// ─── MORE OPHYDIA COMBOS ───
-{r:"Ophydia",p1:"Jormuntide",p2:"Petallia",desc:"Classic Recipe",tier:"strong"},
-{r:"Ophydia",p1:"Jormuntide",p2:"Elizabee",desc:"Alternative",tier:"strong"},
-
-// ─── MORE GILDANE COMBOS ───
-{r:"Gildane",p1:"Jormuntide",p2:"Sekhmet",desc:"Classic Recipe",tier:"good"},
-{r:"Gildane",p1:"Eikthyrdeer Terra",p2:"Gildane",desc:"Alternative",tier:"good"},
-
-// ─── MORE DUALITH COMBOS ───
-{r:"Dualith",p1:"Dualith",p2:"Dualith",desc:"Same Species",tier:"strong"},
-{r:"Dualith",p1:"Digtoise",p2:"Sootseer",desc:"Alternative",tier:"strong"},
-
-// ─── MORE DUALITH NOCT COMBOS ───
-{r:"Dualith Noct",p1:"Dualith",p2:"Nox",desc:"Classic Recipe",tier:"strong"},
-{r:"Dualith Noct",p1:"Dualith",p2:"Daedream",desc:"Alternative",tier:"strong"},
-
-// ─── MORE PRIPTER COMBOS ───
-{r:"Prixter",p1:"Prixter",p2:"Prixter",desc:"Same Species",tier:"strong"},
-{r:"Prixter",p1:"Helzephyr",p2:"Digtoise",desc:"Alternative",tier:"strong"},
-
-// ─── MORE PRIPTER LUX COMBOS ───
-{r:"Prixter Lux",p1:"Prixter",p2:"Rayhound",desc:"Alternative",tier:"strong"},
-{r:"Prixter Lux",p1:"Prixter",p2:"Orserk",desc:"Alternative",tier:"strong"},
-
-// ─── MORE TETROISE COMBOS ───
-{r:"Tetroise",p1:"Tetroise",p2:"Tetroise",desc:"Same Species",tier:"strong"},
-{r:"Tetroise",p1:"Digtoise",p2:"Rushoar",desc:"Alternative",tier:"strong"},
-
-// ─── MORE TETROISE PRIMO COMBOS ───
-{r:"Tetroise Primo",p1:"Tetroise",p2:"Lamball",desc:"Alternative",tier:"strong"},
-{r:"Tetroise Primo",p1:"Tetroise",p2:"Cremis",desc:"Alternative",tier:"strong"},
-
-// ─── MORE MOLDRON COMBOS ───
-{r:"Moldron",p1:"Moldron",p2:"Moldron",desc:"Same Species",tier:"strong"},
-{r:"Moldron",p1:"Digtoise",p2:"Arsox",desc:"Alternative",tier:"strong"},
-
-// ─── MORE MOLDRON CRYST COMBOS ───
-{r:"Moldron Cryst",p1:"Moldron",p2:"Bristla",desc:"Alternative",tier:"strong"},
-{r:"Moldron Cryst",p1:"Moldron",p2:"Foxcicle",desc:"Alternative",tier:"strong"},
-
-// ─── MORE MIMOG COMBOS ───
-{r:"Mimog",p1:"Mimog",p2:"Mimog",desc:"Same Species",tier:"strong"},
-{r:"Mimog",p1:"Lamball",p2:"Cattiva",desc:"Alternative",tier:"strong"},
-
-// ─── MORE OMASCOMB COMBOS ───
-{r:"Omascul",p1:"Omascul",p2:"Omascul",desc:"Same Species",tier:"strong"},
-{r:"Omascul",p1:"Hoocrates",p2:"Mossanda",desc:"Alternative",tier:"strong"},
-
-// ─── MORE BAKEMI COMBOS ───
-{r:"Bakemi",p1:"Bakemi",p2:"Bakemi",desc:"Same Species",tier:"strong"},
-{r:"Bakemi",p1:"Daedream",p2:"Cinnamoth",desc:"Alternative",tier:"strong"},
-
-// ─── MORE BULDOOSU COMBOS ───
-{r:"Bulldosu",p1:"Bulldosu",p2:"Bulldosu",desc:"Same Species",tier:"strong"},
-{r:"Bulldosu",p1:"Digtoise",p2:"Rushoar",desc:"Alternative",tier:"strong"},
-
-// ─── MORE BRALOHA COMBOS ───
-{r:"Braloha",p1:"Braloha",p2:"Braloha",desc:"Same Species",tier:"strong"},
-{r:"Braloha",p1:"Tanzee",p2:"Rushoar",desc:"Alternative",tier:"strong"},
-
-// ─── MORE PALUMBA COMBOS ───
-{r:"Palumba",p1:"Palumba",p2:"Palumba",desc:"Same Species",tier:"good"},
-{r:"Palumba",p1:"Lamball",p2:"Mossanda",desc:"Alternative",tier:"good"},
-
-// ─── MORE CARNIBORA COMBOS ───
-{r:"Carnibora",p1:"Carnibora",p2:"Carnibora",desc:"Same Species",tier:"strong"},
-{r:"Carnibora",p1:"Petallia",p2:"Nox",desc:"Alternative",tier:"strong"},
-
-// ─── MORE NITEMARY COMBOS ───
-{r:"Nitemary",p1:"Nitemary",p2:"Nitemary",desc:"Same Species",tier:"strong"},
-{r:"Nitemary",p1:"Helzephyr",p2:"Cinnamoth",desc:"Alternative",tier:"strong"},
-
-// ─── MORE NITEMARY BOTAN COMBOS ───
-{r:"Nitemary Botan",p1:"Nitemary",p2:"Tanzee",desc:"Alternative",tier:"strong"},
-{r:"Nitemary Botan",p1:"Nitemary",p2:"Lifmunk",desc:"Alternative",tier:"strong"},
-
-// ─── MORE SMOKIE COMBOS ───
-{r:"Smokie",p1:"Smokie",p2:"Smokie",desc:"Same Species",tier:"good"},
-{r:"Smokie",p1:"Depresso",p2:"Mossanda",desc:"Alternative",tier:"good"},
-
-// ─── MORE SMOKIE CRYST COMBOS ───
-{r:"Smokie Cryst",p1:"Smokie",p2:"Bristla",desc:"Alternative",tier:"strong"},
-{r:"Smokie Cryst",p1:"Smokie",p2:"Chillet",desc:"Alternative",tier:"strong"},
-
-// ─── MORE WHALASKA COMBOS ───
-{r:"Whalaska",p1:"Whalaska",p2:"Whalaska",desc:"Same Species",tier:"strong"},
-{r:"Whalaska",p1:"Relaxaurus",p2:"Chillet",desc:"Alternative",tier:"strong"},
-
-// ─── MORE WHALASKA IGNIS COMBOS ───
-{r:"Whalaska Ignis",p1:"Whalaska",p2:"Foxparks",desc:"Alternative",tier:"strong"},
-{r:"Whalaska Ignis",p1:"Whalaska",p2:"Arsox",desc:"Alternative",tier:"strong"},
-
-// ─── MORE ELIDROLON COMBOS ───
-{r:"Eidrolon",p1:"Eidrolon",p2:"Eidrolon",desc:"Same Species",tier:"strong"},
-{r:"Eidrolon",p1:"Relaxaurus",p2:"Helzephyr",desc:"Alternative",tier:"strong"},
-
-// ─── MORE ELIDROLON IGNIS COMBOS ───
-{r:"Eidrolon Ignis",p1:"Eidrolon",p2:"Foxparks",desc:"Alternative",tier:"strong"},
-{r:"Eidrolon Ignis",p1:"Eidrolon",p2:"Arsox",desc:"Alternative",tier:"strong"},
-
-// ─── MORE KNOCKLEM IGNIS COMBOS ───
-{r:"Knocklem Ignis",p1:"Knocklem",p2:"Foxparks",desc:"Alternative",tier:"strong"},
-{r:"Knocklem Ignis",p1:"Knocklem",p2:"Arsox",desc:"Alternative",tier:"strong"},
-
-// ─── MORE MENASTING TERRA COMBOS (ADDITIONAL) ───
-{r:"Menasting Terra",p1:"Menasting",p2:"Dumud",desc:"Alternative",tier:"strong"},
-
-// ─── MORE WARSECT TERRA COMBOS (ADDITIONAL) ───
-{r:"Warsect Terra",p1:"Warsect",p2:"Rushoar",desc:"Alternative",tier:"strong"},
-
-// ─── MORE PETALLIA IGNIS COMBOS (ADDITIONAL) ───
-{r:"Petallia Ignis",p1:"Petallia",p2:"Arsox",desc:"Alternative",tier:"strong"},
-
-// ─── MORE CHILLET IGNIS COMBOS (ADDITIONAL) ───
-{r:"Chillet Ignis",p1:"Chillet",p2:"Rooby",desc:"Alternative",tier:"strong"},
-
-// ─── MORE ELPHIDRAN AQUA COMBOS (ADDITIONAL) ───
-{r:"Elphidran Aqua",p1:"Elphidran",p2:"Pengullet",desc:"Alternative",tier:"strong"},
-
-// ─── MORE KITSUN NOCT COMBOS (ADDITIONAL) ───
-{r:"Kitsun Noct",p1:"Kitsun",p2:"Depresso",desc:"Alternative",tier:"strong"},
-
-// ─── MORE BUSHI NOCT COMBOS (ADDITIONAL) ───
-{r:"Bushi Noct",p1:"Bushi",p2:"Daedream",desc:"Alternative",tier:"strong"},
-
-// ─── MORE CELESDIR COMBOS (ADDITIONAL) ───
-{r:"Celesdir",p1:"Celesdir",p2:"Kitsun Noct",desc:"Alternative",tier:"strong"},
-
-// ─── MORE CELESDIR NOCT COMBOS (ADDITIONAL) ───
-{r:"Celesdir Noct",p1:"Celesdir",p2:"Orserk",desc:"Alternative",tier:"meta"},
-
-// ─── MORE SOLENNE COMBOS (ADDITIONAL) ───
-{r:"Solenne",p1:"Jormuntide Ignis",p2:"Ghangler Ignis",desc:"Alternative",tier:"meta"},
-
-// ─── MORE RENJISHI COMBOS (ADDITIONAL) ───
-{r:"Renjishi",p1:"Blazamut Ryu",p2:"Neptilius",desc:"Alternative",tier:"meta"},
-
-// ─── MORE FLARACLE COMBOS (ADDITIONAL) ───
-{r:"Flaracle",p1:"Blazamut",p2:"Neptilius",desc:"Alternative",tier:"strong"},
-
-// ─── MORE WISEE COMBOS ───
-{r:"Wistella",p1:"Wistella",p2:"Wistella",desc:"Same Species",tier:"strong"},
-{r:"Wistella",p1:"Beegarde",p2:"Nox",desc:"Alternative",tier:"strong"},
-
-// ─── MORE SWEET COMBOS ───
-{r:"Mycora",p1:"Mycora",p2:"Mycora",desc:"Same Species",tier:"strong"},
-{r:"Mycora",p1:"Killamari",p2:"Mossanda",desc:"Alternative",tier:"strong"},
-
-// ─── MORE LULU COMBOS ───
-{r:"Lullu",p1:"Lullu",p2:"Lullu",desc:"Same Species",tier:"strong"},
-{r:"Lullu",p1:"Petallia",p2:"Mossanda",desc:"Alternative",tier:"strong"},
-
-// ─── MORE DOGEN COMBOS ───
-{r:"Dogen",p1:"Dogen",p2:"Dogen",desc:"Same Species",tier:"strong"},
-{r:"Dogen",p1:"Lamball",p2:"Mossanda",desc:"Alternative",tier:"strong"},
-
-// ─── MORE YAKUMO COMBOS ───
-{r:"Yakumo",p1:"Yakumo",p2:"Yakumo",desc:"Same Species",tier:"good"},
-{r:"Yakumo",p1:"Cremis",p2:"Mossanda",desc:"Alternative",tier:"good"},
-
-// ─── MORE AZURMANE COMBOS ───
-{r:"Azurmane",p1:"Azurmane",p2:"Azurmane",desc:"Same Species",tier:"strong"},
-{r:"Azurmane",p1:"Rayhound",p2:"Chillet",desc:"Alternative",tier:"strong"},
-
-// ─── MORE KIKIT COMBOS ───
-{r:"Kikit",p1:"Kikit",p2:"Kikit",desc:"Same Species",tier:"good"},
-{r:"Kikit",p1:"Lamball",p2:"Eikthyrdeer",desc:"Alternative",tier:"good"},
-
-// ─── MORE SKUTLASS COMBOS ───
-{r:"Skutlass",p1:"Skutlass",p2:"Skutlass",desc:"Same Species",tier:"strong"},
-{r:"Skutlass",p1:"Relaxaurus",p2:"Digtoise",desc:"Alternative",tier:"strong"},
-
-// ─── MORE SKUTLASS IGNIS COMBOS ───
-{r:"Skutlass Ignis",p1:"Skutlass",p2:"Foxparks",desc:"Alternative",tier:"strong"},
-{r:"Skutlass Ignis",p1:"Skutlass",p2:"Arsox",desc:"Alternative",tier:"strong"},
-
-// ─── MORE PIERDON COMBOS ───
-{r:"Pierdon",p1:"Pierdon",p2:"Pierdon",desc:"Same Species",tier:"strong"},
-{r:"Pierdon",p1:"Digtoise",p2:"Mossanda",desc:"Alternative",tier:"strong"},
-
-// ─── MORE PIERDON CRYST COMBOS ───
-{r:"Pierdon Cryst",p1:"Pierdon",p2:"Bristla",desc:"Alternative",tier:"strong"},
-{r:"Pierdon Cryst",p1:"Pierdon",p2:"Chillet",desc:"Alternative",tier:"strong"},
-
-// ─── MORE GILDRA COMBOS ───
-{r:"Gildra",p1:"Gildra",p2:"Gildra",desc:"Same Species",tier:"strong"},
-{r:"Gildra",p1:"Digtoise",p2:"Nox",desc:"Alternative",tier:"strong"},
-
-// ─── MORE SPLATTERINA COMBOS ───
-{r:"Splatterina",p1:"Splatterina",p2:"Splatterina",desc:"Same Species",tier:"strong"},
-{r:"Splatterina",p1:"Daedream",p2:"Mossanda",desc:"Alternative",tier:"strong"},
-
-// ─── MORE SILVEGIS COMBOS ───
-{r:"Silvegis",p1:"Silvegis",p2:"Silvegis",desc:"Same Species",tier:"strong"},
-{r:"Silvegis",p1:"Chillet",p2:"Mossanda",desc:"Alternative",tier:"strong"},
-
-// ─── MORE ROUJAY COMBOS ───
-{r:"Roujay",p1:"Roujay",p2:"Roujay",desc:"Same Species",tier:"strong"},
-{r:"Roujay",p1:"Daedream",p2:"Helzephyr",desc:"Alternative",tier:"strong"},
-
-// ─── MORE DUPIN COMBOS ───
-{r:"Dupin",p1:"Dupin",p2:"Dupin",desc:"Same Species",tier:"strong"},
-{r:"Dupin",p1:"Pengullet",p2:"Nitewing",desc:"Alternative",tier:"strong"},
-
-// ─── MORE DAZEMU COMBOS ───
-{r:"Dazemu",p1:"Dazemu",p2:"Dazemu",desc:"Same Species",tier:"good"},
-{r:"Dazemu",p1:"Digtoise",p2:"Cremis",desc:"Alternative",tier:"good"},
-
-// ─── MORE VENUSA COMBOS ───
-{r:"Venusa",p1:"Venusa",p2:"Venusa",desc:"Same Species",tier:"strong"},
-{r:"Venusa",p1:"Chikipi",p2:"Mossanda",desc:"Alternative",tier:"strong"},
-
-// ─── MORE HOOTLE COMBOS ───
-{r:"Hoodle",p1:"Hoodle",p2:"Hoodle",desc:"Same Species",tier:"good"},
-{r:"Hoodle",p1:"Cremis",p2:"Mossanda",desc:"Alternative",tier:"good"},
-
-// ─── MORE LAPURE COMBOS (ADDITIONAL) ───
-{r:"Lapure",p1:"Lapure",p2:"Eikthyrdeer Terra",desc:"Alternative",tier:"strong"},
-
-// ─── MORE SNOCK COMBOS (ADDITIONAL) ───
-{r:"Snock",p1:"Snock",p2:"Reptyro Cryst",desc:"Alternative",tier:"good"},
-
-// ─── MORE FINSIDER COMBOS (ADDITIONAL) ───
-{r:"Finsider",p1:"Finsider",p2:"Celaray",desc:"Alternative",tier:"good"},
-
-// ─── MORE FUNSIDER IGNIS COMBOS (ADDITIONAL) ───
-{r:"Finsider Ignis",p1:"Finsider",p2:"Bushi Noct",desc:"Alternative",tier:"good"},
-
-// ─── MORE TROPICAW COMBOS (ADDITIONAL) ───
-{r:"Tropicaw",p1:"Tropicaw",p2:"Tanzee",desc:"Alternative",tier:"strong"},
-
-// ─── MORE DAZZI COMBOS ───
+{r:"Elphidran",p1:"Elphidran",p2:"Elphidran",desc:"Same Species",tier:"good"},
+{r:"Kingpaca",p1:"Kingpaca",p2:"Kingpaca",desc:"Same Species",tier:"good"},
+{r:"Ice Kingpaca",p1:"Kingpaca",p2:"Reptyro Cryst",desc:"Formula Result",tier:"strong"},
+{r:"Reptyro",p1:"Reptyro",p2:"Reptyro",desc:"Same Species",tier:"strong"},
+{r:"Rayhound",p1:"Rayhound",p2:"Rayhound",desc:"Same Species",tier:"strong"},
+{r:"Cryolinx",p1:"Cryolinx",p2:"Cryolinx",desc:"Same Species",tier:"strong"},
+{r:"Blazehowl",p1:"Blazehowl",p2:"Blazehowl",desc:"Same Species",tier:"strong"},
+{r:"Blazehowl Noct",p1:"Blazehowl",p2:"Maraith",desc:"Formula Result",tier:"strong"},
+{r:"Robinquill",p1:"Robinquill",p2:"Robinquill",desc:"Same Species",tier:"good"},
+{r:"Robinquill Terra",p1:"Robinquill",p2:"Rushoar",desc:"Formula Result",tier:"good"},
+{r:"Ragnahawk",p1:"Ragnahawk",p2:"Ragnahawk",desc:"Same Species",tier:"strong"},
+{r:"Vanwyrm",p1:"Vanwyrm",p2:"Vanwyrm",desc:"Same Species",tier:"good"},
+{r:"Bushi",p1:"Bushi",p2:"Bushi",desc:"Same Species",tier:"good"},
+{r:"Bushi Noct",p1:"Bushi",p2:"Leezpunk",desc:"Formula Result",tier:"strong"},
 {r:"Dazzi",p1:"Dazzi",p2:"Dazzi",desc:"Same Species",tier:"good"},
-{r:"Dazzi",p1:"Dazzi",p2:"Mossanda",desc:"Alternative",tier:"good"},
-
-// ─── MORE GILDER COMBOS ───
+{r:"Galeclaw",p1:"Galeclaw",p2:"Galeclaw",desc:"Same Species",tier:"good"},
+{r:"Dinossom",p1:"Dinossom",p2:"Dinossom",desc:"Same Species",tier:"good"},
+{r:"Maraith",p1:"Maraith",p2:"Maraith",desc:"Same Species",tier:"strong"},
+{r:"Felbat",p1:"Felbat",p2:"Felbat",desc:"Same Species",tier:"good"},
+{r:"Azurobe",p1:"Azurobe",p2:"Azurobe",desc:"Same Species",tier:"strong"},
+{r:"Lyleen Noct",p1:"Lyleen",p2:"Incineram Noct",desc:"Formula Result",tier:"strong"},
+{r:"Kitsun",p1:"Foxparks",p2:"Foxcicle",desc:"Formula Result",tier:"strong"},
+{r:"Kitsun",p1:"Kitsun",p2:"Kitsun",desc:"Same Species",tier:"strong"},
+{r:"Relaxaurus",p1:"Relaxaurus",p2:"Relaxaurus",desc:"Same Species",tier:"good"},
+{r:"Broncherry",p1:"Broncherry",p2:"Broncherry",desc:"Same Species",tier:"strong"},
+{r:"Eikthyrdeer",p1:"Eikthyrdeer",p2:"Eikthyrdeer",desc:"Same Species",tier:"good"},
+{r:"Hangyu",p1:"Hangyu",p2:"Hangyu",desc:"Same Species",tier:"good"},
+{r:"Mau",p1:"Mau",p2:"Mau",desc:"Same Species",tier:"good"},
+{r:"Jolthog",p1:"Jolthog",p2:"Jolthog",desc:"Same Species",tier:"good"},
+{r:"Foxparks",p1:"Foxparks",p2:"Foxparks",desc:"Same Species",tier:"good"},
+{r:"Pengullet",p1:"Pengullet",p2:"Pengullet",desc:"Same Species",tier:"good"},
+{r:"Gobfin",p1:"Gobfin",p2:"Gobfin",desc:"Same Species",tier:"good"},
+{r:"Leezpunk",p1:"Leezpunk",p2:"Leezpunk",desc:"Same Species",tier:"good"},
+{r:"Loupmoon",p1:"Loupmoon",p2:"Loupmoon",desc:"Same Species",tier:"good"},
+{r:"Caprity",p1:"Caprity",p2:"Caprity",desc:"Same Species",tier:"good"},
+{r:"Woolipop",p1:"Woolipop",p2:"Woolipop",desc:"Same Species",tier:"good"},
+{r:"Ribbuny",p1:"Ribbuny",p2:"Ribbuny",desc:"Same Species",tier:"good"},
+{r:"Flambelle",p1:"Foxparks",p2:"Fuack",desc:"Formula Result",tier:"good"},
+{r:"Flambelle",p1:"Flambelle",p2:"Flambelle",desc:"Same Species",tier:"good"},
+{r:"Fuack",p1:"Fuack",p2:"Fuack",desc:"Same Species",tier:"good"},
+{r:"Kelpsea",p1:"Kelpsea",p2:"Kelpsea",desc:"Same Species",tier:"good"},
+{r:"Tanzee",p1:"Tanzee",p2:"Tanzee",desc:"Same Species",tier:"good"},
+{r:"Croajiro",p1:"Croajiro",p2:"Croajiro",desc:"Same Species",tier:"good"},
+{r:"Helzephyr",p1:"Helzephyr",p2:"Helzephyr",desc:"Same Species",tier:"strong"},
+{r:"Helzephyr Lux",p1:"Helzephyr",p2:"Rayhound",desc:"Formula Result",tier:"strong"},
+{r:"Starryon",p1:"Kingpaca",p2:"Grintale",desc:"Formula Result",tier:"strong"},
+{r:"Starryon",p1:"Starryon",p2:"Starryon",desc:"Same Species",tier:"strong"},
+{r:"Sekhmet",p1:"Anubis",p2:"Bushi",desc:"Formula Result",tier:"strong"},
+{r:"Sekhmet",p1:"Sekhmet",p2:"Sekhmet",desc:"Same Species",tier:"strong"},
+{r:"Flaracle",p1:"Reptyro",p2:"Blazehowl",desc:"Formula Result",tier:"strong"},
+{r:"Flaracle",p1:"Flaracle",p2:"Flaracle",desc:"Same Species",tier:"strong"},
+{r:"Renjishi",p1:"Blazamut",p2:"Neptilius",desc:"Formula Result",tier:"meta"},
+{r:"Renjishi",p1:"Renjishi",p2:"Renjishi",desc:"Same Species",tier:"strong"},
+{r:"Solenne",p1:"Jormuntide Ignis",p2:"Flaracle",desc:"Formula Result",tier:"meta"},
+{r:"Solenne",p1:"Solenne",p2:"Solenne",desc:"Same Species",tier:"strong"},
+{r:"Nyafia",p1:"Shadowbeak",p2:"Vanwyrm",desc:"Formula Result",tier:"strong"},
+{r:"Nyafia",p1:"Nyafia",p2:"Nyafia",desc:"Same Species",tier:"strong"},
+{r:"Aegidron",p1:"Orserk",p2:"Shaolong",desc:"Formula Result",tier:"strong"},
+{r:"Aegidron",p1:"Aegidron",p2:"Aegidron",desc:"Same Species",tier:"strong"},
+{r:"Ophydia",p1:"Jormuntide",p2:"Petallia",desc:"Formula Result",tier:"strong"},
+{r:"Ophydia",p1:"Ophydia",p2:"Ophydia",desc:"Same Species",tier:"strong"},
+{r:"Gildane",p1:"Jormuntide",p2:"Sekhmet",desc:"Formula Result",tier:"good"},
 {r:"Gildane",p1:"Gildane",p2:"Gildane",desc:"Same Species",tier:"strong"},
-{r:"Gildane",p1:"Jormuntide",p2:"Sekhmet",desc:"Alternative",tier:"good"}
-];
+{r:"Digtoise",p1:"Digtoise",p2:"Digtoise",desc:"Same Species",tier:"good"},
+{r:"Surfent",p1:"Surfent",p2:"Surfent",desc:"Same Species",tier:"good"},
+{r:"Tombat",p1:"Tombat",p2:"Tombat",desc:"Same Species",tier:"good"},
+{r:"Lovander",p1:"Lovander",p2:"Lovander",desc:"Same Species",tier:"good"},
+{r:"Cinnamoth",p1:"Cinnamoth",p2:"Cinnamoth",desc:"Same Species",tier:"good"},
+{r:"Arsox",p1:"Arsox",p2:"Arsox",desc:"Same Species",tier:"good"},
+{r:"Dumud",p1:"Dumud",p2:"Dumud",desc:"Same Species",tier:"good"},
+{r:"Cawgnito",p1:"Cawgnito",p2:"Cawgnito",desc:"Same Species",tier:"good"},
+{r:"Gorirat",p1:"Gorirat",p2:"Gorirat",desc:"Same Species",tier:"good"},
+{r:"Beegarde",p1:"Beegarde",p2:"Beegarde",desc:"Same Species",tier:"good"},
+{r:"Elizabee",p1:"Elizabee",p2:"Elizabee",desc:"Same Species",tier:"good"},
+{r:"Grintale",p1:"Grintale",p2:"Grintale",desc:"Same Species",tier:"good"},
+{r:"Swee",p1:"Swee",p2:"Swee",desc:"Same Species",tier:"good"},
+{r:"Sweepa",p1:"Sweepa",p2:"Sweepa",desc:"Same Species",tier:"good"},
+{r:"Chillet",p1:"Chillet",p2:"Chillet",desc:"Same Species",tier:"good"},
+{r:"Foxcicle",p1:"Foxcicle",p2:"Foxcicle",desc:"Same Species",tier:"good"},
+{r:"Reindrix",p1:"Reindrix",p2:"Reindrix",desc:"Same Species",tier:"good"},
+{r:"Lunaris",p1:"Lunaris",p2:"Lunaris",desc:"Same Species",tier:"good"},
+{r:"Nox",p1:"Nox",p2:"Nox",desc:"Same Species",tier:"good"},
+{r:"Hoocrates",p1:"Hoocrates",p2:"Hoocrates",desc:"Same Species",tier:"good"},
+{r:"Daedream",p1:"Daedream",p2:"Daedream",desc:"Same Species",tier:"good"},
+{r:"Depresso",p1:"Depresso",p2:"Depresso",desc:"Same Species",tier:"good"},
+{r:"Cremis",p1:"Cremis",p2:"Cremis",desc:"Same Species",tier:"good"},
+{r:"Vixy",p1:"Vixy",p2:"Vixy",desc:"Same Species",tier:"good"},
+{r:"Teafant",p1:"Teafant",p2:"Teafant",desc:"Same Species",tier:"good"},
+{r:"Lamball",p1:"Lamball",p2:"Lamball",desc:"Same Species",tier:"good"},
+{r:"Cattiva",p1:"Cattiva",p2:"Cattiva",desc:"Same Species",tier:"good"},
+{r:"Lifmunk",p1:"Lifmunk",p2:"Lifmunk",desc:"Same Species",tier:"good"},
+{r:"Sparkit",p1:"Sparkit",p2:"Sparkit",desc:"Same Species",tier:"good"},
+{r:"Gumoss",p1:"Gumoss",p2:"Gumoss",desc:"Same Species",tier:"good"},
+{r:"Fuddler",p1:"Fuddler",p2:"Fuddler",desc:"Same Species",tier:"good"},
+{r:"Killamari",p1:"Killamari",p2:"Killamari",desc:"Same Species",tier:"good"},
+{r:"Celaray",p1:"Celaray",p2:"Celaray",desc:"Same Species",tier:"good"},
+{r:"Direhowl",p1:"Direhowl",p2:"Direhowl",desc:"Same Species",tier:"good"},
+{r:"Tocotoco",p1:"Tocotoco",p2:"Tocotoco",desc:"Same Species",tier:"good"},
+{r:"Flopie",p1:"Flopie",p2:"Flopie",desc:"Same Species",tier:"good"},
+{r:"Mozzarina",p1:"Mozzarina",p2:"Mozzarina",desc:"Same Species",tier:"good"},
+{r:"Bristla",p1:"Bristla",p2:"Bristla",desc:"Same Species",tier:"good"},
+{r:"Melpaca",p1:"Melpaca",p2:"Melpaca",desc:"Same Species",tier:"good"},
+{r:"Nitewing",p1:"Nitewing",p2:"Nitewing",desc:"Same Species",tier:"good"},
+{r:"Rushoar",p1:"Rushoar",p2:"Rushoar",desc:"Same Species",tier:"good"},
+{r:"Wumpo",p1:"Wumpo",p2:"Wumpo",desc:"Same Species",tier:"strong"},
+{r:"Wumpo Botan",p1:"Wumpo",p2:"Petallia",desc:"Formula Result",tier:"strong"},
+{r:"Quivern",p1:"Quivern",p2:"Quivern",desc:"Same Species",tier:"strong"},
+{r:"Fenglope",p1:"Fenglope",p2:"Fenglope",desc:"Same Species",tier:"strong"},
+{r:"Mammorest",p1:"Mammorest",p2:"Mammorest",desc:"Same Species",tier:"strong"},
+{r:"Mammorest Cryst",p1:"Mammorest",p2:"Swee",desc:"Formula Result",tier:"strong"},
+{r:"Rooby",p1:"Rooby",p2:"Rooby",desc:"Same Species",tier:"good"},
+{r:"Penking",p1:"Penking",p2:"Penking",desc:"Same Species",tier:"good"},
+{r:"Incineram",p1:"Incineram",p2:"Incineram",desc:"Same Species",tier:"good"},
+{r:"Beakon",p1:"Beakon",p2:"Beakon",desc:"Same Species",tier:"strong"},
+{r:"Katress",p1:"Katress",p2:"Katress",desc:"Same Species",tier:"strong"},
+{r:"Wixen",p1:"Wixen",p2:"Wixen",desc:"Same Species",tier:"strong"},
+{r:"Verdash",p1:"Verdash",p2:"Verdash",desc:"Same Species",tier:"strong"},
+{r:"Vaelet",p1:"Vaelet",p2:"Vaelet",desc:"Same Species",tier:"strong"},
+{r:"Astegon",p1:"Astegon",p2:"Astegon",desc:"Same Species",tier:"meta"},
 
-// Duplicate combos removed - all data is in the main COMBOS array
+// ─── ADDITIONAL VERIFIED SPECIAL COMBOS (July 2026 - confirmed across sources) ───
+{r:"Blazehowl Noct",p1:"Blazehowl",p2:"Felbat",desc:"Fire/Dark variant - Guaranteed override",tier:"strong"},
+{r:"Jolthog Cryst",p1:"Jolthog",p2:"Pengullet",desc:"Ice variant of Jolthog",tier:"good"},
+{r:"Gobfin Ignis",p1:"Gobfin",p2:"Rooby",desc:"Fire variant of Gobfin",tier:"good"},
+{r:"Leezpunk Ignis",p1:"Leezpunk",p2:"Flambelle",desc:"Fire variant of Leezpunk",tier:"good"},
+{r:"Mammorest Cryst",p1:"Mammorest",p2:"Wumpo",desc:"Ice variant of Mammorest",tier:"good"},
+{r:"Pyrin Noct",p1:"Pyrin",p2:"Katress",desc:"Dark variant of Pyrin",tier:"strong"},
+{r:"Robinquill Terra",p1:"Robinquill",p2:"Fuddler",desc:"Ground variant of Robinquill",tier:"good"},
+{r:"Suzaku Aqua",p1:"Suzaku",p2:"Jormuntide",desc:"Water variant of Suzaku",tier:"meta"},
+{r:"Foxparks Cryst",p1:"Foxparks",p2:"Foxcicle",desc:"Ice variant of Foxparks",tier:"good"},
+{r:"Chillet Ignis",p1:"Chillet",p2:"Arsox",desc:"Fire variant of Chillet",tier:"good"},
+{r:"Penking Lux",p1:"Penking",p2:"Rayhound",desc:"Electric variant of Penking",tier:"strong"},
+{r:"Pengullet Lux",p1:"Pengullet",p2:"Sparkit",desc:"Electric variant of Pengullet",tier:"good"},
+{r:"Croajiro Noct",p1:"Croajiro",p2:"Bushi Noct",desc:"Dark variant of Croajiro",tier:"good"},
+{r:"Celaray Lux",p1:"Celaray",p2:"Univolt",desc:"Electric variant of Celaray",tier:"good"},
+{r:"Celesdir Noct",p1:"Celesdir",p2:"Helzephyr",desc:"Dark variant of Celesdir",tier:"meta"}
+];
 
 const TIER_COLORS={legend:"#fbbf24",meta:"#00e5ff",strong:"#a855f7",good:"#00d4aa"};
 const TYPE_COLORS={Fire:"#ef4444",Water:"#3b82f6",Grass:"#22c55e",Electric:"#eab308",Ice:"#93c5fd",Dark:"#a855f7",Dragon:"#c084fc",Ground:"#d97706",Neutral:"#94a3b8",Normal:"#94a3b8"};
@@ -2571,9 +1387,15 @@ let favs=JSON.parse(localStorage.getItem('pw_favs')||'[]');
 let activeFilters={elements:[],tiers:[],favOnly:false,search:''};
 let currentTab='guide';
 
+// ─── PERFORMANCE: Cache pal lookups & debounce ───
+const _palCache=new Map();
+const _comboCache=new Map();
+let _renderRAF=null;
+let _searchTimer=null;
+
 function palImg(n){return PAL_IMG+n.toLowerCase().replace(/\s+/g,'-').replace(/[^a-z0-9-]/g,'')+'.webp'}
 function typeClass(t){return 't-'+(t||'neutral').toLowerCase().split('+')[0].split('/')[0]}
-function getP(n){return PALS.find(p=>p.name===n)||{id:200,type:'Neutral',tier:3,work:[]}}
+function getP(n){if(_palCache.has(n))return _palCache.get(n);const p=PALS.find(p=>p.name===n)||{id:200,type:'Neutral',tier:3,work:[]};_palCache.set(n,p);return p}
 function isFav(r){return favs.includes(r)}
 function toggleFav(r){
   const i=favs.indexOf(r);
@@ -2586,30 +1408,43 @@ function showToast(msg){
   t.style.animation='none';void t.offsetWidth;t.style.animation='toastIn .3s ease';
   setTimeout(()=>t.style.display='none',1500);
 }
+function debounce(fn,ms){return function(...a){clearTimeout(_searchTimer);_searchTimer=setTimeout(()=>fn.apply(this,a),ms)}}
+function scheduleRender(fn){if(_renderRAF)return;_renderRAF=requestAnimationFrame(()=>{_renderRAF=null;fn()})}
 
 function renderFilters(){
   const els=['Fire','Water','Grass','Electric','Ice','Dark','Dragon','Ground','Neutral'];
   const trs=['legend','meta','strong','good'];
   const el=document.getElementById('filters');
-  el.innerHTML=
-    `<div class="bbtn fbtn f-fav ${activeFilters.favOnly?'on':''}" data-fav="1">&#9829; Fav</div>`+
-    els.map(e=>`<div class="bbtn fbtn f-${e.toLowerCase()} ${activeFilters.elements.includes(e)?'on':''}" data-el="${e}">${e}</div>`).join('')+
-    trs.map(t=>`<div class="bbtn fbtn f-${t} ${activeFilters.tiers.includes(t)?'on':''}" data-tier="${t}">${t.charAt(0).toUpperCase()+t.slice(1)}</div>`).join('');
-  el.querySelectorAll('.fbtn').forEach(b=>{
-    b.addEventListener('click',()=>{
+  // Only rebuild if not already built
+  if(!el.dataset.built){
+    el.innerHTML=
+      `<div class="bbtn fbtn f-fav" data-fav="1">&#9829; Fav</div>`+
+      els.map(e=>`<div class="bbtn fbtn f-${e.toLowerCase()}" data-el="${e}">${e}</div>`).join('')+
+      trs.map(t=>`<div class="bbtn fbtn f-${t}" data-tier="${t}">${t.charAt(0).toUpperCase()+t.slice(1)}</div>`).join('');
+    el.dataset.built='1';
+    // Single event delegation (not per-button)
+    el.addEventListener('click',e=>{
+      const b=e.target.closest('.fbtn');
+      if(!b)return;
       if(b.dataset.fav){activeFilters.favOnly=!activeFilters.favOnly}
       else if(b.dataset.el){
-        const e=b.dataset.el;
-        const i=activeFilters.elements.indexOf(e);
-        if(i>=0)activeFilters.elements.splice(i,1);else activeFilters.elements.push(e);
+        const i=activeFilters.elements.indexOf(b.dataset.el);
+        if(i>=0)activeFilters.elements.splice(i,1);else activeFilters.elements.push(b.dataset.el);
       }
       else if(b.dataset.tier){
-        const t=b.dataset.tier;
-        const i=activeFilters.tiers.indexOf(t);
-        if(i>=0)activeFilters.tiers.splice(i,1);else activeFilters.tiers.push(t);
+        const i=activeFilters.tiers.indexOf(b.dataset.tier);
+        if(i>=0)activeFilters.tiers.splice(i,1);else activeFilters.tiers.push(b.dataset.tier);
       }
-      renderFilters();renderGuide();
+      updateFilterStates();
+      scheduleRender(renderGuide);
     });
+  }
+  updateFilterStates();
+}
+function updateFilterStates(){
+  document.querySelectorAll('#filters .fbtn').forEach(b=>{
+    const on=b.dataset.fav?activeFilters.favOnly:b.dataset.el?activeFilters.elements.includes(b.dataset.el):b.dataset.tier?activeFilters.tiers.includes(b.dataset.tier):false;
+    b.classList.toggle('on',on);
   });
 }
 
@@ -2635,49 +1470,33 @@ function renderGuide(){
     el.innerHTML='<div class="empty-state"><div class="es-icon">&#128269;</div><p>No combos match your filters</p></div>';
     return;
   }
-  el.innerHTML=combos.map((c,i)=>{
+  // Use DocumentFragment for batch DOM insertion (faster)
+  const frag=document.createDocumentFragment();
+  const maxCards=Math.min(combos.length,80);
+  for(let i=0;i<maxCards;i++){
+    const c=combos[i];
     const rp=getP(c.r);
     const tc=typeClass(rp.type);
     const fav=isFav(c.r);
-    return `<div class="bc t-${c.tier}" style="animation-delay:${Math.min(i*30,300)}ms">
-      <div class="fav-btn ${fav?'on':''}" data-r="${c.r}">
-        <svg viewBox="0 0 24 24" fill="${fav?'currentColor':'none'}" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-      </div>
-      <div class="bc-top">
-        <img class="bc-icon" src="${palImg(c.r)}" alt="${c.r}" onclick="openModal('${c.r}')" onerror="this.style.background='var(--bg2)'">
-        <div class="bc-info">
-          <div class="bc-name">${c.r}</div>
-          <div class="bc-desc">${c.desc}</div>
-        </div>
-        <div class="bc-badges">
-          <span class="badge badge-type ${tc}">${rp.type.includes('+')?rp.type.split('+')[0].trim():rp.type}</span>
-          <span class="badge badge-tier ${c.tier}">${c.tier.toUpperCase()}</span>
-        </div>
-      </div>
-      <div class="bc-flow">
-        <div class="bp" onclick="openModal('${c.p1}')">
-          <img src="${palImg(c.p1)}" alt="${c.p1}" onerror="this.style.opacity=.3">
-          <span>${c.p1}</span>
-        </div>
-        <div class="bop">+</div>
-        <div class="bp" onclick="openModal('${c.p2}')">
-          <img src="${palImg(c.p2)}" alt="${c.p2}" onerror="this.style.opacity=.3">
-          <span>${c.p2}</span>
-        </div>
-        <div class="barr">&#10132;</div>
-        <div class="bp" onclick="openModal('${c.r}')">
-          <img src="${palImg(c.r)}" alt="${c.r}" onerror="this.style.opacity=.3">
-          <span>${c.r}</span>
-        </div>
-      </div>
-    </div>`}).join('');
-  el.querySelectorAll('.fav-btn').forEach(b=>{
-    b.addEventListener('click',e=>{
-      e.stopPropagation();
-      toggleFav(b.dataset.r);
-      renderGuide();
-      showToast(isFav(b.dataset.r)?'Added to favorites':'Removed from favorites');
-    });
+    const d=document.createElement('div');
+    d.className=`bc t-${c.tier}`;
+    d.style.animationDelay=`${Math.min(i*20,200)}ms`;
+    d.innerHTML=`<div class="fav-btn ${fav?'on':''}" data-r="${c.r}"><svg viewBox="0 0 24 24" fill="${fav?'currentColor':'none'}" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div><div class="bc-top"><img class="bc-icon" src="${palImg(c.r)}" alt="${c.r}" loading="lazy" onerror="this.style.background='var(--bg2)'"><div class="bc-info"><div class="bc-name">${c.r}</div><div class="bc-desc">${c.desc}</div></div><div class="bc-badges"><span class="badge badge-type ${tc}">${rp.type.includes('+')?rp.type.split('+')[0].trim():rp.type}</span><span class="badge badge-tier ${c.tier}">${c.tier.toUpperCase()}</span></div></div><div class="bc-flow"><div class="bp" data-p="${c.p1}"><img src="${palImg(c.p1)}" alt="${c.p1}" loading="lazy"><span>${c.p1}</span></div><div class="bop">+</div><div class="bp" data-p="${c.p2}"><img src="${palImg(c.p2)}" alt="${c.p2}" loading="lazy"><span>${c.p2}</span></div><div class="barr">&#10132;</div><div class="bp" data-p="${c.r}"><img src="${palImg(c.r)}" alt="${c.r}" loading="lazy"><span>${c.r}</span></div></div>`;
+    frag.appendChild(d);
+  }
+  el.innerHTML='';
+  el.appendChild(frag);
+  if(combos.length>80){
+    const more=document.createElement('div');
+    more.className='result-count';
+    more.textContent=`+${combos.length-80} more combos (use filters to narrow)`;
+    el.appendChild(more);
+  }
+  el.addEventListener('click',e=>{
+    const fav=e.target.closest('.fav-btn');
+    if(fav){e.stopPropagation();toggleFav(fav.dataset.r);renderGuide();showToast(isFav(fav.dataset.r)?'Added to favorites':'Removed from favorites');return}
+    const bp=e.target.closest('.bp');
+    if(bp&&bp.dataset.p){openModal(bp.dataset.p)}
   });
 }
 
@@ -2816,11 +1635,11 @@ document.getElementById('btt').addEventListener('click',()=>{
   document.getElementById(currentTab).scrollTo({top:0,behavior:'smooth'});
 });
 
-// Search
-document.getElementById('searchInput').addEventListener('input',e=>{
+// Search (debounced)
+document.getElementById('searchInput').addEventListener('input',debounce(e=>{
   activeFilters.search=e.target.value;
-  renderGuide();
-});
+  scheduleRender(renderGuide);
+},150));
 
 // Calculator
 document.getElementById('calcBtn').addEventListener('click',calculate);
@@ -3016,11 +1835,11 @@ function showMap(name){
   document.getElementById('mapOverlay').classList.add('show');
 }
 
-// Locator search
-document.getElementById('locatorSearch').addEventListener('input',e=>{
+// Locator search (debounced)
+document.getElementById('locatorSearch').addEventListener('input',debounce(e=>{
   locatorSearch=e.target.value;
-  renderLocator();
-});
+  scheduleRender(renderLocator);
+},150));
 
 // Map close
 document.getElementById('mapClose').addEventListener('click',()=>{
