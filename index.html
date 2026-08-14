@@ -354,8 +354,8 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
       </div>
     </div>
     <div class="stats">
-      <div class="stat"><b>299</b> Pals</div>
-      <div class="stat"><b>197</b> Combos</div>
+      <div class="stat" id="palCount"><b>299</b> Pals</div>
+      <div class="stat" id="comboCount"><b>197</b> Combos</div>
       <div class="stat"><b>1.0</b> Data</div>
     </div>
   </div>
@@ -490,6 +490,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
   </div>
 </div>
 
+<script src="data-extras.js"></script>
 <script>
 "use strict";
 const PAL_IMG="https://palbreeder.com/pal-icons/";
@@ -1392,6 +1393,14 @@ const COMBOS=[
 {r:"Celesdir Noct",p1:"Celesdir",p2:"Helzephyr",desc:"Dark variant of Celesdir",tier:"meta"}
 ];
 
+// Merge extra breeding combos from data-extras.js
+const ALL_COMBOS=[...COMBOS,...(typeof EXTRA_COMBOS!=='undefined'?EXTRA_COMBOS:[])];
+const COMBOS_MAP=new Map();
+ALL_COMBOS.forEach(c=>{if(!COMBOS_MAP.has(c.r))COMBOS_MAP.set(c.r,[]);COMBOS_MAP.get(c.r).push(c)});
+const FINAL_COMBOS=Array.from(COMBOS_MAP.values()).flat();
+document.getElementById('comboCount').innerHTML=`<b>${FINAL_COMBOS.length}</b> Combos`;
+document.getElementById('palCount').innerHTML=`<b>${PALS.length}</b> Pals`;
+
 const TIER_COLORS={legend:"#fbbf24",meta:"#00e5ff",strong:"#a855f7",good:"#00d4aa"};
 const TYPE_COLORS={Fire:"#ef4444",Water:"#3b82f6",Grass:"#22c55e",Electric:"#eab308",Ice:"#93c5fd",Dark:"#a855f7",Dragon:"#c084fc",Ground:"#d97706",Neutral:"#94a3b8",Normal:"#94a3b8"};
 
@@ -1462,7 +1471,7 @@ function updateFilterStates(){
 }
 
 function getFilteredCombos(){
-  return COMBOS.filter(c=>{
+  return FINAL_COMBOS.filter(c=>{
     if(activeFilters.favOnly&&!isFav(c.r))return false;
     if(activeFilters.tiers.length&&!activeFilters.tiers.includes(c.tier))return false;
     const rp=getP(c.r);
@@ -1524,7 +1533,7 @@ function openModal(name){
   const work=document.getElementById('modalWork');
   work.innerHTML=(p.work||[]).map(w=>`<span class="modal-tag">${w}</span>`).join('')||'<span class="modal-tag">None</span>';
   const combos=document.getElementById('modalCombos');
-  const found=COMBOS.filter(c=>c.r===name);
+  const found=FINAL_COMBOS.filter(c=>c.r===name);
   combos.innerHTML=found.length?found.map(c=>{
     return`<div class="modal-combo"><img src="${palImg(c.p1)}" alt="${c.p1}"><span>${c.p1}</span><span class="mc-plus">+</span><img src="${palImg(c.p2)}" alt="${c.p2}"><span>${c.p2}</span><span class="mc-eq">=</span><img src="${palImg(c.r)}" alt="${c.r}"><span>${c.r}</span></div>`;
   }).join(''):'<span class="modal-tag">Same species only or no data</span>';
@@ -1542,7 +1551,7 @@ function populateSelects(){
 }
 
 function calcResult(a,b){
-  for(const c of COMBOS){
+  for(const c of FINAL_COMBOS){
     if((c.p1===a&&c.p2===b)||(c.p1===b&&c.p2===a))return c;
   }
   if(a===b)return{r:a,p1:a,p2:b,desc:getP(a).type+' - Same Species',tier:'meta'};
@@ -1598,7 +1607,7 @@ function renderHistory(){
 }
 
 function randomCombo(){
-  const c=COMBOS[Math.floor(Math.random()*COMBOS.length)];
+  const c=FINAL_COMBOS[Math.floor(Math.random()*FINAL_COMBOS.length)];
   document.getElementById('parent1').value=c.p1;
   document.getElementById('parent2').value=c.p2;
   calculate();
