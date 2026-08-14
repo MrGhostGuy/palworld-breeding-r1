@@ -280,12 +280,12 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
 .map-title{font-family:'Orbitron',monospace;font-size:11px;font-weight:700;color:var(--cyan);letter-spacing:1px}
 .map-close{width:24px;height:24px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.05);border-radius:50%;color:var(--t2);cursor:pointer;transition:all .15s ease}
 .map-close:active{background:rgba(255,255,255,.1)}
-.map-body{flex:1;overflow-y:auto;padding:10px;display:flex;flex-direction:column;gap:10px}
+.map-body{flex:1;overflow-y:auto;padding:10px;display:flex;flex-direction:column;gap:10px;max-height:70vh}
 .map-region-list{display:flex;flex-wrap:wrap;gap:4px}
 .map-region{padding:3px 8px;border-radius:10px;font-family:'Rajdhani',sans-serif;font-size:8px;font-weight:600;background:var(--bg3);color:var(--t2);border:1px solid rgba(255,255,255,.08);transition:all .15s ease}
 .map-region.active{background:rgba(0,229,255,.15);color:var(--cyan);border-color:rgba(0,229,255,.3)}
 .map-visual{display:flex;justify-content:center}
-.map-visual svg{width:180px;height:auto;border-radius:8px;background:var(--bg3);border:1px solid rgba(0,229,255,.08)}
+.map-visual svg{width:100%;max-width:380px;height:auto;border-radius:10px;background:linear-gradient(135deg,#0a1628,#050a14);border:1px solid rgba(0,229,255,.12);box-shadow:0 0 30px rgba(0,229,255,.08)}
 .map-footer{padding:8px 14px;border-top:1px solid rgba(0,229,255,.1);font-family:'Rajdhani',sans-serif;font-size:8px;color:var(--t3);text-align:center}
 
 /* ─── DETAIL MODAL EXTRAS ─── */
@@ -470,7 +470,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
     <div class="map-body">
       <div class="map-region-list" id="mapRegionList"></div>
       <div class="map-visual" id="mapVisual">
-        <svg viewBox="0 0 200 240" id="mapSvg"></svg>
+        <svg viewBox="0 0 300 350" id="mapSvg"></svg>
       </div>
     </div>
     <div class="map-footer" id="mapFooter"></div>
@@ -1797,39 +1797,68 @@ function showMap(name){
   }
   document.getElementById('mapFooter').textContent=spawns.length?`Found in ${spawns.length} region${spawns.length>1?'s':''} across the Palpagos Islands${levelText}`:'No wild spawn data available';
 
-  // Generate simplified map SVG
+  // Generate proper Palworld map SVG
   const svg=document.getElementById('mapSvg');
   const regions=[
-    {n:'Windswept Hills',x:60,y:40,w:50,h:35,c:'#22c55e'},
-    {n:'Sea Breeze Archipelago',x:10,y:80,w:45,h:30,c:'#3b82f6'},
-    {n:'Marsh Island',x:120,y:60,w:40,h:30,c:'#86efac'},
-    {n:'Eastern Wild Island',x:10,y:115,w:50,h:30,c:'#22c55e'},
-    {n:'Mossanda Forest',x:80,y:10,w:55,h:35,c:'#16a34a'},
-    {n:'Frostbound Mountains',x:10,y:10,w:55,h:25,c:'#93c5fd'},
-    {n:'Mount Flopie',x:140,y:15,w:45,h:25,c:'#a855f7'},
-    {n:'Ascetic Falls',x:70,y:80,w:45,h:25,c:'#06b6d4'},
-    {n:"Investigator's Fork",x:120,y:95,w:50,h:25,c:'#f59e0b'},
-    {n:'Forgotten Island',x:10,y:150,w:50,h:30,c:'#64748b'},
-    {n:'Ice Wind Island',x:80,y:150,w:45,h:30,c:'#bfdbfe'},
-    {n:'Mount Obsidian',x:140,y:50,w:50,h:30,c:'#ef4444'},
-    {n:'Sand Dunes',x:70,y:115,w:45,h:30,c:'#fbbf24'},
-    {n:"No Man's Trail",x:130,y:130,w:45,h:25,c:'#d97706'},
-    {n:'Land Of Absolute Zero',x:10,y:185,w:55,h:25,c:'#e0f2fe'},
-    {n:'No. 1 Wildlife Sanctuary',x:80,y:185,w:50,h:25,c:'#84cc16'},
-    {n:'No. 2 Wildlife Sanctuary',x:140,y:160,w:50,h:25,c:'#65a30d'},
-    {n:'No. 3 Wildlife Sanctuary',x:140,y:190,w:50,h:25,c:'#4d7c0f'}
+    {n:'Windswept Hills',x:80,y:50,w:65,h:40,c:'#22c55e'},
+    {n:'Sea Breeze Archipelago',x:10,y:105,w:60,h:40,c:'#3b82f6'},
+    {n:'Marsh Island',x:170,y:80,w:55,h:40,c:'#86efac'},
+    {n:'Eastern Wild Island',x:10,y:160,w:65,h:40,c:'#22c55e'},
+    {n:'Mossanda Forest',x:110,y:10,w:75,h:42,c:'#16a34a'},
+    {n:'Frostbound Mountains',x:10,y:10,w:72,h:32,c:'#93c5fd'},
+    {n:'Mount Flopie',x:200,y:15,w:60,h:32,c:'#a855f7'},
+    {n:'Ascetic Falls',x:95,y:105,w:60,h:32,c:'#06b6d4'},
+    {n:"Investigator's Fork",x:170,y:130,w:70,h:32,c:'#f59e0b'},
+    {n:'Forgotten Island',x:10,y:210,w:65,h:40,c:'#64748b'},
+    {n:'Ice Wind Island',x:110,y:210,w:60,h:40,c:'#bfdbfe'},
+    {n:'Mount Obsidian',x:200,y:65,w:70,h:40,c:'#ef4444'},
+    {n:'Sand Dunes',x:95,y:160,w:60,h:40,c:'#fbbf24'},
+    {n:"No Man's Trail",x:185,y:185,w:60,h:32,c:'#d97706'},
+    {n:'Land Of Absolute Zero',x:10,y:265,w:72,h:32,c:'#e0f2fe'},
+    {n:'No. 1 Wildlife Sanctuary',x:110,y:265,w:70,h:32,c:'#84cc16'},
+    {n:'No. 2 Wildlife Sanctuary',x:200,y:232,w:70,h:32,c:'#65a30d'},
+    {n:'No. 3 Wildlife Sanctuary',x:200,y:272,w:70,h:32,c:'#4d7c0f'}
   ];
 
   const activeRegions=new Set(spawns);
   let svgContent='';
+  
+  // Background - island silhouette
+  svgContent+=`<defs><filter id="glow"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter><linearGradient id="seaGrad" x1="0" y1="0" x2="300" y2="350"><stop offset="0%" stop-color="#0a1628"/><stop offset="100%" stop-color="#050a14"/></linearGradient></defs>`;
+  svgContent+=`<rect width="300" height="350" fill="url(#seaGrad)" rx="10"/>`;
+  svgContent+=`<text x="150" y="338" text-anchor="middle" fill="rgba(255,255,255,0.12)" font-size="8" font-family="Rajdhani,sans-serif" letter-spacing="3">PALPAGOS ISLANDS</text>`;
+  
+  // Water grid lines
+  for(let i=0;i<18;i++){
+    svgContent+=`<line x1="0" y1="${i*20}" x2="300" y2="${i*20}" stroke="rgba(0,229,255,0.02)" stroke-width="0.5"/>`;
+    svgContent+=`<line x1="${i*18}" y1="0" x2="${i*18}" y2="330" stroke="rgba(0,229,255,0.02)" stroke-width="0.5"/>`;
+  }
+
+  // Regions
   regions.forEach(r=>{
     const isActive=activeRegions.has(r.n);
-    const fill=isActive?'rgba(0,229,255,0.3)':r.c+'22';
-    const stroke=isActive?'#00e5ff':'rgba(255,255,255,0.1)';
-    const sw=isActive?2:1;
-    svgContent+=`<rect x="${r.x}" y="${r.y}" width="${r.w}" height="${r.h}" rx="4" fill="${fill}" stroke="${stroke}" stroke-width="${sw}"/>`;
-    svgContent+=`<text x="${r.x+r.w/2}" y="${r.y+r.h/2+3}" text-anchor="middle" fill="${isActive?'#fff':'rgba(255,255,255,0.4)'}" font-size="5" font-family="Rajdhani,sans-serif">${r.n.replace(' Wildlife','').replace('Of ','')}</text>`;
+    const fill=isActive?r.c+'40':r.c+'15';
+    const stroke=isActive?r.c:'rgba(255,255,255,0.08)';
+    const sw=isActive?1.5:0.5;
+    svgContent+=`<rect x="${r.x}" y="${r.y}" width="${r.w}" height="${r.h}" rx="5" fill="${fill}" stroke="${stroke}" stroke-width="${sw}" ${isActive?'filter="url(#glow)"':''}/>`;
+    const textFill=isActive?'#fff':'rgba(255,255,255,0.3)';
+    const fs=r.w>60?6:5;
+    svgContent+=`<text x="${r.x+r.w/2}" y="${r.y+r.h/2+3}" text-anchor="middle" fill="${textFill}" font-size="${fs}" font-family="Rajdhani,sans-serif" font-weight="${isActive?600:400}">${r.n.replace(' Wildlife','').replace('Of ','Of ')}</text>`;
   });
+
+  // Spawn markers
+  if(spawns.length>0){
+    spawns.forEach((s,i)=>{
+      const region=regions.find(r=>r.n===s);
+      if(region){
+        const mx=region.x+region.w/2;
+        const my=region.y+region.h/2;
+        const offset=(i%4)*6-9;
+        svgContent+=`<circle cx="${mx+offset}" cy="${my-6}" r="5" fill="#00e5ff" stroke="#fff" stroke-width="1.5" filter="url(#glow)"/>`;
+        svgContent+=`<text x="${mx+offset}" y="${my-4}" text-anchor="middle" fill="#fff" font-size="5" font-family="Rajdhani,sans-serif" font-weight="700">${i+1}</text>`;
+      }
+    });
+  }
 
   svg.innerHTML=svgContent;
   document.getElementById('mapOverlay').classList.add('show');
